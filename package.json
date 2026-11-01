@@ -9,13 +9,16 @@
   "scripts": {
     "build": "astro build",
     "dev": "astro dev",
-    "preview": "wrangler dev",
-    "test": "node --test",
-    "deploy": "npm run build && wrangler deploy"
+    "preview": "node scripts/local-preview.mjs",
+    "test": "node --test tests/**/*.test.mjs tests/*.test.mjs scripts/charts/*.test.mjs",
+    "local:load": "node scripts/load-local-assets.mjs",
+    "check": "astro check"
   },
   "dependencies": {
     "@astrojs/cloudflare": "14.4.3",
     "@better-auth/utils": "0.5.1",
+    "@fontsource-variable/fraunces": "5.3.0",
+    "@fontsource-variable/manrope": "5.3.0",
     "astro": "7.4.4",
     "better-auth": "1.7.15",
     "fflate": "0.8.2",
@@ -23,6 +26,8 @@
     "pdf-lib": "1.17.1"
   },
   "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@cloudflare/workers-types": "5.20261101.1",
     "typescript": "6.0.3",
     "wrangler": "4.156.0"
   }

@@ -1,0 +1,22 @@
+---
+interface Props {templateId:string; title:string; studioHref?:string; expanded?:boolean}
+const {templateId,title,studioHref,expanded=false}=Astro.props;
+---
+<div class="native-customize" data-template-id={templateId} data-template-title={title} data-expanded={expanded?'yes':'no'}>
+ <h3>Make it yours</h3><p>Fill in fields from the original template. You can keep editing the downloaded file in its native app.</p>
+ <button type="button" data-native-start>Customize this template</button>
+ <div data-native-fields hidden>
+   <form><label>Document name<input data-native-name maxlength="140" value={title} required/></label>
+    <div data-native-inputs></div><details data-native-more hidden><summary>More fields</summary><div data-native-extra></div></details>
+    <label>Edited file format<select data-native-format></select></label><p data-native-image hidden>JPEG exports the first page or slide.</p><div class="native-actions"><button data-native-save type="button">Save draft</button><button data-native-export type="submit">Download edited file</button></div>
+   </form>
+   {studioHref&&<a href={studioHref}>Continue in Studio →</a>}
+ </div>
+ <p aria-live="polite" data-native-message></p><p data-native-gate hidden><a href="/signup/">Create an account</a> · <a href="/pricing/">View membership</a></p>
+</div>
+<script>
+import '../native/client.mjs';
+</script>
+<style>
+.native-customize{min-width:0;max-width:100%;margin:15px 0}.native-customize h3{font:600 22px/1.25 Georgia,serif;margin:0 0 8px}.native-customize p{font-size:14px;line-height:1.5;margin:7px 0 12px}.native-customize :global(label){display:block;font-size:13px;font-weight:600;margin:12px 0;line-height:1.4;overflow-wrap:anywhere}.native-customize :global(input){display:block;width:100%;min-width:0;box-sizing:border-box;margin-top:4px;border:1px solid #c2b5a5;border-radius:4px;padding:8px;background:white;color:#2e2927;font:400 14px system-ui}.native-customize :global(button){cursor:pointer}.native-customize details{margin:16px 0}.native-customize summary{color:#742d40;cursor:pointer}.native-actions{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}.native-customize [hidden]{display:none!important}.native-customize [data-native-message]{color:#5c4038}
+</style>

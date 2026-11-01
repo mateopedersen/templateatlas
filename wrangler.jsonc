@@ -1,0 +1,15 @@
+{
+  "$schema":"node_modules/wrangler/config-schema.json",
+  "name":"templateatlas-staging",
+  "main":"src/worker.mjs",
+  "compatibility_date":"2026-10-30",
+  "compatibility_flags":["nodejs_compat"],
+  "assets":{"binding":"ASSETS","run_worker_first":true},
+  "workers_dev":false,
+  "preview_urls":false,
+  "vars":{"DEPLOY_STAGE":"staging","BILLING_LIVE_ENABLED":"false"},
+  "d1_databases":[{"binding":"DB","database_name":"templateatlas-staging","database_id":"5fbb01da-d1b2-4623-89d6-644289b2cbd4","migrations_dir":"migrations"}],
+  "r2_buckets":[{"binding":"ASSET_ORIGINALS","bucket_name":"templateatlas-staging-originals"},{"binding":"USER_DOCUMENTS","bucket_name":"templateatlas-staging-documents"}],
+  "durable_objects":{"bindings":[{"name":"DOWNLOAD_ACTORS","class_name":"DownloadActor"}]},
+  "migrations":[{"tag":"v1","new_sqlite_classes":["DownloadActor"]}]
+}

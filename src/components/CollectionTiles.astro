@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+const tiles=[
+ ['brief','Project planning','Proposals, briefs & work plans','/categories/business-commerce/project-management/','terracotta','folio'],
+ ['chart','Charts & graphs','Data, diagrams & dashboards','/categories/charts-graphs/','teal','chart'],
+ ['calendar','2027 calendars','Monthly pages & planners','/tools/calendar-2027/','amber','calendar'],
+ ['receipt','Invoices & finance','Billing, budgets & trackers','/categories/business-commerce/invoices-payments/','lilac','invoice']
+];
+---
+<div class="studio-shelves">{tiles.map(([icon,title,desc,href,tone,art])=><a class={'collection-tile '+tone} href={href}><span class="tile-top"><Icon name={icon} size={23}/><span class="round-go"><Icon name="arrow" size={15}/></span></span><span class="tile-decoration" aria-hidden="true">{art==='folio'?<svg viewBox="0 0 120 65"><path d="m8 50 49-34 53 20-52 28z"/><path d="m8 40 49-34 53 21-52 28z"/><path d="m13 32 38-23"/></svg>:art==='chart'?<svg viewBox="0 0 120 65"><path d="M7 54V40h12v14m9 0V28h12v26m10 0V36h12v18m10 0V19h12v35m10 0V8h12v46"/><path d="M6 34l26-16 24 7 23-15 27-7"/></svg>:art==='calendar'?<svg viewBox="0 0 120 65"><rect x="24" y="9" width="71" height="50" rx="5"/><path d="M24 22h71m-56-18v12m39-12v12m-45 17h53m-53 10h53m-39-16v24m13-24v24m13-24v24"/></svg>:<svg viewBox="0 0 120 65"><path d="M28 4h63v53l-8-4-7 5-8-5-8 5-8-5-8 5-8-5-8 4zM38 17h31m-31 9h42m-42 10h18m9 0h15"/></svg>}</span><strong>{title}</strong><small>{desc}</small></a>)}</div>

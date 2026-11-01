@@ -1,0 +1,16 @@
+{
+  "level": "public summary; per-file metadata in src/data/release.json",
+  "templates": 1146,
+  "downloadableByFormat": {
+    "xlsx": 264,
+    "pdf": 1146,
+    "svg": 128,
+    "csv": 27,
+    "jpg": 164,
+    "docx": 664,
+    "pptx": 115
+  },
+  "uniqueFirstPagePreviews": 1145,
+  "sourcePolicy": "private immutable native originals and source-matched previews",
+  "nativeReaders": "local LibreOffice and format-specific QA; see QA_REPORT.md"
+}

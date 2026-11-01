@@ -1,0 +1,17 @@
+{
+  "phase": "local integration and acceptance",
+  "packageChecks": "47/47",
+  "inventory": {
+    "sources": 1235,
+    "excluded": 34,
+    "categories": 68,
+    "tools": 9,
+    "plannedFixedPaths": 2420,
+    "templates": 1146,
+    "downloadFiles": 2508
+  },
+  "localAssetManifest": "src/data/release.json",
+  "remoteProduction": "not_deployed",
+  "liveBilling": false,
+  "resume": "Verify the active private receipts by SHA-256 before any release. Reuse matching artifacts."
+}

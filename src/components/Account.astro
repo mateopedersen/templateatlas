@@ -1,0 +1,56 @@
+---
+interface Props { path:string }
+const {path}=Astro.props;
+const pages: Record<string,[string,string]> = {
+  '/signup/':['Create your account','Verify your email to start your 30-day trial. No credit card is required.'],
+  '/signin/':['Welcome back','Sign in to open your saved work and manage your downloads.'],
+  '/forgot-password/':['Reset your password','We’ll send a secure reset link to the address on your account.'],
+  '/reset-password/':['Choose a new password','Use a unique password with at least 12 characters.'],
+  '/verify-email/':['Verify your email','Open the verification link in your inbox. You can request another link below.'],
+  '/auth/callback/':['Your sign-in','Check the current status of your account.'],
+  '/pricing/':['Membership','Start with five free selections. Choose the access that fits your work.'],
+  '/checkout/success/':['Payment status','Your membership updates after your payment provider confirms the subscription.'],
+  '/checkout/cancel/':['Checkout closed','You can return to your documents or review membership options.'],
+  '/account/':['Your account','Your documents, access, and account settings in one place.'],
+  '/account/documents/':['My documents','Reopen the data you saved and download a fresh copy when you need it.'],
+  '/account/settings/':['Account settings','Update your name, time zone, and account security.'],
+  '/account/billing/':['Membership and billing','Review your access and manage a paid subscription.'],
+  '/account/data/':['Personal data','Download the data you entered or request permanent account closure.'],
+  '/admin/':['Operations','Review catalog availability and reconciliation status.'],
+  '/admin/catalog/':['Catalog delivery','Inspect files and manage delivery for reviewed releases.'],
+  '/admin/jobs/':['Operations queue','Review pending transfers, billing updates, and account closures.'],
+  '/admin/members/':['Member support','Look up a member by the exact email address supplied in their support request.'],
+  '/admin/audit/':['Administrative history','Review privileged changes and their reasons.'],
+};
+const [title,summary]=pages[path]||['Your account','Manage your TemplateAtlas membership.'];
+const admin=path.startsWith('/admin/');
+const account=path.startsWith('/account/');
+const auth=['/signup/','/signin/','/forgot-password/','/reset-password/','/verify-email/'].includes(path);
+---
+<div class="narrow atlas-account" data-account-path={path}>
+<p class="over">{admin?'Administration':auth?'TemplateAtlas account':'Member services'}</p>
+<h1>{title}</h1><p class="lead">{summary}</p>
+{account && <nav class="account-nav" aria-label="Account"><a href="/account/">Overview</a><a href="/account/documents/">Documents</a><a href="/account/billing/">Billing</a><a href="/account/settings/">Settings</a><a href="/account/data/">Your data</a></nav>}
+{admin && <nav class="account-nav" aria-label="Administration">{[['/admin/','Overview'],['/admin/catalog/','Catalog'],['/admin/jobs/','Jobs'],['/admin/members/','Members'],['/admin/audit/','Audit']].map(([href,label])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}</nav>}
+{path==='/pricing/' && <div class="pricing-grid"><article class="panel"><p class="over">01 · Guest</p><h2>Five selections</h2><p>Choose five different templates or documents. Repeat downloads and alternate formats of the same selection use one spot.</p></article><article class="panel"><p class="over">02 · Verified account</p><h2>30-day trial</h2><p>Your trial starts when you verify your email and ends automatically. Your first five selections stay available.</p><a href="/signup/">Create an account →</a></article></div>}
+{auth && <form class="panel access-form" data-auth-form>
+{path==='/signup/' && <label>Your name<input name="name" required maxlength="100" autocomplete="name"/></label>}
+{path!=='/reset-password/' && <label>Email address<input name="email" type="email" required maxlength="254" autocomplete="email"/></label>}
+{['/signin/','/signup/','/reset-password/'].includes(path) && <label>{path==='/reset-password/'?'New password':'Password'}<input name="password" type="password" required minlength={path==='/signin/'?1:12} maxlength="128" autocomplete={path==='/signin/'?'current-password':'new-password'}/></label>}
+<button type="submit">{({'/signup/':'Create account','/signin/':'Sign in','/verify-email/':'Send verification email','/forgot-password/':'Send reset link','/reset-password/':'Save new password'} as Record<string,string>)[path]}</button>
+{path==='/signin/' && <div class="actions"><a href="/forgot-password/">Forgot password?</a><a href="/signup/">Create an account</a></div>}
+{path==='/signup/' && <p>Already have an account? <a href="/signin/">Sign in</a></p>}
+</form>}
+{path==='/checkout/cancel/' && <div class="actions"><a class="button" href="/account/documents/">Return to documents</a><a href="/pricing/">View membership</a></div>}
+<div data-account-content></div><p role="status" aria-live="polite" data-account-status></p>
+<noscript><p class="notice">Enable JavaScript to use account forms and manage your documents.</p></noscript>
+</div>
+<style>
+.atlas-account {max-width:860px}.account-nav,.pricing-grid {display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.account-nav a {padding:6px 9px;background:white;border:1px solid var(--edge);border-radius:4px}
+.pricing-grid>article {flex:1 1 260px}.access-form{max-width:490px}.access-form button{margin:12px 0}
+.atlas-account :global(.panel){margin:14px 0}.atlas-account :global(.panel h2){font-size:28px}
+.atlas-account :global(pre){overflow:auto;white-space:pre-wrap;word-break:break-word}.atlas-account :global(textarea){min-height:14em}
+.atlas-account :global(button){margin:6px 3px 6px 0}
+</style>
+<script>import {startAccount} from './account-ui.mjs';startAccount();</script>

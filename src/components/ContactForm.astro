@@ -1,0 +1,15 @@
+<form class="panel" data-support-request><label>Reply email<input name="email" type="email" required maxlength="254" autocomplete="email"/></label>
+<label>Subject<input name="subject" required minlength="3" maxlength="100"/></label><label>Message<textarea name="message" minlength="12" maxlength="3000" rows="6" required></textarea></label>
+<p>Include the page or template name when relevant. Keep passwords, payment details, and private document contents out of your message.</p>
+<label><input type="checkbox" name="consent" required style="width:auto;display:inline"/> TemplateAtlas may store this request and use my email to respond.</label>
+<button>Submit support request</button><p role="status"></p></form>
+<script>
+import {api} from '../lib/client.mjs';
+const f=document.querySelector<HTMLFormElement>('[data-support-request]');
+if(f){let key=crypto.randomUUID();f.oninput=()=>{key=crypto.randomUUID();};
+ f.onsubmit=async ev=>{ev.preventDefault();const b=f.querySelector('button')!,status=f.querySelector<HTMLElement>('[role=status]')!;b.disabled=true;
+ try{await api('/api/session');const fields=new FormData(f);const result=await api('/api/contact',{email:fields.get('email'),subject:fields.get('subject'),message:fields.get('message'),consent:fields.has('consent')},'POST',key);
+ status.textContent='Request received. Your reference is '+result.id+'.';f.reset();key=crypto.randomUUID();}catch(e){status.textContent=(e as Error).message;}finally{b.disabled=false;}
+ };
+}
+</script>
