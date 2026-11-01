@@ -1,0 +1,48 @@
+name: Build private renderer image
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            renderer
+            scripts/local-renderer.py
+          sparse-checkout-cone-mode: false
+      - name: Prepare the isolated image context
+        run: |
+          node renderer/prepare-image.mjs
+          python3 renderer/tests/policy.py
+          node --test renderer/tests/worker.test.mjs
+      - name: Build and test the Linux image
+        shell: bash
+        run: |
+          set -euo pipefail
+          image="templateatlas-renderer:${GITHUB_SHA}"
+          docker build --platform linux/amd64 --tag "$image" renderer/image
+          test "$(docker image inspect --format '{{.Architecture}}' "$image")" = amd64
+          docker run --rm --network none --entrypoint /usr/bin/python3 "$image" -c 'import sys,socket,errno;sys.path.insert(0,"/opt/renderer");from locked_exec import lock_network;lock_network();exec("try:\n socket.socket(socket.AF_INET);raise RuntimeError(\"Network filter is inactive\")\nexcept OSError as error:\n assert error.errno==errno.EPERM");socket.socket(socket.AF_UNIX).close()'
+          export TEMPLATEATLAS_RENDER_SECRET
+          TEMPLATEATLAS_RENDER_SECRET="$(openssl rand -hex 32)"
+          cid="$(docker run --detach --network none --read-only --tmpfs /tmp:rw,nosuid,nodev,size=512m --cap-drop ALL --security-opt no-new-privileges -e TEMPLATEATLAS_RENDER_SECRET "$image")"
+          trap 'docker rm -f "$cid" >/dev/null 2>&1 || true' EXIT
+          docker exec -i "$cid" /usr/bin/python3 - < renderer/tests/image_smoke.py
+          mkdir -p image-artifact
+          docker save "$image" | gzip -1 > image-artifact/renderer-amd64.tar.gz
+          (cd image-artifact && sha256sum renderer-amd64.tar.gz > SHA256SUMS)
+          docker image inspect --format 'linux/{{.Architecture}} {{.Id}}' "$image" > image-artifact/IMAGE-ID
+          printf '%s\n' "$GITHUB_SHA" > image-artifact/COMMIT
+      - name: Retain tested image for one day
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: templateatlas-renderer-amd64-${{ github.sha }}
+          path: image-artifact/
+          retention-days: 1
+          compression-level: 0
+          if-no-files-found: error
