@@ -1,21 +1,230 @@
 <section class="form-designer">
- <p class="eyebrow">TemplateAtlas / Create</p><h1>Form Studio</h1><p class="intro">Build a form for print or digital completion. Add questions on the left and review their order on the right.</p>
- <div class="form-layout">
-  <div class="form-controls"><h2>Design your form</h2>
-   <label>Form title<input data-form-title maxlength="100"/></label>
-   <label>Instructions<textarea data-form-desc maxlength="320" rows="2"></textarea></label>
-   <div class="form-section"><h3>Questions</h3><p>Use Move up and Move down to change the order. You can also focus a question and press Alt + ↑ or Alt + ↓.</p></div>
-   <div data-form-fields></div>
-   <div class="form-add"><label>New field type<select data-new-field><option value="short">Short answer</option><option value="long">Long answer</option><option value="date">Date</option><option value="number">Number</option><option value="choice">Choose one</option><option value="checkbox">Checkbox</option></select></label><button type="button" data-add-field>Add field</button></div>
+  <p class="eyebrow">TemplateAtlas / Create</p>
+  <h1>Form Studio</h1>
+  <p class="intro">
+    Build a form for print or digital completion. Add questions on the left and
+    review their order on the right.
+  </p>
+  <div class="form-layout">
+    <div class="form-controls">
+      <h2>Design your form</h2>
+      <label>
+        Form title
+        <input data-form-title maxlength="100" />
+      </label>
+      <label>
+        Instructions
+        <textarea data-form-desc maxlength="320" rows="2"></textarea>
+      </label>
+      <div class="form-section">
+        <h3>Questions</h3>
+        <p>
+          Use Move up and Move down to change the order. You can also focus a
+          question and press Alt + ↑ or Alt + ↓.
+        </p>
+      </div>
+      <div data-form-fields></div>
+      <div class="form-add">
+        <label>
+          New field type
+          <select data-new-field>
+            <option value="short">Short answer</option>
+            <option value="long">Long answer</option>
+            <option value="date">Date</option>
+            <option value="number">Number</option>
+            <option value="choice">Choose one</option>
+            <option value="checkbox">Checkbox</option>
+          </select>
+        </label>
+        <button type="button" data-add-field>
+          Add field
+        </button>
+      </div>
+    </div>
+    <div class="form-output">
+      <h2>Print preview</h2>
+      <p>
+        Asterisks mark required questions. The PDF has fillable fields and also
+        prints on US Letter paper.
+      </p>
+      <article data-form-preview aria-label="Form content preview"></article>
+      <div class="form-actions">
+        <button type="button" data-save-form>
+          Save draft
+        </button>
+        <button type="button" data-export-form="docx">
+          Download Word
+        </button>
+        <button type="button" data-export-form="pdf">
+          Download fillable PDF
+        </button>
+      </div>
+      <a data-new-form href="/create/form/">
+        Start another form
+      </a>
+      <p data-form-state role="status" aria-live="polite"></p>
+      <p data-form-gate hidden>
+        <a href="/signup/">Create an account</a> ·{' '}
+        <a href="/pricing/">View membership</a>
+      </p>
+    </div>
   </div>
-  <div class="form-output"><h2>Print preview</h2><p>Asterisks mark required questions. The PDF has fillable fields and also prints on US Letter paper.</p>
-   <article data-form-preview aria-label="Form content preview"></article>
-   <div class="form-actions"><button type="button" data-save-form>Save draft</button><button type="button" data-export-form="docx">Download Word</button><button type="button" data-export-form="pdf">Download fillable PDF</button></div>
-   <a data-new-form href="/create/form/">Start another form</a><p data-form-state role="status" aria-live="polite"></p><p data-form-gate hidden><a href="/signup/">Create an account</a> · <a href="/pricing/">View membership</a></p>
-  </div>
- </div><noscript>Enable JavaScript to design and export a form.</noscript>
+  <noscript>Enable JavaScript to design and export a form.</noscript>
 </section>
-<script>import '../forms/client.mjs';</script>
+<script>
+  import '../forms/client.mjs';
+</script>
 <style>
-.form-designer{max-width:1240px;margin:auto;padding:20px;color:#302b28}.form-designer h1,.form-designer h2,.form-designer h3{font-family:Georgia,serif;color:#4c2533}.form-designer h1{font-size:clamp(38px,5vw,66px);margin:6px 0 12px}.eyebrow{font-weight:650;letter-spacing:.1em;text-transform:uppercase;font-size:12px;color:#645850}.intro{font-size:17px;max-width:70ch}.form-layout{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.15fr);gap:22px;margin:24px 0}.form-controls,.form-output{min-width:0;border:1px solid #d9d0c4;border-radius:7px;background:#fffdf8;padding:clamp(14px,2vw,24px);align-self:start}.form-designer :global(label){display:block;margin:9px 0;font:600 13px/1.5 system-ui}.form-designer :global(:is(input:not([type=checkbox]),textarea,select)){display:block;width:100%;min-width:0;box-sizing:border-box;padding:8px;border:1px solid #b8aa9f;color:inherit;background:white;border-radius:4px;font:400 14px system-ui}.form-designer :global(button){cursor:pointer;margin:2px 4px 2px 0;border:1px solid #a58a83;border-radius:4px;padding:7px 10px;background:white;color:#702c42;font:600 13px system-ui}.form-designer :global(button:hover:not(:disabled)){background:#702c42;color:white}.form-designer :global(button:disabled){opacity:.45;cursor:default}.form-designer :global(:is(input,textarea,select,button):focus-visible){outline:3px solid #247589;outline-offset:2px}.form-designer :global(details){margin:10px 0;padding:10px 12px;border:1px solid #d9d1c8;border-radius:5px;background:white}.form-designer :global(summary){cursor:pointer;color:#682b3c;font-weight:650;overflow-wrap:anywhere}.form-designer :global(fieldset){min-width:0;padding:0;margin:4px 0;border:0}.form-section p,.form-output>p{font-size:14px}.form-add,.form-actions{margin-top:16px}.form-output article{min-height:180px;border:1px solid #d3c7be;background:white;padding:clamp(15px,2.5vw,30px)}.form-output article :global(h3){font:600 28px/1.2 Georgia;color:#702c42}.form-output article :global(h4){font:600 14px/1.4 system-ui;margin:18px 0 4px}.form-output article :global(p){font-size:13px;margin:5px 0;color:#514c48;overflow-wrap:anywhere}.form-output article :global(.write-line){display:block;border:1px solid #c4c8c1;min-height:23px;margin:7px 0}.form-output article :global(.long){height:56px}.form-designer [hidden]{display:none!important}@media(max-width:760px){.form-layout{grid-template-columns:minmax(0,1fr)}.form-designer{padding:10px}.form-controls,.form-output{padding:14px}}
+  .form-designer {
+    max-width: 1240px;
+    margin: auto;
+    padding: 20px;
+    color: #302b28;
+  }
+  .form-designer h1,
+  .form-designer h2,
+  .form-designer h3 {
+    font-family: Georgia, serif;
+    color: #4c2533;
+  }
+  .form-designer h1 {
+    font-size: clamp(38px, 5vw, 66px);
+    margin: 6px 0 12px;
+  }
+  .eyebrow {
+    font-weight: 650;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #645850;
+  }
+  .intro {
+    font-size: 17px;
+    max-width: 70ch;
+  }
+  .form-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.15fr);
+    gap: 22px;
+    margin: 24px 0;
+  }
+  .form-controls,
+  .form-output {
+    min-width: 0;
+    border: 1px solid #d9d0c4;
+    border-radius: 7px;
+    background: #fffdf8;
+    padding: clamp(14px, 2vw, 24px);
+    align-self: start;
+  }
+  .form-designer :global(label) {
+    display: block;
+    margin: 9px 0;
+    font: 600 13px/1.5 system-ui;
+  }
+  .form-designer :global(:is(input:not([type='checkbox']), textarea, select)) {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid #b8aa9f;
+    color: inherit;
+    background: white;
+    border-radius: 4px;
+    font: 400 14px system-ui;
+  }
+  .form-designer :global(button) {
+    cursor: pointer;
+    margin: 2px 4px 2px 0;
+    border: 1px solid #a58a83;
+    border-radius: 4px;
+    padding: 7px 10px;
+    background: white;
+    color: #702c42;
+    font: 600 13px system-ui;
+  }
+  .form-designer :global(button:hover:not(:disabled)) {
+    background: #702c42;
+    color: white;
+  }
+  .form-designer :global(button:disabled) {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .form-designer :global(:is(input, textarea, select, button):focus-visible) {
+    outline: 3px solid #247589;
+    outline-offset: 2px;
+  }
+  .form-designer :global(details) {
+    margin: 10px 0;
+    padding: 10px 12px;
+    border: 1px solid #d9d1c8;
+    border-radius: 5px;
+    background: white;
+  }
+  .form-designer :global(summary) {
+    cursor: pointer;
+    color: #682b3c;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+  }
+  .form-designer :global(fieldset) {
+    min-width: 0;
+    padding: 0;
+    margin: 4px 0;
+    border: 0;
+  }
+  .form-section p,
+  .form-output > p {
+    font-size: 14px;
+  }
+  .form-add,
+  .form-actions {
+    margin-top: 16px;
+  }
+  .form-output article {
+    min-height: 180px;
+    border: 1px solid #d3c7be;
+    background: white;
+    padding: clamp(15px, 2.5vw, 30px);
+  }
+  .form-output article :global(h3) {
+    font: 600 28px/1.2 Georgia;
+    color: #702c42;
+  }
+  .form-output article :global(h4) {
+    font: 600 14px/1.4 system-ui;
+    margin: 18px 0 4px;
+  }
+  .form-output article :global(p) {
+    font-size: 13px;
+    margin: 5px 0;
+    color: #514c48;
+    overflow-wrap: anywhere;
+  }
+  .form-output article :global(.write-line) {
+    display: block;
+    border: 1px solid #c4c8c1;
+    min-height: 23px;
+    margin: 7px 0;
+  }
+  .form-output article :global(.long) {
+    height: 56px;
+  }
+  .form-designer [hidden] {
+    display: none !important;
+  }
+  @media (max-width: 760px) {
+    .form-layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .form-designer {
+      padding: 10px;
+    }
+    .form-controls,
+    .form-output {
+      padding: 14px;
+    }
+  }
 </style>

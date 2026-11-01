@@ -1,4 +1,18 @@
 ---
-const {items=[]}=Astro.props;
+const { items = [] } = Astro.props;
 ---
-<div class="grid">{items.map((s:any)=><a class="card" href={s.topic_path}><div class="thumb"><img src={s.preview} alt="" loading="lazy"/></div><div class="card-body"><span class="tag">{s.formats.join(' · ')}</span><h3>{s.title||s.display_title}</h3><p>{s.summary}</p></div></a>)}</div>
+
+<div class="grid">
+  {items.map((s: any) => (
+    <a class="card" href={s.topic_path}>
+      <div class="thumb">
+        <img src={s.preview} alt="" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <span class="tag">{s.formats.join(' · ')}</span>
+        <h3>{s.title || s.display_title}</h3>
+        <p>{s.summary}</p>
+      </div>
+    </a>
+  ))}
+</div>

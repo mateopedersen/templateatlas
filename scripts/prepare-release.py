@@ -29,4 +29,5 @@ for index in args.indexes:
         if not dest.exists():shutil.copyfile(preview,dest)
         public.append({'id':rid,'title':r['title'],'summary':r['summary'],'formats':list(files),'assets':files,'pages':r['pages'],'preview':'/'+str(target)})
 path=root/'src/data/release.json'; tmp=path.with_suffix('.tmp');tmp.write_text(json.dumps(sorted(public,key=lambda s:s['id']),separators=(',',':'))+'\n');tmp.replace(path)
+(root/'src/data/release-id.json').write_text(json.dumps({'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})+'\n')
 print(len(public),'verified template records')

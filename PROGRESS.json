@@ -1,5 +1,5 @@
 {
-  "phase": "local release verification",
+  "phase": "local release",
   "packageChecks": "47/47",
   "inventory": {
     "sources": 1235,
@@ -23,5 +23,22 @@
     "calendarYear": 2027,
     "datedTopics": 26,
     "academicPlanner": "January\u2013December 2027"
+  },
+  "releaseFingerprint": "880fa6476c1cb0a825ff5ee36cfe495bce7c9ea428912f958414a187963f48f8",
+  "ownerCosts": {
+    "productionDeploymentEnabled": false,
+    "automaticRemoteBuilds": false,
+    "liveBilling": false
+  },
+  "verifiedRoutes": {
+    "planned": 2420,
+    "publicOrAccountShells": 2415,
+    "protectedAdminRoutes": 5,
+    "redirects": 1202
+  },
+  "localSearch": {
+    "packageFixtures": 20,
+    "exactTopicQueries": 60,
+    "filterChecks": 6
   }
 }

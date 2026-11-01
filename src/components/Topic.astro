@@ -1,13 +1,217 @@
 ---
-import FileGuide from './FileGuide.astro';import Icon from './Icon.astro';import Customize from './Customize.astro';import SaveTemplate from './SaveTemplate.astro';import {types} from '../charts/model.mjs';const {s,detail=false}=Astro.props;const chart=Object.hasOwn(types,s.topic_slug),invoice=s.topic_slug==='invoice',cal=s.year===2027;
+import FileGuide from './FileGuide.astro';
+import Icon from './Icon.astro';
+import Customize from './Customize.astro';
+import SaveTemplate from './SaveTemplate.astro';
+import { types } from '../charts/model.mjs';
+const { s, detail = false } = Astro.props;
+const chart = Object.hasOwn(types, s.topic_slug),
+  invoice = s.topic_slug === 'invoice',
+  cal = s.year === 2027;
 ---
-<div class="breadcrumb"><a href="/">Home</a> / <a href="/templates/">Templates</a> / <a href={s.primary_category_path}>Collection</a></div><div class="workspace"><aside class="panel topic-side"><button class="mobile-toggle" aria-expanded="false">Open template controls</button><div class="side-content"><button type="button" data-close-panel hidden>Close controls</button><p class="over">Your workbench</p><h2>{chart?'Build a chart':invoice?'Build an invoice':'Use this template'}</h2><p>{chart?'Replace the sample values and choose a chart style.':invoice?'Enter your client, line items, and tax rate to prepare an invoice.':'Download the editable original and add your information in the matching application.'}</p>{(chart||invoice||cal)&&<a class="button" href={chart?'/create/chart/?topic='+s.topic_slug:invoice?'/create/invoice/':'/tools/calendar-2027/'}>{chart?'Open Chart Studio':invoice?'Open invoice builder':'Open calendar tool'} →</a>}<Customize templateId={s.id} title={s.title} studioHref={'/studio/?template='+s.topic_slug}/><hr/><label>Download format<select data-format>{s.formats.map((f:string)=><option value={f}>{f.toUpperCase()} · {Math.ceil(s.assets[f].bytes/1024)} KB</option>)}</select></label><button data-download={s.id}>Download template</button><p aria-live="polite" data-msg></p><SaveTemplate id={s.id}/><small>Your first five distinct selections are free. <a href="/help/downloads/">Download rules</a></small></div></aside><article><span class="over">{detail?'Template detail':'Template collection'}</span><h1>{detail?s.title:s.display_title.replace(/ Template$/,"")+" templates"}</h1><p class="lead">{s.summary}</p><p class="meta">{s.formats.map((f:string)=><span class="badge">{f}</span>)}<span class="badge">{s.pages} {s.pages===1?'page':'pages'}</span><span class="badge">English (US)</span></p><div class="preview"><a href={s.preview} aria-label={'Enlarge preview of '+s.title}><img alt={'First page of '+s.title} src={s.preview}/></a></div><p>{detail?<a href={s.topic_path}>Return to collection</a>:<a href={s.detail_path}>View file details →</a>}</p><FileGuide s={s} detail={detail}/></article></div>
-<script>import {download} from '../lib/client.mjs';const button=document.querySelector<HTMLButtonElement>('[data-download]');button?.addEventListener('click',async()=>{const status=document.querySelector<HTMLElement>('[data-msg]')!;button.disabled=true;status.textContent='Preparing your download…';try{await download({templateId:button.dataset.download,format:(document.querySelector('[data-format]') as unknown as HTMLSelectElement).value});status.textContent='Your file has been downloaded.';}catch(e){status.textContent=(e as Error).message;if(['SIGNUP_REQUIRED','MEMBERSHIP_REQUIRED','EMAIL_VERIFICATION_REQUIRED'].includes((e as any).code)){const a=document.createElement('a');a.href=(e as any).code==='MEMBERSHIP_REQUIRED'?'/pricing/':'/signup/?returnTo='+encodeURIComponent(location.pathname+location.search);a.textContent=' Continue';status.appendChild(a);}}finally{button.disabled=false;}});const toggle=document.querySelector<HTMLButtonElement>('.mobile-toggle'),pane=document.querySelector<HTMLElement>('.topic-side .side-content'),aside=pane?.closest('aside');
-if(toggle&&pane&&aside){
- const close=pane.querySelector<HTMLButtonElement>('[data-close-panel]')!;
- function dismiss(){aside!.classList.remove('open');pane!.removeAttribute('role');pane!.removeAttribute('aria-modal');close.hidden=true;toggle!.setAttribute('aria-expanded','false');document.body.classList.remove('mobile-editor-open');toggle!.focus();}
- function end(){if(history.state?.atlasPanel)history.back();else dismiss();}
- toggle.onclick=()=>{history.pushState({atlasPanel:true},'',location.href);aside.classList.add('open');pane.setAttribute('role','dialog');pane.setAttribute('aria-modal','true');pane.setAttribute('aria-label','Template controls');toggle.setAttribute('aria-expanded','true');document.body.classList.add('mobile-editor-open');close.hidden=false;close.focus();};close.onclick=end;window.addEventListener('popstate',()=>{if(aside.classList.contains('open'))dismiss();});
- pane.addEventListener('keydown',e=>{if(!aside.classList.contains('open'))return;if(e.key==='Escape'){e.preventDefault();end();}else if(e.key==='Tab'){const controls=[...pane.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),input,select,textarea,summary')].filter(el=>el.offsetParent!==null),first=controls[0],last=controls.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}});
- matchMedia('(max-width:730px)').addEventListener('change',e=>{if(!e.matches&&aside.classList.contains('open'))end();});
-}</script>
+
+<div class="breadcrumb">
+  <a href="/">Home</a> / <a href="/templates/">Templates</a> /{' '}
+  <a href={s.primary_category_path}>Collection</a>
+</div>
+<div class="workspace">
+  <aside class="panel topic-side">
+    <button class="mobile-toggle" aria-expanded="false">
+      Open template controls
+    </button>
+    <div class="side-content">
+      <button type="button" data-close-panel hidden>
+        Close controls
+      </button>
+      <p class="over">Your workbench</p>
+      <h2>
+        {chart
+          ? 'Build a chart'
+          : invoice
+            ? 'Build an invoice'
+            : 'Use this template'}
+      </h2>
+      <p>
+        {chart
+          ? 'Replace the sample values and choose a chart style.'
+          : invoice
+            ? 'Enter your client, line items, and tax rate to prepare an invoice.'
+            : 'Download the editable original and add your information in the matching application.'}
+      </p>
+      {(chart || invoice || cal) && (
+        <a
+          class="button"
+          href={
+            chart
+              ? '/create/chart/?topic=' + s.topic_slug
+              : invoice
+                ? '/create/invoice/'
+                : '/tools/calendar-2027/'
+          }
+        >
+          {chart
+            ? 'Open Chart Studio'
+            : invoice
+              ? 'Open invoice builder'
+              : 'Open calendar tool'}{' '}
+          →
+        </a>
+      )}
+      <Customize
+        templateId={s.id}
+        title={s.title}
+        studioHref={'/studio/?template=' + s.topic_slug}
+      />
+      <hr />
+      <label>
+        Download format
+        <select data-format>
+          {s.formats.map((f: string) => (
+            <option value={f}>
+              {f.toUpperCase()} · {Math.ceil(s.assets[f].bytes / 1024)} KB
+            </option>
+          ))}
+        </select>
+      </label>
+      <button data-download={s.id}>Download template</button>
+      <p aria-live="polite" data-msg></p>
+      <SaveTemplate id={s.id} />
+      <small>
+        Your first five distinct selections are free.{' '}
+        <a href="/help/downloads/">Download rules</a>
+      </small>
+    </div>
+  </aside>
+  <article>
+    <span class="over">
+      {detail ? 'Template detail' : 'Template collection'}
+    </span>
+    <h1>
+      {detail
+        ? s.title
+        : s.display_title.replace(/ Template$/, '') + ' templates'}
+    </h1>
+    <p class="lead">{s.summary}</p>
+    <p class="meta">
+      {s.formats.map((f: string) => (
+        <span class="badge">{f}</span>
+      ))}
+      <span class="badge">
+        {s.pages} {s.pages === 1 ? 'page' : 'pages'}
+      </span>
+      <span class="badge">English (US)</span>
+    </p>
+    <div class="preview">
+      <a href={s.preview} aria-label={'Enlarge preview of ' + s.title}>
+        <img alt={'First page of ' + s.title} src={s.preview} />
+      </a>
+    </div>
+    <p>
+      {detail ? (
+        <a href={s.topic_path}>Return to collection</a>
+      ) : (
+        <a href={s.detail_path}>View file details →</a>
+      )}
+    </p>
+    <FileGuide s={s} detail={detail} />
+  </article>
+</div>
+<script>
+  import { download } from '../lib/client.mjs';
+  const button = document.querySelector<HTMLButtonElement>('[data-download]');
+  button?.addEventListener('click', async () => {
+    const status = document.querySelector<HTMLElement>('[data-msg]')!;
+    button.disabled = true;
+    status.textContent = 'Preparing your download…';
+    try {
+      await download({
+        templateId: button.dataset.download,
+        format: (
+          document.querySelector(
+            '[data-format]',
+          ) as unknown as HTMLSelectElement
+        ).value,
+      });
+      status.textContent = 'Your file has been downloaded.';
+    } catch (e) {
+      status.textContent = (e as Error).message;
+      if (
+        [
+          'SIGNUP_REQUIRED',
+          'MEMBERSHIP_REQUIRED',
+          'EMAIL_VERIFICATION_REQUIRED',
+        ].includes((e as any).code)
+      ) {
+        const a = document.createElement('a');
+        a.href =
+          (e as any).code === 'MEMBERSHIP_REQUIRED'
+            ? '/pricing/'
+            : '/signup/?returnTo=' +
+              encodeURIComponent(location.pathname + location.search);
+        a.textContent = ' Continue';
+        status.appendChild(a);
+      }
+    } finally {
+      button.disabled = false;
+    }
+  });
+  const toggle = document.querySelector<HTMLButtonElement>('.mobile-toggle'),
+    pane = document.querySelector<HTMLElement>('.topic-side .side-content'),
+    aside = pane?.closest('aside');
+  if (toggle && pane && aside) {
+    const close = pane.querySelector<HTMLButtonElement>('[data-close-panel]')!;
+    function dismiss() {
+      aside!.classList.remove('open');
+      pane!.removeAttribute('role');
+      pane!.removeAttribute('aria-modal');
+      close.hidden = true;
+      toggle!.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('mobile-editor-open');
+      toggle!.focus();
+    }
+    function end() {
+      if (history.state?.atlasPanel) history.back();
+      else dismiss();
+    }
+    toggle.onclick = () => {
+      history.pushState({ atlasPanel: true }, '', location.href);
+      aside.classList.add('open');
+      pane.setAttribute('role', 'dialog');
+      pane.setAttribute('aria-modal', 'true');
+      pane.setAttribute('aria-label', 'Template controls');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('mobile-editor-open');
+      close.hidden = false;
+      close.focus();
+    };
+    close.onclick = end;
+    window.addEventListener('popstate', () => {
+      if (aside.classList.contains('open')) dismiss();
+    });
+    pane.addEventListener('keydown', (e) => {
+      if (!aside.classList.contains('open')) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        end();
+      } else if (e.key === 'Tab') {
+        const controls = [
+            ...pane.querySelectorAll<HTMLElement>(
+              'a[href],button:not([disabled]),input,select,textarea,summary',
+            ),
+          ].filter((el) => el.offsetParent !== null),
+          first = controls[0],
+          last = controls.at(-1);
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    });
+    matchMedia('(max-width:730px)').addEventListener('change', (e) => {
+      if (!e.matches && aside.classList.contains('open')) end();
+    });
+  }
+</script>

@@ -1,17 +1,393 @@
 ---
-import states from '../data/us-states.json';import {tools} from '../lib/tools.mjs';import {formatsFor} from '../lib/render.mjs';
-const {kind}=Astro.props, isInvoice=kind==='invoice', spec=isInvoice?{title:'Invoice builder',intro:'Prepare an itemized invoice, calculate the balance, and download your copy.',fields:[]}:tools[kind as keyof typeof tools];
+import states from '../data/us-states.json';
+import { tools } from '../lib/tools.mjs';
+import { formatsFor } from '../lib/render.mjs';
+const { kind } = Astro.props,
+  isInvoice = kind === 'invoice',
+  spec = isInvoice
+    ? {
+        title: 'Invoice builder',
+        intro:
+          'Prepare an itemized invoice, calculate the balance, and download your copy.',
+        fields: [],
+      }
+    : tools[kind as keyof typeof tools];
 ---
-<div class="breadcrumb"><a href="/">Home</a> / <a href={isInvoice?'/create/':'/tools/'}>{isInvoice?'Create':'Tools'}</a> / {spec.title}</div><div class="over">TemplateAtlas workbench</div><h1>{spec.title}</h1><p class="lead">{spec.intro}</p><section class="workspace" data-workbench={kind}><aside class="panel"><h2>Inputs</h2><form data-form>{isInvoice?<><label>Business name<input name="seller" value="Sample Studio" required maxlength="160"/></label><label>Bill to<input name="buyer" value="Sample Client" required maxlength="160"/></label><div class="columns"><label>Invoice number<input name="number" value="INV-001" required/></label><label>Issue date<input name="date" type="date" required/></label></div><details><summary>Billing address and terms</summary><label>Street address<input name="street" autocomplete="street-address"/></label><label>City<input name="city" autocomplete="address-level2"/></label><label>State or District of Columbia<select name="state"><option value="">Choose a location</option>{states.map(s=><option value={s.code}>{s.name}</option>)}</select></label><label>ZIP or ZIP+4<input name="zip" autocomplete="postal-code" placeholder="02108"/></label><label>Contact phone<input name="phone" type="tel" autocomplete="tel"/></label><label>Due date<input type="date" name="due"/></label><label>Payment terms<input name="terms" maxlength="140"/></label></details><label>Line items<textarea name="lines" rows="5">Consulting | 2 | 100.00 | yes{"\n"}Preparation | 1 | 75.00 | yes</textarea></label><small>Description | quantity | rate | taxable (yes/no)</small><div class="columns"><label>Discount (%)<input name="discount" value="10" inputmode="decimal"/></label><label>Tax (%)<input name="tax" value="8" inputmode="decimal"/></label></div><label>Payments received ($)<input name="paid" value="50.00" inputmode="decimal"/></label><small>Sample amounts. Enter the tax rate that applies to your invoice.</small></>:spec.fields.map((f:any)=><label>{f.label}{f.type==='textarea'?<textarea name={f.name}>{f.value}</textarea>:f.type==='select'?<select name={f.name}>{f.options.map((x:any)=><option value={x} selected={String(x)===String(f.value)}>{x}</option>)}</select>:<input name={f.name} value={f.value}/>}</label>)}</form></aside><div><div class="result"><span class="tag">Live result</span><h2 data-summary></h2><div class="table-scroll"><table data-table></table></div><p data-note></p><div class="actions"><label>File format<select data-format>{formatsFor(kind).map(f=><option value={f}>{f.toUpperCase()}</option>)}</select></label><button type="button" data-export>Download result</button></div><p role="status" data-message></p></div><p><a href="/help/downloads/">How downloads work</a></p></div></section>
+
+<div class="breadcrumb">
+  <a href="/">Home</a> /{' '}
+  <a href={isInvoice ? '/create/' : '/tools/'}>
+    {isInvoice ? 'Create' : 'Tools'}
+  </a>{' '}
+  / {spec.title}
+</div>
+<div class="over">TemplateAtlas workbench</div>
+<h1>{spec.title}</h1>
+<p class="lead">{spec.intro}</p>
+<section class="workspace" data-workbench={kind}>
+  <aside class="panel">
+    <h2>Inputs</h2>
+    <form data-form>
+      {isInvoice ? (
+        <>
+          <label>
+            Business name
+            <input
+              name="seller"
+              value="Sample Studio"
+              required
+              maxlength="160"
+            />
+          </label>
+          <label>
+            Bill to
+            <input
+              name="buyer"
+              value="Sample Client"
+              required
+              maxlength="160"
+            />
+          </label>
+          <div class="columns">
+            <label>
+              Invoice number
+              <input name="number" value="INV-001" required />
+            </label>
+            <label>
+              Issue date
+              <input name="date" type="date" required />
+            </label>
+          </div>
+          <details>
+            <summary>Billing address, logo and terms</summary>
+            <label>
+              Business logo (optional)
+              <input
+                data-invoice-logo
+                type="file"
+                accept="image/png,image/jpeg"
+              />
+            </label>
+            <img
+              data-logo-preview
+              alt="Business logo preview"
+              style="max-width:160px;max-height:60px"
+              hidden
+            />
+            <button type="button" data-remove-logo hidden>
+              Remove logo
+            </button>
+            <label>
+              Street address
+              <input name="street" autocomplete="street-address" />
+            </label>
+            <label>
+              City
+              <input name="city" autocomplete="address-level2" />
+            </label>
+            <label>
+              State or District of Columbia
+              <select name="state">
+                <option value="">Choose a location</option>
+                {states.map((s) => (
+                  <option value={s.code}>{s.name}</option>
+                ))}
+              </select>
+            </label>
+            <label>
+              ZIP or ZIP+4
+              <input
+                name="zip"
+                autocomplete="postal-code"
+                placeholder="02108"
+              />
+            </label>
+            <label>
+              Contact phone
+              <input name="phone" type="tel" autocomplete="tel" />
+            </label>
+            <label>
+              Due date
+              <input type="date" name="due" />
+            </label>
+            <label>
+              Payment terms
+              <input name="terms" maxlength="140" />
+            </label>
+          </details>
+          <label>
+            Line items
+            <textarea
+              name="lines"
+              rows="5"
+            >Consulting | 2 | 100.00 | yes{"\n"}Preparation | 1 | 75.00 | yes</textarea>
+          </label>
+          <small>Description | quantity | rate | taxable (yes/no)</small>
+          <div class="columns">
+            <label>
+              Discount (%)
+              <input name="discount" value="10" inputmode="decimal" />
+            </label>
+            <label>
+              Tax (%)
+              <input name="tax" value="8" inputmode="decimal" />
+            </label>
+          </div>
+          <label>
+            Payments received ($)
+            <input name="paid" value="50.00" inputmode="decimal" />
+          </label>
+          <small>
+            Sample amounts. Enter the tax rate that applies to your invoice.
+          </small>
+        </>
+      ) : (
+        spec.fields.map((f: any) => (
+          <label>
+            {f.label}
+            {f.type === 'textarea' ? (
+              <textarea name={f.name}>{f.value}</textarea>
+            ) : f.type === 'select' ? (
+              <select name={f.name}>
+                {f.options.map((x: any) => (
+                  <option value={x} selected={String(x) === String(f.value)}>
+                    {x}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <input name={f.name} value={f.value} />
+            )}
+          </label>
+        ))
+      )}
+    </form>
+  </aside>
+  <div>
+    <div class="result">
+      <span class="tag">Live result</span>
+      <h2 data-summary></h2>
+      {kind === 'venn-diagram-maker' && (
+        <div class="venn-preview" data-venn-preview></div>
+      )}
+      <div class="table-scroll">
+        <table data-table></table>
+      </div>
+      <p data-note></p>
+      <div class="actions">
+        <label>
+          File format
+          <select data-format>
+            {formatsFor(kind).map((f) => (
+              <option value={f}>{f.toUpperCase()}</option>
+            ))}
+          </select>
+        </label>
+        <button type="button" data-export>
+          Download result
+        </button>
+      </div>
+      <p role="status" data-message></p>
+    </div>
+    {!isInvoice && (
+      <details class="sample-export">
+        <summary>Sample PDF preview</summary>
+        <p>First page of an example made with the default inputs.</p>
+        <img
+          loading="lazy"
+          src={'/tool-previews/' + kind + '.webp'}
+          width="408"
+          height="528"
+          alt={spec.title + ' sample PDF, first page'}
+        />
+      </details>
+    )}
+    <p>
+      <a href="/help/downloads/">How downloads work</a>
+    </p>
+  </div>
+</section>
 <script>
-import {calculate} from '../lib/tools.mjs';import {invoice,money} from '../lib/invoice.mjs';import {editorClient} from '../lib/client.mjs';
-const root=document.querySelector<HTMLElement>('[data-workbench]')!;
-if(root){const kind=root.dataset.workbench!,f=root.querySelector('form')!,status=root.querySelector<HTMLElement>('[data-message]')!,btn=root.querySelector<HTMLButtonElement>('[data-export]')!,save=editorClient(kind,kind==='invoice'?'ta-invoice-001':null);
- const zone=f.querySelector<HTMLInputElement>('[name=zone]');if(zone)zone.value=Intl.DateTimeFormat().resolvedOptions().timeZone;
- const day=f.querySelector<HTMLInputElement>('[name=date]');if(day){const now=new Date();day.value=[now.getFullYear(),String(now.getMonth()+1).padStart(2,'0'),String(now.getDate()).padStart(2,'0')].join('-');}
- function values(){const v:any=Object.fromEntries(new FormData(f));if(kind==='invoice'){v.items=v.lines.split('\n').filter((x:string)=>x.trim()).map((row:string)=>{const [description,quantity,rate,t]=row.split('|').map(x=>x.trim());if(!['yes','no'].includes((t||'').toLowerCase()))throw Error('Use yes or no for taxable.');return {description,quantity,rate,taxable:t.toLowerCase()==='yes'};});delete v.lines;}return v;}
- function draw(){const table=root.querySelector('table')!,summary=root.querySelector<HTMLElement>('[data-summary]')!,note=root.querySelector<HTMLElement>('[data-note]')!;table.replaceChildren();summary.textContent='';note.textContent='';try{const data=values();let r;if(kind==='invoice'){const i=invoice(data);r={summary:money(i.balance)+' due',columns:['Description','Qty','Rate','Amount'],rows:[...i.items.map((l:any)=>[l.description,l.quantity,money(+l.rate*100),money(l.amount)]),...['subtotal','discount','tax','total','paid','balance'].map(k=>['','',k[0].toUpperCase()+k.slice(1),money((i as any)[k])])],note:'Bill to '+data.buyer+' · '+data.date};}else r=calculate(kind,data);
- summary.textContent=r.summary;note.textContent='note' in r?String(r.note||''):'';for(const [ix,cells] of [r.columns,...r.rows].entries()){const row=table.insertRow();for(const text of cells){const cell=document.createElement(ix?'td':'th');cell.textContent=String(text);row.append(cell);}}btn.disabled=false;status.textContent='';}catch(e){status.textContent=(e as Error).message;btn.disabled=true;}}
- f.addEventListener('input',draw);f.addEventListener('submit',e=>e.preventDefault());draw();btn.addEventListener('click',async()=>{btn.disabled=true;status.textContent='Preparing your file…';try{await save(values(),root.querySelector<HTMLSelectElement>('[data-format]')!.value);status.textContent='Your file has been downloaded.';}catch(e){status.textContent=(e as Error).message;}finally{btn.disabled=false;}});
-}
+  import { mountSchedule } from './schedule-blocks.mjs';
+  import { vennSvg } from '../lib/venn-pptx.mjs';
+  import { prepareLogo } from '../forms/invoice-logo.mjs';
+  import { calculate } from '../lib/tools.mjs';
+  import { invoice, money } from '../lib/invoice.mjs';
+  import { editorClient } from '../lib/client.mjs';
+  const root = document.querySelector<HTMLElement>('[data-workbench]')!;
+  if (root) {
+    const kind = root.dataset.workbench!,
+      f = root.querySelector('form')!,
+      status = root.querySelector<HTMLElement>('[data-message]')!,
+      btn = root.querySelector<HTMLButtonElement>('[data-export]')!,
+      save = editorClient(kind, kind === 'invoice' ? 'ta-invoice-001' : null);
+    const zone = f.querySelector<HTMLInputElement>('[name=zone]');
+    if (zone) zone.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const day = f.querySelector<HTMLInputElement>('[name=date]');
+    if (day) {
+      const now = new Date();
+      day.value = [
+        now.getFullYear(),
+        String(now.getMonth() + 1).padStart(2, '0'),
+        String(now.getDate()).padStart(2, '0'),
+      ].join('-');
+    }
+    let logo = '';
+    const file = f.querySelector<HTMLInputElement>('[data-invoice-logo]'),
+      image = f.querySelector<HTMLImageElement>('[data-logo-preview]'),
+      remove = f.querySelector<HTMLButtonElement>('[data-remove-logo]');
+    if (file && image && remove) {
+      file.onchange = async () => {
+        const selected = file.files?.[0];
+        if (!selected) return;
+        btn.disabled = true;
+        try {
+          logo = await prepareLogo(selected);
+          image.src = logo;
+          image.hidden = false;
+          remove.hidden = false;
+          status.textContent = 'Logo added to your invoice.';
+        } catch (e) {
+          status.textContent = (e as Error).message;
+        } finally {
+          file.value = '';
+          btn.disabled = false;
+        }
+      };
+      remove.onclick = () => {
+        logo = '';
+        image.removeAttribute('src');
+        image.hidden = true;
+        remove.hidden = true;
+        status.textContent = 'Logo removed.';
+      };
+    }
+    if (kind === 'schedule-maker') mountSchedule(f);
+    function values() {
+      const v: any = Object.fromEntries(new FormData(f));
+      if (kind === 'invoice') {
+        if (logo) v.logo = logo;
+        v.items = v.lines
+          .split('\n')
+          .filter((x: string) => x.trim())
+          .map((row: string) => {
+            const [description, quantity, rate, t] = row
+              .split('|')
+              .map((x) => x.trim());
+            if (!['yes', 'no'].includes((t || '').toLowerCase()))
+              throw Error('Use yes or no for taxable.');
+            return {
+              description,
+              quantity,
+              rate,
+              taxable: t.toLowerCase() === 'yes',
+            };
+          });
+        delete v.lines;
+      }
+      return v;
+    }
+    function draw() {
+      const table = root.querySelector('table')!,
+        summary = root.querySelector<HTMLElement>('[data-summary]')!,
+        note = root.querySelector<HTMLElement>('[data-note]')!;
+      table.replaceChildren();
+      summary.textContent = '';
+      note.textContent = '';
+      try {
+        const data = values();
+        let r;
+        if (kind === 'invoice') {
+          const i = invoice(data);
+          r = {
+            summary: money(i.balance) + ' due',
+            columns: ['Description', 'Qty', 'Rate', 'Amount'],
+            rows: [
+              ...i.items.map((l: any) => [
+                l.description,
+                l.quantity,
+                money(+l.rate * 100),
+                money(l.amount),
+              ]),
+              ...[
+                'subtotal',
+                'discount',
+                'tax',
+                'total',
+                'paid',
+                'balance',
+              ].map((k) => [
+                '',
+                '',
+                k[0].toUpperCase() + k.slice(1),
+                money((i as any)[k]),
+              ]),
+            ],
+            note: 'Bill to ' + data.buyer + ' · ' + data.date,
+          };
+        } else r = calculate(kind, data);
+        const plot = root.querySelector<HTMLElement>('[data-venn-preview]');
+        if (plot && 'regionData' in r) plot.innerHTML = vennSvg(r, false);
+        summary.textContent = r.summary;
+        note.textContent = 'note' in r ? String(r.note || '') : '';
+        for (const [ix, cells] of [r.columns, ...r.rows].entries()) {
+          const row = table.insertRow();
+          for (const text of cells) {
+            const cell = document.createElement(ix ? 'td' : 'th');
+            cell.textContent = String(text);
+            row.append(cell);
+          }
+        }
+        btn.disabled = false;
+        status.textContent = '';
+      } catch (e) {
+        root.querySelector('[data-venn-preview]')?.replaceChildren();
+        status.textContent = (e as Error).message;
+        btn.disabled = true;
+      }
+    }
+    f.addEventListener('input', draw);
+    f.addEventListener('submit', (e) => e.preventDefault());
+    draw();
+    btn.addEventListener('click', async () => {
+      btn.disabled = true;
+      status.textContent = 'Preparing your file…';
+      try {
+        await save(
+          values(),
+          root.querySelector<HTMLSelectElement>('[data-format]')!.value,
+        );
+        status.textContent = 'Your file has been downloaded.';
+      } catch (e) {
+        status.textContent = (e as Error).message;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
 </script>
+
+<style>
+  .sample-export img {
+    display: block;
+    width: min(100%, 408px);
+    height: auto;
+    border: 1px solid #d7cec5;
+    margin: 1rem 0;
+  }
+  .venn-preview :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .workspace form :global(fieldset) {
+    border: 1px solid #d7cec5;
+    padding: 0.7rem;
+    margin-bottom: 0.7rem;
+    min-width: 0;
+  }
+  .workspace form :global(input[type='checkbox']) {
+    width: auto;
+    display: inline;
+  }
+</style>

@@ -17,7 +17,7 @@ from pypdf import PdfReader, PdfWriter, PageObject, Transformation
 
 MAX_BYTES = 8_000_000
 MAX_XML_BYTES = 32_000_000
-MIMES = {'pdf':'application/pdf','jpg':'image/jpeg'}
+MIMES = {'pdf':'application/pdf','jpg':'image/jpeg','preview-jpg':'image/jpeg'}
 SLOTS = threading.BoundedSemaphore(2)
 
 def inspect_xml(payload):
@@ -90,9 +90,22 @@ def render(data,source_format,output_format):
                 blank=PageObject.create_blank_page(width=w,height=h);scale=min((w-48)/width,(h-48)/height)
                 blank.merge_transformed_page(page,Transformation().scale(scale).translate((w-width*scale)/2,(h-height*scale)/2))
                 fixed=private/'letter.pdf';writer=PdfWriter();writer.add_page(blank);writer.write(fixed);output=fixed
-        if output_format=='jpg':
-            run([POPPLER,'-f','1','-l','1','-singlefile','-scale-to','1800','-jpeg','-jpegopt','quality=92','-r','160',str(output),str(private/'page')],20)
+        if output_format in ('jpg','preview-jpg'):
+            preview=output_format=='preview-jpg'
+            run([POPPLER,'-f','1','-l','1','-singlefile','-scale-to','480' if preview else '1800','-jpeg','-jpegopt','quality=58' if preview else 'quality=92','-r','160',str(output),str(private/'page')],20)
             output=private/'page.jpg'
+            if preview:
+                from PIL import Image, ImageDraw
+                with Image.open(output) as src_image:
+                    img=src_image.convert('RGB')
+                draw=ImageDraw.Draw(img)
+                label='TEMPLATEATLAS  /  DOCUMENT PREVIEW'
+                x=8; y=max(0,img.height-20)
+                draw.rectangle((0,y-2,min(img.width,226),img.height),fill='#f4ede2')
+                draw.text((x,y),label,fill='#623849')
+                img.save(output,format='JPEG',quality=58,optimize=True)
+                if max(img.size)>480 or output.stat().st_size>120000:
+                    raise ValueError('Invalid preview dimensions.')
         if output.stat().st_size>MAX_BYTES:
             raise ValueError('Rendered file is too large.')
         return output.read_bytes()

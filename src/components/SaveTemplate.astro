@@ -1,19 +1,53 @@
 ---
-const {id}=Astro.props;
+const { id } = Astro.props;
 ---
-<details class="save-template" data-save-template={id}><summary>Save to a collection</summary>
-<form><label>Collection name<input name="collection" value="Favorites" required maxlength="60"/></label><button type="submit" class="secondary">Save template</button></form>
-<p role="status"></p></details>
+
+<details class="save-template" data-save-template={id}>
+  <summary>Save to a collection</summary>
+  <form>
+    <label>
+      Collection name
+      <input name="collection" value="Favorites" required maxlength="60" />
+    </label>
+    <button type="submit" class="secondary">
+      Save template
+    </button>
+  </form>
+  <p role="status"></p>
+</details>
 <script>
-import {api} from '../lib/client.mjs';
-document.querySelectorAll<HTMLElement>('[data-save-template]').forEach(box=>{
- const form=box.querySelector('form')!,status=box.querySelector('p')!,b=form.querySelector('button')!;
- form.addEventListener('submit',async e=>{e.preventDefault();b.disabled=true;status.replaceChildren();
-  try{const {user}=await api('/api/session');if(!user){
-    const a=document.createElement('a');a.href='/signin/?returnTo='+encodeURIComponent(location.pathname);a.textContent='Sign in to save this template.';status.appendChild(a);return;
-  }
-  const collection=new FormData(form).get('collection');await api('/api/account/saved',{templateId:box.dataset.saveTemplate,collection});status.textContent='Saved to '+collection+'.';
-  }catch(e){status.textContent=(e as Error).message;}finally{b.disabled=false;}
- });
-});
+  import { api } from '../lib/client.mjs';
+  document
+    .querySelectorAll<HTMLElement>('[data-save-template]')
+    .forEach((box) => {
+      const form = box.querySelector('form')!,
+        status = box.querySelector('p')!,
+        b = form.querySelector('button')!;
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        b.disabled = true;
+        status.replaceChildren();
+        try {
+          const { user } = await api('/api/session');
+          if (!user) {
+            const a = document.createElement('a');
+            a.href =
+              '/signin/?returnTo=' + encodeURIComponent(location.pathname);
+            a.textContent = 'Sign in to save this template.';
+            status.appendChild(a);
+            return;
+          }
+          const collection = new FormData(form).get('collection');
+          await api('/api/account/saved', {
+            templateId: box.dataset.saveTemplate,
+            collection,
+          });
+          status.textContent = 'Saved to ' + collection + '.';
+        } catch (e) {
+          status.textContent = (e as Error).message;
+        } finally {
+          b.disabled = false;
+        }
+      });
+    });
 </script>

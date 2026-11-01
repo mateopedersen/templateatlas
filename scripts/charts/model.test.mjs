@@ -1,16 +1,148 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {calendarCells,csvRows,graphLayout,histogram,initial,numberUS,pareto,quartiles,types,validate} from '../../src/charts/model.mjs';
-import {renderChartSvg} from '../../src/charts/render.mjs';
-test('01 bar/pie, categories and shares',()=>{let m=initial('pie-chart');m.rows=[['Operations',30],['Sales',20],['Service',50]];assert.match(renderChartSvg(m),/Operations · 30%/);m.type='bar-graph';assert.match(renderChartSvg(m),/>0<\/text>/);assert.deepEqual(validate(m).rows,m.rows);});
-test('02 left-inclusive bins; final upper edge included',()=>assert.deepEqual(histogram([0,1,2,2,3,4,5],[0,2,4,6]).map(b=>b.count),[2,3,2]));
-test('03 deterministic Pareto order, aggregation and final share',()=>assert.deepEqual(pareto([['Sales',3],['Delay',4],['Other',2],['Delay',1]]),[['Delay',5,50],['Sales',3,80],['Other',2,100]]));
-test('04 inclusive quartiles and outliers',()=>assert.deepEqual(quartiles([1,2,3,4,100]),{q1:2,median:3,q3:4,iqr:2,low:-1,high:7,w1:1,w2:4,outliers:[100]}));
-test('05 explicit gap vs connect, missing survives import',()=>{const m=initial('line-chart');let [, ...rows]=csvRows('Month,Value\nJan,10\nFeb,\nMar,20');m.rows=rows;assert.deepEqual(validate(m).rows.map(r=>r[1]),[10,null,20]);const disconnected=renderChartSvg(m);assert.notEqual(disconnected,renderChartSvg({...m,connectMissing:true}));});
-test('06 reject negative shares, zero total, NaN, infinite and negative sizes',()=>{for(const rows of [[['A',0]],[['B',-1]],[['C',NaN]],[['D',Infinity]]])assert.throws(()=>renderChartSvg({...initial('pie-chart'),rows}));assert.throws(()=>validate({...initial('bubble-chart'),rows:[[2,1,-1]]}));});
-test('07 strict en-US CSV and inert user text',()=>{const [, ...r]=csvRows('Month,Amount\nJan,"1,234.56"\nFeb,2500.00\n');assert.equal(r.reduce((s,a)=>s+numberUS(a[1]),0),3734.56);assert.throws(()=>numberUS('1,25'));assert.equal(csvRows('Key,Value\n=2+2,5')[1][0],'=2+2');assert.throws(()=>csvRows('a,b\n"broken,2'));assert.equal(csvRows('a,b\n"a""b",2')[1][0],'a"b');});
-test('08 2027 date-only week alignment and missing vs zero',()=>{const d=calendarCells(),dm=calendarCells('Monday');assert.equal(d.length,365);assert.equal(d.at(-1).date,'2027-12-31');assert.equal(d[0].day,5);assert.equal(d.at(-1).day,5);assert.equal(dm[0].day,4);const m=initial('2027-calendar-heatmap');assert.match(renderChartSvg(m),/Gray = missing/);assert.throws(()=>validate({...m,rows:[['2027-02-29',1]]}));});
-test('09 Sankey refuses cycles and computes forward layers',()=>{assert.throws(()=>graphLayout([['A','B',1],['B','A',2]]));assert.equal(graphLayout([['A','C',4],['A','B',2],['B','C',2]]).get('C').depth,2);});
-test('10 all 27 renderers produce finite, self-contained SVG',()=>{assert.equal(Object.keys(types).length,27);for(const k of Object.keys(types)){const svg=renderChartSvg(initial(k));assert.match(svg,/<svg /);assert.doesNotMatch(svg,/NaN|Infinity|<script|<foreignObject|href="/);}});
-test('11 escape untrusted text; reject source types, oversized data and duplicate headings',()=>{const m=initial();m.title='</title><script>alert(1)</script>';assert.ok(!renderChartSvg(m).includes('<script>'));assert.throws(()=>validate({...m,type:'constructor'}));assert.throws(()=>validate({...m,headers:['X','x']}));assert.throws(()=>validate({...m,rows:Array(501).fill(['X',3])}));});
-test('12 cohort bounds and unique dates',()=>{assert.throws(()=>validate({...initial('cohort-retention-chart'),rows:[['A',4,5,null,null]]}));assert.throws(()=>validate({...initial('2027-calendar-heatmap'),rows:[['2027-01-01',4],['2027-01-01',2]]}));});
+import {
+  calendarCells,
+  csvRows,
+  graphLayout,
+  histogram,
+  initial,
+  numberUS,
+  pareto,
+  quartiles,
+  types,
+  validate,
+} from '../../src/charts/model.mjs';
+import { renderChartSvg } from '../../src/charts/render.mjs';
+test('01 bar/pie, categories and shares', () => {
+  let m = initial('pie-chart');
+  m.rows = [
+    ['Operations', 30],
+    ['Sales', 20],
+    ['Service', 50],
+  ];
+  assert.match(renderChartSvg(m), /Operations · 30%/);
+  m.type = 'bar-graph';
+  assert.match(renderChartSvg(m), />0<\/text>/);
+  assert.deepEqual(validate(m).rows, m.rows);
+});
+test('02 left-inclusive bins; final upper edge included', () =>
+  assert.deepEqual(
+    histogram([0, 1, 2, 2, 3, 4, 5], [0, 2, 4, 6]).map((b) => b.count),
+    [2, 3, 2],
+  ));
+test('03 deterministic Pareto order, aggregation and final share', () =>
+  assert.deepEqual(
+    pareto([
+      ['Sales', 3],
+      ['Delay', 4],
+      ['Other', 2],
+      ['Delay', 1],
+    ]),
+    [
+      ['Delay', 5, 50],
+      ['Sales', 3, 80],
+      ['Other', 2, 100],
+    ],
+  ));
+test('04 inclusive quartiles and outliers', () =>
+  assert.deepEqual(quartiles([1, 2, 3, 4, 100]), {
+    q1: 2,
+    median: 3,
+    q3: 4,
+    iqr: 2,
+    low: -1,
+    high: 7,
+    w1: 1,
+    w2: 4,
+    outliers: [100],
+  }));
+test('05 explicit gap vs connect, missing survives import', () => {
+  const m = initial('line-chart');
+  let [, ...rows] = csvRows('Month,Value\nJan,10\nFeb,\nMar,20');
+  m.rows = rows;
+  assert.deepEqual(
+    validate(m).rows.map((r) => r[1]),
+    [10, null, 20],
+  );
+  const disconnected = renderChartSvg(m);
+  assert.notEqual(disconnected, renderChartSvg({ ...m, connectMissing: true }));
+});
+test('06 reject negative shares, zero total, NaN, infinite and negative sizes', () => {
+  for (const rows of [[['A', 0]], [['B', -1]], [['C', NaN]], [['D', Infinity]]])
+    assert.throws(() => renderChartSvg({ ...initial('pie-chart'), rows }));
+  assert.throws(() =>
+    validate({ ...initial('bubble-chart'), rows: [[2, 1, -1]] }),
+  );
+});
+test('07 strict en-US CSV and inert user text', () => {
+  const [, ...r] = csvRows('Month,Amount\nJan,"1,234.56"\nFeb,2500.00\n');
+  assert.equal(
+    r.reduce((s, a) => s + numberUS(a[1]), 0),
+    3734.56,
+  );
+  assert.throws(() => numberUS('1,25'));
+  assert.equal(csvRows('Key,Value\n=2+2,5')[1][0], '=2+2');
+  assert.throws(() => csvRows('a,b\n"broken,2'));
+  assert.equal(csvRows('a,b\n"a""b",2')[1][0], 'a"b');
+});
+test('08 2027 date-only week alignment and missing vs zero', () => {
+  const d = calendarCells(),
+    dm = calendarCells('Monday');
+  assert.equal(d.length, 365);
+  assert.equal(d.at(-1).date, '2027-12-31');
+  assert.equal(d[0].day, 5);
+  assert.equal(d.at(-1).day, 5);
+  assert.equal(dm[0].day, 4);
+  const m = initial('2027-calendar-heatmap');
+  assert.match(renderChartSvg(m), /Gray = missing/);
+  assert.throws(() => validate({ ...m, rows: [['2027-02-29', 1]] }));
+});
+test('09 Sankey refuses cycles and computes forward layers', () => {
+  assert.throws(() =>
+    graphLayout([
+      ['A', 'B', 1],
+      ['B', 'A', 2],
+    ]),
+  );
+  assert.equal(
+    graphLayout([
+      ['A', 'C', 4],
+      ['A', 'B', 2],
+      ['B', 'C', 2],
+    ]).get('C').depth,
+    2,
+  );
+});
+test('10 all 27 renderers produce finite, self-contained SVG', () => {
+  assert.equal(Object.keys(types).length, 27);
+  for (const k of Object.keys(types)) {
+    const svg = renderChartSvg(initial(k));
+    assert.match(svg, /<svg /);
+    assert.doesNotMatch(svg, /NaN|Infinity|<script|<foreignObject|href="/);
+  }
+});
+test('11 escape untrusted text; reject source types, oversized data and duplicate headings', () => {
+  const m = initial();
+  m.title = '</title><script>alert(1)</script>';
+  assert.ok(!renderChartSvg(m).includes('<script>'));
+  assert.throws(() => validate({ ...m, type: 'constructor' }));
+  assert.throws(() => validate({ ...m, headers: ['X', 'x'] }));
+  assert.throws(() => validate({ ...m, rows: Array(501).fill(['X', 3]) }));
+});
+test('12 cohort bounds and unique dates', () => {
+  assert.throws(() =>
+    validate({
+      ...initial('cohort-retention-chart'),
+      rows: [['A', 4, 5, null, null]],
+    }),
+  );
+  assert.throws(() =>
+    validate({
+      ...initial('2027-calendar-heatmap'),
+      rows: [
+        ['2027-01-01', 4],
+        ['2027-01-01', 2],
+      ],
+    }),
+  );
+});

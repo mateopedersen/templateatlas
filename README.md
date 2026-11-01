@@ -1,11 +1,15 @@
 # TemplateAtlas
 
-A US-first library of editable documents, calendars and data-driven charts, built with Astro and Cloudflare Workers. The source archive defines 1,146 topics, 68 category hubs, nine interactive tools and 2,420 planned fixed paths.
+TemplateAtlas is a US-first template library and document studio built with Astro and Cloudflare Workers. The 2027 catalog contains 1,146 editable originals across 68 category hubs, alongside nine tools and 2,420 planned fixed paths. Each native file has a same-source PDF and preview. The public repository contains the application, public preview images and verifiable metadata.
 
-## Development
+## Run locally
 
-Use Node 24 and npm. Install with `npm ci`. Run `npm test`, then `npm run build`. The application uses D1, private R2 storage and SQLite-backed Durable Objects. The checkout contains software and a public catalog projection. Private editable masters, render recipes, customer documents and credentials are stored separately.
+Install Node.js 24 and use the private catalog supplied with the owner installation. From the app directory run `sh scripts/start-local.sh`. Open [the local studio](http://localhost:4321/). The launcher uses local D1, R2 and SQLite-backed Durable Objects. PDF/JPEG conversion uses a separately authenticated loopback process with Python, pypdf, LibreOffice and Poppler.
 
-TemplateAtlas is in implementation. A manifest entry by itself does not indicate that a template has been rendered, reviewed or published. See the progress and QA reports for actual counts.
+## Verify
 
-The owner requires zero additional hosting cost. Live checkout and unattended deployments are disabled. The remote staging resources are segregated from other projects.
+Run `npm ci`, `npm run check`, `npm test` and `npm run build`. The optional full renderer test requires `TEMPLATEATLAS_RENDERER_TEST=1` and the conversion dependencies. GitHub Actions runs source, type, business logic and build checks with read-only permissions. Deployments are manual and currently disabled.
+
+## Operations
+
+See [the owner guide](OPERATIONS_TR.md), [service configuration](src/server/README.md), [progress](PROGRESS.json), [asset summary](ASSET_MANIFEST.json), and [QA evidence](QA_REPORT.md). The owner requires zero additional spend. Live billing, production email, remote private-file ingestion and the public domain deployment are pending.

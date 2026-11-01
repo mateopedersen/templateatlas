@@ -1,0 +1,9 @@
+CREATE TABLE catalog_install (
+  id INTEGER PRIMARY KEY CHECK(id=1),
+  revision TEXT NOT NULL,
+  ready INTEGER NOT NULL CHECK(ready IN (0,1)),
+  owner TEXT,
+  lease_until INTEGER NOT NULL DEFAULT 0,
+  topics INTEGER NOT NULL DEFAULT 0,
+  files INTEGER NOT NULL DEFAULT 0
+);

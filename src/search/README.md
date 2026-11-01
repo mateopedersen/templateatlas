@@ -1,0 +1,7 @@
+# Published catalog search
+
+Apply all D1 migrations, import reviewed private assets, and then activate a complete search snapshot. A search result requires at least one currently published private asset matching the checksum in that snapshot. A delivery hold takes effect immediately. A partially imported index is never made active. Content revisions produce a new snapshot identifier. Earlier snapshot rows remain available for controlled rollback.
+
+For local development run `node src/search/load-local.mjs path/to/paper.json` after asset ingestion. Generate the paper evidence by passing private receipt indexes to `python src/search/measure-paper.py output.json receipt-index.json ...` with pypdf available. The output contains PDF SHA-256 values and measured size categories only. All pages must have Letter dimensions, in either orientation, to receive the Letter facet.
+
+Use `GET /api/search` with a query `q` and optional `format`, `category` (canonical collection path), `sort` (relevance, title or newest), and one-based `page`. `paper=letter|other` selects an actually measured PDF; unknown PDFs are excluded when this facet is active. `year=2027` uses the manifest's calendar-year field. `use` matches a seed's builder family such as invoice, tracker, letter, worksheet, or data_chart_editor. A query consisting only of active filters also works. A blank unfiltered query returns the empty state. For final HTTP verification run `node src/search/fixture-audit.mjs ORIGIN PACKAGE_SEARCH_FIXTURES_JSON PAPER_JSON EVIDENCE_JSON`.

@@ -1,14 +1,174 @@
 ---
-import FormDesigner from '../components/FormDesigner.astro';import Account from '../components/Account.astro';import Contact from '../components/ContactForm.astro';import Studio from '../components/Studio.astro';import Base from '../layouts/Base.astro';import Home from '../components/Home.astro';import Topic from '../components/Topic.astro';import Workbench from '../components/Workbench.astro';import ChartEditor from '../charts/ChartEditor.astro';import Library from '../components/Library.astro';import {guide} from '../lib/guide.mjs';import {byPath,entries,routes,categories,categoryItems,display} from '../lib/catalog.mjs';import {tools} from '../lib/tools.mjs';import {types} from '../charts/model.mjs';
-const url=Astro.url,path=url.pathname.replace(/\/+$/,'')+'/',s=byPath.get(path),cat=categories.find(c=>c.path===path);
-const kind=path.split('/')[2], tool=path.startsWith('/tools/')&&Object.hasOwn(tools,kind)?kind:null, chart=path==='/create/chart/',invoice=path==='/create/invoice/';
-const library=!!cat||['/categories/','/templates/','/search/'].includes(path),support=guide[path],isAccount=/^\/(?:account|admin|auth|checkout|signin|signup|verify-email|forgot-password|reset-password|pricing)(?:\/|$)/.test(path);
-const familyStudio=!chart&&!invoice&&(path.startsWith('/create/')||path.startsWith('/studio/'))&&Object.hasOwn(routes,path);
-const valid=!!(s||path==='/'||library||tool||chart||invoice||support||familyStudio||path==='/tools/'||isAccount&&Object.hasOwn(routes,path));
-if(!valid)Astro.response.status=Object.hasOwn(routes,path)?503:404;
-const title=s?.title||cat&&display(cat.title)||tool&&tools[tool as keyof typeof tools].title||support?.[0]||(path==='/'?'Editable templates, charts, and calendars':path.split('/').filter(Boolean).at(-1)?.replaceAll('-',' ').replace(/^./,(v:string)=>v.toUpperCase()))||'TemplateAtlas';
-const selected=Astro.url.searchParams.get('topic')||'line-chart',chartSeed=entries.find(e=>e.topic_slug===selected);
+import FormDesigner from '../components/FormDesigner.astro';
+import Account from '../components/Account.astro';
+import Contact from '../components/ContactForm.astro';
+import Studio from '../components/Studio.astro';
+import Base from '../layouts/Base.astro';
+import Home from '../components/Home.astro';
+import Topic from '../components/Topic.astro';
+import Workbench from '../components/Workbench.astro';
+import ChartEditor from '../charts/ChartEditor.astro';
+import Library from '../components/Library.astro';
+import { guide } from '../lib/guide.mjs';
+import {
+  byPath,
+  entries,
+  routes,
+  categories,
+  categoryItems,
+  display,
+} from '../lib/catalog.mjs';
+import { tools } from '../lib/tools.mjs';
+import { types } from '../charts/model.mjs';
+const url = Astro.url,
+  path = url.pathname.replace(/\/+$/, '') + '/',
+  s = byPath.get(path),
+  cat = categories.find((c) => c.path === path);
+const kind = path.split('/')[2],
+  tool = path.startsWith('/tools/') && Object.hasOwn(tools, kind) ? kind : null,
+  chart = path === '/create/chart/',
+  invoice = path === '/create/invoice/';
+const library =
+    !!cat || ['/categories/', '/templates/', '/search/'].includes(path),
+  support = guide[path],
+  isAccount =
+    /^\/(?:account|admin|auth|checkout|signin|signup|verify-email|forgot-password|reset-password|pricing)(?:\/|$)/.test(
+      path,
+    );
+const familyStudio =
+  !chart &&
+  !invoice &&
+  (path.startsWith('/create/') || path.startsWith('/studio/')) &&
+  Object.hasOwn(routes, path);
+const valid = !!(
+  s ||
+  path === '/' ||
+  library ||
+  tool ||
+  chart ||
+  invoice ||
+  support ||
+  familyStudio ||
+  path === '/tools/' ||
+  (isAccount && Object.hasOwn(routes, path))
+);
+if (!valid) Astro.response.status = Object.hasOwn(routes, path) ? 503 : 404;
+const title =
+  s?.title ||
+  (cat && display(cat.title)) ||
+  (tool && tools[tool as keyof typeof tools].title) ||
+  support?.[0] ||
+  (path === '/'
+    ? 'Editable templates, charts, and calendars'
+    : path
+        .split('/')
+        .filter(Boolean)
+        .at(-1)
+        ?.replaceAll('-', ' ')
+        .replace(/^./, (v: string) => v.toUpperCase())) ||
+  'TemplateAtlas';
+const selected = Astro.url.searchParams.get('topic') || 'line-chart',
+  chartSeed = entries.find((e) => e.topic_slug === selected);
 ---
-<Base entry={s} title={s&&path===s.detail_path?s.title+' – file details':title} noindex={!valid||isAccount||!!cat&&!categoryItems(cat).length||path==='/search/'||path.startsWith('/studio/')} description={s?.summary||support?.[1]}>
-{!valid?<div class="narrow"><p class="over">TemplateAtlas library</p><h1>{Astro.response.status===404?'Page not found':'This page is in preparation'}</h1><p>Visit the library for available templates and verified file formats.</p><a class="button" href="/templates/">Browse templates</a></div>:path==='/'?<Home/>:s?<Topic s={s} detail={s.detail_path===path}/>:library?<Library path={path}/>:chart?<ChartEditor topic={Object.hasOwn(types,selected)?selected:'line-chart'} templateId={chartSeed?.id}/>:tool||invoice?<Workbench kind={tool||'invoice'}/>:isAccount?<Account path={path}/>:path==='/create/form/'&&!url.searchParams.has('template')?<FormDesigner/>:familyStudio?<Studio path={path}/>:path==='/tools/'?<><div class="breadcrumb"><a href="/">Home</a> / Workbench</div><span class="over">Your workbench</span><h1>Tools for everyday work</h1><p class="lead">Calculate, compare, and plan. Each tool includes a downloadable result.</p><div class="grid small">{Object.entries(tools).map(([k,t])=>[t.title,t.intro,'/tools/'+k+'/']).map(([a,b,c])=><a class="listlink" href={c}><b>{a} ↗</b><small>{b}</small></a>)}</div></>:support?<article class="narrow"><div class="breadcrumb"><a href="/">Home</a> / Resources</div><h1>{support[0]}</h1><p class="lead">{support[1]}</p>{path==='/contact/'&&<Contact/>}{(path==='/help/'||path==='/contact/')&&<div>{Object.entries(guide).filter(([p])=>p.startsWith('/help/')&&p!=='/help/').map(([p,g])=><p><a href={p}>{g[0]}</a></p>)}</div>}</article>:null}
+
+<Base
+  entry={s}
+  title={s && path === s.detail_path ? s.title + ' – file details' : title}
+  noindex={
+    !valid ||
+    isAccount ||
+    (!!cat &&
+      cat.path !== '/categories/calculators/' &&
+      !categoryItems(cat).length) ||
+    path === '/search/' ||
+    path.startsWith('/studio/')
+  }
+  description={
+    s?.summary ||
+    support?.[1] ||
+    (cat
+      ? 'Browse ' +
+        display(cat.title) +
+        ' templates with verified file formats and original previews.'
+      : tool
+        ? tools[tool as keyof typeof tools].intro
+        : undefined)
+  }
+>
+  {!valid ? (
+    <div class="narrow">
+      <p class="over">TemplateAtlas library</p>
+      <h1>
+        {Astro.response.status === 404
+          ? 'Page not found'
+          : 'This page is in preparation'}
+      </h1>
+      <p>
+        Visit the library for available templates and verified file formats.
+      </p>
+      <a class="button" href="/templates/">
+        Browse templates
+      </a>
+    </div>
+  ) : path === '/' ? (
+    <Home />
+  ) : s ? (
+    <Topic s={s} detail={s.detail_path === path} />
+  ) : library ? (
+    <Library path={path} />
+  ) : chart ? (
+    <ChartEditor
+      topic={Object.hasOwn(types, selected) ? selected : 'line-chart'}
+      templateId={chartSeed?.id}
+    />
+  ) : tool || invoice ? (
+    <Workbench kind={tool || 'invoice'} />
+  ) : isAccount ? (
+    <Account path={path} />
+  ) : path === '/create/form/' && !url.searchParams.has('template') ? (
+    <FormDesigner />
+  ) : familyStudio ? (
+    <Studio path={path} />
+  ) : path === '/tools/' ? (
+    <>
+      <div class="breadcrumb">
+        <a href="/">Home</a> / Workbench
+      </div>
+      <span class="over">Your workbench</span>
+      <h1>Tools for everyday work</h1>
+      <p class="lead">
+        Calculate, compare, and plan. Each tool includes a downloadable result.
+      </p>
+      <div class="grid small">
+        {Object.entries(tools)
+          .map(([k, t]) => [t.title, t.intro, '/tools/' + k + '/'])
+          .map(([a, b, c]) => (
+            <a class="listlink" href={c}>
+              <b>{a} ↗</b>
+              <small>{b}</small>
+            </a>
+          ))}
+      </div>
+    </>
+  ) : support ? (
+    <article class="narrow">
+      <div class="breadcrumb">
+        <a href="/">Home</a> / Resources
+      </div>
+      <h1>{support[0]}</h1>
+      <p class="lead">{support[1]}</p>
+      {path === '/contact/' && <Contact />}
+      {(path === '/help/' || path === '/contact/') && (
+        <div>
+          {Object.entries(guide)
+            .filter(([p]) => p.startsWith('/help/') && p !== '/help/')
+            .map(([p, g]) => (
+              <p>
+                <a href={p}>{g[0]}</a>
+              </p>
+            ))}
+        </div>
+      )}
+    </article>
+  ) : null}
 </Base>

@@ -23,15 +23,11 @@ origins=../catalog/index.json
 if [ -n "${TEMPLATEATLAS_CATALOG:-}" ]; then origins="$TEMPLATEATLAS_CATALOG"; fi
 if [ ! -f "$origins" ] && [ -f ../private/active-index.json ]; then origins=../private/active-index.json; fi
 if [ ! -f "$origins" ]; then echo "Place the private catalog next to the application directory."; exit 1; fi
-release_hash=$(node -e "process.stdout.write(require('node:crypto').createHash('sha256').update(require('node:fs').readFileSync('src/data/release.json')).digest('hex'))")
-previous=''
-if [ -f .wrangler/local-release ]; then previous=$(cat .wrangler/local-release); fi
 node node_modules/wrangler/bin/wrangler.js d1 migrations apply DB --local --config wrangler.jsonc
-if [ "$release_hash" != "$previous" ] || [ ! -d .wrangler/state/v3/r2 ]; then
+if ! node scripts/check-local-install.mjs || [ ! -d .wrangler/state/v3/r2 ]; then
   node scripts/load-local-assets.mjs "$origins"
-  if [ -f ../catalog/paper.json ]; then node src/search/load-local.mjs ../catalog/paper.json; else node src/search/load-local.mjs ../private/paper.json; fi
-  printf '%s' "$release_hash" > .wrangler/local-release
 fi
+if [ -f ../catalog/paper.json ]; then node src/search/load-local.mjs ../catalog/paper.json; else node src/search/load-local.mjs ../private/paper.json; fi
 npm run build
 echo "Open http://localhost:4321 in your browser. Press Control-C to stop."
 exec node scripts/local-preview.mjs

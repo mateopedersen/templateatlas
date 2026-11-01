@@ -1,26 +1,236 @@
 ---
 import Icon from './Icon.astro';
-import {entries} from '../lib/catalog.mjs';
-const editions=[
- {key:'proposal',tab:'Proposals',caption:'Project planning',title:'Project proposal',copy:'Present a scope, timeline, and budget in one client-ready document.',slug:'project-proposal',icon:'brief',letter:'P',color:'#cc9d7a'},
- {key:'chart',tab:'Charts',caption:'Data visualization',title:'Chart Studio',copy:'Shape a chart from your numbers. Edit the data, review the result, and export.',slug:'line-chart',icon:'chart',letter:'C',color:'#99d0c3'},
- {key:'calendar',tab:'Calendars',caption:'The 2027 edition',title:'Monthly calendar',copy:'Lay out a month with Sunday-first dates and space for appointments.',slug:'january-2027-calendar',icon:'calendar',letter:'A',color:'#e6c885'}
-].map(e=>({...e,href:e.key==='chart'?'/create/chart/':'/templates/'+e.slug+'/',item:entries.find(s=>s.topic_slug===e.slug)}));
+import { entries } from '../lib/catalog.mjs';
+const editions = [
+  {
+    key: 'proposal',
+    tab: 'Proposals',
+    caption: 'Project planning',
+    title: 'Project proposal',
+    copy: 'Present a scope, timeline, and budget in one client-ready document.',
+    slug: 'project-proposal',
+    icon: 'brief',
+    letter: 'P',
+    color: '#cc9d7a',
+  },
+  {
+    key: 'chart',
+    tab: 'Charts',
+    caption: 'Data visualization',
+    title: 'Chart Studio',
+    copy: 'Shape a chart from your numbers. Edit the data, review the result, and export.',
+    slug: 'line-chart',
+    icon: 'chart',
+    letter: 'C',
+    color: '#99d0c3',
+  },
+  {
+    key: 'calendar',
+    tab: 'Calendars',
+    caption: 'The 2027 edition',
+    title: 'Monthly calendar',
+    copy: 'Lay out a month with Sunday-first dates and space for appointments.',
+    slug: 'january-2027-calendar',
+    icon: 'calendar',
+    letter: 'A',
+    color: '#e6c885',
+  },
+].map((e) => ({
+  ...e,
+  href: e.key === 'chart' ? '/create/chart/' : '/templates/' + e.slug + '/',
+  item: entries.find((s) => s.topic_slug === e.slug),
+}));
 ---
+
 <section class="studio-hero" data-hero data-active="proposal">
-<div class="hero-lines" aria-hidden="true"></div>
-<div class="stage-intro"><div class="stage-eyebrow"><span></span> TemplateAtlas Studio</div><h1>The template<br/><i>collection.</i></h1><p>Find the right document. Shape it in Studio.<br class="wide-only"/> Take it into your next project.</p><div class="stage-buttons"><a class="stage-primary" href="/templates/">Explore templates <span><Icon name="arrow" size={17}/></span></a><a class="stage-quiet" href="/create/"><Icon name="pen" size={16}/> Open Studio</a></div></div>
-<div class="art-desk">
-<div class="drafting-grid"></div><div class="target-rings"></div>
-{editions.map((e,i)=><div class={'stage-scene scene-'+e.key} data-scene={e.key} hidden={i!==0} aria-hidden="true">
-<div class="shadow-oval"></div><div class="ambient-card ambient-left"><i></i><b></b><b></b><b></b></div><div class="ambient-card ambient-right"><div class="micro-grid"></div></div>
-<div class="art-book"><div class="book-binding"></div><div class="art-kicker">TEMPLATEATLAS &nbsp; / &nbsp; STUDIO</div>
-{e.key==='proposal'?<><div class="art-title">Project<br/><em>Proposal</em></div><div class="pavilion-block"><img src="/art/pavilion.svg" alt=""/></div><div class="art-foot"><span>Project planning</span><span>01</span></div></>:e.key==='chart'?<><div class="art-title">Data<br/><em>Studies</em></div><svg class="chart-art" viewBox="0 0 270 120"><g stroke="#f1ebd2" opacity=".22">{[15,36,57,78,99].map(y=><path d={'M0 '+y+' H270'}/>)}</g><g fill="#e2b86a">{[29,41,36,54,80,73,91,110].map((h,j)=><rect x={j*32+5} y={120-h} width="19" height={h}/>)}</g><path d="M8 96 Q38 60 61 72 T115 50 T166 49 T225 30 L263 6" fill="none" stroke="#fff7d8" stroke-width="4"/></svg><div class="art-foot"><span>Data visualization</span><span>02</span></div></>:<><div class="art-title">January<br/><em>2027</em></div><div class="art-dates">{['S','M','T','W','T','F','S',...Array(5).fill(''),...Array.from({length:31},(_,i)=>String(i+1))].map(x=><span>{x}</span>)}</div><div class="art-foot"><span>Calendar collection</span><span>03</span></div></>}
-</div><div class="art-label-tag"><span>●</span>{e.caption}</div></div>)}
-</div>
-<div class="edition-dock" role="group" aria-label="Choose a featured collection">{editions.map((e,i)=><button type="button" data-edition={e.key} aria-pressed={i===0?'true':'false'}><Icon name={e.icon} size={15}/>{e.tab}</button>)}</div>
-{editions.map((e,i)=><a class="stage-spot-link" data-open={e.key} hidden={i!==0} href={e.href} aria-label={'Open '+e.title}>{e.title} <Icon name="arrow" size={15}/></a>)}
+  <div class="hero-lines" aria-hidden="true"></div>
+  <div class="stage-intro">
+    <div class="stage-eyebrow">
+      <span></span> TemplateAtlas Studio
+    </div>
+    <h1>
+      The template
+      <br />
+      <i>collection.</i>
+    </h1>
+    <p>
+      Find the right document. Shape it in Studio.
+      <br class="wide-only" /> Take it into your next project.
+    </p>
+    <div class="stage-buttons">
+      <a class="stage-primary" href="/templates/">
+        Explore templates{' '}
+        <span>
+          <Icon name="arrow" size={17} />
+        </span>
+      </a>
+      <a class="stage-quiet" href="/create/">
+        <Icon name="pen" size={16} /> Open Studio
+      </a>
+    </div>
+  </div>
+  <div class="art-desk">
+    <div class="drafting-grid"></div>
+    <div class="target-rings"></div>
+    {editions.map((e, i) => (
+      <div
+        class={'stage-scene scene-' + e.key}
+        data-scene={e.key}
+        hidden={i !== 0}
+        aria-hidden="true"
+      >
+        <div class="shadow-oval"></div>
+        <div class="ambient-card ambient-left">
+          <i></i>
+          <b></b>
+          <b></b>
+          <b></b>
+        </div>
+        <div class="ambient-card ambient-right">
+          <div class="micro-grid"></div>
+        </div>
+        <div class="art-book">
+          <div class="book-binding"></div>
+          <div class="art-kicker">TEMPLATEATLAS &nbsp; / &nbsp; STUDIO</div>
+          {e.key === 'proposal' ? (
+            <>
+              <div class="art-title">
+                Project
+                <br />
+                <em>Proposal</em>
+              </div>
+              <div class="pavilion-block">
+                <img src="/art/pavilion.svg" alt="" />
+              </div>
+              <div class="art-foot">
+                <span>Project planning</span>
+                <span>01</span>
+              </div>
+            </>
+          ) : e.key === 'chart' ? (
+            <>
+              <div class="art-title">
+                Data
+                <br />
+                <em>Studies</em>
+              </div>
+              <svg class="chart-art" viewBox="0 0 270 120">
+                <g stroke="#f1ebd2" opacity=".22">
+                  {[15, 36, 57, 78, 99].map((y) => (
+                    <path d={'M0 ' + y + ' H270'} />
+                  ))}
+                </g>
+                <g fill="#e2b86a">
+                  {[29, 41, 36, 54, 80, 73, 91, 110].map((h, j) => (
+                    <rect x={j * 32 + 5} y={120 - h} width="19" height={h} />
+                  ))}
+                </g>
+                <path
+                  d="M8 96 Q38 60 61 72 T115 50 T166 49 T225 30 L263 6"
+                  fill="none"
+                  stroke="#fff7d8"
+                  stroke-width="4"
+                />
+              </svg>
+              <div class="art-foot">
+                <span>Data visualization</span>
+                <span>02</span>
+              </div>
+            </>
+          ) : (
+            <>
+              <div class="art-title">
+                January
+                <br />
+                <em>2027</em>
+              </div>
+              <div class="art-dates">
+                {[
+                  'S',
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  ...Array(5).fill(''),
+                  ...Array.from({ length: 31 }, (_, i) => String(i + 1)),
+                ].map((x) => (
+                  <span>{x}</span>
+                ))}
+              </div>
+              <div class="art-foot">
+                <span>Calendar collection</span>
+                <span>03</span>
+              </div>
+            </>
+          )}
+        </div>
+        <div class="art-label-tag">
+          <span>●</span>
+          {e.caption}
+        </div>
+      </div>
+    ))}
+  </div>
+  <div
+    class="edition-dock"
+    role="group"
+    aria-label="Choose a featured collection"
+  >
+    {editions.map((e, i) => (
+      <button
+        type="button"
+        data-edition={e.key}
+        aria-pressed={i === 0 ? 'true' : 'false'}
+      >
+        <Icon name={e.icon} size={15} />
+        {e.tab}
+      </button>
+    ))}
+  </div>
+  {editions.map((e, i) => (
+    <a
+      class="stage-spot-link"
+      data-open={e.key}
+      hidden={i !== 0}
+      href={e.href}
+      aria-label={'Open ' + e.title}
+    >
+      {e.title} <Icon name="arrow" size={15} />
+    </a>
+  ))}
 </section>
 <script>
-const hero=document.querySelector<HTMLElement>('[data-hero]');if(hero){const buttons=[...hero.querySelectorAll<HTMLButtonElement>('[data-edition]')];function pick(b:HTMLButtonElement){const k=b.dataset.edition!;hero!.dataset.active=k;buttons.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));hero!.querySelectorAll<HTMLElement>('[data-scene],[data-open]').forEach(el=>el.hidden=(el.dataset.scene||el.dataset.open)!==k);}buttons.forEach((b,i)=>{b.onclick=()=>pick(b);b.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();let other=buttons[(i+(e.key==='ArrowRight'?1:buttons.length-1))%buttons.length];pick(other);other.focus();}};});}
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  if (hero) {
+    const buttons = [
+      ...hero.querySelectorAll<HTMLButtonElement>('[data-edition]'),
+    ];
+    function pick(b: HTMLButtonElement) {
+      const k = b.dataset.edition!;
+      hero!.dataset.active = k;
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      hero!
+        .querySelectorAll<HTMLElement>('[data-scene],[data-open]')
+        .forEach(
+          (el) => (el.hidden = (el.dataset.scene || el.dataset.open) !== k),
+        );
+    }
+    buttons.forEach((b, i) => {
+      b.onclick = () => pick(b);
+      b.onkeydown = (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          let other =
+            buttons[
+              (i + (e.key === 'ArrowRight' ? 1 : buttons.length - 1)) %
+                buttons.length
+            ];
+          pick(other);
+          other.focus();
+        }
+      };
+    });
+  }
 </script>
