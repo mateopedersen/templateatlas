@@ -1,7 +1,7 @@
 // Reconcile every enabled catalog file against its actual private object, without logging private keys.
-import {getPlatformProxy} from 'wrangler';import {createHash} from 'node:crypto';import {writeFile} from 'node:fs/promises';import {entries} from '../src/lib/catalog.mjs';
+import {resolve} from 'node:path';import {getPlatformProxy} from 'wrangler';import {createHash} from 'node:crypto';import {writeFile} from 'node:fs/promises';import {entries} from '../src/lib/catalog.mjs';
 const [stateDirectory,reportPath]=process.argv.slice(2);
-const p=await getPlatformProxy({configPath:'wrangler.jsonc',persist:stateDirectory?{path:stateDirectory}:true,remoteBindings:false});
+const p=await getPlatformProxy({configPath:'wrangler.jsonc',persist:stateDirectory?{path:resolve(stateDirectory,'v3')}:true,remoteBindings:false});
 try{
  const rows=(await p.env.DB.prepare('SELECT template_id,format,object_key,sha256,size_bytes,mime FROM downloadable_assets WHERE published=1 AND document_id IS NULL').all()).results;
  const indexed=new Map(rows.map(x=>[x.template_id+'/'+x.format,x]));let verified=0;const failures=[];const types={};

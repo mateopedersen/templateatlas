@@ -24,7 +24,7 @@ function idem(request) {
   requireValue(isId(v) && v.length>=8 && v.length<=128);
   return v;
 }
-export async function handleApi(request,env,_ctx,options={}) {
+export async function handleApi(request,env,ctx,options={}) {
   try {
     const url=new URL(request.url), path=url.pathname.replace(/\/$/,'');
     if (path==='/api/webhooks/stripe') {
@@ -70,7 +70,7 @@ export async function handleApi(request,env,_ctx,options={}) {
       method(request,['GET','POST','PATCH','DELETE']);
       response=json(await documents(env,identity.actor,path.slice(15),request.method,['POST','PATCH'].includes(request.method)?await object(request):{}));
     } else if (path==='/api/exports') {
-      method(request,['POST']);response=json(await createExport(env,identity.actor,await object(request),idem(request),options,ctx));
+      method(request,['POST']);const job=await createExport(env,identity.actor,await object(request),idem(request),options,ctx);response=json(job,job.state==='succeeded'?200:202);
     } else if (path.startsWith('/api/exports/')) {
       method(request,['GET']);response=json(await getExport(env,identity.actor,path.slice(13),options,ctx));
     } else if(path==='/api/account/saved') {

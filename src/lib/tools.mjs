@@ -5,7 +5,7 @@ export const tools={
  'grade-calculator':{title:'Grade calculator',intro:'Compare weighted grades or calculate a points-based total.',fields:[field('mode','Calculation','Weighted','select',['Weighted','Points']),field('rows','Earned, possible, weight (%) — one assignment per line','80,100,40\n90,100,60','textarea'),field('missing','Unscored assignments','Exclude','select',['Exclude','Count as zero'])]},
  'hex-to-decimal-converter':{title:'Hex to decimal converter',intro:'Convert an unsigned hexadecimal integer without losing precision.',fields:[field('hex','Hexadecimal value','0xFF')]},
  'weeks-in-year':{title:'Weeks in a year',intro:'See calendar days, ISO weeks and partial weeks for the year.',fields:[field('year','Year',2027),field('start','Week starts on','Sunday','select',['Sunday','Monday'])]},
- 'calendar-2027':{title:'2027 calendar',intro:'Plan your month with actual and observed U.S. federal holidays.',fields:[field('month','Month',1,'select',Array.from({length:12},(_,i)=>String(i+1))),field('start','Week starts on','Sunday','select',['Sunday','Monday']),field('events','Your events (YYYY-MM-DD, event name)','', 'textarea')]},
+ 'calendar-2027':{title:'2027 calendar',intro:'Plan your month with actual and observed U.S. federal holidays.',fields:[field('month','Month',1,'select',Array.from({length:12},(_,i)=>String(i+1))),field('start','Week starts on','Sunday','select',['Sunday','Monday']),field('zone','Time zone for today','America/New_York'),field('events','Your events (YYYY-MM-DD, event name)','', 'textarea')]},
  'ppi-calculator':{title:'Pixel density calculator',intro:'Find screen density or the physical size of a printed image.',fields:[field('mode','Calculation','Screen density','select',['Screen density','Print size']),field('width','Image width (px)',3000),field('height','Image height (px)',2000),field('diagonal','Screen diagonal (in)',15),field('ppi','Print density (ppi)',300)]},
  'schedule-maker':{title:'Schedule maker',intro:'Arrange time blocks and check for overlaps. Times use local wall-clock time.',fields:[field('rows','Date, start, end, activity — one per line','2027-01-04,09:00,10:00,Project kickoff\n2027-01-04,10:15,11:30,Design review','textarea')]},
  'significant-figures-calculator':{title:'Significant figures calculator',intro:'Count significant digits in the number as written, then round it.',fields:[field('value','Decimal or scientific notation','0.00450'),field('digits','Round to significant digits',2)]},
@@ -50,10 +50,12 @@ export function calculate(kind,d){
  }
  if(kind==='calendar-2027'){
    const month=num(d.month,'month',true,0,12),date=new Date(Date.UTC(2027,month-1,1)),offset=(date.getUTCDay()+(d.start==='Monday'?6:0))%7,n=new Date(Date.UTC(2027,month,0)).getUTCDate(), dates=Array(offset).fill('');
+   const clock=new Intl.DateTimeFormat('en-US',{year:'numeric',month:'2-digit',day:'2-digit',timeZone:d.zone||'UTC'}).formatToParts(new Date());
+   const part=k=>clock.find(c=>c.type===k).value;const today=part('year')+'-'+part('month')+'-'+part('day');
    const tags=new Map(), add=(day,msg)=>{tags.set(day,[...(tags.get(day)||[]),msg]);};
    for(const h of holidays){if(h.actual_date)add(h.actual_date,h.name_en_us);if(h.observed_date!==h.actual_date)add(h.observed_date,h.nominal_year!==2027?h.name_en_us:h.name_en_us+' (observed)');}
    const events=lines(d.events).map(line=>{const i=line.indexOf(','),day=line.slice(0,i).trim(),title=line.slice(i+1).trim();if(i<0||!validDate(day)||day.slice(0,4)!=='2027'||!title)throw Error('Use a 2027 date and event name.');add(day,title);return {day,title};});
-   for(let i=1;i<=n;i++){const iso='2027-'+String(month).padStart(2,'0')+'-'+String(i).padStart(2,'0');dates.push([i,...(tags.get(iso)||[])].join(' · '));}
+   for(let i=1;i<=n;i++){const iso='2027-'+String(month).padStart(2,'0')+'-'+String(i).padStart(2,'0');dates.push([i,...(today===iso?['Today']:[]),...(tags.get(iso)||[])].join(' · '));}
    const rows=[];while(dates.length){const row=dates.splice(0,7);while(row.length<7)row.push('');rows.push(row);}
    const cols=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];if(d.start==='Monday')cols.push(cols.shift());
    return result(date.toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'}),cols,rows,{events});

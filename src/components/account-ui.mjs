@@ -1,4 +1,5 @@
 import {awaitExport} from '../lib/export-state.mjs';
+import {savedInputs} from './saved-inputs.mjs';
 import {api,download} from '../lib/client.mjs';
 
 const root=()=>document.querySelector('[data-account-path]');
@@ -76,13 +77,18 @@ function membership(parent,s){
 }
 function editable(parent,d){
   const box=section(parent,d.title,'Revision '+d.revision+' · '+d.kind.replaceAll('-',' '));
+  if(d.kind==='form')box.append(link('Open form builder','/create/form/?document='+encodeURIComponent(d.id)));
   if(d.kind==='chart')box.append(link('Open in Chart Studio','/create/chart/?document='+encodeURIComponent(d.id)));
   if(d.kind==='template' && /^ta-[a-z0-9-]+-001$/.test(d.templateId))box.append(link('Open template editor','/templates/'+d.templateId.slice(3,-4)+'/?document='+encodeURIComponent(d.id)));
-  const label=node('label','Saved document data'),ta=node('textarea');ta.value=JSON.stringify(d.data,null,2);label.append(ta);box.append(label);
-  box.append(button('Save revision',async()=>{
-    let data;try{data=JSON.parse(ta.value);}catch{throw Error('Use valid JSON to save your changes.');}
-    const saved=await api('/api/documents/'+d.id,{data,expectedRevision:d.revision},'PATCH');d.revision=saved.revision;status('Saved revision '+d.revision+'.');
-  }));
+  const editor=node('div');box.append(editor);
+  const read=savedInputs(editor,d);
+  if(read){
+    const revisionLabel=box.querySelector('p');
+    box.append(button('Save revision',async()=>{
+      const data=read(),saved=await api('/api/documents/'+d.id,{data,expectedRevision:d.revision},'PATCH');
+      d.data=data;d.revision=saved.revision;revisionLabel.textContent='Revision '+d.revision+' · '+d.kind.replaceAll('-',' ');status('Saved revision '+d.revision+'.');
+    }));
+  }
   const formats=d.formats||[];
   for(const format of formats)box.append(button('Download '+format.toUpperCase(),async()=>{
     const out=await api('/api/exports',{documentId:d.id,documentRevision:d.revision,format},'POST',d.id+'-'+d.revision+'-'+format);await download((await awaitExport(out,status)).intent);

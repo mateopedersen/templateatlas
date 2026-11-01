@@ -14,7 +14,7 @@ export function workbook(title,rows){
  return zipSync(Object.fromEntries(Object.entries(files).map(([k,v])=>[k,strToU8(v)])));
 }
 const MIME={pdf:'application/pdf',xlsx:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',svg:'image/svg+xml',ics:'text/calendar'};
-export const formatsFor=k=>k==='invoice'?['pdf','xlsx']:k==='schedule-maker'?['pdf','xlsx','ics']:k==='grade-calculator'||k==='weeks-in-year'?['pdf','xlsx']:k==='calendar-2027'?['pdf','ics']:k==='venn-diagram-maker'?['pdf','svg']:['pdf'];
+export const formatsFor=k=>k==='form'?['docx','pdf']:k==='invoice'?['pdf','xlsx']:k==='schedule-maker'?['pdf','xlsx','ics']:k==='grade-calculator'||k==='weeks-in-year'?['pdf','xlsx']:k==='calendar-2027'?['pdf','ics']:k==='venn-diagram-maker'?['pdf','svg']:['pdf'];
 function billingRows(d,r){
  const list=[['Invoice',d.number],['From',d.seller],['Bill to',d.buyer],['Issued',d.date],['Description','Quantity','Rate (USD)','Taxable (1/0)','Amount (USD)']];
  for(const i of r.items){const n=list.length+1;list.push([i.description,+i.quantity,+i.rate,+i.taxable,{formula:'ROUND(B'+n+'*C'+n+',2)',cache:i.amount/100}]);}
@@ -24,6 +24,7 @@ function billingRows(d,r){
  const taxable='SUMPRODUCT(D6:D'+last+',E6:E'+last+')',base=append('Taxable after discount',taxable+'-IFERROR(ROUND('+disc+'*'+taxable+'/'+sub+',2),0)',r.taxable);
  list.push(['Tax (%)',+d.tax]);const tax=append('Tax','ROUND('+base+'*B'+list.length+'/100,2)',r.tax);
  const total=append('Total',sub+'-'+disc+'+'+tax,r.total);list.push(['Payments received',r.paid/100]);append('Balance due',total+'-B'+list.length,r.balance);
+ for(const [label,key] of [['Street','street'],['City','city'],['State','state'],['ZIP','zip'],['Phone','phone'],['Due','due'],['Payment terms','terms']])if(d[key])list.push([label,d[key]]);
  return list;
 }
 async function tablePdf(title,subtitle,columns,rows,note,venn=0){
@@ -48,12 +49,13 @@ function ical(events){
  values.push('END:VCALENDAR');const enc=new TextEncoder();return strToU8(values.map(v=>{let out='',count=0;for(const ch of v){const n=enc.encode(ch).length;if(count+n>74){out+='\r\n ';count=1;}out+=ch;count+=n;}return out;}).join('\r\n')+'\r\n');
 }
 export async function renderDocument({kind,data,templateId,format,paper='letter'}){
+ if(kind==='form'){if(paper!=='letter'||templateId)throw Error('Invalid form source.');const {exportForm}=await import('../forms/export.mjs');return exportForm(data,format);}
  if(paper!=='letter'||!formatsFor(kind).includes(format))throw Error('This output is unavailable.');
  let title,report,rows;
  if(kind==='invoice'){
    if(templateId&&templateId!=='ta-invoice-001')throw Error('Mismatched invoice template.');
    const r=invoice(data);title='Invoice '+data.number;rows=billingRows(data,r);
-   report={summary:data.seller+'  |  Bill to '+data.buyer+'  |  '+data.date,columns:['Item','Quantity','Unit price','Amount'],rows:[...r.items.map(i=>[i.description,i.quantity,money(Math.round(+i.rate*100)),money(i.amount)]),...['subtotal','discount','tax','total','paid','balance'].map(k=>['','',k.toUpperCase(),money(r[k])])]};
+   report={summary:data.seller+'  |  Bill to '+data.buyer+'  |  '+data.date,note:[data.street,[data.city,data.state,data.zip].filter(Boolean).join(' '),data.phone,data.due&&'Due '+data.due,data.terms].filter(Boolean).join(' · '),columns:['Item','Quantity','Unit price','Amount'],rows:[...r.items.map(i=>[i.description,i.quantity,money(Math.round(+i.rate*100)),money(i.amount)]),...['subtotal','discount','tax','total','paid','balance'].map(k=>['','',k.toUpperCase(),money(r[k])])]};
  }else{
    if(templateId||!Object.hasOwn(tools,kind))throw Error('Unknown tool or template.');
    report=calculate(kind,data);title=tools[kind].title;rows=[report.columns,...report.rows];

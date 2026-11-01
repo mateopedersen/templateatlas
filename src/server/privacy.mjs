@@ -58,7 +58,7 @@ export async function retention(env) {
     const cleared=await Promise.all([removeObjects(env.USER_DOCUMENTS,'drafts/'+id+'/'),removeObjects(env.USER_DOCUMENTS,'exports/'+id+'/')]);
     if(!cleared.every(Boolean))continue;
     await env.DB.batch([
-      env.DB.prepare('DELETE FROM export_receipts WHERE asset_id IN (SELECT id FROM downloadable_assets WHERE document_id=?)').bind(id),
+      env.DB.prepare('DELETE FROM export_receipts WHERE asset_id IN (SELECT id FROM downloadable_assets WHERE document_id=?) OR fingerprint IN (SELECT substr(id,5) FROM export_jobs WHERE document_id=?)').bind(id,id),
       env.DB.prepare('DELETE FROM downloadable_assets WHERE document_id=?').bind(id),
       env.DB.prepare('DELETE FROM member_revisions WHERE document_id=?').bind(id),
       env.DB.prepare('DELETE FROM member_documents WHERE id=? AND deleted IS NOT NULL').bind(id)

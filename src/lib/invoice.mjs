@@ -1,3 +1,4 @@
+import states from '../data/us-states.json' with {type:'json'};
 const scale=(v,dec,max,field)=>{
   const raw=String(v).trim();
   if(!new RegExp('^\\d{1,9}(?:\\.\\d{1,'+dec+'})?$').test(raw) || +raw>max) throw Error('Enter a valid '+field+'.');
@@ -10,6 +11,13 @@ export function invoice(data){
   const fields=['seller','buyer','number','date'];
   for(const k of fields) if(typeof data[k]!=='string'||!data[k].trim()||data[k].length>160) throw Error('Complete the invoice header.');
   if(!/^\d{4}-\d\d-\d\d$/.test(data.date)||new Date(data.date+'T00:00Z').toISOString().slice(0,10)!==data.date)throw Error('Choose a valid invoice date.');
+  for(const key of ['street','city','state','zip','phone','due','terms']){
+    if(data[key]!=null&&(typeof data[key]!=='string'||data[key].length>140))throw Error('Check the billing details.');
+  }
+  if(data.zip&&!/^\d{5}(?:-\d{4})?$/.test(data.zip))throw Error('Enter a five-digit ZIP or ZIP+4.');
+  if(data.state&&!states.some(s=>s.code===data.state))throw Error('Select a U.S. state or DC.');
+  if(data.phone&&!/^(?:1)?[2-9]\d{9}$/.test(data.phone.replace(/[ ()+.\-]/g,'')))throw Error('Enter a valid U.S. phone number.');
+  if(data.due&&(!/^\d{4}-\d{2}-\d{2}$/.test(data.due)||new Date(data.due+'T00:00Z').toISOString().slice(0,10)!==data.due||data.due<data.date))throw Error('Choose a due date on or after the issue date.');
   let subtotal=0n,taxable=0n;
   const items=data.items.map(i=>{
     if(typeof i.description!=='string'||!i.description.trim()||i.description.length>180||typeof i.taxable!=='boolean') throw Error('Check the item description and tax selection.');

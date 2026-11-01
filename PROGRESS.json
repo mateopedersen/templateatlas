@@ -1,5 +1,5 @@
 {
-  "phase": "local integration and acceptance",
+  "phase": "local release verification",
   "packageChecks": "47/47",
   "inventory": {
     "sources": 1235,
@@ -13,5 +13,15 @@
   "localAssetManifest": "src/data/release.json",
   "remoteProduction": "not_deployed",
   "liveBilling": false,
-  "resume": "Verify the active private receipts by SHA-256 before any release. Reuse matching artifacts."
+  "resume": "Verify the active private receipts by SHA-256 before any release. Reuse matching artifacts.",
+  "verifiedLocalStore": {
+    "templates": 1146,
+    "downloadFiles": 2508,
+    "failedHashes": 0
+  },
+  "verifiedDates": {
+    "calendarYear": 2027,
+    "datedTopics": 26,
+    "academicPlanner": "January\u2013December 2027"
+  }
 }

@@ -14,6 +14,7 @@ export function searchRows(entries,categories,paper={}){
   return entries.map(e=>{
     const groups=memberships.get(e.id);
     for(const current of groups){const parent=byPath.get(current)?.parent;if(parent&&byPath.has(parent))groups.add(parent);}
+    for(const c of categories.filter(c=>c.exact)){if(!c.members.includes(e.id))groups.delete(c.path);}
     const assets=Object.fromEntries(Object.entries(e.assets).map(([f,a])=>[f,a.sha256]));
     const pdf=assets.pdf;
     return {id:e.id,title:e.title,subject:e.topic_slug.replaceAll('-',' '),keyword:[e.display_title,alias[e.topic_slug]||''].join(' '),

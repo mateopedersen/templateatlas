@@ -8,9 +8,16 @@ export const entries = seeds.flatMap(seed => {
   const release = releases.get(seed.seed_id);
   return release ? [{...seed, ...release}] : [];
 });
-export const byPath = new Map(entries.flatMap(s=>[[s.topic_path,s],[s.detail_path,s]]));
+export const topicGroups=new Map();
+export const byPath=new Map();
+for(const entry of entries){
+  if(!topicGroups.has(entry.topic_path))topicGroups.set(entry.topic_path,[]);
+  topicGroups.get(entry.topic_path).push(entry);
+  if(!byPath.has(entry.topic_path))byPath.set(entry.topic_path,entry);
+  byPath.set(entry.detail_path,entry);
+}
 export const display = (s) => s.replace(/Business Commerce|Charts Graphs|Education Academic|Design Creative|Food Cooking|Health Medical|Construction Maintenance|Games Entertainment|Home Lifestyle|Music Instruments|Vehicles Transportation|Sports Recreation|Invoices Payments|Contracts Agreements|Marketing Sales|Business Plans Reports|Letters Correspondence|Certificates Licenses/g, m=>m.replace(/ (\S+)$/, ' & $1'));
-export function categoryItems(cat){const members=new Set(cat.members);return entries.filter(s=>s.primary_category_path===cat.path||members.has(s.seed_id));}
+export function categoryItems(cat){const members=new Set(cat.members);return entries.filter(s=>(!cat.exact&&s.primary_category_path===cat.path)||members.has(s.seed_id));}
 export function search(query,format,group){
   const normalize=s=>s.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   const q=normalize(query.slice(0,160)), term=({nda:'non disclosure agreement',cv:'curriculum vitae',invocie:'invoice'})[q]||q;

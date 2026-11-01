@@ -81,6 +81,15 @@ test('local inbox, support tickets and published-only D1 search in workerd',asyn
     assert.equal((await mf.dispatchFetch('https://outside.example/api/admin/support',{headers:{cookie:cookies}})).status,403);
     assert.equal((await req('/api/admin/support',undefined,unlock.headers.get('set-cookie').split(';')[0])).status,403);
   });
+  await t.test('a pending guest transfer cannot strand a newly created draft under its old owner',async()=>{
+    const fresh=(await req('/api/session')).headers.get('set-cookie').split(';')[0],id=fresh.split('=')[1].split('.')[0];
+    await db.prepare('INSERT INTO guest_transfers(guest,target) VALUES(?,?)').bind('guest:'+id,'user:pending-transfer').run();
+    const bucket=await mf.getR2Bucket('USER_DOCUMENTS'),before=(await bucket.list({prefix:'drafts/'})).objects.length;
+    const result=await req('/api/documents',{kind:'grade-calculator',data:{title:'Grade'}},fresh);
+    assert.equal(result.status,403);assert.equal((await result.json()).code,'ACCESS_REVOKED');
+    assert.equal(await db.prepare('SELECT count(*) n FROM member_documents WHERE owner=?').bind('guest:'+id).first('n'),0);
+    assert.equal((await bucket.list({prefix:'drafts/'})).objects.length,before);
+  });
   await t.test('D1 FTS activates complete snapshot, filters on actual asset hashes and honors holds',async()=>{
     const sha='1'.repeat(64),base={id:'ta-invoice-001',title:'Invoice',display_title:'Invoice',topic_slug:'invoice',topic_path:'/templates/invoice/',primary_category_path:'/categories/finance/',summary:'Itemized client billing.',preview:'/previews/demo.webp',assets:{xlsx:{sha256:sha}}};
     await indexRelease(db,[base],[{path:base.primary_category_path,title:'Finance',members:[]}]);

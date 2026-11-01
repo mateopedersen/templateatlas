@@ -1,0 +1,16 @@
+---
+import facts from '../data/file-facts.json';
+import links from '../data/source-links.json';
+import {categories,categoryItems,topicGroups} from '../lib/catalog.mjs';
+const {s,detail}=Astro.props;
+const f=facts[s.id as keyof typeof facts],refs=(links as Record<string,{label:string,url:string}[]>)[s.id]||[];
+const sibling=(topicGroups.get(s.topic_path)||[]).filter((e:any)=>e.id!==s.id);
+const category=categories.find(c=>c.path===s.primary_category_path);
+const related=category?categoryItems(category).filter(e=>e.id!==s.id).sort((a,b)=>Number(b.builder_kind===s.builder_kind)-Number(a.builder_kind===s.builder_kind)||Number(b.year===s.year)-Number(a.year===s.year)||a.title.localeCompare(b.title,'en-US')).slice(0,4):[];
+const nativeName=({docx:'Word document',xlsx:'Excel workbook',pptx:'PowerPoint presentation',svg:'Editable vector graphic'} as Record<string,string>)[f.format];
+const countLabel=f.format==='xlsx'?'worksheets':f.format==='pptx'?'slides':'pages';
+const instructions=({docx:'Fill in the labeled fields, then review the wording and remove drafting notes before sharing.',xlsx:'Enter your figures in the input cells. Review the formulas and print area after adding rows.',pptx:'Edit the slide text and shapes in PowerPoint. Review each slide at presentation size.',svg:'Open the SVG in a vector editor to change text and artwork. Check the output dimensions before printing.'} as Record<string,string>)[f.format];
+---
+<section class="file-guide"><h2>{detail?'Inside the download':'Working with this template'}</h2><p>{instructions}</p><dl class="file-facts"><div><dt>Editable original</dt><dd>{nativeName}</dd></div><div><dt>Document size</dt><dd>{f.format==='svg'?s.pages:f.count} {countLabel}</dd></div><div><dt>Print PDF</dt><dd>{s.pages} {s.pages===1?'page':'pages'} · {f.paper==='letter'?'US Letter':'Original layout'}</dd></div></dl>{f.sections.length>0&&<><h3>{f.format==='xlsx'?'Workbook tabs':'Sections in the original'}</h3><ul>{f.sections.map(h=><li>{h}</li>)}</ul></>}{refs.length>0&&<><h3>Reference materials</h3><ul>{refs.map(ref=><li><a href={ref.url} target="_blank" rel="noopener noreferrer">{ref.label}</a></li>)}</ul></>}{detail&&<details><summary>File verification</summary><p>SHA-256 of the editable original</p><code class="break-hash">{f.hash}</code></details>}</section>
+{sibling.length>0&&<section><h2>More templates in this collection</h2>{sibling.map((x:any)=><p><a href={x.detail_path}>{x.title}</a></p>)}</section>}
+{related.length>0&&<section><h2>Related templates</h2><div class="grid small">{related.map(e=><a class="listlink" href={e.topic_path}><b>{e.title}</b><small>{e.formats.join(' · ').toUpperCase()}</small></a>)}</div></section>}

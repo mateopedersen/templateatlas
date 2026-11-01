@@ -1,3 +1,4 @@
+import {validateForm} from '../forms/model.mjs';
 import {startJob,getJob,jobMimes} from './export-jobs.mjs';
 import { ApiError, actorCall, digest, isId, requireValue, unix, uuid } from './common.mjs';
 import {checkNativeData, checkNativeSource, nativeFields} from '../native/service.mjs';
@@ -29,7 +30,9 @@ async function saveDraft(env,id,data) {
 }
 function checkDocument(kind,templateId,data) {
   requireValue(isId(kind) && (templateId === null || isId(templateId)) && data && typeof data==='object' && !Array.isArray(data));
-  if (kind==='template') {
+  if (kind==='form'){
+    requireValue(templateId===null);try{validateForm(data);}catch{throw new ApiError('VALIDATION_ERROR');}
+  } else if (kind==='template') {
     checkNativeData(templateId,data);
   } else if (kind==='chart') {
     requireValue(!templateId || chartSeedType[templateId]===data.type);
@@ -39,10 +42,15 @@ function checkDocument(kind,templateId,data) {
     requireValue(kind==='invoice' ? templateId===null || templateId==='ta-invoice-001' : templateId===null);
   }
 }
-const titleOf = (kind,data) => String(data.title || data.invoiceNumber || kind.split('-').join(' ')).slice(0,140);
+function ownerGuard(actor){
+  return actor.startsWith('guest:') ? ['NOT EXISTS(SELECT 1 FROM guest_transfers WHERE guest=?)',actor]
+    : ['NOT EXISTS(SELECT 1 FROM member_closures WHERE user_id=?)',actor.slice(5)];
+}
+const titleOf = (kind,data) => String(data.title || (kind==='invoice'&&data.number?'Invoice '+data.number:data.invoiceNumber) || kind.split('-').join(' ')).slice(0,140);
 export async function documents(env,actor,id,method,input={}) {
   if (!id && method==='GET') return {documents:await listDocuments(env,actor)};
   if (method!=='GET') await actorCall(env,actor,'write-limit');
+  const [activeOwner,ownerKey]=ownerGuard(actor);
   if (!id && method==='POST') {
     const {kind,data} = input, templateId = input.templateId || null;
     checkDocument(kind,templateId,data);
@@ -54,11 +62,18 @@ export async function documents(env,actor,id,method,input={}) {
       requireValue(source,'NOT_FOUND');
     }
     const newId=crypto.randomUUID(), key=await saveDraft(env,newId,data);
-    await env.DB.batch([
-      env.DB.prepare(`INSERT INTO member_documents(id,owner,kind,template_id,revision,current_key,title,updated,source_version)
-        VALUES(?,?,?,?,1,?,?,?,?)`).bind(newId,actor,kind,templateId,key,titleOf(kind,data),unix(),source?.version||null),
-      env.DB.prepare('INSERT INTO member_revisions VALUES(?,1,?)').bind(newId,key)
+    const guard=kind==='template'
+      ? " AND EXISTS(SELECT 1 FROM downloadable_assets a WHERE a.template_id=? AND a.version=? AND a.sha256=? AND a.published=1 AND NOT EXISTS(SELECT 1 FROM delivery_holds WHERE template_id=a.template_id))" : '';
+    const [inserted]=await env.DB.batch([
+      env.DB.prepare('INSERT INTO member_documents(id,owner,kind,template_id,revision,current_key,title,updated,source_version) SELECT ?,?,?,?,1,?,?,?,? WHERE '+activeOwner+guard)
+        .bind(newId,actor,kind,templateId,key,titleOf(kind,data),unix(),source?.version||null,ownerKey,...(kind==='template'?[templateId,source.version,source.sha256]:[])),
+      env.DB.prepare('INSERT INTO member_revisions SELECT id,1,current_key FROM member_documents WHERE id=? AND owner=?').bind(newId,actor)
     ]);
+    if(!inserted.meta.changes){
+      await env.USER_DOCUMENTS.delete(key);
+      requireValue(await env.DB.prepare('SELECT 1 WHERE '+activeOwner).bind(ownerKey).first(),'ACCESS_REVOKED');
+      throw new ApiError('REVISION_CONFLICT');
+    }
     return {id:newId,revision:1};
   }
   const doc = await owned(env,actor,id);
@@ -67,13 +82,14 @@ export async function documents(env,actor,id,method,input={}) {
     let formats=doc.kind==='chart'?chartFormats(data.type,rendererAvailable(env)):doc.kind==='template'?[]:formatsFor(doc.kind);
     let source;
     if(doc.kind==='template'){
-      try{source=await nativeFields(env,doc.template_id,doc.source_version,data.sourceHash);formats=source.formats;}
+      try{source=await nativeFields(env,doc.template_id,doc.source_version,data.sourceHash,doc.id);formats=source.formats;}
       catch(error){if(!(error instanceof ApiError)||error.message!=='FORMAT_UNAVAILABLE')throw error;}
     }
     return {id,revision:doc.revision,kind:doc.kind,title:doc.title,templateId:doc.template_id,data,formats,...(source?{source}:{})};
   }
   if (method==='DELETE') {
-    await env.DB.prepare('UPDATE member_documents SET deleted=? WHERE id=? AND owner=?').bind(unix(),id,actor).run();
+    const r=await env.DB.prepare('UPDATE member_documents SET deleted=? WHERE id=? AND owner=? AND '+activeOwner).bind(unix(),id,actor,ownerKey).run();
+    requireValue(r.meta.changes===1,'ACCESS_REVOKED');
     return {deleted:true};
   }
   requireValue(method==='PATCH','METHOD_NOT_ALLOWED');
@@ -83,12 +99,12 @@ export async function documents(env,actor,id,method,input={}) {
   if(doc.kind==='template') {
     const prior=await readDraft(env,doc.current_key);
     requireValue(input.data.sourceHash===prior.sourceHash,'REVISION_CONFLICT');
-    await checkNativeSource(env,doc.template_id,input.data,doc.source_version);
+    await checkNativeSource(env,doc.template_id,input.data,doc.source_version,doc.id);
   }
   const key=await saveDraft(env,id,input.data), next=doc.revision+1;
   const [r] = await env.DB.batch([
-    env.DB.prepare('UPDATE member_documents SET revision=?,current_key=?,title=?,updated=? WHERE id=? AND owner=? AND revision=? AND deleted IS NULL')
-      .bind(next,key,titleOf(doc.kind,input.data),unix(),id,actor,doc.revision),
+    env.DB.prepare('UPDATE member_documents SET revision=?,current_key=?,title=?,updated=? WHERE id=? AND owner=? AND revision=? AND deleted IS NULL AND '+activeOwner)
+      .bind(next,key,titleOf(doc.kind,input.data),unix(),id,actor,doc.revision,ownerKey),
     env.DB.prepare('INSERT OR IGNORE INTO member_revisions SELECT id,revision,current_key FROM member_documents WHERE id=? AND owner=? AND revision=? AND current_key=? AND deleted IS NULL')
       .bind(id,actor,next,key)
   ]);

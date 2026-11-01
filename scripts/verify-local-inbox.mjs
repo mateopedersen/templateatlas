@@ -2,7 +2,7 @@
 // Usage: node scripts/verify-local-inbox.mjs path/to/.dev.vars [evidence.json]
 import {readFile,writeFile} from 'node:fs/promises';
 import {parseEnv} from 'node:util';
-import {createHmac,randomBytes,randomUUID} from 'node:crypto';
+import {createHmac,createHash,randomBytes,randomUUID} from 'node:crypto';
 const env=parseEnv(await readFile(process.argv[2]||'.dev.vars','utf8')),base=new URL(env.PUBLIC_SITE_URL);
 if(env.DEPLOY_STAGE!=='local'||env.LOCAL_MAILBOX_ENABLED!=='true'||!['localhost','127.0.0.1','[::1]'].includes(base.hostname)||!env.LOCAL_MAILBOX_SECRET?.length)throw Error('Requires the explicit, isolated local capture configuration.');
 const jar=new Map(),email='qa-'+randomUUID()+'@example.test',password=randomBytes(32).toString('hex');
@@ -23,9 +23,23 @@ if(!message||message.text.includes('token='))throw Error('Expected a sanitized l
 await call('/api/dev/mailbox/open',{id:message.id});
 const verified=await call('/api/session');
 if(verified.user?.email!==email||!verified.user.verified||!verified.premium||Math.abs(verified.trialEndsAt-Math.floor(Date.now()/1000)-2592000)>15)throw Error('Verified session or UTC trial did not match policy.');
+let deliveryAudit=null;
+if(process.argv.includes('--full-library')){
+ const {entries}=await import('../src/lib/catalog.mjs');const tasks=entries.flatMap(e=>Object.entries(e.assets).map(([format,file])=>({id:e.id,format,file})));let at=0,verified=0,bytesRead=0;const failed=[];
+ const cookie=[...jar].map(([k,v])=>k+'='+v).join('; ');
+ async function next(){for(;;){const task=tasks[at++];if(!task)return;
+  try{const r=await fetch(new URL('/api/download-intents',base),{method:'POST',headers:{origin:base.origin,cookie,'content-type':'application/json','idempotency-key':randomUUID()},body:JSON.stringify({templateId:task.id,format:task.format})});
+   if(!r.ok)throw Error('intent '+r.status);const {url}=await r.json();if(!url.startsWith('/api/downloads/'))throw Error('ticket target');
+   const d=await fetch(new URL(url,base),{headers:{cookie}}),bytes=new Uint8Array(await d.arrayBuffer());
+   if(d.status!==200||d.headers.get('content-type')!==task.file.mime||bytes.length!==task.file.bytes||createHash('sha256').update(bytes).digest('hex')!==task.file.sha256)throw Error('delivered content mismatch');
+   verified++;bytesRead+=bytes.length;
+  }catch(err){failed.push({id:task.id,format:task.format,reason:err.message});}
+ }}
+ await Promise.all(Array.from({length:4},next));deliveryAudit={logicalTemplates:entries.length,expectedFiles:tasks.length,verified,bytesRead,failed};
+}
 await call('/api/account',{password,confirm:'DELETE'},'DELETE');
 const after=await call('/api/session');if(after.user!==null)throw Error('Expected local QA session to be revoked.');
 const results={testedAt:new Date().toISOString(),origin:base.origin,isolatedLocalMailCapture:true,persistentGuestSession:true,
- realEmailVerificationTokenConsumed:true,sanitizedMailboxPreview:true,verifiedTrialSeconds:2592000,localTestAccountClosureRequested:true,sessionRevoked:true,externalEmailDeliveryTested:false};
+ realEmailVerificationTokenConsumed:true,sanitizedMailboxPreview:true,verifiedTrialSeconds:2592000,localTestAccountClosureRequested:true,sessionRevoked:true,externalEmailDeliveryTested:false,deliveryAudit};
 if(process.argv[3])await writeFile(process.argv[3],JSON.stringify(results,null,2)+'\n');
-console.log(JSON.stringify(results));
+console.log(JSON.stringify({...results,deliveryAudit:deliveryAudit?{...deliveryAudit,failed:deliveryAudit.failed.slice(0,5)}:null}));if(deliveryAudit?.failed.length)process.exitCode=1;

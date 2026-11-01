@@ -43,7 +43,27 @@ function officeText(xml,type,part,fields,add,changes){
    if(Object.hasOwn(changes,id))ns.forEach((node,i)=>replacements.push(inner(node,i===0?changes[id]:'')));
   }
  }
- return replaceSlices(xml,replacements);
+ // Append optional-section controls after existing fields so saved field IDs remain stable.
+ const omitted=[];
+ if(wordFile&&fields.length<64){
+  const paragraphs=[...xml.matchAll(/<w:p(?:\s[^>]*)?>[\s\S]*?<\/w:p>/g)];
+  for(const [i,p] of paragraphs.entries()){
+   if(fields.length>=64)break;
+   const name=nodes(p[0],tag).map(n=>n.v).join('').trim();
+   const isHeading=/<w:pStyle\s[^>]*w:val=["']Heading[1-6]["']/.test(p[0]);
+   if(!isHeading||!/^Working notes$/i.test(name))continue;
+   let end=p.index+p[0].length;
+   // This approved section consists exclusively of the heading and its blank writing lines.
+   for(const next of paragraphs.slice(i+1)){
+    if(xml.slice(end,next.index).trim()||nodes(next[0],tag).some(n=>n.v.trim())||/<w:(drawing|sdt|sectPr|br)\b/.test(next[0]))break;
+    end=next.index+next[0].length;
+   }
+   if(end===p.index+p[0].length)continue;
+   const id=add(name+' · optional section','section',7);
+   if(changes[id]==='omit')omitted.push([p.index,end,'']);
+  }
+ }
+ return replaceSlices(xml,[...replacements.filter(([start])=>!omitted.some(([a,b])=>start>=a&&start<b)),...omitted]);
 }
 function svgText(xml,fields,add,changes){
  const ns=nodes(xml,/<text(?:\s[^>]*)?>([^<]*)<\/text>/g);const groups=new Map();
@@ -90,6 +110,7 @@ export function nativeEditor(bytes,format,changes={},options={}){
  if(!changes||Array.isArray(changes)||typeof changes!=='object'||Object.keys(changes).length>64)throw Error('Invalid template edits.');
  const fields=[];const add=(label,type,maxLength)=>{const id='f'+(fields.length+1);fields.push({id,label:clean(label).slice(0,95),type,maxLength});
   if(Object.hasOwn(changes,id)){const v=changes[id];if(typeof v!=='string'||!v.trim()||v.length>maxLength||clean(v)!==v)throw Error('Enter a valid value for '+label+'.');
+   if(type==='section'&&!['include','omit'].includes(v))throw Error('Choose whether to include this optional section.');
    if(type==='number'&&(!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(v)||!Number.isFinite(Number(v))||Math.abs(Number(v))>1e12))throw Error('Enter a valid number.');
    if(type==='date'&&(!/^\d{4}-\d\d-\d\d$/.test(v)||v<'1900-03-01'||v>'9999-12-31'||!Number.isFinite(Date.parse(v+'T00:00:00Z'))||new Date(v+'T00:00:00Z').toISOString().slice(0,10)!==v))throw Error('Enter a valid date.');}
   return id;};

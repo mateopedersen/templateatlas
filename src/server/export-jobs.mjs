@@ -1,4 +1,4 @@
-import {ApiError,actorCall,digest,requireValue,unix} from './common.mjs';
+import {ApiError,actorCall,digest,hex,requireValue,unix} from './common.mjs';
 import {renderNative} from '../native/service.mjs';
 import {convertPrivate,rendererAvailable} from '../native/renderer.mjs';
 import {chartFormats} from '../charts/capabilities.mjs';
@@ -27,8 +27,8 @@ async function render(env,job,options){
   let result;try{result=await exportChart(data,convert?'svg':job.format);}catch{throw new ApiError('VALIDATION_ERROR');}
   return convert?convertPrivate(env,result.bytes,'svg',job.format):result;
  }
- requireValue(options?.renderDocument,'FORMAT_UNAVAILABLE');
- try{return await options.renderDocument({kind:job.kind,data,templateId:job.template_id,format:job.format,paper:'letter'});}
+ const renderDocument=options?.renderDocument??(await import('../lib/render.mjs')).renderDocument;
+ try{return await renderDocument({kind:job.kind,data,templateId:job.template_id,format:job.format,paper:'letter'});}
  catch{throw new ApiError('VALIDATION_ERROR');}
 }
 function metadata(job,obj){
@@ -37,7 +37,15 @@ function metadata(job,obj){
  return {sha,size:obj.size};
 }
 async function recoverObject(env,job){
- const prior=await env.USER_DOCUMENTS.head(job.object_key);return prior?metadata(job,prior):null;
+ const prior=await env.USER_DOCUMENTS.head(job.object_key);
+ if(!prior)return null;
+ const rec=metadata(job,prior);
+ if(prior.checksums?.sha256)requireValue(hex(prior.checksums.sha256)===rec.sha,'FORMAT_UNAVAILABLE');
+ else{
+  const object=await env.USER_DOCUMENTS.get(job.object_key);
+  requireValue(object&&await digest(await object.arrayBuffer())===rec.sha,'FORMAT_UNAVAILABLE');
+ }
+ return rec;
 }
 async function runJob(env,id,options){
  const now=unix(),token=crypto.randomUUID();
@@ -49,6 +57,7 @@ async function runJob(env,id,options){
   await actorCall(env,job.owner,'can-export',{resource:job.template_id?'template:'+job.template_id:'document:'+job.document_id});
   let rec=await recoverObject(env,job);
   if(!rec){
+   await actorCall(env,job.owner,'write-limit');
    const output=await render(env,job,options);const bytes=output?.bytes;
    requireValue(bytes?.byteLength>0&&bytes.byteLength<=8000000&&output.mime===mime[job.format],'FORMAT_UNAVAILABLE');
    const hash=await digest(bytes);
@@ -100,10 +109,9 @@ export async function startJob(env,actor,doc,rev,format,idem,options,ctx){
  await actorCall(env,actor,'can-export',{resource:doc.template_id?'template:'+doc.template_id:'document:'+doc.id});
  const asset=await finalAsset(env,actor,id);if(asset){await env.DB.prepare('UPDATE export_receipts SET asset_id=? WHERE owner=? AND idem=?').bind(id,actor,idem).run();return asset;}
  const key='exports/'+doc.id+'/'+rev+'/'+fingerprint+'.'+format;
- const added=await env.DB.prepare(`INSERT OR IGNORE INTO export_jobs(id,document_id,revision,format,object_key,created)
+ await env.DB.prepare(`INSERT OR IGNORE INTO export_jobs(id,document_id,revision,format,object_key,created)
    SELECT ?,d.id,?,?,?,? FROM member_documents d JOIN member_revisions r ON d.id=r.document_id AND r.revision=?
    WHERE d.id=? AND d.owner=? AND d.deleted IS NULL AND `+released).bind(id,rev,format,key,unix(),rev,doc.id,actor).run();
- if(added.meta.changes)await actorCall(env,actor,'write-limit');
  await env.DB.prepare("UPDATE export_jobs SET state='queued',attempts=0,error_code=NULL,next_attempt=0 WHERE id=? AND state='failed' AND error_code IN ('DEPENDENCY_UNAVAILABLE','RATE_LIMITED','SIGNUP_REQUIRED','EMAIL_VERIFICATION_REQUIRED','MEMBERSHIP_REQUIRED','ACCESS_REVOKED')").bind(id).run();
  const job=await env.DB.prepare(stateQuery+' WHERE j.id=? AND d.owner=? AND d.deleted IS NULL AND '+released).bind(id,actor).first();requireValue(job,'NOT_FOUND');
  // Native downloads resolve in the request; expensive conversions continue under a lease.

@@ -17,14 +17,15 @@ test('workerd HTTP, SQLite D1/DO and R2 with local email and Stripe service doub
     export {DownloadActor} from './src/server/index.mjs';export default {fetch:handleApi};`,resolveDir:root},
     platform:'browser',bundle:true,format:'esm',write:false,conditions:['workerd','worker','browser'],external:['node:*']});
   const mail=[], signing=secret();
-  let stripeSubscribed=true;
+  let stripeSubscribed=true, conversions=0;
   const adminKeys=await generateKeyPair('RS256'), operatorSeed=randomBytes(20);
   const publicKey={...await exportJWK(adminKeys.publicKey),kid:'unit-key',alg:'RS256',use:'sig'};
   const issuer='https://atlas-tests.cloudflareaccess.com',operator='operator@example.test';
   const adminToken=aud=>new SignJWT({type:'app',email:operator}).setSubject('test-operator').setProtectedHeader({alg:'RS256',kid:'unit-key'}).setAudience(aud).setIssuer(issuer).setIssuedAt().setExpirationTime('10m').sign(adminKeys.privateKey);
   const mf=new Miniflare(convertV4MiniflareOptions({modules:true,script:bundled.outputFiles[0].text,compatibilityDate:'2026-10-01',compatibilityFlags:['nodejs_compat'],
     d1Databases:['DB'],r2Buckets:['ASSET_ORIGINALS','USER_DOCUMENTS'],durableObjects:{DOWNLOAD_ACTORS:{className:'DownloadActor',useSQLite:true}},
-    bindings:{ACCESS_ISSUER:issuer,ACCESS_AUD:'unit-app',ADMIN_TOTP_KEYS:JSON.stringify({[operator]:base32.encode(operatorSeed,{padding:false})}),PUBLIC_SITE_URL:origin,GUEST_COOKIE_SIGNING_KEY:secret(),DOWNLOAD_TOKEN_SECRET:secret(),AUTH_SECRET:secret(),
+    serviceBindings:{PRIVATE_RENDERER:async r=>{conversions++;await r.arrayBuffer();await new Promise(done=>setTimeout(done,100));const pdf='%PDF-1.4\nTest renderer';return new Response(pdf,{headers:{'content-type':'application/pdf','content-length':String(pdf.length)}});}},
+    bindings:{RENDER_SECRET:secret(),ACCESS_ISSUER:issuer,ACCESS_AUD:'unit-app',ADMIN_TOTP_KEYS:JSON.stringify({[operator]:base32.encode(operatorSeed,{padding:false})}),PUBLIC_SITE_URL:origin,GUEST_COOKIE_SIGNING_KEY:secret(),DOWNLOAD_TOKEN_SECRET:secret(),AUTH_SECRET:secret(),
       EMAIL_API_KEY:secret(),EMAIL_FROM:'TemplateAtlas <verify@example.test>',STRIPE_WEBHOOK_SECRET:signing,STRIPE_SECRET_KEY:'sk_test_'+secret(),STRIPE_PRICE_ID_MONTHLY:'price_demo'},
     outboundService:async request=>{
       const u=new URL(request.url);
@@ -192,6 +193,64 @@ test('workerd HTTP, SQLite D1/DO and R2 with local email and Stripe service doub
     }
     assert.equal((await(await req('/api/session',input)).json()).freeUsed,1);
     assert.equal((await post('/api/documents',{kind:'template',templateId,data:{...data,sourceHash:'0'.repeat(64)}})).status,409);
+    const newBytes=Buffer.from('<svg xmlns="http://www.w3.org/2000/svg"><text>Last name</text></svg>');
+    const newHash=createHash('sha256').update(newBytes).digest('hex');
+    await r2.put('upgraded-card',newBytes,{customMetadata:{sha256:newHash}});
+    await db.batch([db.prepare('UPDATE downloadable_assets SET published=0 WHERE template_id=?').bind(templateId),
+      db.prepare("INSERT INTO downloadable_assets(id,template_id,version,format,object_key,sha256,size_bytes,filename,mime,published) VALUES(?,?,'v2','svg',?,?,?,'card.svg','image/svg+xml',1)").bind('newcard',templateId,'upgraded-card',newHash,newBytes.length)]);
+    const reopened=await(await req('/api/documents/'+doc.id,input)).json();assert.equal(reopened.source.sourceVersion,'v1');assert.equal(reopened.source.fields[0].label,'Guest name');
+    const current=await(await req('/api/template-fields/'+templateId,input)).json();assert.equal(current.sourceVersion,'v2');assert.equal(current.fields[0].label,'Last name');
+    assert.equal((await post('/api/documents',{kind:'template',templateId,data})).status,409);
+    const createdV2=await post('/api/documents',{kind:'template',templateId,data:{...data,sourceVersion:'v2',sourceHash:newHash}});assert.equal(createdV2.status,200);
+    // Restore a pre-migration draft whose release ID was overwritten when only the PDF changed.
+    const v2Doc=await createdV2.json(),legacyData={...data,sourceVersion:'legacy-companion-release',sourceHash:newHash},docsBucket=await mf.getR2Bucket('USER_DOCUMENTS');
+    await docsBucket.put('drafts/'+v2Doc.id+'/legacy',JSON.stringify(legacyData));
+    await db.batch([db.prepare('UPDATE member_documents SET source_version=?,current_key=? WHERE id=?').bind(legacyData.sourceVersion,'drafts/'+v2Doc.id+'/legacy',v2Doc.id),
+      db.prepare('UPDATE member_revisions SET object_key=? WHERE document_id=? AND revision=1').bind('drafts/'+v2Doc.id+'/legacy',v2Doc.id)]);
+    const old=await(await req('/api/documents/'+v2Doc.id,input)).json();assert.equal(old.source.sourceHash,newHash);assert.equal(old.source.sourceVersion,'legacy-companion-release');
+    assert.equal(await db.prepare('SELECT COUNT(*) FROM catalog_version_files WHERE template_id=? AND version=? AND sha256=?').bind(templateId,'legacy-companion-release',newHash).first('COUNT(*)'),1);
+    assert.equal((await post('/api/documents',{kind:'template',templateId,data:legacyData})).status,409);
+
+    assert.equal((await req('/api/documents/'+doc.id,{cookie:owner,method:'PATCH',body:{expectedRevision:2,data:{...data,edits:{f1:'Casey'}}}})).status,200);
+    const batch=await Promise.all(Array.from({length:12},()=>post('/api/exports',{documentId:doc.id,documentRevision:3,format:'pdf'})));
+    const snapshots=await Promise.all(batch.map(r=>r.json()));assert.equal(new Set(snapshots.map(a=>a.id)).size,1);assert.ok(snapshots.every(a=>['queued','running','succeeded'].includes(a.state)));
+    const jobId=snapshots[0].id;assert.equal((await req('/api/exports/'+jobId,{cookie:another})).status,404);
+    let job=snapshots[0];for(let i=0;i<60&&job.state!=='succeeded';i++){await new Promise(done=>setTimeout(done,30));job=await(await req('/api/exports/'+jobId,input)).json();}
+    assert.equal(job.state,'succeeded');assert.equal(conversions,1);
+    // Simulate a process exiting after writing bytes, before the publication transaction.
+    await db.batch([db.prepare('UPDATE export_receipts SET asset_id=NULL WHERE asset_id=?').bind(jobId),
+      db.prepare('DELETE FROM downloadable_assets WHERE id=?').bind(jobId),
+      db.prepare("UPDATE export_jobs SET state='running',lease_token='expired',next_attempt=0,attempts=3 WHERE id=?").bind(jobId)]);
+    job=await(await req('/api/exports/'+jobId,input)).json();for(let i=0;i<60&&job.state!=='succeeded';i++){await new Promise(done=>setTimeout(done,30));job=await(await req('/api/exports/'+jobId,input)).json();}
+    assert.equal(job.state,'succeeded');assert.equal(conversions,1);
+    const uploaded=await(await mf.getR2Bucket('USER_DOCUMENTS')).list({prefix:'exports/'+doc.id+'/3/'});assert.equal(uploaded.objects.length,1);
+    const pdfTicket=(await(await post('/api/download-intents',job.intent)).json()).url;assert.equal((await req(pdfTicket,input)).headers.get('content-type'),'application/pdf');
+    // A global hold also applies to the historical version and tickets issued before the hold.
+    await db.prepare("INSERT INTO operator_audit(id,operator,action,target,reason,created) VALUES('version-hold','operator','unpublish',?,'Testing hold',1)").bind(templateId).run();
+    await db.prepare("INSERT INTO delivery_holds(template_id,audit_id) VALUES(?,'version-hold')").bind(templateId).run();
+    const held=await(await req('/api/documents/'+doc.id,input)).json();assert.equal(held.source,undefined);assert.deepEqual(held.formats,[]);assert.equal((await req(pdfTicket,input)).status,404);
+
+  });
+
+  await t.test('form designer saves stable IDs, protects ownership and exports the requested revision as Word and fillable PDF',async()=>{
+    const owner=await guest(),other=await guest(),data={title:'Volunteer sign-up',description:'Choose an available shift.',fields:[
+      {id:'contact_name',type:'short',label:'Your name',required:true,options:[]},
+      {id:'shift_choice',type:'choice',label:'Shift',required:true,options:['Morning','Evening']}]};
+    const call=(path,body,method='POST',cookie=owner)=>req(path,{cookie,method,body,headers:{'idempotency-key':crypto.randomUUID()}});
+    const saved=await call('/api/documents',{kind:'form',data});assert.equal(saved.status,200);const d=await saved.json();
+    assert.equal((await req('/api/documents/'+d.id,{cookie:other})).status,404);
+    const changed={...data,fields:[data.fields[1],data.fields[0]]};assert.equal((await call('/api/documents/'+d.id,{expectedRevision:1,data:changed},'PATCH')).status,200);
+    assert.equal((await call('/api/documents/'+d.id,{expectedRevision:2,data},'PATCH',other)).status,404);
+    assert.equal((await call('/api/documents',{kind:'form',templateId:'t1',data})).status,400);
+    assert.equal((await call('/api/documents',{kind:'form',data:{...data,fields:[data.fields[0],data.fields[0]]}})).status,400);
+    for(const [format,rev] of [['docx',1],['pdf',2]]){
+      assert.equal((await call('/api/exports',{documentId:d.id,documentRevision:rev,format},'POST',other)).status,404);
+      const r=await call('/api/exports',{documentId:d.id,documentRevision:rev,format});assert.equal(r.status,200);const e=await r.json();assert.equal(e.state,'succeeded');
+      const u=(await(await call('/api/download-intents',e.intent)).json()).url;const file=await req(u,{cookie:owner});assert.equal(file.status,200);
+      const bytes=new Uint8Array(await file.arrayBuffer());if(format==='docx'){const {unzipSync,strFromU8}=await import('fflate');const xml=strFromU8(unzipSync(bytes)['word/document.xml']);assert.ok(xml.indexOf('contact_name')<xml.indexOf('shift_choice'));}
+      else{const {PDFDocument}=await import('pdf-lib');const form=(await PDFDocument.load(bytes)).getForm();assert.deepEqual(form.getFields().map(f=>f.getName()),['field_shift_choice','field_contact_name']);assert.ok(form.getTextField('field_contact_name').isRequired());}
+    }
+    assert.equal((await(await req('/api/session',{cookie:owner})).json()).freeUsed,1);
   });
 
 });
