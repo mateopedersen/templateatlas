@@ -115,8 +115,22 @@ function signInRequired(parent) {
 async function authPage(path) {
   const f = root().querySelector('[data-auth-form]');
   if (!f) return;
+  const needsMail = [
+    '/signup/',
+    '/forgot-password/',
+    '/verify-email/',
+  ].includes(path);
+  const submit = f.querySelector('button');
+  if (needsMail) submit.disabled = true;
   api('/api/session')
     .then((s) => {
+      if (needsMail) {
+        submit.disabled = !s.accountEmailConfigured;
+        if (submit.disabled)
+          status(
+            'Account email is temporarily unavailable. Please try again later.',
+          );
+      }
       if (s.localTestInbox)
         f.prepend(
           node(
@@ -126,7 +140,12 @@ async function authPage(path) {
           ),
         );
     })
-    .catch(() => {});
+    .catch(() => {
+      if (needsMail)
+        status(
+          'Account email is temporarily unavailable. Please try again later.',
+        );
+    });
   f.onsubmit = async (e) => {
     e.preventDefault();
     const b = f.querySelector('button'),
@@ -140,7 +159,9 @@ async function authPage(path) {
           ...d,
           callbackURL: location.origin + safeReturn(),
         });
-        status('Check your inbox for the verification link.');
+        status(
+          'Check your inbox for the verification link. If you already have an account, sign in or request a fresh verification email.',
+        );
         f.reset();
       } else if (path === '/signin/') {
         await api('/api/auth/sign-in/email', {
@@ -198,16 +219,23 @@ const when = (n, tz) =>
     timeZone: tz || undefined,
   }).format(new Date(n * 1000));
 async function pricing(parent, session) {
-  const s = section(
-    parent,
-    'Paid membership',
-    'A paid plan starts when you purchase it, including during a trial. Review the price and renewal terms before confirming in Checkout.',
-  );
+  const s = section(parent, 'Paid membership');
   const { plans, testMode } = await api('/api/billing/plans');
   if (!plans.length) {
-    s.append(node('p', 'Paid plans are currently unavailable.'));
+    s.append(
+      node(
+        'p',
+        'Paid subscriptions are currently unavailable. Your trial ends automatically without a charge. Templates you selected for free remain available afterward.',
+      ),
+    );
     return;
   }
+  s.append(
+    node(
+      'p',
+      'A paid plan starts when you purchase it. Review the price and renewal terms before confirming in Checkout.',
+    ),
+  );
   if (testMode)
     s.append(
       node(

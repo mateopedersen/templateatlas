@@ -8,7 +8,8 @@ import {
   ApiError,
   isId,
 } from './common.mjs';
-import { auth, identify, resumeTransfers } from './identity.mjs';
+import { authResponse, identify, resumeTransfers } from './identity.mjs';
+import { accountEmailConfigured, reserveEmailBudget } from './email.mjs';
 import { intent, deliver } from './delivery.mjs';
 import {
   documents,
@@ -93,13 +94,7 @@ export async function handleApi(request, env, ctx, options = {}) {
           'change-email',
         ].includes(route)
       ) {
-        requireValue(
-          localMailEnabled(env) ||
-            (env.EMAIL_API_KEY &&
-              env.EMAIL_FROM &&
-              env.LOCAL_MAILBOX_ENABLED !== 'true'),
-          'DEPENDENCY_UNAVAILABLE',
-        );
+        requireValue(accountEmailConfigured(env), 'EMAIL_DELIVERY_UNAVAILABLE');
       }
       validateReturn(url.searchParams.get('callbackURL'), env.PUBLIC_SITE_URL);
       if (request.method === 'POST') {
@@ -112,7 +107,6 @@ export async function handleApi(request, env, ctx, options = {}) {
         ])
           validateReturn(payload[key], env.PUBLIC_SITE_URL);
         if (
-          localMailEnabled(env) &&
           [
             'sign-up/email',
             'send-verification-email',
@@ -124,11 +118,15 @@ export async function handleApi(request, env, ctx, options = {}) {
             route === 'change-email' ? payload.newEmail : payload.email;
           requireValue(
             typeof email === 'string' &&
-              /^[^@\s]{1,64}@example\.test$/i.test(email),
+              email.length <= 254 &&
+              /^[^@\s]+@[^@\s]+$/.test(email),
           );
+          if (localMailEnabled(env))
+            requireValue(/^[^@\s]{1,64}@example\.test$/i.test(email));
+          await reserveEmailBudget(env, email, 'request');
         }
       }
-      const r = await auth(env).handler(request);
+      const r = await authResponse(env, request);
       const secured = new Response(r.body, r);
       secured.headers.set('Cache-Control', 'private, no-store');
       secured.headers.set('Referrer-Policy', 'no-referrer');
@@ -164,6 +162,7 @@ export async function handleApi(request, env, ctx, options = {}) {
       method(request, ['GET']);
       response = json({
         localTestInbox: localMailEnabled(env),
+        accountEmailConfigured: accountEmailConfigured(env),
         user: identity.user
           ? {
               name: identity.user.name,

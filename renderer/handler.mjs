@@ -50,6 +50,9 @@ export async function proxy(container,request,secret){
   if(rendered.status!==200){await rendered.body?.cancel();return invalid(rendered.status===422?422:503);}
   const type=rendered.headers.get('content-type'),size=Number(rendered.headers.get('content-length'));
   if(!['application/pdf','image/jpeg'].includes(type)||!Number.isSafeInteger(size)||size<1||size>maxBytes){await rendered.body?.cancel();return invalid(502);}
-  return new Response(rendered.body,{headers:{...privateHeaders,'Content-Type':type,'Content-Length':String(size)}});
+  const verified=await rendered.arrayBuffer();
+  if(verified.byteLength!==size)return invalid(502);
+  // Known-length body survives both Cloudflare service-binding hops.
+  return new Response(verified,{headers:{...privateHeaders,'Content-Type':type,'Content-Length':String(size)}});
  }catch{return invalid(503);}
 }

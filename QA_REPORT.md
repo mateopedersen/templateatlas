@@ -1,4 +1,21 @@
-# Local release verification
+# Production release verification
+
+The public domain serves the US English application over HTTPS. The www host redirects to the apex. Cloudflare deploys the Astro application and an independently authenticated private Linux renderer.
+
+| Check | Production evidence |
+| --- | --- |
+| Storage | Read all 2,508 R2 bodies, 84,580,363 bytes. Every SHA-256, MIME type and byte count matched. A separate six-page bucket inventory found no extras. Both buckets have public access disabled. |
+| Catalog | 1,146 active templates, 2,508 version records, and 1,146 search records verified after activation. |
+| Routes | 2,415 successful HTML responses, 5 protected admin routes and all 1,202 single-hop redirects passed. The sitemap listed 2,375 URLs. |
+| Search | 20 package fixtures, 60 exact subjects and all 6 filter combinations passed against the production search API. |
+| Guest downloads | Five distinct files were delivered through regular signed links across DOCX, PPTX, SVG, XLSX and PDF. Repeat delivery left usage at five. The sixth distinct selection required registration. |
+| Editing | A personalized one-page chart PDF and a 1,800-pixel JPEG passed. Repeated previews used the cache, changing the revision changed the protected preview, and another guest could not read the document. Test drafts were marked for deletion. |
+| Build and business rules | 71 local automated tests passed with real conversion enabled. The linux/amd64 production image passed a separate build, security and document conversion test on GitHub. |
+| Identity and payments | Cloudflare Email Sending is configured. Public DNS returned SPF, DKIM and DMARC for the sending subdomain. The first-inbox test is reserved for the owner. No live customer charge was attempted. Administrator access and paid checkout are disabled by owner decision. |
+
+Operator releases are manual. GitHub checks run on changes. The worker is connected to the main branch. Cloudflare builds that would provision an account-wide deployment token are disabled.
+
+## Earlier local release verification
 
 The installation ZIP passed all 47 package checks and all 105 supplied file hashes matched. Local generation and delivery were checked independently. The catalog contains 1,146 different native master hashes and 1,146 different PDF hashes. There are 2,508 downloadable files and 1,146 first-page preview associations.
 
@@ -16,5 +33,3 @@ The installation ZIP passed all 47 package checks and all 105 supplied file hash
 | Recovery | All private originals were verified from an isolated restored database/object store. An earlier code version served the restored invoice page and returned its correct PDF through the protected download path. |
 
 The public GitHub source contains the application, reviewed preview images, source metadata and test code. Private production recipes, originals, signed download tickets, users' documents, accounts and secret values are excluded.
-
-The owner handoff includes a separate, condition-by-condition review of the 136 acceptance scenarios. Passing local checks does not establish live production status. The public domain, managed production Worker, external verification email, actual provider checkout, production observability and production recovery still require release validation. Live payment prices and business/legal information have not been supplied. No Canva or native Adobe integration is advertised.

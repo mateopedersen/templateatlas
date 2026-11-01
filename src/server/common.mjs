@@ -17,6 +17,7 @@ const status = {
   RANGE_NOT_SATISFIABLE: 416,
   RATE_LIMITED: 429,
   DEPENDENCY_UNAVAILABLE: 503,
+  EMAIL_DELIVERY_UNAVAILABLE: 503,
 };
 export class ApiError extends Error {
   constructor(code) {

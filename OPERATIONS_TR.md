@@ -1,6 +1,6 @@
 # TemplateAtlas yönetim rehberi
 
-## Kurulumu açma
+## Yerel kurulumu açma
 
 Bu sürüm seçilen Mac'te yerel Cloudflare Workers motoruyla çalışır. Tarayıcıda [TemplateAtlas](http://localhost:4321/) adresini açın. Taşınabilir özel kurulum ZIP’ini açtıysanız kök klasördeki **TemplateAtlas Baslat.command** dosyasını çift tıklayın. Terminal açık kaldığı sürece site çalışır. Kapatmak için o pencerede Control-C kullanın.
 
@@ -18,7 +18,7 @@ Bir test adresiyle kayıt olun, örneğin **reader@example.test**. Bu modda mesa
 
 Bir misafir beş farklı mantıksal kaynak seçebilir. Bir belgenin farklı biçimleri ve yeniden indirilmesi aynı seçimi kullanır. Doğrulanan hesapta 30 × 24 saatlik deneme sunucu saatinde bir defa başlar. İlk ücretsiz seçimler korunur. Denemenin bitmesi otomatik tahsilat başlatmaz. Hesap ayarlarından kişisel verileri alma ve hesap kapatma abonelikten bağımsızdır.
 
-## Yönetici erişimi
+## Yerel yönetici erişimi
 
 İlk açılıştan sonra **Yonetici Kur.command** dosyasını çalıştırın. Özel kurulum sayfasındaki anahtarı zaman tabanlı doğrulayıcınıza ekleyin. Anahtarı güvenli yerde saklayın. Kurulum sayfasını kapatıp geçici kayıt dosyasını yönergede gösterildiği şekilde kaldırın. Önizlemeyi durdurup yeniden başlatın. **Yonetim Panelini Ac.command** dosyasını açıp doğrulayıcıdaki altı haneli kodu girin.
 
@@ -41,11 +41,16 @@ Geri yüklemeyi yeni bir klasöre yapın. `python3 scripts/checkpoint.py restore
 
 Kod sürümünü geri alırken önceki Git commitini ve o sürümün katalog manifestini ayrı klasörde açın. Şema uyumunu ve seçilmiş bir dosyanın baytlarını sınayın. İnceleme bitmeden eski kopyayı asıl çalışma klasörünün yerine koymayın. Üretim ödemesi açılırsa geri yükleme sonrası sağlayıcının güncel abonelik durumuyla yeniden eşitleme gerekir.
 
-## Canlı yayın koşulları
+## Canlı işletim
 
-Seçilen Cloudflare hesabının R2 yazma, R2 depolama ve Workers işlem süresi kullanımı dahil kotayı geçmişti. Bu nedenle çalışır sistem, e-posta testleri ve dosyalar yerelde tutuldu. İki özel R2 alanı ile bir ön yayın D1 veritabanı ayrıldı. Üretim alan adına yönlendirme ve uzakta ücret doğurabilecek dosya yüklemesi yapılmadı.
+Ana adres [templateatlas.com](https://templateatlas.com/). `www` aynı yolu koruyarak ana adrese 301 ile yönlenir. Canlı servis bilgisayar kapalıyken de çalışır. Ana Worker `templateatlas`, veritabanı `templateatlas-production`. Asıl dosyalar `templateatlas-production-originals`, kişisel belgeler `templateatlas-production-documents` adlı özel R2 alanındadır. Genel dosya URL’leri kapalıdır. Şablonlar yalnızca uygulamanın imzalı indirme bağlantılarıyla teslim edilir.
 
-Canlıya geçiş için önce maliyet koşulu çözülmeli. Ardından ayrı ortam veritabanı, özel R2 alanları, yetkili yönetim, doğrulanmış bir e-posta göndereni, çalışan özel dönüştürücü ve destek/işletme bilgileri gerekir. Canlı üyelik fiyatı ve ödeme sağlayıcısı tanımlandığında gerçek USD Price kimliklerini kullanın. Bu çalışmada fiyat belirlenmedi ve canlı tahsilat açılmadı. DNS/MX kayıtlarını, SSL’i, alan adı yönlendirmelerini, webhook imzalarını ve gerçek dosya teslimini o ortamda yeniden test edin.
+1. Sağlığı `/api/health` üzerinden izleyin. Dağıtım geçmişi Cloudflare Workers içindeki TemplateAtlas ekranındadır. Beş dakikalık zamanlayıcı bekleyen işleri ve saklama sürelerini işler.
+2. Yeni sürüm için `main` dalını açın. Node 24 ile `npm ci`, `npm run check` ve `npm test` çalıştırın. Kaynak ve dosya deposu aynı sürümü gösterdiğinde yetkili oturumla `npm run deploy:production` çalıştırın. Bu komut uzaktaki katalog özeti ve dosya sayıları eşleşmeden dağıtıma geçmez. GitHub bağlantısı mevcuttur. Otomatik Cloudflare Builds kapalıdır.
+3. Canlı sürümü `node scripts/smoke-production.mjs /ozel/yol/indirme.json` ve `node scripts/crawl-local.mjs https://templateatlas.com /ozel/yol/adresler.json` ile doğrulayın. Kişisel grafik ve önizleme için `renderer/smoke-release.py` kullanılır. Dönüştürücünün tek örneği boşta kalınca uyur. Ayrıntılar [dönüştürücü rehberinde](renderer/README.md).
+4. E-posta göndereni `accounts@notify.templateatlas.com`. SPF, DKIM ve DMARC bu alt alandadır. Gelen kutusu kontrolü için kendi adresinizle [kayıt](https://templateatlas.com/signup/) sayfasını açıp doğrulama bağlantısını izleyin. Deneme süresi ilk doğrulamadan itibaren 30 gündür. Ödeme kapalı olduğundan deneme sonunda tahsilat yapılmaz. Yönetim ekranı ve API erişimi de kapalıdır.
+5. Geri dönüşte önceki Worker sürümünün aynı katalog ve şemayla uyumlu olduğunu doğrulayın. Cloudflare Deployments bölümünden uyumlu sürüme dönüp sağlık ve indirme testlerini çalıştırın. D1 Time Travel kurtarma işaretini ve özel katalog arşivini ayrı koruyun. Veritabanını geçmişe döndürmek o tarihten sonraki üyelikleri ve belge değişikliklerini de etkiler. Katalog geri yükleme adımları özel işletim paketinde bulunur.
+6. Worker sırlarını Cloudflare Secrets içinde yönetin. Üretim imza anahtarlarının sahip kopyasını güvenli, çevrimdışı yedekte saklayın. Genel depoya ve müşteri destek kayıtlarına anahtar eklemeyin. Yönetim ekranı kapalıyken gelen destek talepleri Cloudflare D1 içindeki `support_requests` tablosundan yetkili hesapla incelenebilir.
 
 ## Yerel denemeler ve katalog güvenliği
 
@@ -54,5 +59,3 @@ Katalog açılmadan önce kurulumun doğrulama özeti uygulamanın beklediği s�
 Form Studio'nun PDF çıktısında gerçek doldurulabilir alanlar bulunur. Venn aracında düzenlenebilir PowerPoint çıktısı, program aracında Excel ve takvim etkinlikleri için ICS desteği vardır. Kişisel belgeler üzerinde yaptığınız değişikliğin ilk sayfasını önizlemek için düzenleme panelindeki önizleme eylemini kullanın. Bu düşük çözünürlüklü önizleme indirme hakkı tüketmez.
 
 Yeni kurulumda yönetici ikinci faktörünü kendiniz eşleyin. Çalışır kurulum yedeği ayrı bir işlemdir. Dağıtılan özel ZIP mevcut hesapları, özel kullanıcı belgelerini veya yönetici sırlarını içermez. Teknik kanıtların ve üretim durumunun ayrıntıları **TemplateAtlas-Kabul-Raporu.html** dosyasındadır.
-
-Alan adı ve yeni bir üretim Worker'ı için sıfır ek maliyet koşulu henüz sağlanmadı. GitHub deposunun denetim iş akışı production'a dağıtım yapmaz. Cloudflare'ın otomatik Git bağlantısı için [Workers Builds belgesine](https://developers.cloudflare.com/workers/ci-cd/builds/api-reference/) bakılabilir. Canlı planı değiştirirken aylık ve yıllık fiyat kimlikleri, USD yinelenen fiyat ve doğru test/canlı ortamı kontrol edilir. Kullanıcı adına gerçek ödeme testi gerçekleştirilmez.

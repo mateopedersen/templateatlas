@@ -196,8 +196,9 @@ export async function localMailbox(request, env, path) {
           target.pathname.startsWith('/api/auth/reset-password/')),
       'ACCESS_REVOKED',
     );
-    const { auth } = await import('./identity.mjs');
-    const authResult = await auth(env).handler(
+    const { authResponse } = await import('./identity.mjs');
+    const authResult = await authResponse(
+      env,
       new Request(target, { headers: request.headers }),
     );
     requireValue(

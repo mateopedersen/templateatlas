@@ -42,18 +42,18 @@ export const guide = {
   ],
   '/legal/refunds/': [
     'Billing and refunds',
-    'Live checkout is closed. No payment is collected in this preview. The operator will publish refund terms before enabling purchases.',
+    'Paid subscriptions are currently unavailable. Your free trial does not require a card and ends automatically. If you have a billing question, contact TemplateAtlas.',
   ],
   '/legal/terms/': [
     'Terms of use',
-    'The operator is preparing the terms for public release. Paid checkout is unavailable in this preview.',
+    'You can browse the catalog, edit templates, and download your available files. Keep your sign-in details private and review documents before using them. Contact TemplateAtlas with questions about distribution or use by your organization.',
   ],
   '/legal/copyright/': [
     'Copyright information',
-    'TemplateAtlas uses original working documents and separately tracks their source briefs. The operator will provide a rights contact before public release.',
+    'To report a copyright concern, use the contact form. Include the page URL, identify the work in question, and provide a way for us to follow up.',
   ],
   '/legal/template-license/': [
     'Template license',
-    'Public distribution terms are pending owner review. Please keep preview files in your own workspace.',
+    'You can download an available template and customize it for your own work. For permission to redistribute the source files or include them in a template collection, contact TemplateAtlas.',
   ],
 };

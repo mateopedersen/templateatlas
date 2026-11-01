@@ -1,6 +1,13 @@
 import { requireValue, verify, unix, readBody, actorCall } from './common.mjs';
 
+function productionBillingClosed(env) {
+  return (
+    env.DEPLOY_STAGE === 'production' && env.BILLING_LIVE_ENABLED !== 'true'
+  );
+}
+
 function configured(env) {
+  requireValue(!productionBillingClosed(env), 'DEPENDENCY_UNAVAILABLE');
   const key = env.STRIPE_SECRET_KEY || '';
   const live = env.BILLING_LIVE_ENABLED === 'true';
   requireValue(
@@ -49,6 +56,7 @@ async function getPrice(env, plan) {
   return p;
 }
 export async function prices(env) {
+  if (productionBillingClosed(env)) return { plans: [], testMode: false };
   const plans = [];
   for (const [key, id] of Object.entries(planIds(env))) {
     if (!id) continue;
@@ -267,6 +275,7 @@ async function checkoutURL(env, user, customer, price, site) {
   requireValue(false, 'REVISION_CONFLICT');
 }
 export async function startBilling(env, identity, mode, input) {
+  requireValue(!productionBillingClosed(env), 'DEPENDENCY_UNAVAILABLE');
   requireValue(identity.user?.emailVerified, 'EMAIL_VERIFICATION_REQUIRED');
   const user = identity.user,
     site = env.PUBLIC_SITE_URL;

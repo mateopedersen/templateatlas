@@ -5,6 +5,8 @@ const messages = {
   EMAIL_VERIFICATION_REQUIRED: 'Verify your email to use your trial.',
   MEMBERSHIP_REQUIRED:
     'Your trial has ended. Choose a membership for new downloads.',
+  EMAIL_DELIVERY_UNAVAILABLE:
+    'Account email is temporarily unavailable. Please try again later.',
   DEPENDENCY_UNAVAILABLE:
     'This service is currently unavailable. Please try again later.',
   RATE_LIMITED: 'Too many requests. Please wait a moment before trying again.',

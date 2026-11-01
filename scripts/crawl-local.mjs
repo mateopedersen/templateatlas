@@ -1,12 +1,16 @@
-// Read public pages and aliases on a loopback host. No authentication is needed for this crawl.
-import { writeFile } from 'node:fs/promises';
-import routes from '../src/data/routes.json' with { type: 'json' };
-import aliases from '../src/data/aliases.json' with { type: 'json' };
-import { entries } from '../src/lib/catalog.mjs';
+// Read the complete catalog on loopback or the exact public production origin.
+import { writeFile } from "node:fs/promises";
+import routes from "../src/data/routes.json" with { type: "json" };
+import aliases from "../src/data/aliases.json" with { type: "json" };
+import { entries } from "../src/lib/catalog.mjs";
 const [base, report] = process.argv.slice(2),
   host = new URL(base);
-if (!['localhost', '127.0.0.1'].includes(host.hostname) || !report)
-  throw Error('A local origin and report path are required.');
+const production = host.href === "https://templateatlas.com/";
+if (
+  (!production && !["localhost", "127.0.0.1"].includes(host.hostname)) ||
+  !report
+)
+  throw Error("Supply the production or local origin and a report path.");
 const failures = [],
   counts = {},
   rollup = {};
@@ -23,23 +27,30 @@ async function next() {
     const item = paths[ix++];
     if (!item) break;
     const [p, role] = item,
-      r = await fetch(new URL(p, host), { redirect: 'manual' }),
+      r = await fetch(new URL(p, host), { redirect: "manual" }),
       html = await r.text(),
-      admin = p.startsWith('/admin/');
+      admin = p.startsWith("/admin/");
+    const accessLogin =
+      production &&
+      admin &&
+      r.status === 302 &&
+      /^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com\/cdn-cgi\/access\/login\//.test(
+        r.headers.get("location") || "",
+      );
     const status = admin ? 403 : 200;
     counts[r.status] = (counts[r.status] || 0) + 1;
     rollup[role] = (rollup[role] || 0) + 1;
     if (
-      r.status !== status ||
+      (r.status !== status && !accessLogin) ||
       (!admin &&
         (!/<html lang="en-US"/.test(html) ||
           !/<h1(?:\s[^>]*)?>/.test(html) ||
-          !html.includes('https://templateatlas.com' + p)))
+          !html.includes("https://templateatlas.com" + p)))
     )
       failures.push({
         p,
         status: r.status,
-        issue: 'status, heading or canonical',
+        issue: "status, heading or canonical",
       });
     const e = topics.get(p);
     if (
@@ -47,7 +58,7 @@ async function next() {
       (!html.includes(e.preview) ||
         !html.includes('data-download="' + e.id + '"'))
     )
-      failures.push({ p, issue: 'template linkage' });
+      failures.push({ p, issue: "template linkage" });
   }
 }
 await Promise.all(Array.from({ length: 8 }, next));
@@ -58,24 +69,25 @@ async function checkAlias() {
     const entry = redirects[ax++];
     if (!entry) break;
     const [a, b] = entry,
-      r = await fetch(new URL(a, host), { redirect: 'manual' });
-    if (r.status !== 301 || r.headers.get('location') !== new URL(b, host).href)
-      failures.push({ p: a, issue: 'alias' });
+      r = await fetch(new URL(a, host), { redirect: "manual" });
+    if (r.status !== 301 || r.headers.get("location") !== new URL(b, host).href)
+      failures.push({ p: a, issue: "alias" });
     await r.body?.cancel();
   }
 }
 await Promise.all(Array.from({ length: 8 }, checkAlias));
-const missing = await fetch(new URL('/unlisted-missing-example/', host));
-if (missing.status !== 404) failures.push({ issue: 'unknown page not 404' });
-const sm = await (await fetch(new URL('/sitemap.xml', host))).text();
+const missing = await fetch(new URL("/unlisted-missing-example/", host));
+if (missing.status !== 404) failures.push({ issue: "unknown page not 404" });
+const sm = await (await fetch(new URL("/sitemap.xml", host))).text();
 const pathsInMap = [
   ...sm.matchAll(/<loc>https:\/\/templateatlas.com([^<]*)<\/loc>/g),
 ].map((m) => m[1]);
 for (const p of pathsInMap)
   if (!Object.hasOwn(routes, p) || /^\/(account|admin|studio|search)\//.test(p))
-    failures.push({ p, issue: 'sitemap' });
+    failures.push({ p, issue: "sitemap" });
 const result = {
-  environment: 'local',
+  environment: production ? "production" : "local",
+  checkedAt: new Date().toISOString(),
   fixedPaths: paths.length,
   aliases: redirects.length,
   sitemap: pathsInMap.length,

@@ -1,5 +1,5 @@
 {
-  "phase": "local release",
+  "phase": "production",
   "packageChecks": "47/47",
   "inventory": {
     "sources": 1235,
@@ -11,7 +11,7 @@
     "downloadFiles": 2508
   },
   "localAssetManifest": "src/data/release.json",
-  "remoteProduction": "not_deployed",
+  "remoteProduction": "live",
   "liveBilling": false,
   "resume": "Verify the active private receipts by SHA-256 before any release. Reuse matching artifacts.",
   "verifiedLocalStore": {
@@ -26,9 +26,10 @@
   },
   "releaseFingerprint": "880fa6476c1cb0a825ff5ee36cfe495bce7c9ea428912f958414a187963f48f8",
   "ownerCosts": {
-    "productionDeploymentEnabled": false,
+    "productionDeploymentEnabled": true,
     "automaticRemoteBuilds": false,
-    "liveBilling": false
+    "liveBilling": false,
+    "infra": "Existing paid Workers and R2 account; private renderer uses one on-demand container."
   },
   "verifiedRoutes": {
     "planned": 2420,
@@ -40,5 +41,34 @@
     "packageFixtures": 20,
     "exactTopicQueries": 60,
     "filterChecks": 6
+  },
+  "liveURL": "https://templateatlas.com/",
+  "sourceRepository": "https://github.com/mateopedersen/templateatlas",
+  "productionReleasePolicy": {
+    "provider": "Cloudflare Workers",
+    "branch": "main",
+    "repositoryConnected": true,
+    "automaticCloudflareBuilds": false,
+    "customerCheckout": false,
+    "adminAccess": false,
+    "ownerPerformsInboxTest": true
+  },
+  "productionProof": {
+    "sourceChecksPassed": 47,
+    "totalUnitIntegrationTests": 71,
+    "localTestsFailed": 0,
+    "remoteCatalogFilesVerified": 2508,
+    "verifiedBytes": 84580363,
+    "remoteSearchRecords": 1146,
+    "publicHTMLResponses": 2415,
+    "adminForbidden": 5,
+    "correctAliases": 1202,
+    "searchAcceptanceChecks": 86,
+    "customChartPDF": true,
+    "customChartJPEG": true,
+    "privatePreviewChecks": true,
+    "guestQuotaOnLive": true,
+    "duplicateSelectionFree": true,
+    "sixthSelectionDenied": true
   }
 }

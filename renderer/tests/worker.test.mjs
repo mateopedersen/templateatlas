@@ -10,3 +10,8 @@ test('private render disables networking, goes idle and returns bytes using a se
  const env={RENDER_SECRET:secret,RENDER_INSTANCES:{idFromName:id=>id,get:()=>({fetch:r=>proxy(container,r,secret)})}};
  const out=await gateway(request(),env);assert.equal(out.status,200);assert.equal(await out.text(),'%PDF-1.4');assert.equal(conversions,1);assert.equal(start.enableInternet,false);assert.notEqual(key,secret);assert.equal(timeout,120000);
 });
+
+test('refuses upstream truncated output, and never replays the render POST',async()=>{
+ let count=0;const container={running:true,async setInactivityTimeout(){},getTcpPort(){return {async fetch(url){if(url.endsWith('/health'))return new Response('ok');count++;return new Response('%PDF-1.4',{headers:{'content-type':'application/pdf','content-length':'12'}});}};}};
+ const r=await proxy(container,request(),secret);assert.equal(r.status,502);assert.equal(count,1);
+});

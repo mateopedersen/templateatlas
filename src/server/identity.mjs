@@ -1,27 +1,18 @@
-import { captureLocalMail, localMailEnabled } from './local-mail.mjs';
+import { sendMail } from './email.mjs';
 import { betterAuth } from 'better-auth';
 import { requireValue, sign, verify, actorCall, uuid } from './common.mjs';
 
 const guestCookie = '__Host-ta-guest';
 const guestAge = 60 * 60 * 24 * 365;
-export async function sendMail(env, email, subject, text) {
-  if (env.LOCAL_MAILBOX_ENABLED === 'true') {
-    requireValue(localMailEnabled(env), 'DEPENDENCY_UNAVAILABLE');
-    return captureLocalMail(env, email, subject, text);
+export function auth(env, onDeliveryFailure) {
+  async function deliver(email, subject, text) {
+    try {
+      await sendMail(env, email, subject, text);
+    } catch (e) {
+      onDeliveryFailure?.(e);
+      throw e;
+    }
   }
-  requireValue(env.EMAIL_API_KEY && env.EMAIL_FROM, 'DEPENDENCY_UNAVAILABLE');
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + env.EMAIL_API_KEY,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ from: env.EMAIL_FROM, to: [email], subject, text }),
-    signal: AbortSignal.timeout(10000),
-  });
-  requireValue(response.ok, 'DEPENDENCY_UNAVAILABLE');
-}
-export function auth(env) {
   requireValue(
     env.DB && env.AUTH_SECRET?.length >= 32 && env.PUBLIC_SITE_URL,
     'DEPENDENCY_UNAVAILABLE',
@@ -41,8 +32,7 @@ export function auth(env) {
       changeEmail: {
         enabled: true,
         sendChangeEmailConfirmation: async ({ user, newEmail, url }) =>
-          sendMail(
-            env,
+          deliver(
             user.email,
             'Approve your TemplateAtlas email change',
             'You requested a change to ' +
@@ -60,8 +50,7 @@ export function auth(env) {
       requireEmailVerification: true,
       revokeSessionsOnPasswordReset: true,
       sendResetPassword: async ({ user, url }) =>
-        sendMail(
-          env,
+        deliver(
           user.email,
           'Reset your TemplateAtlas password',
           'Use this link to choose a new password. If you did not request this change, you can ignore this message.\n\n' +
@@ -79,8 +68,7 @@ export function auth(env) {
         )
           .bind(user.id)
           .first();
-        await sendMail(
-          env,
+        await deliver(
           user.email,
           already
             ? 'Verify your new TemplateAtlas email'
@@ -94,6 +82,19 @@ export function auth(env) {
       },
     },
   });
+}
+// Better Auth awaits the mail callback but handles callback exceptions internally.
+// Track the outcome on this invocation so a provider rejection cannot become an HTTP success.
+export async function authResponse(env, request) {
+  let failureCode;
+  const response = await auth(env, (error) => {
+    failureCode =
+      error.message === 'RATE_LIMITED'
+        ? 'RATE_LIMITED'
+        : 'EMAIL_DELIVERY_UNAVAILABLE';
+  }).handler(request);
+  requireValue(!failureCode, failureCode);
+  return response;
 }
 function getCookie(request, name) {
   const part = request.headers

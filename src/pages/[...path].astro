@@ -157,6 +157,7 @@ const selected = Astro.url.searchParams.get('topic') || 'line-chart',
       </div>
       <h1>{support[0]}</h1>
       <p class="lead">{support[1]}</p>
+      {path.startsWith('/legal/') && <p><a href="/contact/">Contact TemplateAtlas</a></p>}
       {path === '/contact/' && <Contact />}
       {(path === '/help/' || path === '/contact/') && (
         <div>

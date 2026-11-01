@@ -1,0 +1,87 @@
+{
+  "name": "templateatlas",
+  "account_id": "48c779c8eaa80234e0bb9d57f96e588b",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-10-30",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "workers_dev": false,
+  "preview_urls": false,
+  "vars": {
+    "DEPLOY_STAGE": "production",
+    "PUBLIC_SITE_URL": "https://templateatlas.com",
+    "BILLING_LIVE_ENABLED": "false",
+    "EMAIL_PROVIDER": "cloudflare",
+    "EMAIL_SENDING_DOMAIN": "notify.templateatlas.com",
+    "EMAIL_FROM": "accounts@notify.templateatlas.com",
+    "PRIVATE_PREVIEW_ENABLED": "true"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "templateatlas-production",
+      "database_id": "0955e63b-780e-43e9-ae82-fb2561bacc1f",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "ASSET_ORIGINALS",
+      "bucket_name": "templateatlas-production-originals"
+    },
+    {
+      "binding": "USER_DOCUMENTS",
+      "bucket_name": "templateatlas-production-documents"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "DOWNLOAD_ACTORS",
+        "class_name": "DownloadActor"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "DownloadActor"
+      ]
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "*/5 * * * *"
+    ]
+  },
+  "routes": [
+    {
+      "pattern": "templateatlas.com/*",
+      "zone_id": "13c58ede2ba6c4ffb8f2349772e66163"
+    },
+    {
+      "pattern": "www.templateatlas.com/*",
+      "zone_id": "13c58ede2ba6c4ffb8f2349772e66163"
+    }
+  ],
+  "send_email": [
+    {
+      "name": "TRANSACTIONAL_EMAIL",
+      "allowed_sender_addresses": [
+        "accounts@notify.templateatlas.com"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "binding": "PRIVATE_RENDERER",
+      "service": "templateatlas-private-renderer"
+    }
+  ]
+}
