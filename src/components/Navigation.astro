@@ -6,10 +6,12 @@ import MenuArt from './MenuArt.astro';
 const path = Astro.url.pathname;
 const titleCase = (value: string) => value.replace(/\b[a-z]/g, letter => letter.toUpperCase());
 const groups = [
-  {title:'Work & business', motif:'portfolio', paths:['business-commerce','resumes-careers','legal-official-documents','real-estate-rental','construction-maintenance']},
+  {title:'Work & business', motif:'portfolio', paths:['business-commerce','resumes-careers','construction-maintenance']},
   {title:'Design & learning', motif:'draft', paths:['charts-graphs','education-academic','design-creative','music-instruments']},
-  {title:'Everyday planning', motif:'calendar', paths:['planners','monthly','holidays','home-lifestyle','health-medical','food-cooking']},
+  {title:'Everyday planning', motif:'calendar', paths:['planners','monthly','holidays']},
   {title:'Leisure & travel', motif:'compass', paths:['special-events-occasions','travel-trip-planning','vehicles-transportation','sports-recreation','games-entertainment']},
+  {title:'Home & wellbeing', motif:'home', paths:['home-lifestyle','health-medical','food-cooking']},
+  {title:'Legal & property', motif:'legal', paths:['legal-official-documents','real-estate-rental']},
 ];
 const names: Record<string,string> = {
  'business-commerce':'Business & Finance','legal-official-documents':'Legal & Official Documents','real-estate-rental':'Real Estate & Rental','construction-maintenance':'Construction & Maintenance','education-academic':'Education & Academic','design-creative':'Design & Creative','music-instruments':'Music & Instruments','monthly':'Monthly Calendars','home-lifestyle':'Home & Lifestyle','health-medical':'Health & Medical','food-cooking':'Food & Cooking','special-events-occasions':'Events & Occasions','travel-trip-planning':'Travel & Trips','vehicles-transportation':'Vehicles & Transportation','sports-recreation':'Sports & Recreation','games-entertainment':'Games & Entertainment'
