@@ -6,6 +6,8 @@ import Studio from '../components/Studio.astro';
 import Base from '../layouts/Base.astro';
 import Home from '../components/Home.astro';
 import Topic from '../components/Topic.astro';
+import ImportedCollection from '../components/ImportedCollection.astro';
+import { collections } from '../lib/imported.mjs';
 import Workbench from '../components/Workbench.astro';
 import ChartEditor from '../charts/ChartEditor.astro';
 import Library from '../components/Library.astro';
@@ -24,6 +26,9 @@ const url = Astro.url,
   path = url.pathname.replace(/\/+$/, '') + '/',
   s = byPath.get(path),
   cat = categories.find((c) => c.path === path);
+const collection = collections.find(c => c.topic_path === path || c.items.some(e => e.detail_path === path));
+const importedItem = collection?.items.find(e => e.detail_path === path);
+const pageEntry = collection ? {...s, preview:importedItem?.preview || collection.items[0].preview} : s;
 const kind = path.split('/')[2],
   tool = path.startsWith('/tools/') && Object.hasOwn(tools, kind) ? kind : null,
   chart = path === '/create/chart/',
@@ -54,7 +59,7 @@ const valid = !!(
 );
 if (!valid) Astro.response.status = Object.hasOwn(routes, path) ? 503 : 404;
 const title =
-  s?.title ||
+  importedItem?.title || collection?.title || s?.title ||
   (cat && display(cat.title)) ||
   (tool && tools[tool as keyof typeof tools].title) ||
   support?.[0] ||
@@ -72,8 +77,8 @@ const selected = Astro.url.searchParams.get('topic') || 'line-chart',
 ---
 
 <Base
-  entry={s}
-  title={s && path === s.detail_path ? s.title + ' – file details' : title}
+  entry={pageEntry}
+  title={collection ? title : s && path === s.detail_path ? s.title + ' – file details' : title}
   noindex={
     !valid ||
     isAccount ||
@@ -84,7 +89,7 @@ const selected = Astro.url.searchParams.get('topic') || 'line-chart',
     path.startsWith('/studio/')
   }
   description={
-    s?.summary ||
+    importedItem?.summary || collection?.summary || s?.summary ||
     support?.[1] ||
     (cat
       ? 'Browse ' +
@@ -112,6 +117,8 @@ const selected = Astro.url.searchParams.get('topic') || 'line-chart',
     </div>
   ) : path === '/' ? (
     <Home />
+  ) : collection ? (
+    <ImportedCollection collection={collection} item={importedItem} />
   ) : s ? (
     <Topic s={s} detail={s.detail_path === path} />
   ) : library ? (

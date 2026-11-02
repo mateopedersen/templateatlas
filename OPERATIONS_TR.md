@@ -43,6 +43,14 @@ Kod sürümünü geri alırken önceki Git commitini ve o sürümün katalog man
 
 ## Canlı işletim
 
+### Ek tasarım koleksiyonları
+
+R-134a ek koleksiyonu `src/data/imported-collections.json` içinde 100 sabit tasarım kimliğiyle tanımlıdır. Ana konu adresi korunur; her tasarımın kendi ayrıntı adresi, İngilizce başlığı ve açıklaması bulunur. PDF ve Image biçimleri aynı kimliği kullandığı için aynı tasarımın ikinci biçimi yeni ücretsiz seçim sayılmaz.
+
+Dosyaların tamamı R2'dedir. `assets.templateatlas.com` yalnız manifestte açıkça listelenen küçük önizlemeleri ve yöntem/lisans belgelerini sunar. PDF ve tam boy WebP asılları özel katalog alanında kalır ve imzalı indirme akışıyla verilir. Public kod deposu orijinal dosyaları içermez.
+
+Ek aktarım, mevcut 1.146 konuluk katalog sürümünü değiştirmeden yeni dosyaları ve yeni arama sürümünü hazırlar. Üretim dağıtımı önce tüm ek dosya kayıtlarını ve hazırlanmış arama sürümünü doğrular; Worker başarıyla yayımlandıktan sonra aramayı karşılaştırmalı güncellemeyle etkinleştirir. Önceki dosyalar ve arama sürümü geri dönüş için korunur. Özel aktarım alanındaki kaynak ZIP, SHA-256 kayıtları ve tamamlanmış R2 doğrulama makbuzları korunmalı; aynı dosyalar yeniden üretilmemelidir.
+
 Ana adres [templateatlas.com](https://templateatlas.com/). `www` aynı yolu koruyarak ana adrese 301 ile yönlenir. Canlı servis bilgisayar kapalıyken de çalışır. Ana Worker `templateatlas`, veritabanı `templateatlas-production`. Asıl dosyalar `templateatlas-production-originals`, kişisel belgeler `templateatlas-production-documents` adlı özel R2 alanındadır. Genel dosya URL’leri kapalıdır. Şablonlar yalnızca uygulamanın imzalı indirme bağlantılarıyla teslim edilir.
 
 1. Sağlığı `/api/health` üzerinden izleyin. Dağıtım geçmişi Cloudflare Workers içindeki TemplateAtlas ekranındadır. Beş dakikalık zamanlayıcı bekleyen işleri ve saklama sürelerini işler.

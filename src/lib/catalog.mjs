@@ -1,13 +1,15 @@
 import seeds from '../data/seeds.json' with { type: 'json' };
 import catalog from '../data/release.json' with { type: 'json' };
 import categories from '../data/categories.json' with { type: 'json' };
-import routes from '../data/routes.json' with { type: 'json' };
+import baseRoutes from '../data/routes.json' with { type: 'json' };
+import { importedEntries } from './imported.mjs';
+const routes = {...baseRoutes, ...Object.fromEntries(importedEntries.map(e=>[e.detail_path,'template_detail']))};
 export { categories, routes };
 const releases = new Map(catalog.map((r) => [r.id, r]));
-export const entries = seeds.flatMap((seed) => {
+export const entries = [...seeds.flatMap((seed) => {
   const release = releases.get(seed.seed_id);
   return release ? [{ ...seed, ...release }] : [];
-});
+}), ...importedEntries];
 export const topicGroups = new Map();
 export const byPath = new Map();
 for (const entry of entries) {

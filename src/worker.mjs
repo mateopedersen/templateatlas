@@ -7,6 +7,7 @@ import { renderDocument } from './lib/render.mjs';
 import { entries, categories, categoryItems, routes } from './lib/catalog.mjs';
 import aliases from './data/aliases.json' with { type: 'json' };
 import { tools } from './lib/tools.mjs';
+import { catalogAsset } from './server/catalog-assets.mjs';
 export { DownloadActor };
 export default {
   async scheduled(event, env, ctx) {
@@ -16,6 +17,7 @@ export default {
     const url = new URL(req.url),
       p = url.pathname,
       local = ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname);
+    if (url.hostname === 'assets.templateatlas.com') return catalogAsset(req, env, ctx);
     // Staging is closed unless a separately verified access policy has been installed.
     if (!local && env.DEPLOY_STAGE !== 'production')
       return new Response('Private staging environment', {
@@ -111,7 +113,7 @@ export default {
       ];
       return new Response(
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
-          paths
+          [...new Set(paths)]
             .map(
               (x) => '<url><loc>https://templateatlas.com' + x + '</loc></url>',
             )

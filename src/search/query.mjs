@@ -40,6 +40,7 @@ const supported = new Set([
   'jpeg',
   'jpg',
   'png',
+  'webp',
   'csv',
   'ics',
   'canva',

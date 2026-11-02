@@ -24,6 +24,7 @@ const mime = {
   txt: 'text/plain',
   ics: 'text/calendar',
   png: 'image/png',
+  webp: 'image/webp',
 };
 export const jobMimes = Object.freeze(mime);
 const stateQuery = `SELECT j.*,d.owner,d.kind,d.template_id,d.source_version,d.deleted,

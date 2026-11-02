@@ -62,6 +62,10 @@
   },
   "routes": [
     {
+      "pattern": "assets.templateatlas.com",
+      "custom_domain": true
+    },
+    {
       "pattern": "templateatlas.com/*",
       "zone_id": "13c58ede2ba6c4ffb8f2349772e66163"
     },

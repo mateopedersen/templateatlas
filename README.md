@@ -4,6 +4,8 @@ TemplateAtlas is a US-first template library and document studio built with Astr
 
 Live at [TemplateAtlas](https://templateatlas.com/).
 
+The R-134a topic also includes 100 finished reference-chart designs, each with PDF and full-resolution WebP downloads. Supplemental collections are declared in `src/data/imported-collections.json`; they retain the core topic paths and use separate stable design IDs and detail pages. Their original files and public preview derivatives are stored in R2. The assets hostname serves only the explicit public preview and source-notice allowlist. Original downloads use the existing signed membership delivery flow.
+
 ## Run locally
 
 Install Node.js 24 and use the private catalog supplied with the owner installation. From the app directory run `sh scripts/start-local.sh`. Open [the local studio](http://localhost:4321/). The launcher uses local D1, R2 and SQLite-backed Durable Objects. PDF/JPEG conversion uses a separately authenticated loopback process with Python, pypdf, LibreOffice and Poppler.

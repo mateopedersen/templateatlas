@@ -1,0 +1,318 @@
+---
+import "../styles/imported-collection.css";
+const { collection, item } = Astro.props;
+const items = collection.items.filter(
+  (e: any) => !Astro.locals.held?.has(e.id),
+);
+const size = (n: number) => (n / 1024 / 1024).toFixed(2) + " MB";
+const options = (key: string) =>
+  [...new Set(items.map((e: any) => e[key]))] as string[];
+---
+
+<div class="breadcrumb">
+  <a href="/">Home</a> / <a href="/templates/">Templates</a> /{" "}
+  {item ? <a href={collection.topic_path}>R-134a charts</a> : "R-134a charts"}
+</div>
+<div class="workspace imported-workspace">
+  <aside class="panel imported-controls">
+    <p class="over">Refrigerant reference</p>
+    <h2>{item ? "Download this chart" : "Find your chart"}</h2>
+    {item ? (
+      <>
+        <p>
+          {item.paper} · {item.orientation} · {item.color}
+        </p>
+        <div class="download-set">
+          <button data-catalog-download={item.id} data-format="pdf">
+            Download PDF <span>{size(item.assets.pdf.bytes)}</span>
+          </button>
+          <button
+            class="secondary-download"
+            data-catalog-download={item.id}
+            data-format="webp"
+          >
+            Download Image <span>WebP · {size(item.assets.webp.bytes)}</span>
+          </button>
+          <p role="status" data-download-message></p>
+        </div>
+        <dl class="imported-facts">
+          <dt>Reference grid</dt>
+          <dd>{item.range}</dd>
+          <dt>Data rows</dt>
+          <dd>{item.rows}</dd>
+          <dt>Units</dt>
+          <dd>{item.units.join(" · ")}</dd>
+          <dt>Image dimensions</dt>
+          <dd>{item.pixels.join(" × ")} px</dd>
+          <dt>PDF length</dt>
+          <dd>1 page</dd>
+        </dl>
+        <a href={collection.topic_path}>Browse all 100 charts →</a>
+      </>
+    ) : (
+      <>
+        <p>
+          Choose the units, page size, and layout that fit your reference sheet.
+        </p>
+        <form data-chart-filters>
+          {(["edition", "paper", "orientation", "color"] as const).map(
+            (key) => (
+              <label>
+                {
+                  {
+                    edition: "Data edition",
+                    paper: "Paper size",
+                    orientation: "Orientation",
+                    color: "Color style",
+                  }[key]
+                }
+                <select name={key}>
+                  <option value="">
+                    All{" "}
+                    {key === "paper"
+                      ? "paper sizes"
+                      : key === "edition"
+                        ? "editions"
+                        : key === "color"
+                          ? "styles"
+                          : "orientations"}
+                  </option>
+                  {options(key).map((value) => (
+                    <option>{value}</option>
+                  ))}
+                </select>
+              </label>
+            ),
+          )}
+          <button type="reset" class="secondary-download">
+            Reset filters
+          </button>
+        </form>
+        <p data-chart-count role="status">
+          {items.length} charts available
+        </p>
+      </>
+    )}
+    <p class="imported-access">
+      Your first five distinct selections are free. PDF and Image versions of
+      the same chart count as one selection.{" "}
+      <a href="/help/downloads/">Download rules</a>
+    </p>
+  </aside>
+  <article class="imported-content">
+    <p class="over">
+      {item ? item.family : "100 printable designs · 5 data editions"}
+    </p>
+    <h1>{item?.title || collection.title}</h1>
+    <p class="lead">{item?.summary || collection.summary}</p>
+    {item ? (
+      <>
+        <a
+          class="imported-large-preview"
+          href={item.preview}
+          aria-label={"Enlarge preview of " + item.title}
+        >
+          <img
+            src={item.preview}
+            alt={item.alt}
+            width={item.previewSize[0]}
+            height={item.previewSize[1]}
+            fetchpriority="high"
+          />
+        </a>
+        <section class="imported-source-note">
+          <h2>Using this reference</h2>
+          <p>
+            The PDF preserves the one-page print layout. The matching Image is a
+            full-resolution WebP rendering. These are finished reference sheets
+            with fixed data and illustrations.
+          </p>
+          <p>
+            Gauge pressure uses a 101.325 kPa atmospheric reference. Saturation
+            values describe the refrigerant relationship; equipment instructions
+            determine operating and charging targets.
+          </p>
+        </section>
+        <details>
+          <summary>File checksums</summary>
+          {item.formats.map((f: string) => (
+            <p>
+              {f.toUpperCase()} SHA-256
+              <br />
+              <code class="break-hash">{item.assets[f].sha256}</code>
+            </p>
+          ))}
+        </details>
+      </>
+    ) : (
+      <>
+        <div class="imported-collection-note">
+          <p>
+            <strong>Choose the data first.</strong> US Overview uses 5°F steps;
+            US Detailed uses 2°F steps. SI Overview uses 2°C steps; SI Detailed
+            uses 1°C steps. Pressure Lookup starts with 5-psig intervals.
+          </p>
+          <p>
+            Gauge pressure uses a 101.325 kPa atmospheric reference. Each chart
+            keeps its complete reference grid.
+          </p>
+        </div>
+        <div class="imported-grid">
+          {items.map((e: any) => (
+            <article
+              class="imported-card"
+              data-chart-card
+              data-edition={e.edition}
+              data-paper={e.paper}
+              data-orientation={e.orientation}
+              data-color={e.color}
+            >
+              <a class="imported-thumb" href={e.detail_path}>
+                <img
+                  src={e.preview}
+                  alt={e.alt}
+                  width={e.previewSize[0]}
+                  height={e.previewSize[1]}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <div class="imported-card-body">
+                <p class="over">
+                  {String(e.number).padStart(3, "0")} / {e.family}
+                </p>
+                <h2>
+                  <a href={e.detail_path}>{e.title}</a>
+                </h2>
+                <p>{e.summary}</p>
+                <p class="imported-badges">
+                  <span>{e.paper}</span>
+                  <span>{e.orientation}</span>
+                  <span>{e.color}</span>
+                </p>
+                <div class="download-set imported-card-downloads">
+                  <button
+                    data-catalog-download={e.id}
+                    data-format="pdf"
+                    aria-label={"Download PDF: " + e.title}
+                  >
+                    PDF <span>{Math.ceil(e.assets.pdf.bytes / 1024)} KB</span>
+                  </button>
+                  <button
+                    class="secondary-download"
+                    data-catalog-download={e.id}
+                    data-format="webp"
+                    aria-label={"Download Image: " + e.title}
+                  >
+                    Image <span>WebP</span>
+                  </button>
+                  <p role="status" data-download-message></p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p data-empty-charts hidden>
+          No charts match these filters. Try another page size or data edition.
+        </p>
+        <p class="imported-legacy">
+          <a href="/templates/r134a-pressure-temperature-chart/r134a-pressure-temperature-chart-essential/">
+            View the earlier editable PowerPoint reference →
+          </a>
+        </p>
+      </>
+    )}
+    <section class="imported-sources">
+      <h2>Data, sources, and credits</h2>
+      <p>
+        This collection uses CoolProp 8.0.0 / HEOS R-134a saturation data. The
+        supplied method records comparisons with Arkema and Chemours reference
+        tables.
+      </p>
+      <ul>
+        {collection.documents.map((d: any) => (
+          <li>
+            <a href={d.url}>{d.label}</a>
+          </li>
+        ))}
+        <li>
+          <a href="https://coolprop.org/fluid_properties/fluids/R134a.html">
+            CoolProp R-134a model documentation
+          </a>
+        </li>
+        <li>
+          <a href="https://www.arkema.com/files/live/sites/shared_arkema/files/downloads/products/fluorochemicals/forane-134a-pressure-temperature-chart.pdf">
+            Arkema Forane 134a pressure-temperature chart
+          </a>
+        </li>
+        <li>
+          <a href="https://www.freon.com/en/-/media/files/freon/freon-134a-si-thermodynamic-properties.pdf?rev=7519d264dfd74fe68c04c9e119f7361f">
+            Chemours Freon 134a SI property tables
+          </a>
+        </li>
+      </ul>
+    </section>
+  </article>
+</div>
+<script>
+  import { download } from "../lib/client.mjs";
+  for (const button of document.querySelectorAll<HTMLButtonElement>(
+    "[data-catalog-download]",
+  )) {
+    button.addEventListener("click", async () => {
+      const group = button.closest(".download-set")!;
+      const status = group.querySelector<HTMLElement>(
+        "[data-download-message]",
+      )!;
+      button.disabled = true;
+      status.textContent = "Preparing your download…";
+      try {
+        await download({
+          templateId: button.dataset.catalogDownload,
+          format: button.dataset.format,
+        });
+        status.textContent = "Your file has been downloaded.";
+      } catch (error) {
+        const e = error as Error & { code?: string };
+        status.textContent = e.message;
+        if (
+          [
+            "SIGNUP_REQUIRED",
+            "EMAIL_VERIFICATION_REQUIRED",
+            "MEMBERSHIP_REQUIRED",
+          ].includes(e.code || "")
+        ) {
+          const link = document.createElement("a");
+          link.href =
+            e.code === "MEMBERSHIP_REQUIRED"
+              ? "/pricing/"
+              : "/signup/?returnTo=" + encodeURIComponent(location.pathname);
+          link.textContent = " Continue";
+          status.append(link);
+        }
+      } finally {
+        button.disabled = false;
+      }
+    });
+  }
+  const form = document.querySelector<HTMLFormElement>("[data-chart-filters]");
+  function filter() {
+    if (!form) return;
+    const values = new FormData(form);
+    let count = 0;
+    document
+      .querySelectorAll<HTMLElement>("[data-chart-card]")
+      .forEach((card) => {
+        card.hidden = ["edition", "paper", "orientation", "color"].some(
+          (key) => values.get(key) && card.dataset[key] !== values.get(key),
+        );
+        if (!card.hidden) count++;
+      });
+    document.querySelector("[data-chart-count]")!.textContent =
+      count + " chart" + (count === 1 ? "" : "s") + " available";
+    document.querySelector<HTMLElement>("[data-empty-charts]")!.hidden =
+      count !== 0;
+  }
+  form?.addEventListener("change", filter);
+  form?.addEventListener("reset", () => setTimeout(filter, 0));
+</script>

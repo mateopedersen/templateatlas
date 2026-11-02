@@ -38,7 +38,7 @@ export function searchRows(entries, categories, paper = {}) {
           .map((p) => byPath.get(p)?.title)
           .filter(Boolean)
           .join(' '),
-        path: e.topic_path,
+        path: e.importedCollection ? e.detail_path : e.topic_path,
         preview: e.preview,
         memberships: JSON.stringify([...groups].sort()),
         assets: JSON.stringify(assets),
