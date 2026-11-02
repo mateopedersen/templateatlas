@@ -10,7 +10,7 @@ test('R134a import has 100 distinct paired designs and stable detail paths',()=>
  const r134a = importedEntries.filter(e=>e.importedCollection === "r134a-dimensional");
  assert.equal(r134a.length,100);
  for(const field of ['id','title','summary','detail_path'])assert.equal(new Set(r134a.map(e=>e[field])).size,100,field);
- assert.equal(entries.length,1746);
+ assert.equal(entries.length,1846);
  for(const e of importedEntries){assert.equal(byPath.get(e.detail_path).id,e.id);assert.deepEqual(e.formats,e.importedCollection==='commercial-lease-applications'?['pdf','webp','docx','odt']:['52-week-savings','tournament-brackets'].includes(e.importedCollection)?['pdf','webp','docx','xlsx']:['100-envelope-savings','dog-vaccination-records'].includes(e.importedCollection)?['pdf','webp','docx']:['pdf','webp']);assert.equal(e.assets.pdf.mime,'application/pdf');assert.equal(e.assets.webp.mime,'image/webp');if(['100-envelope-savings','dog-vaccination-records'].includes(e.importedCollection)){assert.equal(e.assets.docx.mime,'application/vnd.openxmlformats-officedocument.wordprocessingml.document');assert.match(e.assets.docx.sha256,/^[0-9a-f]{64}$/);}assert.match(e.preview,/^https:\/\/assets\.templateatlas\.com\//);assert.equal(e.preview.includes(e.assets.webp.sha256),false);}
  checkFormat('webp');
  assert.equal(collections[0].items.reduce((n,e)=>n+e.rows,0),5780);
@@ -52,7 +52,7 @@ const noCache={match:async()=>null,put:async()=>{}};
 test('public asset host never exposes arbitrary originals or API paths',async()=>{
  let calls=0;const env={ASSET_ORIGINALS:{get:async()=>{calls++;}}};
  for(const path of ['/catalog/ta-r134a-dimensional-001/file.pdf','/api/session','/unknown.webp'])assert.equal((await catalogAsset(new Request('https://assets.templateatlas.com'+path),env,{waitUntil(){}},noCache)).status,404);
- assert.equal(calls,0);assert.equal(publicCatalogAssets.size,753);
+ assert.equal(calls,0);assert.equal(publicCatalogAssets.size,853);
 });
 test('R2 preview delivery uses only the allowlisted object and immutable cache headers',async()=>{
  const [path,asset]=publicCatalogAssets.entries().next().value;const keys=[];
