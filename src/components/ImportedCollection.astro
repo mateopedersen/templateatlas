@@ -1,5 +1,7 @@
 ---
 import "../styles/imported-collection.css";
+import FileIcon from "./FileIcon.astro";
+import TemplateProperties from "./TemplateProperties.astro";
 const { collection, item } = Astro.props;
 const items = collection.items.filter(
   (e: any) => !Astro.locals.held?.has(e.id),
@@ -9,14 +11,21 @@ const options = (key: string) =>
   [...new Set(items.map((e: any) => e[key]))] as string[];
 ---
 
-<div class="breadcrumb">
-  <a href="/">Home</a> / <a href="/templates/">Templates</a> /{" "}
-  {item ? <a href={collection.topic_path}>R-134a charts</a> : "R-134a charts"}
-</div>
-<div class="workspace imported-workspace">
+<nav class="breadcrumb imported-breadcrumb" aria-label="Breadcrumb">
+  <a href="/"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 8-7 8 7M4 7.5V18h5v-6h3v6h4V7.5"/></svg>Home</a>
+  <svg class="breadcrumb-divider" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg>
+  <a href="/templates/">Templates</a>
+  <svg class="breadcrumb-divider" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg>
+  {item ? <a href={collection.topic_path}>R-134a Charts</a> : <span aria-current="page">R-134a Charts</span>}
+  {item && <><svg class="breadcrumb-divider" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg><span aria-current="page">{item.design_label}</span></>}
+</nav>
+<div class:list={["workspace", "imported-workspace", { "imported-browse": !item }]}>
   <aside class="panel imported-controls">
-    <p class="over">Refrigerant reference</p>
-    <h2>{item ? "Download this chart" : "Find your chart"}</h2>
+    {item && <p class="over">Refrigerant reference</p>}
+    <div class="chart-filter-heading">
+      {!item && <span class="filter-heading-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 40 40" fill="none"><rect x="11" y="6" width="23" height="29" rx="4" transform="rotate(9 22 20)" fill="#ddcbbf"/><rect x="6" y="4" width="24" height="29" rx="4" fill="#fff" stroke="#b395a3"/><rect x="10" y="9" width="16" height="6" rx="2" fill="#78344f"/><path d="M11 20h6m-6 5h6m4-5h4m-4 5h4" stroke="#b89eaa" stroke-width="2" stroke-linecap="round"/></svg></span>}
+      <div><h2>{item ? "Download This Chart" : "Find Your Chart"}</h2>{!item && <p>Choose Your Format & Layout</p>}</div>
+    </div>
     {item ? (
       <>
         <p>
@@ -31,7 +40,7 @@ const options = (key: string) =>
             data-catalog-download={item.id}
             data-format="webp"
           >
-            Download Image <span>WebP · {size(item.assets.webp.bytes)}</span>
+            Download Image <span>{size(item.assets.webp.bytes)}</span>
           </button>
           <p role="status" data-download-message></p>
         </div>
@@ -51,62 +60,64 @@ const options = (key: string) =>
       </>
     ) : (
       <>
-        <p>
-          Choose the units, page size, and layout that fit your reference sheet.
-        </p>
-        <form data-chart-filters>
+        <div class="chart-filter-toolbar">
+          <p data-chart-count role="status">{items.length} Charts</p>
+          <button type="reset" form="chart-filters" class="chart-filter-reset" disabled>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Clear All
+          </button>
+        </div>
+        <form id="chart-filters" data-chart-filters>
           {(["edition", "paper", "orientation", "color"] as const).map(
             (key) => (
-              <label>
-                {
-                  {
-                    edition: "Data edition",
-                    paper: "Paper size",
-                    orientation: "Orientation",
-                    color: "Color style",
-                  }[key]
-                }
-                <select name={key}>
-                  <option value="">
-                    All{" "}
-                    {key === "paper"
-                      ? "paper sizes"
-                      : key === "edition"
-                        ? "editions"
-                        : key === "color"
-                          ? "styles"
-                          : "orientations"}
-                  </option>
-                  {options(key).map((value) => (
-                    <option>{value}</option>
-                  ))}
-                </select>
-              </label>
+              <fieldset class="chart-filter-group">
+                <legend>{ {edition: "Data edition", paper: "Paper size", orientation: "Orientation", color: "Color style"}[key] }</legend>
+                {key === "edition" ? (
+                  <select name={key} aria-label="Data edition">
+                    <option value="">All editions</option>
+                    {options(key).map(value => <option>{value}</option>)}
+                  </select>
+                ) : (
+                  <div class="chart-filter-options">
+                    {["", ...options(key)].map(value => (
+                      <label class="chart-filter-option">
+                        <input type="radio" name={key} value={value} checked={value === ""} />
+                        <span>
+                          {value === "Portrait" || value === "Landscape" ? <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x={value === "Portrait" ? 5 : 2} y={value === "Portrait" ? 2 : 5} width={value === "Portrait" ? 10 : 16} height={value === "Portrait" ? 16 : 10} rx="2"/></svg> : null}
+                          {value === "Color" || value === "Black-and-white" ? <i class:list={["filter-swatch", { "is-mono": value === "Black-and-white" }]} aria-hidden="true" /> : null}
+                          {value === "Black-and-white" ? "B&W" : value || "Any"}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                )}
+              </fieldset>
             ),
           )}
-          <button type="reset" class="secondary-download">
-            Reset filters
-          </button>
         </form>
-        <p data-chart-count role="status">
-          {items.length} charts available
-        </p>
       </>
     )}
-    <p class="imported-access">
-      Your first five distinct selections are free. PDF and Image versions of
-      the same chart count as one selection.{" "}
-      <a href="/help/downloads/">Download rules</a>
-    </p>
+    <details class="imported-access">
+      <summary>5 Free Template Downloads <span>How It Works</span></summary>
+      <ol class="download-access-steps">
+        <li><strong>Start Without An Account</strong><p>Download up to five different templates for free.</p></li>
+        <li><strong>Both Files Count As One</strong><p>Get the PDF and Image of the same template using just one free selection.</p></li>
+        <li><strong>Continue With A Free Trial</strong><p>After five selections, create an account and verify your email to start a 30-day trial. No credit card is required.</p></li>
+      </ol>
+      <p class="download-access-note">There is no automatic charge. Further downloads after the trial require an active membership. <a href="/help/downloads/">Read The Download Rules</a></p>
+    </details>
   </aside>
   <article class="imported-content">
     <p class="over">
-      {item ? item.family : "100 printable designs · 5 data editions"}
+      {item ? item.design_label || item.family : "100 printable designs · 5 data editions"}
     </p>
     <h1>{item?.title || collection.title}</h1>
-    <p class="lead">{item?.summary || collection.summary}</p>
+    <p class="lead">{item?.intro || collection.summary}</p>
     {item ? (
       <>
+        <section class="imported-description" aria-label="About this template">
+          {item.description_paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
+        </section>
         <a
           class="imported-large-preview"
           href={item.preview}
@@ -146,7 +157,8 @@ const options = (key: string) =>
       </>
     ) : (
       <>
-        <div class="imported-collection-note">
+        <details class="imported-collection-note">
+          <summary>Which data edition should I choose?</summary>
           <p>
             <strong>Choose the data first.</strong> US Overview uses 5°F steps;
             US Detailed uses 2°F steps. SI Overview uses 2°C steps; SI Detailed
@@ -156,7 +168,7 @@ const options = (key: string) =>
             Gauge pressure uses a 101.325 kPa atmospheric reference. Each chart
             keeps its complete reference grid.
           </p>
-        </div>
+        </details>
         <div class="imported-grid">
           {items.map((e: any) => (
             <article
@@ -179,24 +191,31 @@ const options = (key: string) =>
               </a>
               <div class="imported-card-body">
                 <p class="over">
-                  {String(e.number).padStart(3, "0")} / {e.family}
+                  {String(e.number).padStart(3, "0")} / {e.design_label || e.family}
                 </p>
                 <h2>
                   <a href={e.detail_path}>{e.title}</a>
                 </h2>
-                <p>{e.summary}</p>
-                <p class="imported-badges">
-                  <span>{e.paper}</span>
-                  <span>{e.orientation}</span>
-                  <span>{e.color}</span>
-                </p>
+                <p class="imported-card-summary">{e.intro}</p>
+                {e.description_paragraphs.length > 0 && (
+                  <details class="imported-card-more">
+                    <summary aria-label={"More about " + e.title}>
+                      <span class="more-label">More</span>
+                      <span class="less-label">Less</span>
+                    </summary>
+                    {e.description_paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
+                  </details>
+                )}
+                <TemplateProperties class="imported-badges" paper={e.paper} orientation={e.orientation} color={e.color}/>
                 <div class="download-set imported-card-downloads">
                   <button
                     data-catalog-download={e.id}
                     data-format="pdf"
                     aria-label={"Download PDF: " + e.title}
                   >
-                    PDF <span>{Math.ceil(e.assets.pdf.bytes / 1024)} KB</span>
+                    <span class="file-button-icon"><FileIcon kind="pdf" /></span>
+                    <span class="file-button-copy"><strong>PDF</strong><small>{Math.ceil(e.assets.pdf.bytes / 1024)} KB</small></span>
+                    <FileIcon kind="download" class="file-button-arrow" />
                   </button>
                   <button
                     class="secondary-download"
@@ -204,7 +223,9 @@ const options = (key: string) =>
                     data-format="webp"
                     aria-label={"Download Image: " + e.title}
                   >
-                    Image <span>WebP</span>
+                    <span class="file-button-icon"><FileIcon kind="image" /></span>
+                    <span class="file-button-copy"><strong>Image</strong></span>
+                    <FileIcon kind="download" class="file-button-arrow" />
                   </button>
                   <p role="status" data-download-message></p>
                 </div>
@@ -309,7 +330,9 @@ const options = (key: string) =>
         if (!card.hidden) count++;
       });
     document.querySelector("[data-chart-count]")!.textContent =
-      count + " chart" + (count === 1 ? "" : "s") + " available";
+      count + " Chart" + (count === 1 ? "" : "s");
+    const reset = document.querySelector<HTMLButtonElement>(".chart-filter-reset");
+    if (reset) reset.disabled = ![...values.values()].some(Boolean);
     document.querySelector<HTMLElement>("[data-empty-charts]")!.hidden =
       count !== 0;
   }

@@ -1,0 +1,2483 @@
+{
+  "reviewedAt": "2026-11-02",
+  "scope": "100 R-134a imported designs; local metadata revision only",
+  "visualMethod": "All 100 full-page thumbnails inspected on the five supplied contact sheets. Numeric table rows, units, page dimensions and original checksums checked separately against the native PDFs and canonical data. Contact-sheet inspection does not certify every individual printed glyph.",
+  "designStructure": "Five data editions reused across design families; distinct titles describe visual differences, not 100 independent datasets.",
+  "filesVerified": 200,
+  "dataRowsVerified": 5780,
+  "uniqueTitles": 100,
+  "uniqueDescriptions": 100,
+  "items": [
+    {
+      "id": "ta-r134a-dimensional-001",
+      "pdfSha256": "d1a5e98c1e3afa1fde5732e8f8b421d30b00e4de9402d83918cbc2b0ec857e4e",
+      "imageSha256": "5228b3ee658690683769c242d7a0e8d52752f6d74a05a8616bf23ca9788317a7",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A turquoise refrigerant cylinder stands on a white pedestal beside the blue heading, above two blocks of saturation data.",
+      "title": "R-134a US Overview Chart — Blue Cylinder Header",
+      "summary": "A turquoise refrigerant cylinder stands on a white pedestal beside the blue heading, above two blocks of saturation data.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This blue cylinder header version covers -40 to 180°F in 5°F steps.",
+        "The rounded heading leaves the reference table in its own white panel, separate from the equipment illustration. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-002",
+      "pdfSha256": "77cb441ed87e159407fc43f147f6c593170e9cb31ac6494c6d240d2bb2b35de7",
+      "imageSha256": "b8ce837310c8f167d417c4dd0ea96d24e5244619698aaf93b12918db46ff1bf2",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A yellow contact thermometer sits in a raised white panel within the orange heading, with Celsius-led columns underneath.",
+      "title": "R-134a SI Overview Chart — Orange Thermometer Header",
+      "summary": "A yellow contact thermometer sits in a raised white panel within the orange heading, with Celsius-led columns underneath.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This orange thermometer header version covers -40 to 80°C in 2°C steps.",
+        "The rounded heading leaves the reference table in its own white panel, separate from the equipment illustration. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-003",
+      "pdfSha256": "80cfef447c5d3063c8aadb1f8aff8e9d36bb916b4f1c76b5ceb0dcd0319f6629",
+      "imageSha256": "db621896ba638123493b13e8ab4cf108a0abd201b7215714aadb0bb7b22ae975",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A cylinder photograph and small pedestal anchor the magenta header above a fine-step Fahrenheit table.",
+      "title": "R-134a US Detailed Chart — Magenta Cylinder Header",
+      "summary": "A cylinder photograph and small pedestal anchor the magenta header above a fine-step Fahrenheit table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This magenta cylinder header version covers 0 to 120°F in 2°F steps.",
+        "The rounded heading leaves the reference table in its own white panel, separate from the equipment illustration. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-004",
+      "pdfSha256": "3bdcfe94d46fc0605fda7a1accaf135ace309e3b030bfa1d9851305b6ebed075",
+      "imageSha256": "52eccc6bb4da5f36a011161b9bd6c05dc335d57f8fe8ac8c6dd14cdff191e515",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "An illustrated vessel with an amber liquid layer fills the upper right, above three narrow blocks of Celsius data.",
+      "title": "R-134a SI Detailed Chart — Amber Phase Vessel",
+      "summary": "An illustrated vessel with an amber liquid layer fills the upper right, above three narrow blocks of Celsius data.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This amber phase vessel version covers -20 to 60°C in 1°C steps.",
+        "The rounded heading leaves the reference table in its own white panel, separate from the equipment illustration. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-005",
+      "pdfSha256": "0e927a749d43d0f61b35a93a220826c744e32a103af7c2c4e02df4199c825f30",
+      "imageSha256": "910ec53c10f9d97661851be1bb07a017edeb52bd69dcb9faec04c6f2905cdcc7",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A large silver pressure dial sits beside the dark heading, with two pressure-led table blocks below.",
+      "title": "R-134a Pressure Lookup Chart — Monochrome Dial Header",
+      "summary": "A large silver pressure dial sits beside the dark heading, with two pressure-led table blocks below.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This monochrome dial header version covers 0 to 200 psig in 5-psi steps.",
+        "The rounded heading leaves the reference table in its own white panel, separate from the equipment illustration. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-006",
+      "pdfSha256": "107c028201927968ae889c5f694dbc0a19c279cdbb9bbcf2ce370bebe1519591",
+      "imageSha256": "786d1d2dabc95caa721f1906fea96faae5cf60aab123c0a247093d6547c7fcbe",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A silver dial and a lime accent bar frame the teal console heading above the overview table.",
+      "title": "R-134a US Overview Chart — Teal Gauge Console",
+      "summary": "A silver dial and a lime accent bar frame the teal console heading above the overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This teal gauge console version covers -40 to 180°F in 5°F steps.",
+        "The dark console border encloses the reference table, while the illustrated dial provides a visual cue for the pressure values. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-007",
+      "pdfSha256": "33296d75d49b0ced749c1a58296eb3b90a62882154b36effc24233cbdf55f37c",
+      "imageSha256": "56814b6b3c8c21b4f8182af3268f79a0da24f4ae86db3c687e3d895beda7a9ef",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A pressure dial sits in a navy instrument frame, with light-blue accents linking the heading and Celsius columns.",
+      "title": "R-134a SI Overview Chart — Blue Gauge Console",
+      "summary": "A pressure dial sits in a navy instrument frame, with light-blue accents linking the heading and Celsius columns.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This blue gauge console version covers -40 to 80°C in 2°C steps.",
+        "The dark console border encloses the reference table, while the illustrated dial provides a visual cue for the pressure values. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-008",
+      "pdfSha256": "dd90a03da98a20f4902e71e6810cde6c22aa7de88c9fd2626317cbdfb6d81069",
+      "imageSha256": "43398ec051bb5e8d53089d11846e060f90d4940ad2aa27b2414f1d842193840f",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A teal accent stripe and silver dial sit above a green-framed table with separate gauge and absolute pressure columns.",
+      "title": "R-134a US Detailed Chart — Green Gauge Console",
+      "summary": "A teal accent stripe and silver dial sit above a green-framed table with separate gauge and absolute pressure columns.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This green gauge console version covers 0 to 120°F in 2°F steps.",
+        "The dark console border encloses the reference table, while the illustrated dial provides a visual cue for the pressure values. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-009",
+      "pdfSha256": "54ad1573252cf10e3cbfc9151d73b08adf1bab391bf2d2e2c22cf634bd85deb7",
+      "imageSha256": "58b090be9139da015273bba50f731601c1aa8f4c451e0ba0f98992f268daa7a2",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "An amber-rimmed dial and yellow accent stripe top a dark console containing three blocks of detailed Celsius readings.",
+      "title": "R-134a SI Detailed Chart — Amber Gauge Console",
+      "summary": "An amber-rimmed dial and yellow accent stripe top a dark console containing three blocks of detailed Celsius readings.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This amber gauge console version covers -20 to 60°C in 1°C steps.",
+        "The dark console border encloses the reference table, while the illustrated dial provides a visual cue for the pressure values. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-010",
+      "pdfSha256": "c81da999a49c2abc81fac0059c1ee382ec6309935fa8a323254fe73af3eb17cd",
+      "imageSha256": "4fd0cc16030b618dd17bc5bbe4677a142e02f6ec6c5e13ebafd6330fac97d914",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A grayscale dial and slim gray stripe head a charcoal console around the two-block pressure lookup table.",
+      "title": "R-134a Pressure Lookup Chart — Charcoal Gauge Console",
+      "summary": "A grayscale dial and slim gray stripe head a charcoal console around the two-block pressure lookup table.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This charcoal gauge console version covers 0 to 200 psig in 5-psi steps.",
+        "The dark console border encloses the reference table, while the illustrated dial provides a visual cue for the pressure values. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-011",
+      "pdfSha256": "e2fc12ceb860541d542173c66518e589d57b050706911b6aa47521d8e20e4618",
+      "imageSha256": "e3a47f364eefe2e64a879ccf3fc1cc2337a901ffb66dfa79d8034b0f245286e3",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A yellow contact thermometer sits on a white inset panel beside an angled copper band, above a warm-toned overview table.",
+      "title": "R-134a US Overview Chart — Copper Thermometer Ribbon",
+      "summary": "A yellow contact thermometer sits on a white inset panel beside an angled copper band, above a warm-toned overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This copper thermometer ribbon version covers -40 to 180°F in 5°F steps.",
+        "The angled header separates the illustration from the banded table, so the data remains grouped in a rectangular reading area. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-012",
+      "pdfSha256": "465608e40db165735f7b2296fb5cdc560e27e3a16c3fd998c0898728b526b483",
+      "imageSha256": "369c002100bd1625d8bc31fffe6153e041d6f5ac3bd1919febcda30ac31a1ecd",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A white thermometer panel overlaps the violet angled header, with purple rules separating the Celsius data below.",
+      "title": "R-134a SI Overview Chart — Violet Thermometer Ribbon",
+      "summary": "A white thermometer panel overlaps the violet angled header, with purple rules separating the Celsius data below.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This violet thermometer ribbon version covers -40 to 80°C in 2°C steps.",
+        "The angled header separates the illustration from the banded table, so the data remains grouped in a rectangular reading area. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-013",
+      "pdfSha256": "25282d1f3e42ed9df6d598f05c398b832dbc31143659712e1b098054b55256d4",
+      "imageSha256": "dcabee57f50e3cbbb26579b5d5858de80041dbd39907f5688a9b2bac3ddb948f",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A transparent vessel with blue liquid appears against a diagonal blue header, above the detailed Fahrenheit table.",
+      "title": "R-134a US Detailed Chart — Blue Phase Ribbon",
+      "summary": "A transparent vessel with blue liquid appears against a diagonal blue header, above the detailed Fahrenheit table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This blue phase ribbon version covers 0 to 120°F in 2°F steps.",
+        "The angled header separates the illustration from the banded table, so the data remains grouped in a rectangular reading area. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-014",
+      "pdfSha256": "f73108e11a8073b8832eebd3041e958543ff76c35ab830382b1eb21154dcb736",
+      "imageSha256": "b34a018c1d8ea1d3a9e59e721a0370b3135b0f2992336f262b79657160e5761c",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "An amber liquid-vapor illustration sits against an orange diagonal band, above three sections of Celsius readings.",
+      "title": "R-134a SI Detailed Chart — Orange Phase Ribbon",
+      "summary": "An amber liquid-vapor illustration sits against an orange diagonal band, above three sections of Celsius readings.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This orange phase ribbon version covers -20 to 60°C in 1°C steps.",
+        "The angled header separates the illustration from the banded table, so the data remains grouped in a rectangular reading area. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-015",
+      "pdfSha256": "acd8925e1ec502d7fb45498001274492bfb0c57c23bd7bf6efb9a190c53eb385",
+      "imageSha256": "941c406050ba536ac90d14357193e93ba638765acdcf637ac6642f76a40bd7ba",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A large silver dial overlaps an angled gray heading, with a white pressure lookup table beneath it.",
+      "title": "R-134a Pressure Lookup Chart — Gray Dial Ribbon",
+      "summary": "A large silver dial overlaps an angled gray heading, with a white pressure lookup table beneath it.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This gray dial ribbon version covers 0 to 200 psig in 5-psi steps.",
+        "The angled header separates the illustration from the banded table, so the data remains grouped in a rectangular reading area. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-016",
+      "pdfSha256": "8ddca0b24eab315aaa3e013973a62d43f30c83fa5951e6a86e7ddf2adc7b114b",
+      "imageSha256": "0733db833a5ad01674c2bd59c7b4aea71d463ab8f7ce2c333ec7b92bf7decb0b",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "An amber liquid-vapor vessel floats above a cream table panel with visibly layered paper edges.",
+      "title": "R-134a US Overview Chart — Cream Phase Folio",
+      "summary": "An amber liquid-vapor vessel floats above a cream table panel with visibly layered paper edges.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This cream phase folio version covers -40 to 180°F in 5°F steps.",
+        "The raised paper-style table panel separates the reference rows from the illustration and title above it. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-017",
+      "pdfSha256": "888d034ecc855889b03f22a1274ad0c2a9f83050c4bd9c630d798b6c41894529",
+      "imageSha256": "8d168c40bdbd71d1490df5ef5a1e0a7bb0616734fcadf36e165465e8c6a01055",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A ball-and-stick molecular illustration sits beside the lavender heading, above a raised purple-edged Celsius table.",
+      "title": "R-134a SI Overview Chart — Lavender Molecule Folio",
+      "summary": "A ball-and-stick molecular illustration sits beside the lavender heading, above a raised purple-edged Celsius table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This lavender molecule folio version covers -40 to 80°C in 2°C steps.",
+        "The raised paper-style table panel separates the reference rows from the illustration and title above it. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-018",
+      "pdfSha256": "c4a034e67d7f61571974005428d3834c83bef77ca1c24a4b6863ed8b7f8675f4",
+      "imageSha256": "8367b92348aed96df9230a1f89b34af02c7a724a36113cc71af05ff781f48eb9",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A copper serpentine coil appears in the mint heading above a layered, green-edged Fahrenheit reference table.",
+      "title": "R-134a US Detailed Chart — Mint Coil Folio",
+      "summary": "A copper serpentine coil appears in the mint heading above a layered, green-edged Fahrenheit reference table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This mint coil folio version covers 0 to 120°F in 2°F steps.",
+        "The raised paper-style table panel separates the reference rows from the illustration and title above it. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-019",
+      "pdfSha256": "424ebece001bc9191a13fb6a2917ba48958d0d482241fb538bdf4ea46d6ed99d",
+      "imageSha256": "a0d9da689da91b8b8a436b2ee6e5ea56dcb7837b61b8791d4cfb06ed336bc497",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A blue liquid layer is visible inside the illustrated vessel above a pale-blue, layered Celsius table.",
+      "title": "R-134a SI Detailed Chart — Blue Phase Folio",
+      "summary": "A blue liquid layer is visible inside the illustrated vessel above a pale-blue, layered Celsius table.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This blue phase folio version covers -20 to 60°C in 1°C steps.",
+        "The raised paper-style table panel separates the reference rows from the illustration and title above it. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-020",
+      "pdfSha256": "9fded7ec7de00ca8d560d39126532a7aa5836df30efadeb59dfeedf596105245",
+      "imageSha256": "6ed0a69639b9186b328a45dcec66e7f074fff62adefd56b6ec7486ca860769bc",
+      "visualEvidence": "Contact-Sheets/contact-01.jpg",
+      "visualEvidenceSha256": "f75e607435f3e92da34a2653a495e94a76ee1201a3dda901d20ba2e0b0e09b7e",
+      "observation": "A grayscale vessel and dark liquid layer accompany a white table panel with stacked gray edges.",
+      "title": "R-134a Pressure Lookup Chart — Grayscale Phase Folio",
+      "summary": "A grayscale vessel and dark liquid layer accompany a white table panel with stacked gray edges.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This grayscale phase folio version covers 0 to 200 psig in 5-psi steps.",
+        "The raised paper-style table panel separates the reference rows from the illustration and title above it. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-021",
+      "pdfSha256": "1091a33e7bd06cee468be1a6b9a9b420d17beb89b6e568a71e7a93ecc8cfb4f6",
+      "imageSha256": "aec92a8f6fb522cd45342b3bf5ded7e3e0789be34d0a348855fbea5702b4224f",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A copper coil fills the rust-colored heading above a white strip of reference-state values and a warm-toned overview table.",
+      "title": "R-134a US Overview Chart — Copper Coil Overview",
+      "summary": "A copper coil fills the rust-colored heading above a white strip of reference-state values and a warm-toned overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This copper coil overview version covers -40 to 180°F in 5°F steps.",
+        "The strip above the table highlights the same reference state in temperature, psi gauge pressure, and bar gauge pressure for a quick unit comparison. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-022",
+      "pdfSha256": "4d26b2be6eeef8a0420e21c168f16436747b29e0cf308bb17b4f45e52afece84",
+      "imageSha256": "e701d7fef917ff9801dbda763768abac2a71b1d82f64f5896226ebe69d6e1a51",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A copper heat-exchanger illustration sits in a magenta header above reference-state callouts and Celsius-led data.",
+      "title": "R-134a SI Overview Chart — Magenta Coil Overview",
+      "summary": "A copper heat-exchanger illustration sits in a magenta header above reference-state callouts and Celsius-led data.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This magenta coil overview version covers -40 to 80°C in 2°C steps.",
+        "The strip above the table highlights the same reference state in temperature, psi gauge pressure, and bar gauge pressure for a quick unit comparison. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-023",
+      "pdfSha256": "244088e8be1f960e2e60bf143068dab871233b0f609b263cd849b5d7213ebd1e",
+      "imageSha256": "873508ff8d61220438fe166bda648b3ee43e6d90abe926eaeb686d8d5c145b59",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A copper coil on a bronze heading sits above a three-part reference strip and detailed Fahrenheit readings.",
+      "title": "R-134a US Detailed Chart — Bronze Coil Detail",
+      "summary": "A copper coil on a bronze heading sits above a three-part reference strip and detailed Fahrenheit readings.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This bronze coil detail version covers 0 to 120°F in 2°F steps.",
+        "The strip above the table highlights the same reference state in temperature, psi gauge pressure, and bar gauge pressure for a quick unit comparison. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-024",
+      "pdfSha256": "75fefb9bc68c189bb26a1982a5b71f510d4da1236d64677577054df9285b4d60",
+      "imageSha256": "013b557234e0cb4a405b4dbe596a2ae9ccdae3fb5d468102b10885edc9936827",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A copper coil contrasts with the purple header, with a white reference-state strip above three Celsius table blocks.",
+      "title": "R-134a SI Detailed Chart — Purple Coil Detail",
+      "summary": "A copper coil contrasts with the purple header, with a white reference-state strip above three Celsius table blocks.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This purple coil detail version covers -20 to 60°C in 1°C steps.",
+        "The strip above the table highlights the same reference state in temperature, psi gauge pressure, and bar gauge pressure for a quick unit comparison. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-025",
+      "pdfSha256": "460fb56b16d830d0749a93f1e3263535d80d40f6e1ce18a6c82a5a5a2af8d8ec",
+      "imageSha256": "9003a7477f3516d8b005287eca7b0bd273ca31a336124ff5293cae1118aa628b",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A grayscale serpentine coil and reference-state strip sit above a pressure-led table on a dark background.",
+      "title": "R-134a Pressure Lookup Chart — Monochrome Coil Lookup",
+      "summary": "A grayscale serpentine coil and reference-state strip sit above a pressure-led table on a dark background.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This monochrome coil lookup version covers 0 to 200 psig in 5-psi steps.",
+        "The strip above the table highlights the same reference state in temperature, psi gauge pressure, and bar gauge pressure for a quick unit comparison. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-026",
+      "pdfSha256": "0e915b63f6921fdaa46ed31adc9e5d91d5820585d247f2edebf0e51f2ec32b01",
+      "imageSha256": "e97cb72c73e301aa0d0e32dc7daf03e0d548272338f9c17bcde905c10ff1c9eb",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A ball-and-stick model and chemical formula accompany the blue header above two blocks of overview readings.",
+      "title": "R-134a US Overview Chart — Blue Molecular Overview",
+      "summary": "A ball-and-stick model and chemical formula accompany the blue header above two blocks of overview readings.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This blue molecular overview version covers -40 to 180°F in 5°F steps.",
+        "The molecular illustration identifies the refrigerant visually, while the numerical saturation values remain in a separate table underneath. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-027",
+      "pdfSha256": "eb9b58e507c4d1449b32a9eee9901aac265456e2ec1450e140539cba67973c56",
+      "imageSha256": "cee48228f14b5411654e3a4d7d5a6ce11235e70622b6558213085ab6ffc734cd",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A molecular model sits beside the formula on a deep-teal heading, with matching green rules in the Celsius table.",
+      "title": "R-134a SI Overview Chart — Teal Molecular Overview",
+      "summary": "A molecular model sits beside the formula on a deep-teal heading, with matching green rules in the Celsius table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This teal molecular overview version covers -40 to 80°C in 2°C steps.",
+        "The molecular illustration identifies the refrigerant visually, while the numerical saturation values remain in a separate table underneath. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-028",
+      "pdfSha256": "d9689dbd9a3829556c75ff67f9aa4c48125f35af34d27918ea4e9037c7d1fbdc",
+      "imageSha256": "c533ffd9a17eef6054c6858cfd8f1441b75105c59d7396bf4d129d960bd4c145",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A ball-and-stick model contrasts with the amber heading above a Fahrenheit table that separates gauge and absolute pressure.",
+      "title": "R-134a US Detailed Chart — Amber Molecular Detail",
+      "summary": "A ball-and-stick model contrasts with the amber heading above a Fahrenheit table that separates gauge and absolute pressure.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This amber molecular detail version covers 0 to 120°F in 2°F steps.",
+        "The molecular illustration identifies the refrigerant visually, while the numerical saturation values remain in a separate table underneath. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-029",
+      "pdfSha256": "475625a89f0bf3a3f4344ca4ba86232d477271729074d9046ca3b08cd7d44809",
+      "imageSha256": "0f6bbe568668ed96db8865ca34026d956874397d15c5e35fa9f90b9f9e67623f",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A molecular model sits on the vivid violet heading above three compact blocks of detailed Celsius values.",
+      "title": "R-134a SI Detailed Chart — Violet Molecular Detail",
+      "summary": "A molecular model sits on the vivid violet heading above three compact blocks of detailed Celsius values.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This violet molecular detail version covers -20 to 60°C in 1°C steps.",
+        "The molecular illustration identifies the refrigerant visually, while the numerical saturation values remain in a separate table underneath. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-030",
+      "pdfSha256": "5c91da36f8867187d0c0bc61109c964aa3a1a3b8b607e96d9dee1d4c630ebf80",
+      "imageSha256": "c6904d76688fe292333e13f120384e37f44501944ba76ec29d729c0eb76c95ff",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A gray molecular model and formula sit above two pressure lookup blocks beneath a charcoal heading.",
+      "title": "R-134a Pressure Lookup Chart — Grayscale Molecular Lookup",
+      "summary": "A gray molecular model and formula sit above two pressure lookup blocks beneath a charcoal heading.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This grayscale molecular lookup version covers 0 to 200 psig in 5-psi steps.",
+        "The molecular illustration identifies the refrigerant visually, while the numerical saturation values remain in a separate table underneath. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-031",
+      "pdfSha256": "611fd08cbac4297a3f83a8784e6a73a3a823fd27747d5b03c1b252c7af6f6e79",
+      "imageSha256": "e91225f00abeeb63434bd78acdd28b8c6f1128d3b4d26b197dcb27288a6b6eab",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A cylinder photograph sits on a pedestal in the violet left sidebar, beside the tall overview table.",
+      "title": "R-134a US Overview Chart — Violet Cylinder Sidebar",
+      "summary": "A cylinder photograph sits on a pedestal in the violet left sidebar, beside the tall overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This violet cylinder sidebar version covers -40 to 180°F in 5°F steps.",
+        "The left equipment strip holds the illustration and reference-state callouts, keeping the numeric lookup columns together on the right. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-032",
+      "pdfSha256": "40566bad2293434dcc2f0ee8f5d9cd49d057fba4c3a037c990ba1f5f548d21d9",
+      "imageSha256": "a76f5d0fb810d8fcf6860e37f04a1207239212d8abaedcb5fd4d0a8481cb67b5",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A yellow thermometer in a white inset card heads a blue left sidebar, leaving the Celsius table to the right.",
+      "title": "R-134a SI Overview Chart — Blue Thermometer Sidebar",
+      "summary": "A yellow thermometer in a white inset card heads a blue left sidebar, leaving the Celsius table to the right.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This blue thermometer sidebar version covers -40 to 80°C in 2°C steps.",
+        "The left equipment strip holds the illustration and reference-state callouts, keeping the numeric lookup columns together on the right. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-033",
+      "pdfSha256": "65ac67d325e58147eda1c9c53fa6e6b90b415b7d97fed30fda441823132e4194",
+      "imageSha256": "c14d3da5a6ab5ff7d7df23f5ca0c37026aa904840e3d7b56ee592539d93378c7",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A cylinder photograph and reference-state callouts occupy the orange left strip beside the detailed Fahrenheit table.",
+      "title": "R-134a US Detailed Chart — Orange Cylinder Sidebar",
+      "summary": "A cylinder photograph and reference-state callouts occupy the orange left strip beside the detailed Fahrenheit table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This orange cylinder sidebar version covers 0 to 120°F in 2°F steps.",
+        "The left equipment strip holds the illustration and reference-state callouts, keeping the numeric lookup columns together on the right. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-034",
+      "pdfSha256": "4926effceb81f10017332aad9a70545b4b8783ab296091099bd51231e1c4b36a",
+      "imageSha256": "11c623e68ef89e30b22d06f1b1ea3a926c94026f9fee59ac628b8770518bf219",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A thermometer photograph tops the magenta left strip, beside three narrow blocks of detailed Celsius data.",
+      "title": "R-134a SI Detailed Chart — Magenta Thermometer Sidebar",
+      "summary": "A thermometer photograph tops the magenta left strip, beside three narrow blocks of detailed Celsius data.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This magenta thermometer sidebar version covers -20 to 60°C in 1°C steps.",
+        "The left equipment strip holds the illustration and reference-state callouts, keeping the numeric lookup columns together on the right. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-035",
+      "pdfSha256": "e1444fe968c8f46ea52ab83010b7b1f1f5c6533861684a2a4291387ad75589c6",
+      "imageSha256": "11ae292cab9e705cd502c43574342e7bcfb73f209b04ae6f93830a8c3b0293ef",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A grayscale cylinder photograph and reference-state values occupy the left strip beside the pressure lookup table.",
+      "title": "R-134a Pressure Lookup Chart — Grayscale Cylinder Sidebar",
+      "summary": "A grayscale cylinder photograph and reference-state values occupy the left strip beside the pressure lookup table.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This grayscale cylinder sidebar version covers 0 to 200 psig in 5-psi steps.",
+        "The left equipment strip holds the illustration and reference-state callouts, keeping the numeric lookup columns together on the right. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-036",
+      "pdfSha256": "b3351e937ffb64ee3ad8ce99be67bee0288c6d4c259b3c4a8a104f967648dcba",
+      "imageSha256": "95923b4069f4eac95679c77c8f8bc997c03fd5d816baefbacad9a2093248493e",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A small pressure dial sits above a thick, beveled purple frame around the overview table.",
+      "title": "R-134a US Overview Chart — Lavender Machined Dial",
+      "summary": "A small pressure dial sits above a thick, beveled purple frame around the overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This lavender machined dial version covers -40 to 180°F in 5°F steps.",
+        "The beveled border distinguishes the table from the heading, with alternating row shading helping you track a value across adjacent columns. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-037",
+      "pdfSha256": "6f9702653d6ad0efb7fcc7ba64bc92f3f5c0be0a04932a9b34a3f59c4188a6f3",
+      "imageSha256": "93cbc154a8733d0bfe0fd1eac6270b4c82339a687ba6b8d59447ad5134ab2af4",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "An illustrated vessel with green liquid sits above a rounded, dark-green frame enclosing the Celsius table.",
+      "title": "R-134a SI Overview Chart — Mint Machined Vessel",
+      "summary": "An illustrated vessel with green liquid sits above a rounded, dark-green frame enclosing the Celsius table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This mint machined vessel version covers -40 to 80°C in 2°C steps.",
+        "The beveled border distinguishes the table from the heading, with alternating row shading helping you track a value across adjacent columns. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-038",
+      "pdfSha256": "a30c678ea06a491ffc225003cf1e70022f2136f932b4b1ec6802b81ddd908442",
+      "imageSha256": "48a21d38050a9f60075a5eac6ecc162866885362a0f141a9237e0caaca958274",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A silver pressure dial accompanies the pale-blue heading above a deep-blue, beveled Fahrenheit table frame.",
+      "title": "R-134a US Detailed Chart — Blue Machined Dial",
+      "summary": "A silver pressure dial accompanies the pale-blue heading above a deep-blue, beveled Fahrenheit table frame.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This blue machined dial version covers 0 to 120°F in 2°F steps.",
+        "The beveled border distinguishes the table from the heading, with alternating row shading helping you track a value across adjacent columns. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-039",
+      "pdfSha256": "a9c16e2b6d1f936e728867a60b60cfbeceebd3043d60fea672c209d2a71fc13f",
+      "imageSha256": "8188e263c185d016c6fd33f411028267b3edb28e371d774439c17f01d2310bb8",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A teal liquid-vapor vessel sits above a raised green border around three detailed Celsius table blocks.",
+      "title": "R-134a SI Detailed Chart — Green Machined Vessel",
+      "summary": "A teal liquid-vapor vessel sits above a raised green border around three detailed Celsius table blocks.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This green machined vessel version covers -20 to 60°C in 1°C steps.",
+        "The beveled border distinguishes the table from the heading, with alternating row shading helping you track a value across adjacent columns. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-040",
+      "pdfSha256": "64703b3ca6f1785cccf9a7b1638948e04f89d7609c96e88bbaff81b492d4b14c",
+      "imageSha256": "7b405367ef514dbc2bfeeb0ed08ad67e1e26cdb2f7607ec1b655bb177d3dbf89",
+      "visualEvidence": "Contact-Sheets/contact-02.jpg",
+      "visualEvidenceSha256": "b3fe1b2a4e2602493628cc72c9d7607b75165fd23d73890a57c553553a128536",
+      "observation": "A silver dial and a thick gray beveled frame surround the two-section pressure lookup table.",
+      "title": "R-134a Pressure Lookup Chart — Monochrome Machined Dial",
+      "summary": "A silver dial and a thick gray beveled frame surround the two-section pressure lookup table.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This monochrome machined dial version covers 0 to 200 psig in 5-psi steps.",
+        "The beveled border distinguishes the table from the heading, with alternating row shading helping you track a value across adjacent columns. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-041",
+      "pdfSha256": "b56d1786fd4a92761adef20cd4e21c674a80fae3fa5ebcce9430a33844c5d496",
+      "imageSha256": "88e8e8ea9cbd49f03e034139a00ce5f5daeccd221f7d1b397a4adcb8c73b04d5",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A silver dial sits above a magenta saturation curve, with two overview table blocks below the graph.",
+      "title": "R-134a US Overview Chart — Magenta Gauge and Curve",
+      "summary": "A silver dial sits above a magenta saturation curve, with two overview table blocks below the graph.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This magenta gauge and curve version covers -40 to 180°F in 5°F steps.",
+        "The small curve shows the overall pressure-temperature trend; use the table below it to read the listed values for individual reference points. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-042",
+      "pdfSha256": "bf35abb6df4e506ba1dfe8650a7cb48f85d8c0ce8ad5c5785c1360b0abb2da20",
+      "imageSha256": "a4bf16b9ac3d2888da3eb1cc3f59dd5789b63d7359ed33a2e7039849063b0b33",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A molecular model shares the copper heading with a Celsius-based saturation curve above the numeric table.",
+      "title": "R-134a SI Overview Chart — Copper Molecule and Curve",
+      "summary": "A molecular model shares the copper heading with a Celsius-based saturation curve above the numeric table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This copper molecule and curve version covers -40 to 80°C in 2°C steps.",
+        "The small curve shows the overall pressure-temperature trend; use the table below it to read the listed values for individual reference points. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-043",
+      "pdfSha256": "27ad470934aeb73de5dabb40f1f3f57e055060e5357f8b7a052f9a18b7d2af1e",
+      "imageSha256": "2b04dba5a2ff092d8fb58fd9966cf5674fc6d69b23386f9121cbf933c4c2590c",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A silver dial tops a violet heading, with a Fahrenheit-based curve separating it from the detailed reference table.",
+      "title": "R-134a US Detailed Chart — Violet Gauge and Curve",
+      "summary": "A silver dial tops a violet heading, with a Fahrenheit-based curve separating it from the detailed reference table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This violet gauge and curve version covers 0 to 120°F in 2°F steps.",
+        "The small curve shows the overall pressure-temperature trend; use the table below it to read the listed values for individual reference points. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-044",
+      "pdfSha256": "f2523f7ab96f5f7ac3e5d9f22556b3868045b427a545791d5f7da6a6aedc0f99",
+      "imageSha256": "b308734c7551bedea116c4002c30b86208089ac659e26445e7fd3c902c35cab1",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A molecular illustration and blue saturation curve appear above three sections of detailed Celsius readings.",
+      "title": "R-134a SI Detailed Chart — Blue Molecule and Curve",
+      "summary": "A molecular illustration and blue saturation curve appear above three sections of detailed Celsius readings.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This blue molecule and curve version covers -20 to 60°C in 1°C steps.",
+        "The small curve shows the overall pressure-temperature trend; use the table below it to read the listed values for individual reference points. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-045",
+      "pdfSha256": "e7f1d19f1a6a2d232ff13d9e65bc86c4d3195c309dd7f0d3f7d609918746b801",
+      "imageSha256": "45218b71e48f5ad692ac33a04fc85562e41687d0d98e895c8c01f0d2a561ebce",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A grayscale pressure dial and rising curve sit above two blocks of pressure lookup values.",
+      "title": "R-134a Pressure Lookup Chart — Monochrome Gauge and Curve",
+      "summary": "A grayscale pressure dial and rising curve sit above two blocks of pressure lookup values.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This monochrome gauge and curve version covers 0 to 200 psig in 5-psi steps.",
+        "The small curve shows the overall pressure-temperature trend; use the table below it to read the listed values for individual reference points. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-046",
+      "pdfSha256": "6b765a5bdb84c2b7d35a12ae491e2b73c595d4e463504cf908f9fde8fecf656f",
+      "imageSha256": "cf7401b168ddf4276751a22a78ffee815028beca7ecceb85257f512511ad5c5d",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A teal liquid-vapor vessel sits on a raised white heading card with a narrow green accent above the overview table.",
+      "title": "R-134a US Overview Chart — Teal Raised Phase Panel",
+      "summary": "A teal liquid-vapor vessel sits on a raised white heading card with a narrow green accent above the overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This teal raised phase panel version covers -40 to 180°F in 5°F steps.",
+        "The raised white heading and narrow accent stripe keep the illustration separate from the numeric table below. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-047",
+      "pdfSha256": "770195c1b73b73a65beeba43d880c06e7875e51d7c838d732adc19a1e7950c4b",
+      "imageSha256": "5d6808a50c7d5896ab59c904d28dedbfbcb6c47b802b9e710cb41bb74bb1ba85",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "An amber-filled vessel and orange accent stripe sit on a raised white panel above the Celsius overview table.",
+      "title": "R-134a SI Overview Chart — Amber Raised Phase Panel",
+      "summary": "An amber-filled vessel and orange accent stripe sit on a raised white panel above the Celsius overview table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This amber raised phase panel version covers -40 to 80°C in 2°C steps.",
+        "The raised white heading and narrow accent stripe keep the illustration separate from the numeric table below. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-048",
+      "pdfSha256": "8dd582ecb7b016ad749769a3a6aab064ed4d170bcf0f30eeac6f6d537019cc1b",
+      "imageSha256": "6c5fdc920c9bf99e385cab97a8ec2ee7d8751ea7de4080667fbeef350c142962",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A cylinder photograph on a pedestal sits beside the heading on a white card with a violet edge.",
+      "title": "R-134a US Detailed Chart — Violet Raised Cylinder Panel",
+      "summary": "A cylinder photograph on a pedestal sits beside the heading on a white card with a violet edge.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This violet raised cylinder panel version covers 0 to 120°F in 2°F steps.",
+        "The raised white heading and narrow accent stripe keep the illustration separate from the numeric table below. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-049",
+      "pdfSha256": "37f9a6b372115bccc955a4c8c5a8e126f283ec5a4e8702b79c975833a54556b6",
+      "imageSha256": "2016adbc1852274678ab73e96a7c43637602e3ac829976b6899cdf3f680ffac4",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A green-filled vessel and lime accent stripe head a layered white layout above detailed Celsius readings.",
+      "title": "R-134a SI Detailed Chart — Green Raised Phase Panel",
+      "summary": "A green-filled vessel and lime accent stripe head a layered white layout above detailed Celsius readings.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        612.0,
+        792.0
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This green raised phase panel version covers -20 to 60°C in 1°C steps.",
+        "The raised white heading and narrow accent stripe keep the illustration separate from the numeric table below. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-050",
+      "pdfSha256": "98bc931aa670c93b151c606bbacb41facc7be01c01e0f8d00823c0393cdc8f04",
+      "imageSha256": "a6c5b2c6ecd1fe167717bdb4f2a003c272f632ef312266d6a3b1092e110be9d7",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A grayscale vessel sits on a white heading card above the gray-edged, two-block pressure lookup table.",
+      "title": "R-134a Pressure Lookup Chart — Gray Raised Phase Panel",
+      "summary": "A grayscale vessel sits on a white heading card above the gray-edged, two-block pressure lookup table.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        595.2755905511812,
+        841.8897637795277
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This gray raised phase panel version covers 0 to 200 psig in 5-psi steps.",
+        "The raised white heading and narrow accent stripe keep the illustration separate from the numeric table below. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-051",
+      "pdfSha256": "34f77e8e8d0042cabeb0f0107cd217125cac1920b91b499121e89ca38864ff5d",
+      "imageSha256": "49b8615c1536b2c45c0ad84c5ed57bd1592ac3de77311a212cdda2a65ca3d927",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A cylinder photograph and reference values fill the navy left sidebar beside the wide overview table.",
+      "title": "R-134a US Overview Chart — Blue Cylinder Landscape",
+      "summary": "A cylinder photograph and reference values fill the navy left sidebar beside the wide overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This blue cylinder landscape version covers -40 to 180°F in 5°F steps.",
+        "The landscape layout places the reference table beside a left-hand illustration and reference-state panel, rather than underneath a large heading. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-052",
+      "pdfSha256": "795efc5498fa3c53f401bbe784f6d409ddd07d9bc7f6acea92ba849d24b9967b",
+      "imageSha256": "32b6f3b39b6aca9d2078186b0684861d7360ee8c76b8995dc5d269750c82776d",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A cylinder photograph sits against a copper left panel, beside three blocks of Celsius overview readings.",
+      "title": "R-134a SI Overview Chart — Copper Cylinder Landscape",
+      "summary": "A cylinder photograph sits against a copper left panel, beside three blocks of Celsius overview readings.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This copper cylinder landscape version covers -40 to 80°C in 2°C steps.",
+        "The landscape layout places the reference table beside a left-hand illustration and reference-state panel, rather than underneath a large heading. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-053",
+      "pdfSha256": "058e8f39c02ca75143596ec8f68cb14c17e28d77a2c19f536101355b0c9a1a57",
+      "imageSha256": "3ebe7396ae972758833c33413f9c3c4866bb8a860b20a00a7e0dc433ef927de4",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A cylinder on a small pedestal fills the magenta left column beside three detailed Fahrenheit table blocks.",
+      "title": "R-134a US Detailed Chart — Magenta Cylinder Landscape",
+      "summary": "A cylinder on a small pedestal fills the magenta left column beside three detailed Fahrenheit table blocks.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This magenta cylinder landscape version covers 0 to 120°F in 2°F steps.",
+        "The landscape layout places the reference table beside a left-hand illustration and reference-state panel, rather than underneath a large heading. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-054",
+      "pdfSha256": "572af935a6d7f6dcd42dffcd8aec7ac20e79577f6c91b7c7d120a5c2f2017f9e",
+      "imageSha256": "e145579783d3b1bb6fd078fc12b005141489ff5d35ea6fbf50b92ba27bed8b95",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A cylinder photograph and reference-state figures sit in a bronze left sidebar beside detailed Celsius data.",
+      "title": "R-134a SI Detailed Chart — Bronze Cylinder Landscape",
+      "summary": "A cylinder photograph and reference-state figures sit in a bronze left sidebar beside detailed Celsius data.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This bronze cylinder landscape version covers -20 to 60°C in 1°C steps.",
+        "The landscape layout places the reference table beside a left-hand illustration and reference-state panel, rather than underneath a large heading. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-055",
+      "pdfSha256": "41f67da38ea8f3430411b58ab3c8b376a6aa6ee5df481dd94c70aa34081881d6",
+      "imageSha256": "c106aadbe849bf0601b1abe3a0f607e8508022950d39bf6b1229b5f626cbc3ad",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A large pressure dial fills the dark left column beside two wide blocks of pressure lookup readings.",
+      "title": "R-134a Pressure Lookup Chart — Charcoal Dial Landscape",
+      "summary": "A large pressure dial fills the dark left column beside two wide blocks of pressure lookup readings.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This charcoal dial landscape version covers 0 to 200 psig in 5-psi steps.",
+        "The landscape layout places the reference table beside a left-hand illustration and reference-state panel, rather than underneath a large heading. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-056",
+      "pdfSha256": "f17a700e16f6904bf471af80b2d09b808baffa8110586cc1d2b255e733500e67",
+      "imageSha256": "07bb93ed5859a7ebdaa6418618281c6e7525a2063a446676dcf56c393dcb7d6c",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A compact silver dial sits in the upper right of the teal frame, leaving most of the page for overview readings.",
+      "title": "R-134a US Overview Chart — Teal Framed Landscape",
+      "summary": "A compact silver dial sits in the upper right of the teal frame, leaving most of the page for overview readings.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This teal framed landscape version covers -40 to 180°F in 5°F steps.",
+        "The compact heading and small dial leave most of the landscape sheet available for the numeric reference table. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-057",
+      "pdfSha256": "9beafe1c2697085bae15d4be642b411a9c84a83512f0b3bad86544d186e6fbe5",
+      "imageSha256": "5b55cde6cf1d2a3e6ae954da05359e8aa68bc8e4cb4e6a630334a63290f6e174",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A small dial and blue inset border surround a wide Celsius overview table divided into three blocks.",
+      "title": "R-134a SI Overview Chart — Blue Framed Landscape",
+      "summary": "A small dial and blue inset border surround a wide Celsius overview table divided into three blocks.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This blue framed landscape version covers -40 to 80°C in 2°C steps.",
+        "The compact heading and small dial leave most of the landscape sheet available for the numeric reference table. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-058",
+      "pdfSha256": "6887a4aa09871bf5621e6122a697ae55a0830b8f6bb70e5c4185f6ea77fd40b8",
+      "imageSha256": "422d00614b342a7ada6f91dae218fe2519a5f0eef77c0d49ea3dac45a8f487af",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A dial in the upper-right corner and green console border frame three sections of detailed Fahrenheit data.",
+      "title": "R-134a US Detailed Chart — Green Framed Landscape",
+      "summary": "A dial in the upper-right corner and green console border frame three sections of detailed Fahrenheit data.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This green framed landscape version covers 0 to 120°F in 2°F steps.",
+        "The compact heading and small dial leave most of the landscape sheet available for the numeric reference table. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-059",
+      "pdfSha256": "e45d3e55c53ae2b39c75e3b113b5d61f53e96b87a2e91b835b61ff457c8d6138",
+      "imageSha256": "a73756bd00ff4b4f22b8972c6fa82a1c873cc464c9712ba768062607ad76a141",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "An amber-toned console border and small pressure dial sit around a three-block Celsius reference table.",
+      "title": "R-134a SI Detailed Chart — Amber Framed Landscape",
+      "summary": "An amber-toned console border and small pressure dial sit around a three-block Celsius reference table.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This amber framed landscape version covers -20 to 60°C in 1°C steps.",
+        "The compact heading and small dial leave most of the landscape sheet available for the numeric reference table. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-060",
+      "pdfSha256": "9be1a68291c19544eb1f7288f1ea2b14f1dc06ac5221fac463db0d0e38f621da",
+      "imageSha256": "482b84ba467cd3c62d5284cbc3461aba102e27a694d5963a6e7bd5bc02b96733",
+      "visualEvidence": "Contact-Sheets/contact-03.jpg",
+      "visualEvidenceSha256": "bc15c6c640c0d39f3b53bd2226956ea8d51e99a877342b8da540713e05dd5033",
+      "observation": "A small silver dial sits above the two-section lookup table inside a rounded charcoal console frame.",
+      "title": "R-134a Pressure Lookup Chart — Gray Framed Landscape",
+      "summary": "A small silver dial sits above the two-section lookup table inside a rounded charcoal console frame.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This gray framed landscape version covers 0 to 200 psig in 5-psi steps.",
+        "The compact heading and small dial leave most of the landscape sheet available for the numeric reference table. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-061",
+      "pdfSha256": "d363d60781c98a104ac9878cc92a052d445a9db99144866c6eca8f82c8d9722a",
+      "imageSha256": "ef31682d915a6029eb2b5f1840afeade16462d57c724e25c4c1194f3b3d57952",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A molecular model appears beside overlapping copper triangular panels above the wide overview table.",
+      "title": "R-134a US Overview Chart — Copper Folded Molecule",
+      "summary": "A molecular model appears beside overlapping copper triangular panels above the wide overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This copper folded molecule version covers -40 to 180°F in 5°F steps.",
+        "The angular heading stays above the table, keeping the landscape data blocks together beneath the illustration. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-062",
+      "pdfSha256": "d4a4a85d141af062aac068bb7ff3851be76861c026f49e824bac7f6e5cd40725",
+      "imageSha256": "ddf01d12e698684508f23198be1e45607f0c6bb1d98d8fc512b311d623a5430c",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "An amber liquid-vapor vessel sits at the right of the folded violet header above three Celsius table blocks.",
+      "title": "R-134a SI Overview Chart — Violet Folded Vessel",
+      "summary": "An amber liquid-vapor vessel sits at the right of the folded violet header above three Celsius table blocks.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This violet folded vessel version covers -40 to 80°C in 2°C steps.",
+        "The angular heading stays above the table, keeping the landscape data blocks together beneath the illustration. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-063",
+      "pdfSha256": "72114d48602722c9fcf4b2ea553e8526cd791abd1bd900cfa09f93f8a586a3af",
+      "imageSha256": "a7b209a0f2c795a21f5a04e8f15af0feefb5889347c5bf0718b32f57a6c29e8b",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A molecular model sits on angular blue header panels above a three-block detailed Fahrenheit table.",
+      "title": "R-134a US Detailed Chart — Blue Folded Molecule",
+      "summary": "A molecular model sits on angular blue header panels above a three-block detailed Fahrenheit table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This blue folded molecule version covers 0 to 120°F in 2°F steps.",
+        "The angular heading stays above the table, keeping the landscape data blocks together beneath the illustration. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-064",
+      "pdfSha256": "2eb3a5d0bdcec69443dba5df279d312956c6798f0b61b6ac9ba5a204f008442e",
+      "imageSha256": "bac2b8bbd5baf61fb1cbed4153d2a4a5d7b28f3389f4573d388c436e518fbf25",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A phase-vessel illustration sits beside orange folded shapes above three groups of detailed Celsius readings.",
+      "title": "R-134a SI Detailed Chart — Orange Folded Vessel",
+      "summary": "A phase-vessel illustration sits beside orange folded shapes above three groups of detailed Celsius readings.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This orange folded vessel version covers -20 to 60°C in 1°C steps.",
+        "The angular heading stays above the table, keeping the landscape data blocks together beneath the illustration. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-065",
+      "pdfSha256": "2512e9355c4d46e0b7436ba1779e125cc94b50f5546037b95da52d119470ebb2",
+      "imageSha256": "68a4f0c5ab2ceb260aa430de84638d1ad6341f0eea60a94dc941065771723cd8",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A gray molecular model sits against overlapping angular panels above the two-block pressure lookup table.",
+      "title": "R-134a Pressure Lookup Chart — Monochrome Folded Molecule",
+      "summary": "A gray molecular model sits against overlapping angular panels above the two-block pressure lookup table.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This monochrome folded molecule version covers 0 to 200 psig in 5-psi steps.",
+        "The angular heading stays above the table, keeping the landscape data blocks together beneath the illustration. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-066",
+      "pdfSha256": "aca2a72dbca2ca01b1c5685836c4e5d9c91b8377d9abf4ae0c4aa248b7532ad8",
+      "imageSha256": "50e7ac19096fc8938fd6b8ee59a1166f836b347322e9450bdd05bd93a9696874",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A large dial and small orange curve fill the pale-amber sidebar beside two overview table blocks.",
+      "title": "R-134a US Overview Chart — Amber Gauge Sidebar",
+      "summary": "A large dial and small orange curve fill the pale-amber sidebar beside two overview table blocks.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This amber gauge sidebar version covers -40 to 180°F in 5°F steps.",
+        "The left sidebar combines a dial, a miniature saturation curve, and reference-state values; the larger table on the right supplies the listed lookup points. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-067",
+      "pdfSha256": "e0bad09226441f8d374a2829b1bb40475f332c7fd91fe61a4eee16fa73952874",
+      "imageSha256": "f8e32814f6bc2088a927a19f1046916195ba763033b82067690987221056cabc",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A purple-rimmed pressure dial and small Celsius curve occupy the left sidebar beside a three-block table.",
+      "title": "R-134a SI Overview Chart — Violet Gauge Sidebar",
+      "summary": "A purple-rimmed pressure dial and small Celsius curve occupy the left sidebar beside a three-block table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This violet gauge sidebar version covers -40 to 80°C in 2°C steps.",
+        "The left sidebar combines a dial, a miniature saturation curve, and reference-state values; the larger table on the right supplies the listed lookup points. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-068",
+      "pdfSha256": "f78232253a27a0213c39d97a4db9cd520ea41a0720534609476656eda9845d49",
+      "imageSha256": "d11e77b05eae049081ab9363d79ade98943c5404f96f6b4e95e8f46ccce5b4be",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A teal-rimmed dial, miniature curve, and reference values share the mint sidebar beside detailed Fahrenheit readings.",
+      "title": "R-134a US Detailed Chart — Mint Gauge Sidebar",
+      "summary": "A teal-rimmed dial, miniature curve, and reference values share the mint sidebar beside detailed Fahrenheit readings.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This mint gauge sidebar version covers 0 to 120°F in 2°F steps.",
+        "The left sidebar combines a dial, a miniature saturation curve, and reference-state values; the larger table on the right supplies the listed lookup points. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-069",
+      "pdfSha256": "61ed811e6f752bfcbb4294177b6f3ef2f1e6cc99d0509a28bbc195b2f617bf91",
+      "imageSha256": "82bd64043ed9c7e4d77f9c571383d26837dd385b4e33ccdde38438e29d3461fa",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A blue-rimmed dial and rising curve head the left strip beside three compact sections of detailed Celsius data.",
+      "title": "R-134a SI Detailed Chart — Blue Gauge Sidebar",
+      "summary": "A blue-rimmed dial and rising curve head the left strip beside three compact sections of detailed Celsius data.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This blue gauge sidebar version covers -20 to 60°C in 1°C steps.",
+        "The left sidebar combines a dial, a miniature saturation curve, and reference-state values; the larger table on the right supplies the listed lookup points. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-070",
+      "pdfSha256": "d141979e99e97afe1d5c4c9c161b24c7adf2dc6c8e60431744b5ba3d978b5801",
+      "imageSha256": "f1814c0e5f18e899244c6823d478e3de5c57346d7bdbd1fdc162a89c1e90b796",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A grayscale dial and miniature curve sit above reference-state callouts beside the pressure lookup table.",
+      "title": "R-134a Pressure Lookup Chart — Monochrome Gauge Sidebar",
+      "summary": "A grayscale dial and miniature curve sit above reference-state callouts beside the pressure lookup table.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This monochrome gauge sidebar version covers 0 to 200 psig in 5-psi steps.",
+        "The left sidebar combines a dial, a miniature saturation curve, and reference-state values; the larger table on the right supplies the listed lookup points. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-071",
+      "pdfSha256": "0968248e55c3e211bda58547a33b55ad42cede9828d77c1c493b5e37d0cc5250",
+      "imageSha256": "861d1415253254d1d77fe04c1bee5d36a16fad3d05da16ead2a0c9566371bbcf",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A copper coil sits at the right of an orange-to-yellow header above the wide, warm-toned overview table.",
+      "title": "R-134a US Overview Chart — Amber Coil Ribbon Landscape",
+      "summary": "A copper coil sits at the right of an orange-to-yellow header above the wide, warm-toned overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This amber coil ribbon landscape version covers -40 to 180°F in 5°F steps.",
+        "The landscape header places an illustrated coil beside reference-state values, with the complete table grouped underneath. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-072",
+      "pdfSha256": "8dc5a04f550ef71ce3ce0f59cf26e2918d5040a7e90890884e0c8681469f4f27",
+      "imageSha256": "55d47265cdcc417ebf408733c22e1078e13c6dc634dd30f639e58f314c3051cd",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A copper coil and reference-state values share a coral gradient heading above three Celsius table blocks.",
+      "title": "R-134a SI Overview Chart — Coral Coil Ribbon Landscape",
+      "summary": "A copper coil and reference-state values share a coral gradient heading above three Celsius table blocks.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This coral coil ribbon landscape version covers -40 to 80°C in 2°C steps.",
+        "The landscape header places an illustrated coil beside reference-state values, with the complete table grouped underneath. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-073",
+      "pdfSha256": "4a4bb550e845c0eed5fa8bc9467c39dbc7731c0b5aad7dfd5b66a94ab3a5c0d4",
+      "imageSha256": "e1f31420b07508e9a9d82b3e180d92fe50e4aef711a5d2cef0e1039db8dadd0b",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A copper heat-exchanger illustration heads the bronze diagonal layout above detailed Fahrenheit readings.",
+      "title": "R-134a US Detailed Chart — Bronze Coil Ribbon Landscape",
+      "summary": "A copper heat-exchanger illustration heads the bronze diagonal layout above detailed Fahrenheit readings.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This bronze coil ribbon landscape version covers 0 to 120°F in 2°F steps.",
+        "The landscape header places an illustrated coil beside reference-state values, with the complete table grouped underneath. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-074",
+      "pdfSha256": "97ff5be261f9e895c8cf65dc506c976b61dc0dd492962e6bff4061fb60a8f015",
+      "imageSha256": "a50459c97da7068d59a906e3a458e7cfeef1ed94509a7211b312c83890c6a0e7",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A copper coil sits on a violet-to-gold heading above three detailed Celsius table sections.",
+      "title": "R-134a SI Detailed Chart — Violet Coil Ribbon Landscape",
+      "summary": "A copper coil sits on a violet-to-gold heading above three detailed Celsius table sections.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This violet coil ribbon landscape version covers -20 to 60°C in 1°C steps.",
+        "The landscape header places an illustrated coil beside reference-state values, with the complete table grouped underneath. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-075",
+      "pdfSha256": "0f4b731d3a04decc8281c2b6651601e28922a47e955de1d6db296e901c97336a",
+      "imageSha256": "33afc842b13c1f17d63c7a68814b1899188d1834c86a6dcc926ee391352397e9",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A grayscale coil and reference-state figures sit in the angled gray heading above two pressure lookup blocks.",
+      "title": "R-134a Pressure Lookup Chart — Gray Coil Ribbon Landscape",
+      "summary": "A grayscale coil and reference-state figures sit in the angled gray heading above two pressure lookup blocks.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This gray coil ribbon landscape version covers 0 to 200 psig in 5-psi steps.",
+        "The landscape header places an illustrated coil beside reference-state values, with the complete table grouped underneath. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-076",
+      "pdfSha256": "806fcca64c04a3cfcfbbb8f7f3c3883f7d75179b24c8c4259691aebe2a5eb7c8",
+      "imageSha256": "e5618d2fb621b98498513a0c6950255c70c7ebefc9e02728d8ecc95b2ff74f48",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "The overview table fills the upper page, with the title and molecular model placed in a blue band underneath.",
+      "title": "R-134a US Overview Chart — Blue Table-First Molecule",
+      "summary": "The overview table fills the upper page, with the title and molecular model placed in a blue band underneath.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This blue table-first molecule version covers -40 to 180°F in 5°F steps.",
+        "This table-first layout puts the readings at the top and moves the title and molecular illustration into a lower band. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-077",
+      "pdfSha256": "029d5faea8ed19e9a9d1e5c5597bf689c3e064c55ac575ef67646975a1806e9b",
+      "imageSha256": "3e0e7ba2e954c69659956cf1d0ee952381556b6c46936f6fd9b85416d8231330",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "Three Celsius table blocks sit above a deep-teal title band containing a small molecular model.",
+      "title": "R-134a SI Overview Chart — Teal Table-First Molecule",
+      "summary": "Three Celsius table blocks sit above a deep-teal title band containing a small molecular model.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This teal table-first molecule version covers -40 to 80°C in 2°C steps.",
+        "This table-first layout puts the readings at the top and moves the title and molecular illustration into a lower band. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-078",
+      "pdfSha256": "6261ae9d192845971fd5bb8c97bdad0e5ec9b44794b4e70b58e48a444ca2f3b6",
+      "imageSha256": "8b04b181a15e4406c53bb75f57d4bc14a006b6ab2ccb1e85891b58bb7741e300",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "A wide, three-block Fahrenheit table sits above an amber lower heading with a molecular illustration.",
+      "title": "R-134a US Detailed Chart — Amber Table-First Molecule",
+      "summary": "A wide, three-block Fahrenheit table sits above an amber lower heading with a molecular illustration.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This amber table-first molecule version covers 0 to 120°F in 2°F steps.",
+        "This table-first layout puts the readings at the top and moves the title and molecular illustration into a lower band. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-079",
+      "pdfSha256": "4d6df1c040f45d6f08e445d8ec3b5ce6181b9b2aa89315316acb628f7bdab497",
+      "imageSha256": "2a08a1ee073bc622cd26ba65cf87ba96aa3331cf4793e848d9884b995bc35922",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "Three blocks of detailed Celsius readings occupy the upper panel above the violet title band and molecule.",
+      "title": "R-134a SI Detailed Chart — Violet Table-First Molecule",
+      "summary": "Three blocks of detailed Celsius readings occupy the upper panel above the violet title band and molecule.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This violet table-first molecule version covers -20 to 60°C in 1°C steps.",
+        "This table-first layout puts the readings at the top and moves the title and molecular illustration into a lower band. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-080",
+      "pdfSha256": "379e4ad89bdabdfbd7051d8d53011d48057273cdb69b802b306052dd6f06457f",
+      "imageSha256": "ae92b59aa7afda4c9844bbf0d056779de5255b9acb17a5af666bb79001043312",
+      "visualEvidence": "Contact-Sheets/contact-04.jpg",
+      "visualEvidenceSha256": "b80544fbc5ee54a7c335a81d512f3354489167622947fab9c8f8c584b4068f62",
+      "observation": "Two pressure lookup blocks occupy the upper page, with a grayscale molecular model in the dark lower title band.",
+      "title": "R-134a Pressure Lookup Chart — Gray Table-First Molecule",
+      "summary": "Two pressure lookup blocks occupy the upper page, with a grayscale molecular model in the dark lower title band.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This gray table-first molecule version covers 0 to 200 psig in 5-psi steps.",
+        "This table-first layout puts the readings at the top and moves the title and molecular illustration into a lower band. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-081",
+      "pdfSha256": "fe5482f68812aaef8718c9c2adc0e96785a9e9709e030a054b8d1c338816c343",
+      "imageSha256": "23915d4b7f9601857350e7e9eaea1b28d1fffe7cc9c60fbc8a66f252ba3733a7",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A yellow contact thermometer in a white inset card occupies the violet right sidebar beside the overview table.",
+      "title": "R-134a US Overview Chart — Violet Thermometer Landscape",
+      "summary": "A yellow contact thermometer in a white inset card occupies the violet right sidebar beside the overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This violet thermometer landscape version covers -40 to 180°F in 5°F steps.",
+        "The equipment and reference-state panel sits on the right, leaving the landscape table together on the left. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-082",
+      "pdfSha256": "cf1339d50639893cd5c519272ad27d5f0b6f93bb5bb862910cc0c5e97aabdb04",
+      "imageSha256": "21f535d063f243398a7defd35c0eaf5846fd29a4c5ff9fbbe8f65c5b61a0fb1f",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A thermometer photograph and reference values sit in the navy right column beside three Celsius overview blocks.",
+      "title": "R-134a SI Overview Chart — Blue Thermometer Landscape",
+      "summary": "A thermometer photograph and reference values sit in the navy right column beside three Celsius overview blocks.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This blue thermometer landscape version covers -40 to 80°C in 2°C steps.",
+        "The equipment and reference-state panel sits on the right, leaving the landscape table together on the left. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-083",
+      "pdfSha256": "2c290975157cae9830ebe90382b5f7ef9e99ebea31221bddb964d2a1ed33d962",
+      "imageSha256": "4caaee19446a5817f4a80c1527dc540c8aca9a030573d1226b4d92383d03c934",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A yellow thermometer sits in the orange right sidebar, next to three blocks of detailed Fahrenheit readings.",
+      "title": "R-134a US Detailed Chart — Orange Thermometer Landscape",
+      "summary": "A yellow thermometer sits in the orange right sidebar, next to three blocks of detailed Fahrenheit readings.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This orange thermometer landscape version covers 0 to 120°F in 2°F steps.",
+        "The equipment and reference-state panel sits on the right, leaving the landscape table together on the left. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-084",
+      "pdfSha256": "56a811139a4ed22d400c19e8aae1606b95e3df2aa0dcf04856024b9da6770170",
+      "imageSha256": "8594d8f052de5327e50d6c43169ab4d440ece43408a07d799768bd048b5ea87d",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A white thermometer card and reference-state values occupy the magenta right strip beside detailed Celsius data.",
+      "title": "R-134a SI Detailed Chart — Magenta Thermometer Landscape",
+      "summary": "A white thermometer card and reference-state values occupy the magenta right strip beside detailed Celsius data.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This magenta thermometer landscape version covers -20 to 60°C in 1°C steps.",
+        "The equipment and reference-state panel sits on the right, leaving the landscape table together on the left. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-085",
+      "pdfSha256": "153fe5f3a34dc6be5898e7a49a7ae59a0f4226139f2c3bd33c047b7793fcb53b",
+      "imageSha256": "d3a5f1ff318db2961333fafe6b789e2d50d6b6cbefb8d3b8c563efe7093678e8",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A grayscale vessel labeled for vapor and liquid sits in the right sidebar beside the pressure lookup table.",
+      "title": "R-134a Pressure Lookup Chart — Grayscale Vessel Landscape",
+      "summary": "A grayscale vessel labeled for vapor and liquid sits in the right sidebar beside the pressure lookup table.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This grayscale vessel landscape version covers 0 to 200 psig in 5-psi steps.",
+        "The equipment and reference-state panel sits on the right, leaving the landscape table together on the left. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-086",
+      "pdfSha256": "189921d2cc15128431336305334c9e5f733f94d323598de03782ebfd69d2dd2f",
+      "imageSha256": "f06a14f35036829f0341b48065df65d05b788923a8b0e7327437faa1882637f0",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A copper coil sits within a circular glow above a wide table with raised violet edges.",
+      "title": "R-134a US Overview Chart — Violet Dimensional Coil",
+      "summary": "A copper coil sits within a circular glow above a wide table with raised violet edges.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This violet dimensional coil version covers -40 to 180°F in 5°F steps.",
+        "The layered frame gives the table its own reading area beneath the illustrated heading and circular highlight. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-087",
+      "pdfSha256": "c95f36293cf96bfc473209cfff977d8bd07e1f3586d6fee327187d354bc12010",
+      "imageSha256": "3b714a8f73b256247efa20b1513db3170ee7dd817fbbd6ef29a0a63eec7ae4b2",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A green-filled phase vessel sits in a soft circular glow above a layered green Celsius table.",
+      "title": "R-134a SI Overview Chart — Green Dimensional Vessel",
+      "summary": "A green-filled phase vessel sits in a soft circular glow above a layered green Celsius table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This green dimensional vessel version covers -40 to 80°C in 2°C steps.",
+        "The layered frame gives the table its own reading area beneath the illustrated heading and circular highlight. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-088",
+      "pdfSha256": "e3b946c46a07226c3a4501c4891877eb319f811ab70613fa679affd48b6110e1",
+      "imageSha256": "c90f2163cb0b24842c9c3f0f29e153892db493ea168c6c4748e60a15354896ad",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A copper coil appears against a blue circular highlight above the raised, three-block Fahrenheit table.",
+      "title": "R-134a US Detailed Chart — Blue Dimensional Coil",
+      "summary": "A copper coil appears against a blue circular highlight above the raised, three-block Fahrenheit table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This blue dimensional coil version covers 0 to 120°F in 2°F steps.",
+        "The layered frame gives the table its own reading area beneath the illustrated heading and circular highlight. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-089",
+      "pdfSha256": "abbb3d13250e08b088c48f43220f399317978b8dffe98b9805ddd43822f7f26a",
+      "imageSha256": "04b6d4977d70ca60aad6581e119b4d9f9020e7f47e15c6dc11523cf8d65ebe8d",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A teal liquid-vapor vessel sits above a layered table with dark-green edges and detailed Celsius readings.",
+      "title": "R-134a SI Detailed Chart — Teal Dimensional Vessel",
+      "summary": "A teal liquid-vapor vessel sits above a layered table with dark-green edges and detailed Celsius readings.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This teal dimensional vessel version covers -20 to 60°C in 1°C steps.",
+        "The layered frame gives the table its own reading area beneath the illustrated heading and circular highlight. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-090",
+      "pdfSha256": "3d631e750629ea1e7a91187a9990b15cd4e16be1a71cdb44279606d473aac655",
+      "imageSha256": "4d7444aa10c165e051e05dfe09df6d1e8586abdef76d7a5a8c5f9e7d867eb569",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A grayscale coil and circular highlight sit above a raised gray pressure lookup table.",
+      "title": "R-134a Pressure Lookup Chart — Gray Dimensional Coil",
+      "summary": "A grayscale coil and circular highlight sit above a raised gray pressure lookup table.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This gray dimensional coil version covers 0 to 200 psig in 5-psi steps.",
+        "The layered frame gives the table its own reading area beneath the illustrated heading and circular highlight. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-091",
+      "pdfSha256": "fbf5723226bb82c3b83298fdfe373843af620d351c1b1894667da41ae36e5aa0",
+      "imageSha256": "c3ce6dd36d3c40cd512ac0a6a0dd2fb3026e4ad87f4f2a810f25ab853b72346e",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A molecular model sits in a coral circular medallion above a wide overview table with additional pressure columns.",
+      "title": "R-134a US Overview Chart — Coral Molecular Medallion",
+      "summary": "A molecular model sits in a coral circular medallion above a wide overview table with additional pressure columns.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This coral molecular medallion version covers -40 to 180°F in 5°F steps.",
+        "This multi-unit version includes additional pressure columns, allowing the same saturation row to be compared across more unit systems. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-092",
+      "pdfSha256": "ae89486a5cad17c0a3a1b6e429fea6fefaf02e523397848b7182f6c7d75a983c",
+      "imageSha256": "91125706af5e2918d8bcfeed6726fe827fc9778d1701f82215904b22beb22601",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A molecular medallion fills the right side of the copper header above three blocks of multi-unit Celsius data.",
+      "title": "R-134a SI Overview Chart — Copper Molecular Medallion",
+      "summary": "A molecular medallion fills the right side of the copper header above three blocks of multi-unit Celsius data.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "psig",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This copper molecular medallion version covers -40 to 80°C in 2°C steps.",
+        "This multi-unit version includes additional pressure columns, allowing the same saturation row to be compared across more unit systems. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, psi gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-093",
+      "pdfSha256": "7406e5758ff194ee4e96af90270ffdafce3e6f25bf35beef2061e2a5c73fa3a0",
+      "imageSha256": "f170ae33fb20326354e8faa5b0f89f61c7fa2024ce45c4513a613cce5bcc6df7",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A molecular model in a violet circle heads a multi-unit Fahrenheit table divided into three blocks.",
+      "title": "R-134a US Detailed Chart — Violet Molecular Medallion",
+      "summary": "A molecular model in a violet circle heads a multi-unit Fahrenheit table divided into three blocks.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This violet molecular medallion version covers 0 to 120°F in 2°F steps.",
+        "This multi-unit version includes additional pressure columns, allowing the same saturation row to be compared across more unit systems. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-094",
+      "pdfSha256": "874e0d6d1f9f226c397561d2dcf3ccd6f5029a816b2436fb605cfa3629ea672f",
+      "imageSha256": "4559d3899279051b6ed8309761f2a1977e988bfea8af6fd4fd8e06aa7cb09efb",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A ball-and-stick medallion sits on a blue-to-teal heading above a dense multi-unit Celsius table.",
+      "title": "R-134a SI Detailed Chart — Blue Molecular Medallion",
+      "summary": "A ball-and-stick medallion sits on a blue-to-teal heading above a dense multi-unit Celsius table.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "psig",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This blue molecular medallion version covers -20 to 60°C in 1°C steps.",
+        "This multi-unit version includes additional pressure columns, allowing the same saturation row to be compared across more unit systems. The 81 listed reference points use Celsius, Fahrenheit, bar gauge, psi gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-095",
+      "pdfSha256": "6cd0699416b5f47c9e259da83cde8acc5731d54ec1895d8447d72faecd280a98",
+      "imageSha256": "28e8b9871ae3d666a5ac2a6b080c86938524a301e4bf0e82b7d0ddf2e4cc8f78",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A grayscale molecular model sits inside a dark circular medallion above the multi-unit pressure lookup table.",
+      "title": "R-134a Pressure Lookup Chart — Gray Molecular Medallion",
+      "summary": "A grayscale molecular model sits inside a dark circular medallion above the multi-unit pressure lookup table.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This gray molecular medallion version covers 0 to 200 psig in 5-psi steps.",
+        "This multi-unit version includes additional pressure columns, allowing the same saturation row to be compared across more unit systems. The 41 listed reference points use psi gauge, Fahrenheit, Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-096",
+      "pdfSha256": "e8b3898ed6bc48745fb2b3af22ab75a00f2b3fd521a8e1c8e6446151a3c2a511",
+      "imageSha256": "2f9e5c2b1a15b6cb0bf7fa52f065c312cbeb17e96d7eb18f8517973a821709f3",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A teal-filled vessel sits on a raised white heading slab above a mint-edged overview table.",
+      "title": "R-134a US Overview Chart — Mint Sculpted Vessel",
+      "summary": "A teal-filled vessel sits on a raised white heading slab above a mint-edged overview table.",
+      "rowsChecked": 45,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "bar(g)"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "Use this chart to look up the saturation pressure of R-134a from a Fahrenheit temperature, then compare the equivalent Celsius reading on the same row. The 5°F spacing gives a broad overview rather than the finer steps of the detailed edition. This mint sculpted vessel version covers -40 to 180°F in 5°F steps.",
+        "The white heading slab and layered table edges separate the title area from the wide reference grid. The 45 listed reference points use Fahrenheit, Celsius, psi gauge, bar gauge."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-097",
+      "pdfSha256": "469b2f9c8c8198ccb4131420c0b3aa237c8cd2ae6e1ecdd19a3bcd0c1be0fec2",
+      "imageSha256": "f4d913f75b1754fcb3bff1f3a68bceed6ce50a779e476184f3d78df14cafbfde",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A silver pressure dial rests beside the heading on a white slab with warm orange edges above Celsius data.",
+      "title": "R-134a SI Overview Chart — Amber Sculpted Dial",
+      "summary": "A silver pressure dial rests beside the heading on a white slab with warm orange edges above Celsius data.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°C",
+        "°F",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Start with the Celsius column to find an R-134a saturation temperature, then read across for the equivalent Fahrenheit temperature and pressure. Its 2°C spacing is useful when you want a broad metric reference on one sheet. This amber sculpted dial version covers -40 to 80°C in 2°C steps.",
+        "The white heading slab and layered table edges separate the title area from the wide reference grid. The 61 listed reference points use Celsius, Fahrenheit, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-098",
+      "pdfSha256": "4a40fd94871802badb45d5a5bc7f3056b9d2e7e87ed2ba720e0133b5138cacb0",
+      "imageSha256": "6ed825d799e743d19824de12cb1d363070023142ffcad3f54e92311f1b86575d",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A blue-filled vessel sits beside the title on a white heading slab above a purple-edged Fahrenheit table.",
+      "title": "R-134a US Detailed Chart — Violet Sculpted Vessel",
+      "summary": "A blue-filled vessel sits beside the title on a white heading slab above a purple-edged Fahrenheit table.",
+      "rowsChecked": 61,
+      "unitsChecked": [
+        "°F",
+        "°C",
+        "psig",
+        "psia"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "This chart gives a closer-spaced view of the R-134a pressure-temperature relationship, using 2°F increments. Follow a Fahrenheit row across to compare its Celsius equivalent with both gauge pressure and absolute pressure in psi. This violet sculpted vessel version covers 0 to 120°F in 2°F steps.",
+        "The white heading slab and layered table edges separate the title area from the wide reference grid. The 61 listed reference points use Fahrenheit, Celsius, psi gauge, psi absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-099",
+      "pdfSha256": "91cd28962d351b36793a7820b386cf3bf462eeadf23df9b45d8421c395e30570",
+      "imageSha256": "5e0f00f82ccb5a3baa5475a03a01c894def8ab8358abf84df7ece15388c39f9e",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A teal-rimmed dial sits on a raised white header above three green-edged blocks of detailed Celsius readings.",
+      "title": "R-134a SI Detailed Chart — Teal Sculpted Dial",
+      "summary": "A teal-rimmed dial sits on a raised white header above three green-edged blocks of detailed Celsius readings.",
+      "rowsChecked": 81,
+      "unitsChecked": [
+        "°C",
+        "bar(g)",
+        "kPa(a)"
+      ],
+      "paperPointsChecked": [
+        792.0,
+        612.0
+      ],
+      "descriptionParagraphs": [
+        "Use this sheet when you need an R-134a reference at 1°C intervals. Read across a Celsius row to compare gauge pressure in bar with absolute pressure in kPa; those pressure columns use different reference points. This teal sculpted dial version covers -20 to 60°C in 1°C steps.",
+        "The white heading slab and layered table edges separate the title area from the wide reference grid. The 81 listed reference points use Celsius, bar gauge, kPa absolute."
+      ]
+    },
+    {
+      "id": "ta-r134a-dimensional-100",
+      "pdfSha256": "73a37a16963c2c2b6b2e16bbc1360af773db4cbe81a513e6c5245b63ff0b0317",
+      "imageSha256": "5cbb0c8d2fa7c1e93baf4efa3ef84729e7a470fce5c54ac35cb3fff8844beb90",
+      "visualEvidence": "Contact-Sheets/contact-05.jpg",
+      "visualEvidenceSha256": "292bf53277787c9289201dc2c0f90a22ad5626932b6369db8dafc19ce546cae6",
+      "observation": "A grayscale liquid-vapor vessel sits on a raised white header above a layered gray pressure lookup table.",
+      "title": "R-134a Pressure Lookup Chart — Gray Sculpted Vessel",
+      "summary": "A grayscale liquid-vapor vessel sits on a raised white header above a layered gray pressure lookup table.",
+      "rowsChecked": 41,
+      "unitsChecked": [
+        "psig",
+        "°F",
+        "°C"
+      ],
+      "paperPointsChecked": [
+        841.8897637795277,
+        595.2755905511812
+      ],
+      "descriptionParagraphs": [
+        "This version starts with gauge pressure rather than temperature. Find a listed psig value, then read across for the matching R-134a saturation temperature in Fahrenheit and Celsius; the 5-psi spacing makes the pressure steps easy to follow. This gray sculpted vessel version covers 0 to 200 psig in 5-psi steps.",
+        "The white heading slab and layered table edges separate the title area from the wide reference grid. The 41 listed reference points use psi gauge, Fahrenheit, Celsius."
+      ]
+    }
+  ],
+  "technicalReferences": [
+    "https://coolprop.org/fluid_properties/fluids/R134a.html",
+    "https://coolprop.org/coolprop/HighLevelAPI.html#vapor-liquid-and-saturation-states"
+  ]
+}

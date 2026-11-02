@@ -60,7 +60,7 @@
     "localTestsFailed": 0,
     "remoteCatalogFilesVerified": 2508,
     "verifiedBytes": 84580363,
-    "remoteSearchRecords": 1146,
+    "remoteSearchRecords": 1246,
     "publicHTMLResponses": 2415,
     "adminForbidden": 5,
     "correctAliases": 1202,
@@ -93,5 +93,36 @@
       "sameDesignFormatsCountOnce": true,
       "sixthDistinctSelectionBlocked": true
     }
-  ]
+  ],
+  "local_design_review_2026_11_02": {
+    "status": "live_verified",
+    "collection": "r134a-dimensional",
+    "reviewedDesigns": 100,
+    "uniqueTitles": 100,
+    "uniqueDescriptions": 100,
+    "originalFilesChecksumVerified": 200,
+    "pdfDataRowsVerified": 5780,
+    "evidence": "editorial/r134a-review-2026-11-02.json",
+    "copySource": "editorial/r134a-visual-copy.txt",
+    "changes": [
+      "Compact cards with expandable descriptions",
+      "Dimensional SVG download icons",
+      "Compact accessible filter controls",
+      "SVG file-property badges",
+      "Source-specific titles, descriptions and alt text"
+    ],
+    "validation": [
+      "79 tests passed; 1 renderer test skipped; 0 failed",
+      "Astro check: 0 errors, 0 warnings, 10 hints",
+      "Production build and guarded deployment passed",
+      "100 live detail pages: titles, intros and 200 expanded paragraphs verified",
+      "Live browser: More expands; first three icon/text center offsets 0px; no horizontal overflow",
+      "Local responsive grid checked at actual widths 727px, 1181px and 3878px; no horizontal overflow",
+      "All 100 imported templates pass shared editorial validation"
+    ],
+    "preserve": "Keep original IDs, paths, file checksums and source binaries. Legacy intake prepare.py contains earlier generic copy; do not rerun it over reviewed metadata.",
+    "workerVersion": "4b19be6b-491e-414a-bb42-65218d313e13",
+    "searchRevision": "c36038ebaccbe5b153a856fd99e87f009878fa02680ce3581af6af7a2f97e289",
+    "liveEvidence": "editorial/live-verification-2026-11-02.json"
+  }
 }

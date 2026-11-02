@@ -1,0 +1,100 @@
+001|Blue Cylinder Header|A turquoise refrigerant cylinder stands on a white pedestal beside the blue heading, above two blocks of saturation data.
+002|Orange Thermometer Header|A yellow contact thermometer sits in a raised white panel within the orange heading, with Celsius-led columns underneath.
+003|Magenta Cylinder Header|A cylinder photograph and small pedestal anchor the magenta header above a fine-step Fahrenheit table.
+004|Amber Phase Vessel|An illustrated vessel with an amber liquid layer fills the upper right, above three narrow blocks of Celsius data.
+005|Monochrome Dial Header|A large silver pressure dial sits beside the dark heading, with two pressure-led table blocks below.
+006|Teal Gauge Console|A silver dial and a lime accent bar frame the teal console heading above the overview table.
+007|Blue Gauge Console|A pressure dial sits in a navy instrument frame, with light-blue accents linking the heading and Celsius columns.
+008|Green Gauge Console|A teal accent stripe and silver dial sit above a green-framed table with separate gauge and absolute pressure columns.
+009|Amber Gauge Console|An amber-rimmed dial and yellow accent stripe top a dark console containing three blocks of detailed Celsius readings.
+010|Charcoal Gauge Console|A grayscale dial and slim gray stripe head a charcoal console around the two-block pressure lookup table.
+011|Copper Thermometer Ribbon|A yellow contact thermometer sits on a white inset panel beside an angled copper band, above a warm-toned overview table.
+012|Violet Thermometer Ribbon|A white thermometer panel overlaps the violet angled header, with purple rules separating the Celsius data below.
+013|Blue Phase Ribbon|A transparent vessel with blue liquid appears against a diagonal blue header, above the detailed Fahrenheit table.
+014|Orange Phase Ribbon|An amber liquid-vapor illustration sits against an orange diagonal band, above three sections of Celsius readings.
+015|Gray Dial Ribbon|A large silver dial overlaps an angled gray heading, with a white pressure lookup table beneath it.
+016|Cream Phase Folio|An amber liquid-vapor vessel floats above a cream table panel with visibly layered paper edges.
+017|Lavender Molecule Folio|A ball-and-stick molecular illustration sits beside the lavender heading, above a raised purple-edged Celsius table.
+018|Mint Coil Folio|A copper serpentine coil appears in the mint heading above a layered, green-edged Fahrenheit reference table.
+019|Blue Phase Folio|A blue liquid layer is visible inside the illustrated vessel above a pale-blue, layered Celsius table.
+020|Grayscale Phase Folio|A grayscale vessel and dark liquid layer accompany a white table panel with stacked gray edges.
+021|Copper Coil Overview|A copper coil fills the rust-colored heading above a white strip of reference-state values and a warm-toned overview table.
+022|Magenta Coil Overview|A copper heat-exchanger illustration sits in a magenta header above reference-state callouts and Celsius-led data.
+023|Bronze Coil Detail|A copper coil on a bronze heading sits above a three-part reference strip and detailed Fahrenheit readings.
+024|Purple Coil Detail|A copper coil contrasts with the purple header, with a white reference-state strip above three Celsius table blocks.
+025|Monochrome Coil Lookup|A grayscale serpentine coil and reference-state strip sit above a pressure-led table on a dark background.
+026|Blue Molecular Overview|A ball-and-stick model and chemical formula accompany the blue header above two blocks of overview readings.
+027|Teal Molecular Overview|A molecular model sits beside the formula on a deep-teal heading, with matching green rules in the Celsius table.
+028|Amber Molecular Detail|A ball-and-stick model contrasts with the amber heading above a Fahrenheit table that separates gauge and absolute pressure.
+029|Violet Molecular Detail|A molecular model sits on the vivid violet heading above three compact blocks of detailed Celsius values.
+030|Grayscale Molecular Lookup|A gray molecular model and formula sit above two pressure lookup blocks beneath a charcoal heading.
+031|Violet Cylinder Sidebar|A cylinder photograph sits on a pedestal in the violet left sidebar, beside the tall overview table.
+032|Blue Thermometer Sidebar|A yellow thermometer in a white inset card heads a blue left sidebar, leaving the Celsius table to the right.
+033|Orange Cylinder Sidebar|A cylinder photograph and reference-state callouts occupy the orange left strip beside the detailed Fahrenheit table.
+034|Magenta Thermometer Sidebar|A thermometer photograph tops the magenta left strip, beside three narrow blocks of detailed Celsius data.
+035|Grayscale Cylinder Sidebar|A grayscale cylinder photograph and reference-state values occupy the left strip beside the pressure lookup table.
+036|Lavender Machined Dial|A small pressure dial sits above a thick, beveled purple frame around the overview table.
+037|Mint Machined Vessel|An illustrated vessel with green liquid sits above a rounded, dark-green frame enclosing the Celsius table.
+038|Blue Machined Dial|A silver pressure dial accompanies the pale-blue heading above a deep-blue, beveled Fahrenheit table frame.
+039|Green Machined Vessel|A teal liquid-vapor vessel sits above a raised green border around three detailed Celsius table blocks.
+040|Monochrome Machined Dial|A silver dial and a thick gray beveled frame surround the two-section pressure lookup table.
+041|Magenta Gauge and Curve|A silver dial sits above a magenta saturation curve, with two overview table blocks below the graph.
+042|Copper Molecule and Curve|A molecular model shares the copper heading with a Celsius-based saturation curve above the numeric table.
+043|Violet Gauge and Curve|A silver dial tops a violet heading, with a Fahrenheit-based curve separating it from the detailed reference table.
+044|Blue Molecule and Curve|A molecular illustration and blue saturation curve appear above three sections of detailed Celsius readings.
+045|Monochrome Gauge and Curve|A grayscale pressure dial and rising curve sit above two blocks of pressure lookup values.
+046|Teal Raised Phase Panel|A teal liquid-vapor vessel sits on a raised white heading card with a narrow green accent above the overview table.
+047|Amber Raised Phase Panel|An amber-filled vessel and orange accent stripe sit on a raised white panel above the Celsius overview table.
+048|Violet Raised Cylinder Panel|A cylinder photograph on a pedestal sits beside the heading on a white card with a violet edge.
+049|Green Raised Phase Panel|A green-filled vessel and lime accent stripe head a layered white layout above detailed Celsius readings.
+050|Gray Raised Phase Panel|A grayscale vessel sits on a white heading card above the gray-edged, two-block pressure lookup table.
+051|Blue Cylinder Landscape|A cylinder photograph and reference values fill the navy left sidebar beside the wide overview table.
+052|Copper Cylinder Landscape|A cylinder photograph sits against a copper left panel, beside three blocks of Celsius overview readings.
+053|Magenta Cylinder Landscape|A cylinder on a small pedestal fills the magenta left column beside three detailed Fahrenheit table blocks.
+054|Bronze Cylinder Landscape|A cylinder photograph and reference-state figures sit in a bronze left sidebar beside detailed Celsius data.
+055|Charcoal Dial Landscape|A large pressure dial fills the dark left column beside two wide blocks of pressure lookup readings.
+056|Teal Framed Landscape|A compact silver dial sits in the upper right of the teal frame, leaving most of the page for overview readings.
+057|Blue Framed Landscape|A small dial and blue inset border surround a wide Celsius overview table divided into three blocks.
+058|Green Framed Landscape|A dial in the upper-right corner and green console border frame three sections of detailed Fahrenheit data.
+059|Amber Framed Landscape|An amber-toned console border and small pressure dial sit around a three-block Celsius reference table.
+060|Gray Framed Landscape|A small silver dial sits above the two-section lookup table inside a rounded charcoal console frame.
+061|Copper Folded Molecule|A molecular model appears beside overlapping copper triangular panels above the wide overview table.
+062|Violet Folded Vessel|An amber liquid-vapor vessel sits at the right of the folded violet header above three Celsius table blocks.
+063|Blue Folded Molecule|A molecular model sits on angular blue header panels above a three-block detailed Fahrenheit table.
+064|Orange Folded Vessel|A phase-vessel illustration sits beside orange folded shapes above three groups of detailed Celsius readings.
+065|Monochrome Folded Molecule|A gray molecular model sits against overlapping angular panels above the two-block pressure lookup table.
+066|Amber Gauge Sidebar|A large dial and small orange curve fill the pale-amber sidebar beside two overview table blocks.
+067|Violet Gauge Sidebar|A purple-rimmed pressure dial and small Celsius curve occupy the left sidebar beside a three-block table.
+068|Mint Gauge Sidebar|A teal-rimmed dial, miniature curve, and reference values share the mint sidebar beside detailed Fahrenheit readings.
+069|Blue Gauge Sidebar|A blue-rimmed dial and rising curve head the left strip beside three compact sections of detailed Celsius data.
+070|Monochrome Gauge Sidebar|A grayscale dial and miniature curve sit above reference-state callouts beside the pressure lookup table.
+071|Amber Coil Ribbon Landscape|A copper coil sits at the right of an orange-to-yellow header above the wide, warm-toned overview table.
+072|Coral Coil Ribbon Landscape|A copper coil and reference-state values share a coral gradient heading above three Celsius table blocks.
+073|Bronze Coil Ribbon Landscape|A copper heat-exchanger illustration heads the bronze diagonal layout above detailed Fahrenheit readings.
+074|Violet Coil Ribbon Landscape|A copper coil sits on a violet-to-gold heading above three detailed Celsius table sections.
+075|Gray Coil Ribbon Landscape|A grayscale coil and reference-state figures sit in the angled gray heading above two pressure lookup blocks.
+076|Blue Table-First Molecule|The overview table fills the upper page, with the title and molecular model placed in a blue band underneath.
+077|Teal Table-First Molecule|Three Celsius table blocks sit above a deep-teal title band containing a small molecular model.
+078|Amber Table-First Molecule|A wide, three-block Fahrenheit table sits above an amber lower heading with a molecular illustration.
+079|Violet Table-First Molecule|Three blocks of detailed Celsius readings occupy the upper panel above the violet title band and molecule.
+080|Gray Table-First Molecule|Two pressure lookup blocks occupy the upper page, with a grayscale molecular model in the dark lower title band.
+081|Violet Thermometer Landscape|A yellow contact thermometer in a white inset card occupies the violet right sidebar beside the overview table.
+082|Blue Thermometer Landscape|A thermometer photograph and reference values sit in the navy right column beside three Celsius overview blocks.
+083|Orange Thermometer Landscape|A yellow thermometer sits in the orange right sidebar, next to three blocks of detailed Fahrenheit readings.
+084|Magenta Thermometer Landscape|A white thermometer card and reference-state values occupy the magenta right strip beside detailed Celsius data.
+085|Grayscale Vessel Landscape|A grayscale vessel labeled for vapor and liquid sits in the right sidebar beside the pressure lookup table.
+086|Violet Dimensional Coil|A copper coil sits within a circular glow above a wide table with raised violet edges.
+087|Green Dimensional Vessel|A green-filled phase vessel sits in a soft circular glow above a layered green Celsius table.
+088|Blue Dimensional Coil|A copper coil appears against a blue circular highlight above the raised, three-block Fahrenheit table.
+089|Teal Dimensional Vessel|A teal liquid-vapor vessel sits above a layered table with dark-green edges and detailed Celsius readings.
+090|Gray Dimensional Coil|A grayscale coil and circular highlight sit above a raised gray pressure lookup table.
+091|Coral Molecular Medallion|A molecular model sits in a coral circular medallion above a wide overview table with additional pressure columns.
+092|Copper Molecular Medallion|A molecular medallion fills the right side of the copper header above three blocks of multi-unit Celsius data.
+093|Violet Molecular Medallion|A molecular model in a violet circle heads a multi-unit Fahrenheit table divided into three blocks.
+094|Blue Molecular Medallion|A ball-and-stick medallion sits on a blue-to-teal heading above a dense multi-unit Celsius table.
+095|Gray Molecular Medallion|A grayscale molecular model sits inside a dark circular medallion above the multi-unit pressure lookup table.
+096|Mint Sculpted Vessel|A teal-filled vessel sits on a raised white heading slab above a mint-edged overview table.
+097|Amber Sculpted Dial|A silver pressure dial rests beside the heading on a white slab with warm orange edges above Celsius data.
+098|Violet Sculpted Vessel|A blue-filled vessel sits beside the title on a white heading slab above a purple-edged Fahrenheit table.
+099|Teal Sculpted Dial|A teal-rimmed dial sits on a raised white header above three green-edged blocks of detailed Celsius readings.
+100|Gray Sculpted Vessel|A grayscale liquid-vapor vessel sits on a raised white header above a layered gray pressure lookup table.
