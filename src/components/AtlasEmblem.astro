@@ -1,0 +1,35 @@
+---
+const { motif, size = 36 } = Astro.props;
+const id = 'emblem-' + crypto.randomUUID();
+const wine = `url(#${id}-wine)`;
+const brass = `url(#${id}-brass)`;
+---
+<svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id={id+'-wine'} x2=".85" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#ad6b79"/><stop offset=".5" stop-color="#803e58"/><stop offset="1" stop-color="#512a3e"/></linearGradient>
+    <linearGradient id={id+'-brass'} x2=".8" y2="1"><stop stop-color="#f9e3ae"/><stop offset=".5" stop-color="#d5aa72"/><stop offset="1" stop-color="#ac8051"/></linearGradient>
+  </defs>
+  {motif === 'portfolio' ? <g stroke-linejoin="round">
+    <path d="M17 13v-3q0-3 3-3h9q3 0 3 3v3" stroke="#67493d" stroke-width="3"/>
+    <rect x="5" y="13" width="38" height="27" rx="4" fill={wine} stroke="#582e3e"/>
+    <path d="M6 15h36v7l-15 5h-6L6 22z" fill="#99536a" stroke="#71384e"/><rect x="21" y="23" width="6" height="7" rx="1" fill={brass}/>
+    <path d="M9 34v2h30v-2" stroke="#c48c91" stroke-dasharray="2 2"/>
+  </g> : motif === 'draft' ? <g stroke-linejoin="round">
+    <path fill-rule="evenodd" d="M5 40 7 8l30 32H5zm8-8 10 1-9-11z" fill={brass} stroke="#a68356"/>
+    <path d="m18 35 18-27 4 3-18 27-6 4z" fill={wine} stroke="#633648"/><path d="m16 42 2-7 4 3z" fill="#dbc29c"/><path d="m16 42 1-3 2 1z" fill="#392c32"/>
+    <path d="m9 13 2 .2m-2.3 5 2 .2m-2.3 5 2 .2m-2.3 5 2 .2" stroke="#865f3e"/>
+  </g> : motif === 'calendar' ? <g>
+    <path d="m6 12 33-2 4 29-32 3z" fill="#ccba9f"/>
+    <rect x="5" y="10" width="34" height="29" rx="3" fill="#fff9ec" stroke="#a48979"/>
+    <path d="M5 13q0-3 3-3h28q3 0 3 3v6H5z" fill={wine}/><path d="M12 6v8m18-8v8" stroke="#775e4b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M10 24h4m4 0h4m4 0h5M10 30h4m4 0h4" stroke="#beaa97" stroke-width="2"/><rect x="26" y="28" width="6" height="5" rx="1" fill="#963f5b"/>
+  </g> : motif === 'account' ? <g>
+    <circle cx="23" cy="16" r="8" fill={brass} stroke="#9b744e"/><path d="M7 39c0-10 6-15 16-15s16 5 16 15z" fill={wine} stroke="#653747"/>
+  </g> : motif === 'join' ? <g>
+    <path d="M9 9h27v30H9z" fill="#f8e7c9" stroke="#a47e62"/><path d="M14 17h15m-15 5h11" stroke="#aa8b78" stroke-width="2"/><circle cx="34" cy="32" r="9" fill={wine}/><path d="M30 32h8m-4-4v8" stroke="#fff4dc" stroke-width="2"/>
+  </g> : <g>
+    <circle cx="24" cy="24" r="18" fill={brass} stroke="#98734b"/><circle cx="24" cy="24" r="14.8" fill="#fcf6e9" stroke="#ac8e6c"/>
+    <path d="m33 12-6 15-14 10 7-16z" fill="#d2c7ba"/><path d="m33 12-6 15-7-6z" fill={wine}/><circle cx="24" cy="24" r="2" fill="#684e47"/>
+    <path d="M24 10v3m14 11h-3M24 38v-3m-14-11h3" stroke="#967d67"/>
+  </g>}
+</svg>

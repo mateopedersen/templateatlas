@@ -59,7 +59,7 @@ const valid = !!(
 );
 if (!valid) Astro.response.status = Object.hasOwn(routes, path) ? 503 : 404;
 const title =
-  importedItem?.title || collection?.title || s?.title ||
+  importedItem?.title || collection?.title || (s && path === s.topic_path && ['doctors-note', 'social-security-card'].includes(s.topic_slug) ? s.display_title : s?.title) ||
   (cat && display(cat.title)) ||
   (tool && tools[tool as keyof typeof tools].title) ||
   support?.[0] ||

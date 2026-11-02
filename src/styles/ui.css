@@ -15,3 +15,31 @@
 .template-property .property-label {display: block; line-height: 1;}
 .property-swatch {display: block; width: 12px; height: 12px; border-radius: 50%; background: conic-gradient(#e38c87, #e8c774, #75b1ab, #a180b6, #e38c87); box-shadow: inset 0 0 0 1px #0001;}
 .property-swatch.is-mono {background: linear-gradient(90deg, #39343c 50%, #e7e1dd 50%);}
+
+/* Expanded card content must not stretch the other cards in the same row. */
+:is(.grid, .imported-grid):has(> :is(.card, .imported-card) details[open]) {
+  align-items: start;
+}
+
+/* Site-wide download guidance: compact until a visitor asks for details. */
+.download-notice-wrap {margin-top: 10px;}
+.download-notice {border: 1px solid #eadce0; border-radius: 12px; background: linear-gradient(105deg, #fbf4f6, #fcf9f3); color: #5d3043; overflow: hidden;}
+.download-notice summary {display: flex; align-items: center; gap: 10px; padding: 8px 13px; list-style: none; cursor: pointer;}
+.download-notice summary::-webkit-details-marker {display: none;}
+.download-notice-icon {width: 31px; height: 31px; flex: 0 0 31px; display: grid; place-items: center; background: #fff; color: #873b59; border: 1px solid #ead9df; border-radius: 9px; box-shadow: 0 2px 6px #71374b0a;}
+.download-notice-copy {display: flex; align-items: baseline; flex-wrap: wrap; gap: 3px 11px; flex: 1; font-size: 12px; line-height: 1.4;}
+.download-notice-copy strong {font-size: 12px; color: #66233f;}
+.download-notice-copy > span {color: #87747c;}
+.download-notice-action {display: inline-flex; align-items: center; gap: 5px; color: #74324e; font-size: 12px; font-weight: 700; white-space: nowrap;}
+.download-notice[open] .download-notice-action svg {transform: rotate(180deg);}
+.download-notice-content {border-top: 1px solid #ecdee1; padding: 4px 14px 14px 54px; font-size: 12px; line-height: 1.6; color: #6c5b62;}
+.download-notice-content p {margin: 9px 0;}
+.download-notice-content a {font-weight: 700;}
+@media (max-width: 600px) {.download-notice-copy {display: block;} .download-notice-copy > span {display: block; font-size: 11px;} .download-notice-content {padding-left: 14px;}}
+
+/* The artwork incorporates the selected template preview, keeping it specific to the page. */
+.topic-finder-heading {display: flex; align-items: center; gap: 12px; margin: 0 0 12px;}
+.topic-finder-icon {display: grid; place-items: center; flex: 0 0 62px; width: 62px; height: 62px; border: 1px solid #eddddf; border-radius: 17px; background: radial-gradient(circle at 30% 20%, #fff, #f4e9e9 70%, #ead9dd); box-shadow: inset 0 1px 0 #fff, 0 3px 8px #5423380b;}
+.topic-finder-icon svg {display: block; width: 66px; height: 66px;}
+.topic-finder-heading .topic-finder-kicker {margin: 0 0 4px; color: #845169; font-size: 10px; font-weight: 800; letter-spacing: .12em;}
+.workspace aside .topic-finder-heading h2 {margin: 0; font-size: 20px; line-height: 1.15;}

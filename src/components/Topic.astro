@@ -3,13 +3,17 @@ import FileGuide from './FileGuide.astro';
 import Icon from './Icon.astro';
 import Customize from './Customize.astro';
 import SaveTemplate from './SaveTemplate.astro';
+import ImageLicenseMetadata from './ImageLicenseMetadata.astro';
+import FindIllustration from './FindIllustration.astro';
 import { types } from '../charts/model.mjs';
 const { s, detail = false } = Astro.props;
 const chart = Object.hasOwn(types, s.topic_slug),
   invoice = s.topic_slug === 'invoice',
-  cal = s.year === 2027;
+  cal = s.year === 2027,
+  namedTopic = ['doctors-note', 'social-security-card'].includes(s.topic_slug);
 ---
 
+<ImageLicenseMetadata images={[s]} />
 <div class="breadcrumb">
   <a href="/">Home</a> / <a href="/templates/">Templates</a> /{' '}
   <a href={s.primary_category_path}>Collection</a>
@@ -23,14 +27,10 @@ const chart = Object.hasOwn(types, s.topic_slug),
       <button type="button" data-close-panel hidden>
         Close controls
       </button>
-      <p class="over">Your workbench</p>
-      <h2>
-        {chart
-          ? 'Build a chart'
-          : invoice
-            ? 'Build an invoice'
-            : 'Use this template'}
-      </h2>
+      <div class="topic-finder-heading">
+        <span class="topic-finder-icon"><FindIllustration topic={s.topic_slug} kind={s.builder_kind} preview={s.preview} /></span>
+        <div><p class="topic-finder-kicker">YOUR WORKBENCH</p><h2>{chart ? 'Build a chart' : invoice ? 'Build an invoice' : 'Use this template'}</h2></div>
+      </div>
       <p>
         {chart
           ? 'Replace the sample values and choose a chart style.'
@@ -89,7 +89,7 @@ const chart = Object.hasOwn(types, s.topic_slug),
     <h1>
       {detail
         ? s.title
-        : s.display_title.replace(/ Template$/, '') + ' templates'}
+        : namedTopic ? s.display_title : s.display_title.replace(/ Template$/, '') + ' templates'}
     </h1>
     <p class="lead">{s.summary}</p>
     <p class="meta">

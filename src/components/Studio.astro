@@ -2,6 +2,7 @@
 import { entries } from '../lib/catalog.mjs';
 import Customize from './Customize.astro';
 import Icon from './Icon.astro';
+import ImageLicenseMetadata from './ImageLicenseMetadata.astro';
 const familyMap: Record<string, [string, string, string[]]> = {
   agreement: [
     'Agreement studio',
@@ -64,6 +65,7 @@ const title =
       : 'Document Studio';
 ---
 
+{item && <ImageLicenseMetadata images={[item]} />}
 <div class="breadcrumb">
   <a href="/">Home</a> / <a href="/create/">Create</a> / {title}
 </div>

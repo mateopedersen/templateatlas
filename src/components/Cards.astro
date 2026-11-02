@@ -1,5 +1,6 @@
 ---
 import { collections } from '../lib/imported.mjs';
+import ImageLicenseMetadata from './ImageLicenseMetadata.astro';
 const { items = [] } = Astro.props;
 const displayItems = items.map((item:any) => {
   const collection = collections.find(c => c.topic_path === item.topic_path && !item.importedCollection);
@@ -7,6 +8,7 @@ const displayItems = items.map((item:any) => {
 });
 ---
 
+<ImageLicenseMetadata images={displayItems} />
 <div class="grid">
   {displayItems.map((s: any) => (
     <a class="card" href={s.importedCollection ? s.detail_path : s.topic_path}>

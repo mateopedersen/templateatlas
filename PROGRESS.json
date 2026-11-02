@@ -124,5 +124,120 @@
     "workerVersion": "4b19be6b-491e-414a-bb42-65218d313e13",
     "searchRevision": "c36038ebaccbe5b153a856fd99e87f009878fa02680ce3581af6af7a2f97e289",
     "liveEvidence": "editorial/live-verification-2026-11-02.json"
+  },
+  "local_navigation_2026_11_02": {
+    "status": "local-only; not published",
+    "summary": "Shared category, creator and tools navigation; grouped all 20 template category roots, calculators under tools",
+    "validation": [
+      "44 menu destinations returned HTTP 200 locally",
+      "Menus, Escape and single-open behavior checked in browser",
+      "Responsive menu checked at 727 CSS pixels without horizontal overflow",
+      "Astro build passed and check reported 0 errors and 0 warnings"
+    ],
+    "sitemap_comparison": "TemplateAtlas-sitemapte-olmayan-konular.txt in task root"
+  },
+  "local_topic_names_2026_11_02": {
+    "status": "local-only; not published",
+    "topic_titles": {
+      "/templates/social-security-card/": "SSN / Social Security Card Template",
+      "/templates/doctors-note/": "Doctor\u2019s Note Template"
+    },
+    "note": "Existing downloadable files and descriptions remain the previously reviewed checklist and request form; new template files are deferred per owner. Preserve existing URLs and IDs.",
+    "checks": [
+      "Both local topic pages returned 200 with requested title and existing accurate description",
+      "Astro check: zero errors or warnings",
+      "Astro build passed"
+    ]
+  },
+  "local_card_and_download_notice_2026_11_02": {
+    "status": "local-only; not published",
+    "changes": [
+      "Prevent expanded cards from stretching neighboring cards through shared grid styling",
+      "Move download guidance from the chart sidebar to a reusable site-wide disclosure below the header"
+    ],
+    "validation": [
+      "Astro build passed; Astro check: 0 errors and 0 warnings",
+      "Browser: opening second card leaves neighbors at natural height",
+      "Browser: notice opens and appears once on chart and tools pages",
+      "Browser: no horizontal overflow at 727 CSS pixels"
+    ]
+  },
+  "local_finder_design_2026_11_02": {
+    "status": "local-only; not published",
+    "description": "Replaced R134a finder symbol with a shaded refrigerant cylinder, reference grid and magnifier. Increased filter label sizes and contrast.",
+    "checks": [
+      "Astro check 0 errors 0 warnings, build passed",
+      "Pressure lookup and US Letter filters yielded 10 charts, reset restored 100",
+      "No horizontal overflow at 727 CSS pixels"
+    ]
+  },
+  "local_image_license_2026_11_02": {
+    "status": "local-only; not published",
+    "changes": "ImageObject metadata for public preview images in topic, collection, card, homepage and studio views; license page clarifies image and PDF version terms. Original file access remains private.",
+    "validation": [
+      "JSON-LD parsed and image URLs verified on R134a collection (100), invoice (1), template catalog (24) and homepage (24)",
+      "Astro check and build passed"
+    ],
+    "limitations": "No guarantee of Google badge or indexing. The original WebP and PDFs are protected downloads and are not exposed for indexing."
+  },
+  "local_topic_finder_2026_11_02": {
+    "status": "local-only; not published",
+    "details": "Shared finder renders each standard topic\u2019s actual preview within the SVG; R134a uses its own refrigerant illustration. Result count redesigned; imported collection breadcrumbs restyled.",
+    "validation": [
+      "1,146 standard topic records have previews",
+      "Browser checked letter and lease preview URLs match their page previews",
+      "R134a counter updates on filter; decorative status dot removed",
+      "Breadcrumb shows current location with strong contrast; no horizontal overflow at 727 CSS pixels",
+      "Astro check and build passed"
+    ]
+  },
+  "local_collection_facts_2026_11_02": {
+    "status": "local-only; not published",
+    "changes": "Redesigned collection metadata above heading with two illustrated, compact statistics, deriving counts from visible collection data.",
+    "checks": [
+      "Astro check: 0 errors, 0 warnings; build passed",
+      "Browser checked 100 designs and 5 editions, both icons, no horizontal overflow at 727 CSS pixels"
+    ]
+  },
+  "local_header_and_print_filters_2026_11_02": {
+    "status": "local-only",
+    "changes": [
+      "Two-tier wine and cream masthead with text search action and active section marker",
+      "Print filter tiles with dimensions, orientation and ink samples",
+      "Raised paper breadcrumb tabs and illustrated home link"
+    ],
+    "verified": [
+      "Keyboard menu and invoice search",
+      "A4 landscape: 25 matching visible charts; reset: 100",
+      "No page overflow at 727 CSS pixels",
+      "Astro check and build passed"
+    ]
+  },
+  "local_illustrated_library_2026_11_02": {
+    "status": "local-only",
+    "changes": [
+      "Illustrated category directory, search compass and account actions",
+      "Collection cover and orientation selector use real printable sheet previews"
+    ],
+    "checks": [
+      "4 shelf illustrations, 20 category links",
+      "Two cover images loaded",
+      "A4 landscape returned 25 visible cards",
+      "Invoice search submitted",
+      "727px: no horizontal overflow and filter drawer starts closed",
+      "Astro check and build passed"
+    ]
+  },
+  "envelope_intake_2026_11_02": {
+    "status": "deployed; verification pending",
+    "sourceZipSha256": "ad1ad59872e2aef5eb06f8702adb953e8103fd02bd34e89a9a15bd47d0c1074b",
+    "designs": 100,
+    "pdf": 100,
+    "webp": 100,
+    "previews": 100,
+    "r2_readback_verified": 300,
+    "pdf_amounts_and_fields_checked": 100,
+    "search_entries_staged": 1346,
+    "workerVersion": "21467a2a-2e02-4f38-b895-fd6e69629084"
   }
 }

@@ -1,0 +1,17 @@
+---
+const { images = [] } = Astro.props;
+const origin = 'https://templateatlas.com';
+const unique = new Map();
+for (const image of images) {
+  if (!image?.preview || !image?.detail_path) continue;
+  const url = new URL(image.preview, origin).href;
+  if (!unique.has(url)) unique.set(url, {
+    '@type': 'ImageObject',
+    contentUrl: url,
+    license: origin + '/legal/template-license/',
+    acquireLicensePage: new URL(image.detail_path, origin).href,
+  });
+}
+const data = {'@context': 'https://schema.org', '@graph': [...unique.values()]};
+---
+{unique.size > 0 && <script type="application/ld+json" set:html={JSON.stringify(data).replaceAll('<', '\\u003c')} />}

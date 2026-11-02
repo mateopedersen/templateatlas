@@ -1,0 +1,1102 @@
+[
+  {
+    "id": "ta-100-envelope-savings-001",
+    "visual": "Dark green envelope header",
+    "source_sha256": {
+      "pdf": "f6187285008600aad1730a9b5d7109ed650a78e4dc70460a7903bf37c85c782c",
+      "webp": "2744229f0c51f3e9afc589709d8d86d2128e2a20c77d721a5b2436b53b6cfbe4"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-002",
+    "visual": "Black typographic ledger",
+    "source_sha256": {
+      "pdf": "be163f99c8cd595c1fdb56d0b7ee35d33f6e823c6411c521028611873038a273",
+      "webp": "5d15f70d810bf2d6f75c1e405e60a51839828ac6340f1d442d4ae5f30deba4f8"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-003",
+    "visual": "Envelope and coin header",
+    "source_sha256": {
+      "pdf": "21e67d9c7e86a3f1ea6178c597f1a37f906e9e06be9477931032b4fae704d80f",
+      "webp": "01df8be8db5251425c53ade45130812294c62993069f47db812811ad35155ce8"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-004",
+    "visual": "Lavender envelope header",
+    "source_sha256": {
+      "pdf": "109cf0e3d4fd94870d849b572e30851bb75d53f41d35efb424c0d994af08546e",
+      "webp": "cbab9957091038d1f958e5b67795c416c5ba1cfebbf0e7bcae4968398f9dca0e"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-005",
+    "visual": "Green savings jar header",
+    "source_sha256": {
+      "pdf": "615bb927064ed45d4e92a60cf4d0467e2e66d93daac42ce4bfb639e9d5d38a5a",
+      "webp": "70df00ae8c12509da68f57d4f48724ee41e42144e9959b6eaa94b240f6da7184"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-006",
+    "visual": "Blue floral wreath",
+    "source_sha256": {
+      "pdf": "b21266591990b12d268dc341de482367e46b8180b1e8a9c3c7f7a389b4ff76b9",
+      "webp": "d4019a6c2e07a2a09b73488cbcd446077eb3e06fbd075b1fa8ab399788e7981e"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-007",
+    "visual": "Monochrome floral border",
+    "source_sha256": {
+      "pdf": "6d949a13f0741a0f6dac1253d21d5ef4d7eb55ce69e3e5bcf7516016595e4cb4",
+      "webp": "6b0e2cba6e6cb99bf417a9b7377c7d99f990d79417f88efa77dc7eb5c557a3f3"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-008",
+    "visual": "Olive botanical branch",
+    "source_sha256": {
+      "pdf": "a845afd576afa9fdb607871ad98d9c33669cafdc51fe7528eeafbfca28503249",
+      "webp": "f1e2d4711f81817fc669f00c9c843f86c4490bb44256a5691d61040773b5ec59"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-009",
+    "visual": "Rust floral header",
+    "source_sha256": {
+      "pdf": "49851d035a57ea6f9686154068785053c6e5be3c2f17d229b46b5a2d0c821245",
+      "webp": "4a401d4c41733418ea2eb312abf7f20276f50a08da648f698ac3c9447d0174dc"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-010",
+    "visual": "Monochrome botanical sprigs",
+    "source_sha256": {
+      "pdf": "28a378a38ad9c458eaab6a386a909410e5161335f560ddbf52b57ec373dc685f",
+      "webp": "18f26bf0ea9d34071a66bea6293b27f5ed4e78b402e0cc6217c9413511c62a09"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-011",
+    "visual": "Purple framed envelope",
+    "source_sha256": {
+      "pdf": "79227595ad2821a88baa9bead40b6e0dcdb38b413c549c11b023338c642b6a78",
+      "webp": "2afbb1c6a0481dd5fdf497617e2aff036f7cff9dbf217f7859e18d34a210a621"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-012",
+    "visual": "Rose envelope accent",
+    "source_sha256": {
+      "pdf": "9cfee14a7d34784b7622980ec47357bce9442a93d80dd930bafebc2604a74b1b",
+      "webp": "6c2472a1ed6b45fab6dfc6a10ca0395f35b989f2d05a868dde9d0b005ad904a3"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-013",
+    "visual": "Monochrome arched envelope",
+    "source_sha256": {
+      "pdf": "092f124d4501cd02dfe3cc3cc5333c717bf58210ee118ee4868ed1293d43b3df",
+      "webp": "2b65d39faa44d5c43757c41d84501fe11eadc7b164639fc19758fb8cbe5cb435"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-014",
+    "visual": "Burgundy framed envelope",
+    "source_sha256": {
+      "pdf": "dbb10bcb307580428d70db73ec3cda1d236fe65aaa29cfae850bec85b96d67b7",
+      "webp": "9692ff3a4d8fc6ff26e44b0244b5ccd8051c511f59fc47918bc816f2127278d7"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-015",
+    "visual": "Pink arched envelope",
+    "source_sha256": {
+      "pdf": "b8ee3ab0ad5170d4052e4b5181a38c60a6b776d4e3bfd37984940a60a30c9faa",
+      "webp": "882da3a8bdb9b3a8f678eb8b3fe38b17aa75c9f08d27722d3bfc1f48432979d4"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-016",
+    "visual": "Air mail envelope header",
+    "source_sha256": {
+      "pdf": "f033d1f636aa314b49996b711a6bf82cf81aa3ef75e863c35d1844145f81b320",
+      "webp": "d5cc82ff6560f294700b6c05818157e1bb35c1d5d46dd70ce444c73cd824b7cf"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-017",
+    "visual": "Air mail suitcase header",
+    "source_sha256": {
+      "pdf": "bfec3968d758ef173c8b8aba72bbaff67aea7cd6bf14285c54363fa486f70ae3",
+      "webp": "8ca19e0204e31fe8f02c611d5440d76b2af9f326a92ada4724cf068228f71743"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-018",
+    "visual": "Monochrome savings post",
+    "source_sha256": {
+      "pdf": "0c95f9b8c68a3782c27785b92792e0fedf8085910da57af17bd44850ded47e70",
+      "webp": "85fe43dd5886fd8586f83d2e213118c71c24db7d726c28817236a4f4ec7b5ea1"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-019",
+    "visual": "Monochrome mail panel",
+    "source_sha256": {
+      "pdf": "eac2caf55a22f19fbfaa54f046b61af384e0a24615447f2ca473eecf9c2204ee",
+      "webp": "fe35c023589398903321666ca6e407d201467d77617cfa12a22b7047458364af"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-020",
+    "visual": "Terracotta travel case",
+    "source_sha256": {
+      "pdf": "0d21bbe73cf59cbbfc65e5fd1e9bf8743f9b54006a8c80deb5a259ff98a5d3a2",
+      "webp": "fdec5560bba2658c5760564d327701c5bfdae32a7c0b48eb6d72374e7ed8ebfe"
+    },
+    "contact_sheet": "contact-1.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-021",
+    "visual": "Olive envelope collage",
+    "source_sha256": {
+      "pdf": "882d1b0ca0a022f2f3ef60c6510db239b155ab184319b81841a9b6818d9a8b3a",
+      "webp": "a49e6955bae975106ca71d94d9fd5f1e0c3283210c35e9c2e162e51907b118bb"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-022",
+    "visual": "Rose folded envelope",
+    "source_sha256": {
+      "pdf": "258af0e98e2880a2bc44832cc4546f6408931ce213f27215dbc7954cd04bf157",
+      "webp": "889eb297191a50c4b5df08a5d21e1a4f396f3d6ff982c995254dcfa6da3f9f73"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-023",
+    "visual": "Monochrome sunrise envelope",
+    "source_sha256": {
+      "pdf": "626e95c5b21bd2ffb0f6a7df1aa7cd42dcdd4756cb52fed23a3d3d96957232f9",
+      "webp": "c555d8e0cab508a3075d1318c6e5a244e5ef6b91d5624d347dfb052abe1ed31e"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-024",
+    "visual": "Black vertical title rule",
+    "source_sha256": {
+      "pdf": "e8c2206d7a2d1c1a0286354313a3d769cf041c7e804832268224fe69dc658139",
+      "webp": "b597d458d183754457489e05058ea87da49bb3ce528621bd5c0ab1d5052791a1"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-025",
+    "visual": "Blue coin stack header",
+    "source_sha256": {
+      "pdf": "ea7e9cae6defef3530f7e76c72dadb4dd8d547b67f9c72e0b1099f7afce2c7b6",
+      "webp": "b3111d1bd4bd8cc0f541ca3407df1f8fef275788b210ee15c180491c9c9c67de"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-026",
+    "visual": "Blue savings ribbon",
+    "source_sha256": {
+      "pdf": "a59400885a567a7a56d34ae31145021cb7d6bd382c158db1662967a9807632ca",
+      "webp": "738d608cd9e21c49dea92b2a60c863f3f7053bad882e0f7b1f00316a8f0c6a5f"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-027",
+    "visual": "Peach award ribbon",
+    "source_sha256": {
+      "pdf": "193a96938d4c571dfd7994e3427ae166c433c9b75c7ac8916a6b5ac2f498c460",
+      "webp": "ba69d8406a32d56228b50fae9cf993abebf7961e5720d2ea9fe0747911733dd2"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-028",
+    "visual": "Pink heart envelope",
+    "source_sha256": {
+      "pdf": "79b9af006a65e1e12843e27a4d57339e618f3022e2318ebe05d6832ac0453ee1",
+      "webp": "2a2a4eb4f8117c82a5ed8bbd27a1e9a864e1be1b8bf5b4dec96f69d18084abc7"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-029",
+    "visual": "Purple ribbon header",
+    "source_sha256": {
+      "pdf": "f529240387f1b47b51c92a4aaceabda2112cb0a7e7dbec0a73a6ab9e65e96228",
+      "webp": "2cd9b49261e0692b8f85cf3d71bba71d0987bdb0d2e765d20dd971283d6fd2b7"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-030",
+    "visual": "Rose envelope and goal bar",
+    "source_sha256": {
+      "pdf": "3e96def38207552a5b92f6d5ac529841ac133ed3f00bbd0586fd6d3422b04347",
+      "webp": "dee7a1852ba9e5a6ca8b4df9402f8f7314a424ebfd313186f8590902769c9f72"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-031",
+    "visual": "Monochrome arch header",
+    "source_sha256": {
+      "pdf": "9f1b86b1b4cf1bf2d6f6749163b8994d3add028c5928b3c576e30eb946b2ab98",
+      "webp": "7819fe4e374f85be089490f7d91a4b64ebd52efd92f275b7616e6c7d86df9fad"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-032",
+    "visual": "Mint arch header",
+    "source_sha256": {
+      "pdf": "482ab8c8d9928798cb98fa06becb112d7cc772ed46ceca9712714acc627df276",
+      "webp": "a3294b3315072161079e975ea354d0642977fa65efb9e70be6e648639794c091"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-033",
+    "visual": "Peach house illustration",
+    "source_sha256": {
+      "pdf": "48658423a4c672fe60fda80c713bbb3a116edbbea594f9af97b6684b83253052",
+      "webp": "6f9ed1eba4ed785f97cfa2fb9a59767205895b4e012e7f4f829bc3bebf0850ed"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-034",
+    "visual": "Amber arched envelope",
+    "source_sha256": {
+      "pdf": "6b2ded7a44cca5a4a2750b435f091abda14302644d0f99973e2986884d1522b2",
+      "webp": "ab864d34e6f5fef6889a9a62e5adcc3cff3a568ccd1121d293a055094a7c77d6"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-035",
+    "visual": "Monochrome savings jar",
+    "source_sha256": {
+      "pdf": "3330dbd482bb38fd11a6267aeafb19f51e8a59808435e321ef5c08f62bf0fe08",
+      "webp": "11b9b7173ee34c8cc8a70f1cd8bfc6063a229107b42dc4f5b979d68fd9b6386e"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-036",
+    "visual": "Black savings goal band",
+    "source_sha256": {
+      "pdf": "84bf81fbcf679f0fc69a8dfc0fc814f86b8675eee2f8e799f9f9b0123cd8ff48",
+      "webp": "4ec3676f9a6135304963e143599ab65c3e2829725a510c553fb2afd8b5d5007e"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-037",
+    "visual": "Blue number header",
+    "source_sha256": {
+      "pdf": "f65d8b5df4482c5fad3988d7c85882ab20cfeeace0d19bd4370aac947c85cdf2",
+      "webp": "553c5296097b5cfe472629a64ead8db8a9da9c5fb3ff149db066c7e0061f5183"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-038",
+    "visual": "Gold coin stack header",
+    "source_sha256": {
+      "pdf": "2314fc7592f8521946b2c530f2b6491026dc79d692f4c0b3217d41e15b67271f",
+      "webp": "7a16d7fa3c6a7cf95dba0a6c64bfaa9a0d25bd5c3cf3ed1867cffadd533f610b"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-039",
+    "visual": "Sage number header",
+    "source_sha256": {
+      "pdf": "76a6512a6d8b999a58a6b4c0b4ca0edcb0ee893522e3caad0cc6cf8758edc8dd",
+      "webp": "83866af2ba7bd0dd9d0d824519d51c104b27b05f1598504ad43041e2276dde95"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-040",
+    "visual": "Monochrome goal equation",
+    "source_sha256": {
+      "pdf": "712f4672a7728908578f62e67c4a2c2dc82ce35b9dfc904ad6492f27b9e59e7a",
+      "webp": "07fd2db7225011bee819a3d1a1d628ad4f50d2c11b8791022297bdb8cddadc20"
+    },
+    "contact_sheet": "contact-2.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-041",
+    "visual": "Four-panel envelope grid",
+    "source_sha256": {
+      "pdf": "9e1bf84172fda6859ce0aec75fcf947fc9684903ad9a1c06416ff0512eea66ea",
+      "webp": "acab5c131541aff671e3048a33af66117959426711ced7ae5b88b69e244ecaaf"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-042",
+    "visual": "Lavender four-panel grid",
+    "source_sha256": {
+      "pdf": "5bed93744324c2be5e813d40c0e4434101121f2332f3822cb22bc45ca779ce11",
+      "webp": "20619161ec71e3048ec21b4f6d25d434714c352c24e75c79b7b320e11630abeb"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-043",
+    "visual": "Rose four-panel grid",
+    "source_sha256": {
+      "pdf": "0a6b344a438c50dda6732f4231ceb9368d770dccd82eb3cebe30514014ea0e22",
+      "webp": "84251f6f38d3b837a0f8ec2a97399ec0e6a9a1f547243e1a985188a579a9502e"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-044",
+    "visual": "Blue four-panel savings jar",
+    "source_sha256": {
+      "pdf": "5057bdc7038a49be3926b732641b951e10167712bf47d42d2096b68c60fd7514",
+      "webp": "4b71c0207febda15269f4bdb04bcad561fdbf7f20134a85193c23f50ed7eb832"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-045",
+    "visual": "Peach four-panel ribbon",
+    "source_sha256": {
+      "pdf": "3b66b84238374bfc831cff040a5b642dde3aa7edc395b00db70c59af4635e727",
+      "webp": "7de5fd4b8443f1fa6da636f0b2b7c9ead34df6f22fd493a1558ce233b736fff5"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-046",
+    "visual": "Peach envelope title",
+    "source_sha256": {
+      "pdf": "063c36873a3fcd8de1306c8a40e885724677c50e26d765ed70519f45c500663c",
+      "webp": "1013e030530c6bdfc91f71e31867bfb9334eea9b51b2c633700f60303f994c9b"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-047",
+    "visual": "Monochrome heart envelope",
+    "source_sha256": {
+      "pdf": "d41b24524298db7b84cdd411e899b5c28e3b04f3fec871289b304ba3f9f728e3",
+      "webp": "4b8785b0fa6f77e8db5e48dfea2856a13a89e093984f62b3d2abd0c03525ac03"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-048",
+    "visual": "Lavender Envelope and Coin Header",
+    "source_sha256": {
+      "pdf": "9868ebed7ca46ad72b8b5e8691e3567767edbb191a73225572b45ba5000b16dd",
+      "webp": "fba7f974bcbef5f319eb14d08c0a62ba59b8e0270900f08a19a60076d824dbe1"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-049",
+    "visual": "Monochrome envelope outline",
+    "source_sha256": {
+      "pdf": "d801fe910a4acca118c2b0890a2c2ddbd67b576483e4bb62a5ce15c23ea00311",
+      "webp": "ef86d0feb10fedf19f66f850808724ac079600e1df9089cbc1be541e27b09e97"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-050",
+    "visual": "Teal leaves and envelope",
+    "source_sha256": {
+      "pdf": "bd68bb87228469e963fc8365b9c552ea9dc68e741df38e1738e38305a81f1e7f",
+      "webp": "075689f401a6e31902a96a9555b958c6e60d949e87f6109503d497f97bc59eb0"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-051",
+    "visual": "Monochrome side column",
+    "source_sha256": {
+      "pdf": "5a2b69a76fe28cdea0fb3f70e55d409db95965a03271500019cf136eeb7840b9",
+      "webp": "3f3d0a0fe9e70996d5deaae5d179c3758233d9bff38605161392ded06d3f2fb6"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-052",
+    "visual": "Sage envelope side panel",
+    "source_sha256": {
+      "pdf": "e8bcd3d4f92a7c16f80dd8aaab9f5c7f7568a4c84302b72ff5ef3f51cd07dc30",
+      "webp": "b3ab6db528b20b0af4fcbdec47b3e4c1837e2466a3548898652d234461cd2ba3"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-053",
+    "visual": "Rose arched side panel",
+    "source_sha256": {
+      "pdf": "eee96746fad3c1c9d0b3878922e282ed6b8caa0ceac351e10651e47f50db065d",
+      "webp": "fa811660ab3a23551c573d8873d29cda7ef44bcc01f05857f1f713331f9d3aec"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-054",
+    "visual": "Pink envelope side panel",
+    "source_sha256": {
+      "pdf": "a79691aa6a9957fa8107757c245cfc6648bdb8098b850680826ba2dfd81c41ff",
+      "webp": "654e635fdc8922fff62a04af038a4b9f3f9afe6e621624ca0336731a01539cd4"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-055",
+    "visual": "Monochrome open envelope",
+    "source_sha256": {
+      "pdf": "0ea233c96cee6935fd4ec2a508505fd0f9c716bc4141c25f3eedc91e16505c24",
+      "webp": "dfddf4fb2e297d7de91d91cb997894a3900c4f36b8751596d3934d3a7551bc1b"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-056",
+    "visual": "Monochrome portrait grid",
+    "source_sha256": {
+      "pdf": "d2963cdde91388f7c0f18e3153d1dee6bdbb477503793900041864be3e30bf93",
+      "webp": "6153ef0bfab57d62623fe1853d7a85c8502ac189346deb3d572346c2636b0dc9"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-057",
+    "visual": "Blue coin header",
+    "source_sha256": {
+      "pdf": "2389621d28a55f766e7a9151d363c1a10be3dca888fd24b983edd10efc202f41",
+      "webp": "ba0a39666dc226f492b3414860d8049ecf440429507f70fdd9392136ff73dbbe"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-058",
+    "visual": "Peach lower title band",
+    "source_sha256": {
+      "pdf": "55b5a6f41ce02e29daf842fe8ec9e5324d5f34100d5a8f31b5bee199bd3ac803",
+      "webp": "c2b29e5918218bb52f43e6fba7e43da08c05a1ee19b99eae446e07ef6cf82962"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-059",
+    "visual": "Pink savings jar header",
+    "source_sha256": {
+      "pdf": "7b74e54ea9c7f1b7d254c6f1efbd7afe00646dc1ca0c5d9c8e384c8a7f08f8e5",
+      "webp": "5a0b6c30114c68192551af160311f69f1b0fade665cd34664333cac30a2a591b"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-060",
+    "visual": "Lavender envelope strip",
+    "source_sha256": {
+      "pdf": "c7662e96f72187092ac2beb11a04bfbfffdfc45148bc23668733f3ba69dc44c3",
+      "webp": "7ffdf658fe93482b872c0b545745e25cc62bc5fb856bd46230af04527c95f675"
+    },
+    "contact_sheet": "contact-3.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-061",
+    "visual": "Lavender jar header",
+    "source_sha256": {
+      "pdf": "85adcad884dec9d5cccddf26b015ab6430fa14818fb7a2b0b87f7d0a7a374553",
+      "webp": "5faf0d08954310a52a5d368dcb5910b332f7990ad81f42ba45cf7af9596c7df0"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-062",
+    "visual": "Monochrome lower title",
+    "source_sha256": {
+      "pdf": "2b4b4b7aad937af67e2c487026d437691bae51d2cf67b99493fca0e8dbfebbed",
+      "webp": "f5ccce1487f5efb9fb23a76307f46c9f41183c3fd7434242738b6efc4676081d"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-063",
+    "visual": "Mint envelope sidebar",
+    "source_sha256": {
+      "pdf": "90d920a476121b8f810727c016e146ab0f5c4ba3fcd613b7b7e3731f49b5035f",
+      "webp": "42ff33dde4f5e42d71750875e4c11352b44c224a67a67de3c916111a2d9bfe6e"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-064",
+    "visual": "Monochrome split grid",
+    "source_sha256": {
+      "pdf": "0e8246ff6ee37e3baf4028818d23ade8f66172a1dcfaf8876b9c53ddea799a3a",
+      "webp": "c84f87e257f172e99dd69d0a5bf2fb46a423f56563527cc0c3558db0f015f8b7"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-065",
+    "visual": "Peach ribbon header",
+    "source_sha256": {
+      "pdf": "b56a1395399376a703c3caa39a5f501df699ea7c8fac1009271d67eb9f849c57",
+      "webp": "3163ab93ba0f85a9be1eb60cdc23abef56c29217f9710dafbba4ee69e9720649"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-066",
+    "visual": "Rose envelope heading",
+    "source_sha256": {
+      "pdf": "137583ea8569c73fe03fd4571ae59d5601eef118b9a2129b59058425adcf2f1d",
+      "webp": "e599a036baaa397920d11955752c2fd4339364b3e98f5523b8e947bb2c98688c"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-067",
+    "visual": "Monochrome travel sidebar",
+    "source_sha256": {
+      "pdf": "ba73845bac77fff6e80e886f3a4d413b7c7a8850ba597af23f79d938878f91b8",
+      "webp": "6e555f46bf28289727c8974ee5897abed932e33615f9482544d645aa273ccdf1"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-068",
+    "visual": "Blue travel sidebar",
+    "source_sha256": {
+      "pdf": "aeb6b35e53151bb97b1ca94e5b313a95e33f404a9d71278a185c7c4f278c4491",
+      "webp": "c847cf46ad28c81eee487072cec8ccd8e11f69ad33136a1b26efd0718b07ac5e"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-069",
+    "visual": "Mint envelope header",
+    "source_sha256": {
+      "pdf": "94cb8218cde3b9c67bdcd224f67358072ce640bc421a5e9513f0241dd18a7b81",
+      "webp": "62251fcd352dd3b7611f5853761df8eebed3689a407026eb49c82be78e6acd9e"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-070",
+    "visual": "Monochrome lower goal band",
+    "source_sha256": {
+      "pdf": "059939ad18dc1a229a9398436e2a5c8dffae881702884a0314c7fecc4955e43b",
+      "webp": "2ca9ebc654fc05bef36810593acfe826f0117436c25badedca57683fc5cc36ce"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-071",
+    "visual": "Orange number and coins",
+    "source_sha256": {
+      "pdf": "07b8f8bc59231b299db0ce7328796e5f7f8f0a887f2719637c23c31d9c77ba1e",
+      "webp": "78848bfc55e8e92ad88f2d5800cfa6cbb4faa28c58a8cb1c9813e0b7f52c706c"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-072",
+    "visual": "Monochrome circular title",
+    "source_sha256": {
+      "pdf": "9223f9d86b98cdc2b174c10065e80f555db17d9e2f3ed0910f25a358111ba3b9",
+      "webp": "d60ea7c650400d4549026a976acc66037867c74d011984f7f2597d75473694f3"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-073",
+    "visual": "Lavender banner header",
+    "source_sha256": {
+      "pdf": "e970bc1abb3084e5bd661f86975c7d5e3b804d602c730d9420f7fee86e61638e",
+      "webp": "3ed74e53c809a729df769fa0581f92e27253fc912c561fc5534249e589f3ce3e"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-074",
+    "visual": "Rose house and split grid",
+    "source_sha256": {
+      "pdf": "ab004e79ff2a1550942907af9581c59ef6832574bf9861d717651a28c68f05c8",
+      "webp": "f3a556743a0c113a184873ce968f5f3fcc4aa736c7b64d5d361c1c2cca790587"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-075",
+    "visual": "Blue lower title band",
+    "source_sha256": {
+      "pdf": "608f9387c375e82d5df193029447008e9e2634541aad315cebf599e62e8e174f",
+      "webp": "5af08a3699c468aaed33e89e121bc68622e5c769962a8853c37dc851991af2f0"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-076",
+    "visual": "Green botanical border",
+    "source_sha256": {
+      "pdf": "9f9b0bcc69538837882f5eb6155847f81de6dc657f5214d0315f2fc38e73519e",
+      "webp": "a2fa6b99396247faa3cb06e98de70157d0e049f898fc87e8d396101383613b0e"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-077",
+    "visual": "Terracotta botanical sidebar",
+    "source_sha256": {
+      "pdf": "ea5e5c6f4e50d8aba8a862f79d7771a52079bb77e2cda2a10a73a6478b7ef50e",
+      "webp": "246ed79ad046bfab4a2be848b67ce3b3fb453ac95e67de483e85b76c4291de02"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-078",
+    "visual": "Monochrome botanical sidebar",
+    "source_sha256": {
+      "pdf": "e3aa80a92a3d187b317e1aa47d02254de6fae59c2cdc0f779c92ccf8ae13b1e5",
+      "webp": "ccdedb6f9a751450dad184fe3070a6a5098940547eaede2e07c6dd6f2bf0ae03"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-079",
+    "visual": "Monochrome floral corners",
+    "source_sha256": {
+      "pdf": "89ef410f5784963f22487f407f4b63dab5ccbbe30811f870fe0674efa9b4cc39",
+      "webp": "6a664d2440d36079f74403ca54aac52c337698101f136911b3da1c0f616980b5"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-080",
+    "visual": "Sage floral lower banner",
+    "source_sha256": {
+      "pdf": "4c9f458d45ec1c0db75d68cdccfe9428a079d2c8f88d3fa65ce91aa0804d8043",
+      "webp": "80dc6140564437720d4bdcc56b7168a6661b5b52447e2cc3b0d4e6d0cf3b8551"
+    },
+    "contact_sheet": "contact-4.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-081",
+    "visual": "Blue arch sidebar",
+    "source_sha256": {
+      "pdf": "bb7f2ed0bf675d7ce49ba94f5c5dbf0cb228eea03d02fa2b33b27c70980fd86b",
+      "webp": "01f42fdf3564b2e0827573a1efe3c9ddc0bff268c0bf6681abcca542eb46e2ff"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-082",
+    "visual": "Blue paired arches",
+    "source_sha256": {
+      "pdf": "c8e9a65fd3d29cdb84b74039aec5263b7e7e5255d7f89cff492d321c766cf260",
+      "webp": "e6e2625a493cd4db779603fe7160bae477630ea684932e075460b4a175c617cf"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-083",
+    "visual": "Monochrome split tables",
+    "source_sha256": {
+      "pdf": "b09c70efd4b775638b5279eb72a592c345bb8a53426b2336eedb404cef2c7846",
+      "webp": "f3ae06df872275fb9cb524fbcbc0819687f150adec8be003ff130752c825d7a8"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-084",
+    "visual": "Gold arch header",
+    "source_sha256": {
+      "pdf": "158cfa29b05504de39552b055c472329e356aac0933a0b6a5c258692b6bbce88",
+      "webp": "7ff130933a1038470fc5fa046fc45d2b9ab245986f2a37b11e5a2d9911f9e141"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-085",
+    "visual": "Monochrome lower caption",
+    "source_sha256": {
+      "pdf": "5f146051eed4bf7048f194e0a3f7a4dec5ca1e1815aa231a64e6b1a36f5c3b82",
+      "webp": "45db13f7414d9c361ef2678a89357bea7760410b9448fd56a0f5d9f5e5fd9467"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-086",
+    "visual": "Lavender ribbon and four panels",
+    "source_sha256": {
+      "pdf": "4c47be1951639fde1e06c93efdbd49747fab99b900bd8c06a872003a4391b243",
+      "webp": "fc48c03d61b24643d2f7b2a63e509ba3b25234517585f1ca85a95af8412fc970"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-087",
+    "visual": "Pink envelope and four panels",
+    "source_sha256": {
+      "pdf": "a791c2565a5890130a626d5aa2d93d10a5e5154bfb54dcae9883a8d69ef4f310",
+      "webp": "b9ef153eedbe24fa2e3b3d592d3153ce88d72e173166377da0e1d9854ccb8023"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-088",
+    "visual": "Monochrome four panels",
+    "source_sha256": {
+      "pdf": "f33b4b3463d567772cabcbdd07a09993ad25e83a9e838ba9222bdb23abc524cb",
+      "webp": "0efe5270a8ea7ac60e12cb556f95fe1de49029f2828d06cfd1ae01b8413d2fd8"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-089",
+    "visual": "Terracotta suitcase header",
+    "source_sha256": {
+      "pdf": "ff9dc49e68d429c9a7b393bd745891e7935ea26845d136bfa03d1532d8613398",
+      "webp": "1ee145a79dcf0a727cd0305251790fe2c383a4af9bc5c77dc4818eecf83b77ff"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-090",
+    "visual": "Rose five-column layout",
+    "source_sha256": {
+      "pdf": "0456783a3532d813db3c2df2cdaca7235793d95d3a543c17506c994609b48b53",
+      "webp": "4d713ad5534c9f9dc3a237330f02b9d0dc4fc859ecd6e78b4359d0281f0f8fad"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-091",
+    "visual": "Ivory envelope ledger",
+    "source_sha256": {
+      "pdf": "50904cbde0dd995cc40717c5ecb9a059e8c2ceaba9a33f385bbfb833f549baa4",
+      "webp": "f5a91763099d28547df4974af62e18b946b87ace99fb894d2a4cce8010698548"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-092",
+    "visual": "Lavender side column",
+    "source_sha256": {
+      "pdf": "cdcc35b37eb54eda503fa875e2c878625d8fa02ef5b4835b5c8f682fd060c625",
+      "webp": "cd19a70f7b255db1c1b33b68ab286bba9fa36fcb3588b1333b6fbc54367512ae"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-093",
+    "visual": "Sage envelope header",
+    "source_sha256": {
+      "pdf": "6a7b53de8584028e2e5b22f521699ba921944d842f5551b4bbc90cbe497780d9",
+      "webp": "7b552a854c164cb4351e474ef583867d154902554ea93b76cc53f87d2240a076"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-094",
+    "visual": "Monochrome ledger header",
+    "source_sha256": {
+      "pdf": "baadd51bd41806e72f0a2dee31916fe7fc0a8a8e463ae9ac71332c7c6d9761d6",
+      "webp": "365affa8fdd0615dc5b9097b6dd37c1b562312c6ee56a67b3a0f41df28b28bf3"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-095",
+    "visual": "Amber number header",
+    "source_sha256": {
+      "pdf": "079a21043b2afc20d3bc19ce9f5e108bb6da6133c2af3726c1beb22e2a123c6e",
+      "webp": "a7f1bff8a62bd5dd3da586a72a756519c75a80c545f105f7f3696b56165ddb84"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-096",
+    "visual": "Monochrome five-column grid",
+    "source_sha256": {
+      "pdf": "3c4daa4c010510901cc8cdff3bebb949bb6ee0f66aa5d75af16cbfc036e59d06",
+      "webp": "528ba8fb4bf1f867025c8aac994c0e8a786da5dd4df94b30b9b02fdae15785fc"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-097",
+    "visual": "Peach lower envelope band",
+    "source_sha256": {
+      "pdf": "55dad92209f8eb139044134e868752581ce5e259fa4390d18632374dc59babbf",
+      "webp": "5480785e5279bd8372d5a5b3142821d53fd786d4ae4a7f2bf5f1a048737ab071"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-098",
+    "visual": "Pink envelope sidebar",
+    "source_sha256": {
+      "pdf": "479f04e9580b4234ef2bb6e5f89ef9c5536394840dc2cf7ad6dd35125e7abe4f",
+      "webp": "bd71f803a2c428bd5307ce2812570c0b22aec706879ac8043551cafaf5d1e62b"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-099",
+    "visual": "Blue arched envelope header",
+    "source_sha256": {
+      "pdf": "adfdfe743835ef290cfbb95dadb243d32122181b64609de981f4b375b7769c59",
+      "webp": "381b3fbfaa2411ece36c177da0ba73b6f879c0cd2c48d9a767f670c7bdda27a0"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  },
+  {
+    "id": "ta-100-envelope-savings-100",
+    "visual": "Mint Envelope and Four Panels",
+    "source_sha256": {
+      "pdf": "56dd11218c0717e9f28ca257f1c2daa443c72e572a6b508b5c55619817dfbc54",
+      "webp": "c991ef2e17ef4abdcab8c2aea46c2522d1ee4c407ba4a8414aa1bc28db3a33d7"
+    },
+    "contact_sheet": "contact-5.jpg",
+    "amounts_checked": 100,
+    "pdf_fields": 103
+  }
+]

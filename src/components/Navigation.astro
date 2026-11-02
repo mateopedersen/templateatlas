@@ -1,0 +1,56 @@
+---
+import categories from '../data/categories.json';
+import { tools } from '../lib/tools.mjs';
+import Icon from './Icon.astro';
+import AtlasEmblem from './AtlasEmblem.astro';
+const path = Astro.url.pathname;
+const groups = [
+  {title:'Work & business', motif:'portfolio', paths:['business-commerce','resumes-careers','legal-official-documents','real-estate-rental','construction-maintenance']},
+  {title:'Design & learning', motif:'draft', paths:['charts-graphs','education-academic','design-creative','music-instruments']},
+  {title:'Everyday planning', motif:'calendar', paths:['planners','monthly','holidays','home-lifestyle','health-medical','food-cooking']},
+  {title:'Leisure & travel', motif:'compass', paths:['special-events-occasions','travel-trip-planning','vehicles-transportation','sports-recreation','games-entertainment']},
+];
+const names: Record<string,string> = {
+ 'business-commerce':'Business & Finance','legal-official-documents':'Legal & Official Documents','real-estate-rental':'Real Estate & Rental','construction-maintenance':'Construction & Maintenance','education-academic':'Education & Academic','design-creative':'Design & Creative','music-instruments':'Music & Instruments','monthly':'Monthly Calendars','home-lifestyle':'Home & Lifestyle','health-medical':'Health & Medical','food-cooking':'Food & Cooking','special-events-occasions':'Events & Occasions','travel-trip-planning':'Travel & Trips','vehicles-transportation':'Vehicles & Transportation','sports-recreation':'Sports & Recreation','games-entertainment':'Games & Entertainment'
+};
+const create = [
+ ['Chart maker','Turn your data into a chart','/create/chart/','chart'],
+ ['Invoice maker','Create a client-ready invoice','/create/invoice/','receipt'],
+ ['Form builder','Build a form from scratch','/create/form/','document'],
+ ['Calendar maker','Make a calendar for your plans','/create/calendar/','calendar'],
+ ['Planner maker','Organize projects and routines','/create/planner/','list'],
+ ['Agreement maker','Start a structured agreement','/create/agreement/','pen'],
+ ['Design studio','Create a visual layout','/create/design/','layers'],
+ ['Diagram maker','Map out ideas and processes','/create/diagram/','grid'],
+ ['Spreadsheet maker','Build a working spreadsheet','/create/spreadsheet/','grid'],
+ ['Presentation maker','Create a presentation','/create/presentation/','studio'],
+];
+---
+<nav class="atlas-nav" aria-label="Main navigation" data-atlas-nav>
+  <details class="atlas-nav-item atlas-categories">
+    <summary class:list={[{ current: /^\/(templates|categories|search)\//.test(path) }]}><AtlasEmblem motif="portfolio" size={23} />Categories <span class="nav-chevron" aria-hidden="true"></span></summary>
+    <div class="nav-panel nav-category-panel">
+      <div class="nav-panel-heading"><div><strong>Browse the library</strong></div><a class="nav-view-all" href="/categories/">All categories <Icon name="arrow" size={15}/></a></div>
+      <div class="nav-category-grid">
+        {groups.map(group => <section><div class="shelf-emblem"><AtlasEmblem motif={group.motif} size={44} /></div><h2>{group.title}</h2>{group.paths.map(slug => {const cat=categories.find(c=>c.path===`/categories/${slug}/`); return cat && <a href={cat.path}>{names[slug] || cat.title}<Icon name="chevron" size={12}/></a>})}</section>)}
+      </div>
+      <div class="nav-panel-footer"><a href="/templates/">Browse all templates <Icon name="arrow" size={14}/></a></div>
+    </div>
+  </details>
+  <details class="atlas-nav-item"><summary class:list={[{ current: /^\/(create|studio)\//.test(path) }]}><AtlasEmblem motif="draft" size={23} />Create <span class="nav-chevron" aria-hidden="true"></span></summary>
+    <div class="nav-panel nav-small-panel"><div class="nav-panel-heading"><div><strong>Create from scratch</strong><p>Build and customize with our editors.</p></div></div><div class="nav-feature-list">{create.map(([title,copy,href,icon])=><a href={href}><span class="nav-feature-icon"><Icon name={icon} size={18}/></span><span><strong>{title}</strong><small>{copy}</small></span><Icon name="chevron" size={13}/></a>)}</div><div class="nav-panel-footer"><a href="/create/">Explore all creators <Icon name="arrow" size={14}/></a></div></div>
+  </details>
+  <details class="atlas-nav-item"><summary class:list={[{ current: /^\/tools\//.test(path) }]}><AtlasEmblem motif="compass" size={23} />Tools <span class="nav-chevron" aria-hidden="true"></span></summary>
+    <div class="nav-panel nav-small-panel"><div class="nav-panel-heading"><div><strong>Tools for everyday tasks</strong><p>Calculate, convert, and plan.</p></div></div><div class="nav-tool-grid">{Object.entries(tools).map(([slug,tool])=><a href={`/tools/${slug}/`}>{tool.title}<Icon name="chevron" size={12}/></a>)}</div><div class="nav-panel-footer"><a href="/tools/">Explore all tools <Icon name="arrow" size={14}/></a></div></div>
+  </details>
+  <a class:list={["nav-direct", { current: path.startsWith("/help/") }]} href="/help/">Help</a>
+</nav>
+<script>
+ const nav = document.querySelector<HTMLElement>('[data-atlas-nav]');
+ if (nav) {
+   const menus = [...nav.querySelectorAll<HTMLDetailsElement>('details')];
+   menus.forEach(menu => menu.addEventListener('toggle', () => {if (menu.open) menus.forEach(other => {if(other !== menu) other.open = false;});}));
+   document.addEventListener('click', e => {if (!nav.contains(e.target as Node)) menus.forEach(menu => menu.open = false);});
+   document.addEventListener('keydown', e => {if(e.key === 'Escape') {const open=menus.find(menu=>menu.open); if(open) {open.open=false; open.querySelector('summary')?.focus();}}});
+ }
+</script>

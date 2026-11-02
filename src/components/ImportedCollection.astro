@@ -2,30 +2,47 @@
 import "../styles/imported-collection.css";
 import FileIcon from "./FileIcon.astro";
 import TemplateProperties from "./TemplateProperties.astro";
+import ImageLicenseMetadata from "./ImageLicenseMetadata.astro";
 const { collection, item } = Astro.props;
+const savings = collection.id === "100-envelope-savings";
+const label = savings ? "Savings Trackers" : "R-134a Charts";
 const items = collection.items.filter(
   (e: any) => !Astro.locals.held?.has(e.id),
 );
 const size = (n: number) => (n / 1024 / 1024).toFixed(2) + " MB";
 const options = (key: string) =>
   [...new Set(items.map((e: any) => e[key]))] as string[];
+const featuredPapers = [
+  items.find((entry: any) => entry.orientation === "Landscape"),
+  items.find((entry: any) => entry.orientation === "Portrait"),
+].filter(Boolean);
 ---
 
+<ImageLicenseMetadata images={item ? [item] : items} />
 <nav class="breadcrumb imported-breadcrumb" aria-label="Breadcrumb">
-  <a href="/"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 8-7 8 7M4 7.5V18h5v-6h3v6h4V7.5"/></svg>Home</a>
+  <a href="/"><svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 10 7-5 7 5v10l-8 1-6-2z" fill="#e9d5b9"/><path d="m12 7 7 3v10l-7 1z" fill="#c7a68b"/><path d="m2 10 10-8 10 7-3 2-7-5-8 7z" fill="#88455a"/><path d="m12 2 10 7-3 2-7-5z" fill="#59283d"/><path d="m8 14 3-1v7l-3-1z" fill="#73465a"/><path d="m14 12 3 .5v3l-3-.4z" fill="#fff2d5"/></svg>Home</a>
   <svg class="breadcrumb-divider" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg>
   <a href="/templates/">Templates</a>
   <svg class="breadcrumb-divider" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg>
-  {item ? <a href={collection.topic_path}>R-134a Charts</a> : <span aria-current="page">R-134a Charts</span>}
+  {item ? <a href={collection.topic_path}>{label}</a> : <span aria-current="page">{label}</span>}
   {item && <><svg class="breadcrumb-divider" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg><span aria-current="page">{item.design_label}</span></>}
 </nav>
+{!item && (
+  <section class="print-cover" aria-labelledby="collection-title">
+    <div class="print-cover-copy">
+      <p>{items.length} printable designs <span aria-hidden="true">/</span> {options("edition").length} {savings ? "savings plans" : "data editions"}</p>
+      <h1 id="collection-title">{collection.title}</h1>
+      <p class="print-cover-intro">{savings ? "Choose a savings goal and a printable layout for your challenge." : "Choose a reference sheet for your units, paper size, and print setup."}</p>
+    </div>
+    <div class="print-cover-art" aria-hidden="true">
+      {featuredPapers.map((sheet: any) => <img src={sheet.preview} width={sheet.previewSize[0]} height={sheet.previewSize[1]} alt="" />)}
+    </div>
+  </section>
+)}
 <div class:list={["workspace", "imported-workspace", { "imported-browse": !item }]}>
   <aside class="panel imported-controls">
-    {item && <p class="over">Refrigerant reference</p>}
-    <div class="chart-filter-heading">
-      {!item && <span class="filter-heading-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 40 40" fill="none"><rect x="11" y="6" width="23" height="29" rx="4" transform="rotate(9 22 20)" fill="#ddcbbf"/><rect x="6" y="4" width="24" height="29" rx="4" fill="#fff" stroke="#b395a3"/><rect x="10" y="9" width="16" height="6" rx="2" fill="#78344f"/><path d="M11 20h6m-6 5h6m4-5h4m-4 5h4" stroke="#b89eaa" stroke-width="2" stroke-linecap="round"/></svg></span>}
-      <div><h2>{item ? "Download This Chart" : "Find Your Chart"}</h2>{!item && <p>Choose Your Format & Layout</p>}</div>
-    </div>
+    {item && <p class="over">{savings ? "Savings tracker" : "Refrigerant reference"}</p>}
+    {item && <h2>{savings ? "Download This Tracker" : "Download This Chart"}</h2>}
     {item ? (
       <>
         <p>
@@ -45,74 +62,60 @@ const options = (key: string) =>
           <p role="status" data-download-message></p>
         </div>
         <dl class="imported-facts">
-          <dt>Reference grid</dt>
+          {!savings && <> <dt>Reference grid</dt>
           <dd>{item.range}</dd>
           <dt>Data rows</dt>
           <dd>{item.rows}</dd>
           <dt>Units</dt>
           <dd>{item.units.join(" · ")}</dd>
+          </>}
+          {savings && <><dt>Savings goal</dt><dd>{"$" + item.goal.toLocaleString("en-US")}</dd></>}
           <dt>Image dimensions</dt>
           <dd>{item.pixels.join(" × ")} px</dd>
           <dt>PDF length</dt>
           <dd>1 page</dd>
         </dl>
-        <a href={collection.topic_path}>Browse all 100 charts →</a>
+        <a href={collection.topic_path}>Browse all {items.length} {savings ? "trackers" : "charts"} →</a>
       </>
     ) : (
       <>
-        <div class="chart-filter-toolbar">
-          <p data-chart-count role="status">{items.length} Charts</p>
-          <button type="reset" form="chart-filters" class="chart-filter-reset" disabled>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Clear All
-          </button>
+        <details class="print-filter-drawer" open>
+          <summary>Print options</summary>
+          <form id="chart-filters" data-chart-filters data-unit={savings ? "tracker" : "chart"}>
+            <fieldset class="layout-picker">
+              <legend>Page layout</legend>
+              <div class="layout-samples">
+                {options("orientation").map(layout => {
+                  const example = items.find((entry: any) => entry.orientation === layout);
+                  return <label>
+                    <input type="radio" name="orientation" value={layout} />
+                    <span class="layout-proof"><img src={example.preview} alt="" loading="lazy" /></span>
+                    <span>{layout}</span>
+                  </label>;
+                })}
+              </div>
+              <label class="layout-any"><input type="radio" name="orientation" value="" checked /> Any layout</label>
+            </fieldset>
+            {(["edition", "paper", "color"] as const).map(key => (
+              <label class="print-filter-field">
+                <span>{{edition: savings ? "Savings plan" : "Data edition", paper: "Paper size", color: "Print style"}[key]}</span>
+                <select name={key}>
+                  <option value="">{{edition: savings ? "All savings plans" : "All editions", paper: "All sizes", color: "All styles"}[key]}</option>
+                  {options(key).map(value => <option value={value}>{value === "US Letter" ? "US Letter (8.5 × 11 in)" : value === "A4" ? "A4 (210 × 297 mm)" : value}</option>)}
+                </select>
+              </label>
+            ))}
+          </form>
+        </details>
+        <div class="finder-results">
+          <p role="status"><span data-chart-count>{items.length} {savings ? "trackers" : "charts"}</span> available</p>
+          <button type="reset" form="chart-filters" class="chart-filter-reset" disabled>Reset filters</button>
         </div>
-        <form id="chart-filters" data-chart-filters>
-          {(["edition", "paper", "orientation", "color"] as const).map(
-            (key) => (
-              <fieldset class="chart-filter-group">
-                <legend>{ {edition: "Data edition", paper: "Paper size", orientation: "Orientation", color: "Color style"}[key] }</legend>
-                {key === "edition" ? (
-                  <select name={key} aria-label="Data edition">
-                    <option value="">All editions</option>
-                    {options(key).map(value => <option>{value}</option>)}
-                  </select>
-                ) : (
-                  <div class="chart-filter-options">
-                    {["", ...options(key)].map(value => (
-                      <label class="chart-filter-option">
-                        <input type="radio" name={key} value={value} checked={value === ""} />
-                        <span>
-                          {value === "Portrait" || value === "Landscape" ? <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x={value === "Portrait" ? 5 : 2} y={value === "Portrait" ? 2 : 5} width={value === "Portrait" ? 10 : 16} height={value === "Portrait" ? 16 : 10} rx="2"/></svg> : null}
-                          {value === "Color" || value === "Black-and-white" ? <i class:list={["filter-swatch", { "is-mono": value === "Black-and-white" }]} aria-hidden="true" /> : null}
-                          {value === "Black-and-white" ? "B&W" : value || "Any"}
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                )}
-              </fieldset>
-            ),
-          )}
-        </form>
       </>
     )}
-    <details class="imported-access">
-      <summary>5 Free Template Downloads <span>How It Works</span></summary>
-      <ol class="download-access-steps">
-        <li><strong>Start Without An Account</strong><p>Download up to five different templates for free.</p></li>
-        <li><strong>Both Files Count As One</strong><p>Get the PDF and Image of the same template using just one free selection.</p></li>
-        <li><strong>Continue With A Free Trial</strong><p>After five selections, create an account and verify your email to start a 30-day trial. No credit card is required.</p></li>
-      </ol>
-      <p class="download-access-note">There is no automatic charge. Further downloads after the trial require an active membership. <a href="/help/downloads/">Read The Download Rules</a></p>
-    </details>
   </aside>
   <article class="imported-content">
-    <p class="over">
-      {item ? item.design_label || item.family : "100 printable designs · 5 data editions"}
-    </p>
-    <h1>{item?.title || collection.title}</h1>
-    <p class="lead">{item?.intro || collection.summary}</p>
+    {item && <><p class="over">{item.design_label || item.family}</p><h1>{item.title}</h1><p class="lead">{item.intro}</p></>}
     {item ? (
       <>
         <section class="imported-description" aria-label="About this template">
@@ -131,7 +134,7 @@ const options = (key: string) =>
             fetchpriority="high"
           />
         </a>
-        <section class="imported-source-note">
+        {savings ? <section class="imported-source-note"><h2>Using this tracker</h2><p>The PDF includes 100 checkboxes and three fields for your savings purpose and dates. The Image is a static printable version.</p></section> : <section class="imported-source-note">
           <h2>Using this reference</h2>
           <p>
             The PDF preserves the one-page print layout. The matching Image is a
@@ -144,6 +147,7 @@ const options = (key: string) =>
             determine operating and charging targets.
           </p>
         </section>
+        }
         <details>
           <summary>File checksums</summary>
           {item.formats.map((f: string) => (
@@ -157,7 +161,7 @@ const options = (key: string) =>
       </>
     ) : (
       <>
-        <details class="imported-collection-note">
+        {savings ? <details class="imported-collection-note"><summary>Which savings plan should I choose?</summary><p>The classic plan uses amounts from $1 to $100 for a $5,050 goal. Equal-deposit plans repeat the same amount 100 times.</p><p>Mark each envelope after saving its amount, in any order and at your own pace.</p></details> : <details class="imported-collection-note">
           <summary>Which data edition should I choose?</summary>
           <p>
             <strong>Choose the data first.</strong> US Overview uses 5°F steps;
@@ -169,6 +173,7 @@ const options = (key: string) =>
             keeps its complete reference grid.
           </p>
         </details>
+        }
         <div class="imported-grid">
           {items.map((e: any) => (
             <article
@@ -234,16 +239,16 @@ const options = (key: string) =>
           ))}
         </div>
         <p data-empty-charts hidden>
-          No charts match these filters. Try another page size or data edition.
+          No designs match these filters. Try another paper size or plan.
         </p>
-        <p class="imported-legacy">
+        {!savings && <p class="imported-legacy">
           <a href="/templates/r134a-pressure-temperature-chart/r134a-pressure-temperature-chart-essential/">
             View the earlier editable PowerPoint reference →
           </a>
-        </p>
+        </p>}
       </>
     )}
-    <section class="imported-sources">
+    {!savings && <section class="imported-sources">
       <h2>Data, sources, and credits</h2>
       <p>
         This collection uses CoolProp 8.0.0 / HEOS R-134a saturation data. The
@@ -272,7 +277,7 @@ const options = (key: string) =>
           </a>
         </li>
       </ul>
-    </section>
+    </section>}
   </article>
 </div>
 <script>
@@ -317,6 +322,8 @@ const options = (key: string) =>
     });
   }
   const form = document.querySelector<HTMLFormElement>("[data-chart-filters]");
+  const drawer = document.querySelector<HTMLDetailsElement>(".print-filter-drawer");
+  if (drawer && matchMedia("(max-width: 730px)").matches) drawer.open = false;
   function filter() {
     if (!form) return;
     const values = new FormData(form);
@@ -330,7 +337,7 @@ const options = (key: string) =>
         if (!card.hidden) count++;
       });
     document.querySelector("[data-chart-count]")!.textContent =
-      count + " Chart" + (count === 1 ? "" : "s");
+      count + " " + (form.dataset.unit || "chart") + (count === 1 ? "" : "s");
     const reset = document.querySelector<HTMLButtonElement>(".chart-filter-reset");
     if (reset) reset.disabled = ![...values.values()].some(Boolean);
     document.querySelector<HTMLElement>("[data-empty-charts]")!.hidden =

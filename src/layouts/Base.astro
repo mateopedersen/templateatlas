@@ -4,8 +4,11 @@ import "../styles/site.css";
 import "../styles/ledger.css";
 import "../styles/studio.css";
 import "../styles/ui.css";
-import Icon from "../components/Icon.astro";
 import Brand from "../components/Brand.astro";
+import Navigation from "../components/Navigation.astro";
+import AtlasEmblem from "../components/AtlasEmblem.astro";
+import DownloadNotice from "../components/DownloadNotice.astro";
+import "../styles/navigation.css";
 const {
   title,
   description = "Browse editable documents, build charts from your own data, and plan your year with TemplateAtlas.",
@@ -91,40 +94,27 @@ const jsonLd = info
     <header class="masthead">
       <div class="bar container">
         <Brand />
-        <form class="header-search" action="/search/">
-          <Icon name="search" size={17} />
-          <label for="global-search" class="sr">
-            Search all templates
-          </label>
-          <input
-            id="global-search"
-            name="q"
-            placeholder="Search templates, charts, and more…"
-            autocomplete="off"
-          />
-          <button aria-label="Submit search">
-            <Icon name="arrow" size={16} />
-          </button>
+        <form class="header-search" action="/search/" role="search">
+          <label class="sr" for="global-search">Search the template library</label>
+          <span class="search-compass"><AtlasEmblem motif="compass" size={32} /></span>
+          <input id="global-search" name="q" placeholder="Find a template…" autocomplete="off" />
+          <button aria-label="Submit search">Search</button>
         </form>
-        <nav aria-label="Main navigation">
-          <a href="/templates/">Templates</a>
-          <a href="/create/">Create</a>
-          <a href="/tools/">Tools</a>
-          <a href="/help/">Resources</a>
-        </nav>
         <div
           class="header-account"
           data-member={accountCandidate ? "possible" : "guest"}
         >
           <a class="signin" data-account href="/signin/">
-            Sign in
+            <AtlasEmblem motif="account" size={22} /><span>Sign in</span>
           </a>
           <a class="button account-cta" href="/signup/">
-            Create account <Icon name="arrow" size={14} />
+            <AtlasEmblem motif="join" size={24} /><span>Create account</span>
           </a>
         </div>
       </div>
+      <div class="atlas-rail"><div class="container"><Navigation /></div></div>
     </header>
+    <div class="container download-notice-wrap"><DownloadNotice /></div>
     <Suggest />
     <main
       id="main"

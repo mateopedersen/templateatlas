@@ -54,6 +54,6 @@ export const guide = {
   ],
   '/legal/template-license/': [
     'Template license',
-    'You can download an available template and customize it for your own work. For permission to redistribute the source files or include them in a template collection, contact TemplateAtlas.',
+    'You can download an available template and customize it for your own work. These terms apply to the available image and PDF versions of the template. For permission to redistribute the source files or include them in a template collection, contact TemplateAtlas.',
   ],
 };

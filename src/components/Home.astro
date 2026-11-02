@@ -3,6 +3,7 @@ import { entries } from '../lib/catalog.mjs';
 import Icon from './Icon.astro';
 import StudioHero from './StudioHero.astro';
 import CollectionTiles from './CollectionTiles.astro';
+import ImageLicenseMetadata from './ImageLicenseMetadata.astro';
 const groups = [
   {
     id: 'project',
@@ -110,6 +111,7 @@ const data = Object.fromEntries(
 );
 ---
 
+<ImageLicenseMetadata images={groups.flatMap(g => g.items)} />
 <div class="studio-landing">
   <StudioHero />
   <CollectionTiles />
