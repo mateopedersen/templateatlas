@@ -1,9 +1,14 @@
 ---
+import { collections } from '../lib/imported.mjs';
 const { items = [] } = Astro.props;
+const displayItems = items.map((item:any) => {
+  const collection = collections.find(c => c.topic_path === item.topic_path && !item.importedCollection);
+  return collection ? {...item, title:collection.title, summary:collection.summary, preview:collection.items[0].preview, formats:[...new Set([...item.formats, 'webp'])]} : item;
+});
 ---
 
 <div class="grid">
-  {items.map((s: any) => (
+  {displayItems.map((s: any) => (
     <a class="card" href={s.importedCollection ? s.detail_path : s.topic_path}>
       <div class="thumb">
         <img src={s.preview} alt="" loading="lazy" />

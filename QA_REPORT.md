@@ -33,3 +33,15 @@ The installation ZIP passed all 47 package checks and all 105 supplied file hash
 | Recovery | All private originals were verified from an isolated restored database/object store. An earlier code version served the restored invoice page and returned its correct PDF through the protected download path. |
 
 The public GitHub source contains the application, reviewed preview images, source metadata and test code. Private production recipes, originals, signed download tickets, users' documents, accounts and secret values are excluded.
+
+## R-134a dimensional collection — November 2, 2026
+
+- Preserved and SHA-256 checked the complete owner-supplied ZIP before intake. Source digest: `958046a243d88569caf42c65f7247656c0dbb4d046ce7af478fb507860081529`.
+- Checked 100 one-page PDFs and 100 original WebP files against the supplied byte counts, dimensions and SHA-256 values. Extracted all 5,780 reference-table rows from the PDFs and matched their formatted cells to the canonical supplied data. Visually reviewed all 100 designs in five contact sheets.
+- Uploaded and independently read back 302 immutable R2 objects: 200 downloadable originals, 100 reduced previews and two method/license notices. Compared all 200 new D1 file records and all 1,246 prepared search rows before activation.
+- Each design has its own English title, description, detail path, PDF button and Image button. The collection includes edition, paper, orientation and color filters. The original topic and earlier editable-reference detail path remain available.
+- Public previews and notices use `assets.templateatlas.com`. The Worker only exposes the manifest allowlist on this hostname; raw originals and API paths return 404. PDF and full-resolution WebP files use signed delivery from private R2.
+- Live checks passed for all 100 detail pages and 100 checksum-matched preview responses, two source notices, three search/filter queries and all 100 new sitemap entries. Eleven new-design HTTP transfers and two actual browser-button downloads matched their original SHA-256 values. Six existing-catalog transfers also passed the production regression smoke check.
+- On production, PDF and Image formats of one design used one selection, repeat downloads used no additional selection, and the sixth distinct selection returned `SIGNUP_REQUIRED`. A browser filter combination produced the expected five charts. The asset hostname was added to the image CSP and image loading was confirmed in the browser.
+- Source/type checks returned zero errors and zero warnings (ten existing hints). The full test run passed 75 tests with one optional renderer test skipped. The five focused collection tests passed again after accessibility/CSP refinements. Production builds completed with the existing non-blocking dynamic-import bundling warning.
+- The core 1,146-topic release remains unchanged. The total available design count is 1,246 and the original-download file count is 2,708. Import receipts, immutable ZIP, source files and resumable checkpoints remain in the private owner work area; no originals or credentials were added to the public repository.

@@ -7,8 +7,9 @@
     "categories": 68,
     "tools": 9,
     "plannedFixedPaths": 2420,
-    "templates": 1146,
-    "downloadFiles": 2508
+    "templates": 1246,
+    "downloadFiles": 2708,
+    "topics": 1146
   },
   "localAssetManifest": "src/data/release.json",
   "remoteProduction": "live",
@@ -70,5 +71,27 @@
     "guestQuotaOnLive": true,
     "duplicateSelectionFree": true,
     "sixthSelectionDenied": true
-  }
+  },
+  "importedCollections": [
+    {
+      "id": "r134a-dimensional",
+      "sourceZipSha256": "958046a243d88569caf42c65f7247656c0dbb4d046ce7af478fb507860081529",
+      "designs": 100,
+      "pdfFiles": 100,
+      "webpFiles": 100,
+      "previewFiles": 100,
+      "referenceNotices": 2,
+      "r2ReadbackVerified": 302,
+      "pdfRowsChecked": 5780,
+      "topic": "https://templateatlas.com/templates/r134a-pressure-temperature-chart/",
+      "assetHost": "https://assets.templateatlas.com",
+      "status": "live_verified",
+      "liveDetailPagesChecked": 100,
+      "livePreviewsHashChecked": 100,
+      "liveOriginalDownloadsHashChecked": 11,
+      "browserButtonDownloadsHashChecked": 2,
+      "sameDesignFormatsCountOnce": true,
+      "sixthDistinctSelectionBlocked": true
+    }
+  ]
 }
