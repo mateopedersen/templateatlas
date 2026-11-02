@@ -39,27 +39,15 @@ body {
 }
 .masthead .brand,
 .foot .brand {
-  gap: 10px;
+  gap: 0;
   color: #28242a;
-  font: 760 25px/1 var(--ui);
-  letter-spacing: -1.1px;
   white-space: nowrap;
-  transition: color 180ms ease;
-}
-.brand-wordmark {
-  display: inline-flex;
-  align-items: baseline;
-}
-.brand-template {
-  color: #302a30;
-  font-weight: 650;
-}
-.brand-atlas {
-  margin-left: 2px;
-  color: #63203c;
-  font-weight: 850;
+  transition: opacity 180ms ease;
 }
 .brand img {
+  display: block;
+  width: 246px;
+  height: 56px;
   object-fit: contain;
   filter: drop-shadow(0 3px 4px rgb(47 24 38 / 14%));
   transition:
@@ -68,14 +56,14 @@ body {
 }
 .masthead .brand img,
 .foot .brand img {
-  width: 56px;
+  width: 246px;
   height: 56px;
 }
 .brand:hover {
-  color: #63203c;
+  opacity: 0.96;
 }
 .brand:hover img {
-  transform: translateY(-2px) scale(1.035);
+  transform: translateY(-1px) scale(1.012);
   filter: drop-shadow(0 6px 6px rgb(47 24 38 / 20%));
 }
 @media (prefers-reduced-motion: reduce) {
@@ -817,12 +805,10 @@ a:focus-visible {
     min-height: 0;
   }
   .masthead .brand {
-    font-size: 19px;
-    gap: 6px;
-    letter-spacing: -0.75px;
+    gap: 0;
   }
   .masthead .brand img {
-    width: 42px;
+    width: 185px;
     height: 42px;
   }
   .header-account {
@@ -1027,12 +1013,10 @@ a:focus-visible {
 }
 @media (max-width: 360px) {
   .masthead .brand {
-    font-size: 17px;
-    gap: 4px;
-    letter-spacing: -0.7px;
+    gap: 0;
   }
   .masthead .brand img {
-    width: 38px;
+    width: 167px;
     height: 38px;
   }
   .header-account .account-cta svg {
