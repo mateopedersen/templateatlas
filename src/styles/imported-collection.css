@@ -743,3 +743,55 @@
 .crumb-atlas img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 28% center; }
 .imported-breadcrumb [aria-current="page"] { padding: 7px 11px; color: #fff8ed; background: #69324b; border-radius: 7px; box-shadow: inset 0 1px #ffffff32, 0 2px 3px #59304020; }
 .imported-breadcrumb .breadcrumb-divider { color: #bb9185; }
+
+/* Print controls, styled as a compact catalogue side panel. */
+.workspace.imported-browse aside.imported-controls {
+  padding: 16px; background: #fffdf9; border: 1px solid #e7ddd5;
+  border-radius: 12px; box-shadow: 0 6px 20px #4c273708;
+}
+.print-filter-drawer > summary {
+  padding: 0 0 14px; border-bottom: 1px solid #ece2da; color: #4a2739;
+}
+.finder-title { display: flex; align-items: center; gap: 10px; }
+.finder-title-icon { display: grid; place-items: center; width: 36px; height: 36px; color: #79455c; background: #f2e9e9; border-radius: 10px; }
+.finder-title strong { display: block; font: 700 17px/1.2 "Avenir Next", "Atlas Sans", sans-serif; letter-spacing: -.02em; }
+.finder-title small { display: block; margin-top: 3px; color: #7b6d72; font: 500 11px/1.3 "Avenir Next", "Atlas Sans", sans-serif; }
+.print-filter-drawer > summary::after { display: grid; place-items: center; width: 26px; height: 26px; color: #87566a; font-size: 19px; font-weight: 400; border: 1px solid #eee2dd; border-radius: 8px; background: #fffaf6; }
+.imported-controls .layout-picker { margin: 16px 0 18px; }
+.layout-picker legend, .print-filter-field > span { color: #55434c; font-size: 12px; font-weight: 700; }
+.layout-samples { gap: 8px; margin-top: 8px; }
+.imported-controls .layout-samples label { display: block; margin: 0; }
+.layout-choice { display: block; overflow: hidden; border: 1px solid #e7ddd5; border-radius: 9px; background: #fff; transition: border-color .16s, box-shadow .16s; }
+.layout-proof { height: 72px; border: 0; background: linear-gradient(150deg, #f4eee4, #e6dbcf); }
+.layout-proof img { max-height: 60px; filter: drop-shadow(0 3px 3px #43252c24); box-shadow: none; }
+.layout-name { display: block; padding: 7px 8px; color: #59404e; font-size: 12px; font-weight: 650; text-align: center; }
+.layout-samples label:hover .layout-choice { border-color: #ad8b99; }
+.layout-samples input:checked + .layout-choice { border-color: #80465e; box-shadow: 0 0 0 1px #80465e; }
+.layout-samples input:checked + .layout-choice .layout-name { color: #622b43; background: #f8edf0; }
+.layout-samples input:focus-visible + .layout-choice { outline: 2px solid #71304c; outline-offset: 2px; }
+.imported-controls .layout-any { margin-top: 10px; color: #675961; font-size: 12px; }
+.imported-controls .print-filter-field { gap: 6px; margin: 15px 0; }
+.imported-controls .print-filter-field select {
+  appearance: none; min-height: 40px; padding: 9px 34px 9px 11px;
+  border: 1px solid #e5d9d2; border-radius: 8px; color: #47343e;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2379465e' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E") no-repeat right 10px center;
+  font: 600 12px/1.3 "Avenir Next", "Atlas Sans", sans-serif;
+}
+.imported-controls .print-filter-field select:focus-visible { outline: 2px solid #82435e; outline-offset: 2px; }
+.finder-results { margin-top: 4px; padding-top: 12px; border-color: #ece2da; }
+.finder-results p[role="status"] { color: #695861; font-size: 12px; font-weight: 650; }
+.workspace .finder-results button { color: #74405a; font-size: 11px; }
+@media (max-width: 730px) {
+  .workspace.imported-browse aside.imported-controls { padding: 12px; border: 1px solid #e7ddd5; border-radius: 10px; }
+  .print-filter-drawer:not([open]) > summary { padding-bottom: 0; border-bottom: 0; }
+}
+.imported-breadcrumb a:first-child { gap: 6px; padding-left: 8px; }
+.imported-breadcrumb a:first-child svg { display: block; flex: none; }
+
+.imported-breadcrumb a.breadcrumb-home {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 7px; min-height: 38px; padding: 3px 9px;
+}
+.imported-breadcrumb .breadcrumb-home svg { display: block; width: 32px; height: 32px; flex: 0 0 32px; }
+.imported-breadcrumb .breadcrumb-home span { display: block; line-height: 1; }
+.imported-breadcrumb .breadcrumb-divider { align-self: center; flex: none; }

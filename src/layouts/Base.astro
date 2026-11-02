@@ -6,8 +6,8 @@ import "../styles/studio.css";
 import "../styles/ui.css";
 import Brand from "../components/Brand.astro";
 import Navigation from "../components/Navigation.astro";
-import AtlasEmblem from "../components/AtlasEmblem.astro";
-import DownloadNotice from "../components/DownloadNotice.astro";
+import SearchMagnifier from "../components/SearchMagnifier.astro";
+import AccountIcon from "../components/AccountIcon.astro";
 import "../styles/navigation.css";
 const {
   title,
@@ -96,7 +96,7 @@ const jsonLd = info
         <Brand />
         <form class="header-search" action="/search/" role="search">
           <label class="sr" for="global-search">Search the template library</label>
-          <span class="search-compass"><AtlasEmblem motif="compass" size={32} /></span>
+          <span class="search-lens"><SearchMagnifier /></span>
           <input id="global-search" name="q" placeholder="Find a template…" autocomplete="off" />
           <button aria-label="Submit search">Search</button>
         </form>
@@ -105,16 +105,15 @@ const jsonLd = info
           data-member={accountCandidate ? "possible" : "guest"}
         >
           <a class="signin" data-account href="/signin/">
-            <AtlasEmblem motif="account" size={22} /><span>Sign in</span>
+            <span class="account-icon"><AccountIcon /></span><span data-account-label>Sign in</span>
           </a>
           <a class="button account-cta" href="/signup/">
-            <AtlasEmblem motif="join" size={24} /><span>Create account</span>
+            <span class="account-icon"><AccountIcon add={true} /></span><span>Create account</span>
           </a>
         </div>
       </div>
       <div class="atlas-rail"><div class="container"><Navigation /></div></div>
     </header>
-    <div class="container download-notice-wrap"><DownloadNotice /></div>
     <Suggest />
     <main
       id="main"
@@ -146,7 +145,7 @@ const jsonLd = info
               const a =
                 document.querySelector<HTMLAnchorElement>("[data-account]")!;
               a.href = "/account/";
-              a.textContent = "Your account";
+              a.querySelector<HTMLElement>("[data-account-label]")!.textContent = "Your account";
               document
                 .querySelector(".account-cta")
                 ?.setAttribute("hidden", "");

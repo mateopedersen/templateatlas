@@ -3,6 +3,8 @@ import categories from '../data/categories.json';
 import { tools } from '../lib/tools.mjs';
 import Icon from './Icon.astro';
 import AtlasEmblem from './AtlasEmblem.astro';
+import NavigationObject from './NavigationObject.astro';
+import WorkbenchArt from './WorkbenchArt.astro';
 const path = Astro.url.pathname;
 const groups = [
   {title:'Work & business', motif:'portfolio', paths:['business-commerce','resumes-careers','legal-official-documents','real-estate-rental','construction-maintenance']},
@@ -15,20 +17,20 @@ const names: Record<string,string> = {
 };
 const create = [
  ['Chart maker','Turn your data into a chart','/create/chart/','chart'],
- ['Invoice maker','Create a client-ready invoice','/create/invoice/','receipt'],
- ['Form builder','Build a form from scratch','/create/form/','document'],
+ ['Invoice maker','Create a client-ready invoice','/create/invoice/','invoice'],
+ ['Form builder','Build a form from scratch','/create/form/','form'],
  ['Calendar maker','Make a calendar for your plans','/create/calendar/','calendar'],
- ['Planner maker','Organize projects and routines','/create/planner/','list'],
- ['Agreement maker','Start a structured agreement','/create/agreement/','pen'],
- ['Design studio','Create a visual layout','/create/design/','layers'],
- ['Diagram maker','Map out ideas and processes','/create/diagram/','grid'],
- ['Spreadsheet maker','Build a working spreadsheet','/create/spreadsheet/','grid'],
- ['Presentation maker','Create a presentation','/create/presentation/','studio'],
+ ['Planner maker','Organize projects and routines','/create/planner/','planner'],
+ ['Agreement maker','Start a structured agreement','/create/agreement/','agreement'],
+ ['Design studio','Create a visual layout','/create/design/','design'],
+ ['Diagram maker','Map out ideas and processes','/create/diagram/','diagram'],
+ ['Spreadsheet maker','Build a working spreadsheet','/create/spreadsheet/','spreadsheet'],
+ ['Presentation maker','Create a presentation','/create/presentation/','presentation'],
 ];
 ---
 <nav class="atlas-nav" aria-label="Main navigation" data-atlas-nav>
   <details class="atlas-nav-item atlas-categories">
-    <summary class:list={[{ current: /^\/(templates|categories|search)\//.test(path) }]}><AtlasEmblem motif="portfolio" size={23} />Categories <span class="nav-chevron" aria-hidden="true"></span></summary>
+    <summary class:list={[{ current: /^\/(templates|categories|search)\//.test(path) }]}><NavigationObject kind="categories" />Categories <span class="nav-chevron" aria-hidden="true"></span></summary>
     <div class="nav-panel nav-category-panel">
       <div class="library-intro">
         <div class="library-folio"><img src="/library-folio-3d.webp" alt="" width="900" height="600" /></div>
@@ -40,13 +42,19 @@ const create = [
       <div class="library-bottom"><span>Discover something useful</span><a href="/templates/">See all templates <Icon name="arrow" size={14}/></a></div>
     </div>
   </details>
-  <details class="atlas-nav-item"><summary class:list={[{ current: /^\/(create|studio)\//.test(path) }]}><AtlasEmblem motif="draft" size={23} />Create <span class="nav-chevron" aria-hidden="true"></span></summary>
-    <div class="nav-panel nav-small-panel"><div class="nav-panel-heading"><div><strong>Create from scratch</strong><p>Build and customize with our editors.</p></div></div><div class="nav-feature-list">{create.map(([title,copy,href,icon])=><a href={href}><span class="nav-feature-icon"><Icon name={icon} size={18}/></span><span><strong>{title}</strong><small>{copy}</small></span><Icon name="chevron" size={13}/></a>)}</div><div class="nav-panel-footer"><a href="/create/">Explore all creators <Icon name="arrow" size={14}/></a></div></div>
+  <details class="atlas-nav-item"><summary class:list={[{ current: /^\/(create|studio)\//.test(path) }]}><NavigationObject kind="create" />Create <span class="nav-chevron" aria-hidden="true"></span></summary>
+    <div class="nav-panel nav-small-panel"><div class="nav-panel-heading"><div><strong>Create from scratch</strong><p>Build and customize with our editors.</p></div></div><div class="nav-feature-list">{create.map(([title,copy,href,icon])=><a href={href}><span class="nav-feature-icon"><WorkbenchArt kind={icon} /></span><span><strong>{title}</strong><small>{copy}</small></span><Icon name="chevron" size={13}/></a>)}</div><div class="nav-panel-footer"><a href="/create/">Explore all creators <Icon name="arrow" size={14}/></a></div></div>
   </details>
-  <details class="atlas-nav-item"><summary class:list={[{ current: /^\/tools\//.test(path) }]}><AtlasEmblem motif="compass" size={23} />Tools <span class="nav-chevron" aria-hidden="true"></span></summary>
-    <div class="nav-panel nav-small-panel"><div class="nav-panel-heading"><div><strong>Tools for everyday tasks</strong><p>Calculate, convert, and plan.</p></div></div><div class="nav-tool-grid">{Object.entries(tools).map(([slug,tool])=><a href={`/tools/${slug}/`}>{tool.title}<Icon name="chevron" size={12}/></a>)}</div><div class="nav-panel-footer"><a href="/tools/">Explore all tools <Icon name="arrow" size={14}/></a></div></div>
+  <details class="atlas-nav-item"><summary class:list={[{ current: /^\/tools\//.test(path) }]}><NavigationObject kind="tools" />Tools <span class="nav-chevron" aria-hidden="true"></span></summary>
+    <div class="nav-panel nav-small-panel"><div class="nav-panel-heading"><div><strong>Tools for everyday tasks</strong><p>Calculate, convert, and plan.</p></div></div><div class="nav-tool-grid">{Object.entries(tools).map(([slug,tool])=><a href={`/tools/${slug}/`}><span class="nav-feature-icon"><WorkbenchArt kind={slug} /></span><span class="nav-tool-copy"><strong>{tool.title}</strong><small>{tool.intro}</small></span><Icon name="chevron" size={13}/></a>)}</div><div class="nav-panel-footer"><a href="/tools/">Explore all tools <Icon name="arrow" size={14}/></a></div></div>
   </details>
-  <a class:list={["nav-direct", { current: path.startsWith("/help/") }]} href="/help/">Help</a>
+  <a class:list={["nav-direct", { current: path.startsWith("/help/") }]} href="/help/"><NavigationObject kind="help" />Help</a>
+  <div class="nav-quick-links" aria-label="Explore the library">
+    <span class="nav-quick-label">Explore</span>
+    <a href="/templates/"><WorkbenchArt kind="design" /><span>All Templates</span></a>
+    <a href="/categories/charts-graphs/"><WorkbenchArt kind="chart" /><span>Charts &amp; Graphs</span></a>
+    <a href="/tools/calendar-2027/"><WorkbenchArt kind="calendar" /><span>2027 Calendar</span></a>
+  </div>
 </nav>
 <script>
  const nav = document.querySelector<HTMLElement>('[data-atlas-nav]');
