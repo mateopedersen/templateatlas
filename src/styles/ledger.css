@@ -39,7 +39,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #f4f2ed;
+  background: #f1f1f1;
   border: 1px solid #e4dfd6;
   border-radius: 7px;
   padding: 0 8px 0 13px;
@@ -145,11 +145,11 @@ body {
   color: #786d64;
 }
 .rail-link:hover {
-  background: #f1ede6;
+  background: #ececec;
 }
 .rail-link.active {
   color: #661934;
-  background: #f0e4e7;
+  background: #e9e9e9;
   font-weight: 650;
   box-shadow: inset 2px 0 var(--wine);
 }
@@ -225,7 +225,7 @@ body {
   border-radius: 8px;
   border: 1px solid #653247;
   min-height: 174px;
-  color: #fff6e9;
+  color: #f5f5f5;
 }
 .feature-strip:before {
   content: '';
@@ -313,7 +313,7 @@ body {
 }
 .shelf[open] {
   border-color: #bb9aa5;
-  background: #fcf7f6;
+  background: #f8f8f8;
 }
 .shelf summary {
   display: flex;
@@ -327,14 +327,14 @@ body {
   display: none;
 }
 .shelf summary:hover {
-  background: #efebe65c;
+  background: #ebebeb5c;
 }
 .shelf-symbol {
   height: 40px;
   width: 40px;
   border-radius: 6px;
   border: 1px solid #e7d6d9;
-  background: #f3e7e9;
+  background: #ececec;
   color: #71374a;
   display: grid;
   place-items: center;
@@ -342,12 +342,12 @@ body {
 }
 .shelf.sage .shelf-symbol,
 .shelf.olive .shelf-symbol {
-  background: #e8eee5;
+  background: #e9e9e9;
   color: #476456;
   border-color: #d8dfd4;
 }
 .shelf.blue .shelf-symbol {
-  background: #e5edf0;
+  background: #ebebeb;
   color: #3c626e;
   border-color: #d1dce1;
 }
@@ -401,7 +401,7 @@ body {
 }
 .book-pick:hover,
 .book-pick[aria-pressed='true'] {
-  background: #f4e8ea;
+  background: #ededed;
   color: #52142e;
   border-color: #ad8997;
 }
@@ -415,7 +415,7 @@ body {
   border-radius: 3px;
 }
 .book-image.t1 {
-  background: #e2e8e7;
+  background: #e6e6e6;
 }
 .book-image.t2 {
   background: #eee3d3;
@@ -509,7 +509,7 @@ body {
   border: 1px solid #cdc1b2;
   border-radius: 20px;
   font-size: 10px;
-  background: #f9f6efdc;
+  background: #f5f5f5dc;
   padding: 1px 10px;
   color: #726357;
 }
@@ -541,10 +541,10 @@ body {
   border-radius: 3px;
   letter-spacing: 0.035em;
   color: #5b5361;
-  background: #ede9ef;
+  background: #ececec;
 }
 .chip-docx {
-  background: #e4ebf3;
+  background: #ebebeb;
   color: #2b4e77;
 }
 .chip-pdf {
@@ -552,7 +552,7 @@ body {
   color: #854338;
 }
 .chip-xlsx {
-  background: #e1ece4;
+  background: #e6e6e6;
   color: #345d45;
 }
 .chip-pptx {
@@ -570,7 +570,7 @@ body {
   margin-top: 12px;
 }
 .studio-promo {
-  background: #f2efe6;
+  background: #ededed;
   padding: 16px 19px;
   border-top: 1px solid var(--edge);
 }

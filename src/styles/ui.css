@@ -4,15 +4,15 @@
 .template-properties {display: flex; flex-wrap: wrap; align-items: center; gap: 6px;}
 .template-property {
   display: inline-flex; align-items: center; justify-content: center; gap: 5px;
-  min-height: 30px; padding: 6px 8px; border: 1px solid #e8ded5; border-radius: 8px;
-  background: linear-gradient(180deg, #fff, #f7f2ed); color: #6a4b5a;
+  min-height: 32px; padding: 5px 9px; border: 1px solid #e8ded5; border-radius: 8px;
+  background: linear-gradient(180deg, #fff, #f2f2f2); color: #6a4b5a;
   box-shadow: 0 1px 2px #45203508, inset 0 1px 0 #fff;
   font: 600 11px/1 "Avenir Next", Avenir, "Atlas Sans", sans-serif;
   white-space: nowrap;
 }
 .template-property .property-icon {display: grid; place-items: center; width: 16px; height: 16px; flex: 0 0 16px;}
 .property-icon svg {display: block; width: 16px; height: 16px; opacity: .75;}
-.template-property .property-label {display: block; line-height: 1;}
+.template-property .property-label {display: inline-flex; align-items: center; min-height: 16px; line-height: 1.2;}
 .property-swatch {display: block; width: 12px; height: 12px; border-radius: 50%; background: conic-gradient(#e38c87, #e8c774, #75b1ab, #a180b6, #e38c87); box-shadow: inset 0 0 0 1px #0001;}
 .property-swatch.is-mono {background: linear-gradient(90deg, #39343c 50%, #e7e1dd 50%);}
 
@@ -23,7 +23,7 @@
 
 /* The artwork incorporates the selected template preview, keeping it specific to the page. */
 .topic-finder-heading {display: flex; align-items: center; gap: 12px; margin: 0 0 12px;}
-.topic-finder-icon {display: grid; place-items: center; flex: 0 0 62px; width: 62px; height: 62px; border: 1px solid #eddddf; border-radius: 17px; background: radial-gradient(circle at 30% 20%, #fff, #f4e9e9 70%, #ead9dd); box-shadow: inset 0 1px 0 #fff, 0 3px 8px #5423380b;}
+.topic-finder-icon {display: grid; place-items: center; flex: 0 0 62px; width: 62px; height: 62px; border: 1px solid #eddddf; border-radius: 17px; background: radial-gradient(circle at 30% 20%, #fff, #ededed 70%, #ead9dd); box-shadow: inset 0 1px 0 #fff, 0 3px 8px #5423380b;}
 .topic-finder-icon svg {display: block; width: 66px; height: 66px;}
 .topic-finder-heading .topic-finder-kicker {margin: 0 0 4px; color: #845169; font-size: 10px; font-weight: 800; letter-spacing: .12em;}
 .workspace aside .topic-finder-heading h2 {margin: 0; font-size: 20px; line-height: 1.15;}

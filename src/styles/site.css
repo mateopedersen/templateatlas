@@ -5,7 +5,7 @@ html {
   color-scheme: light;
   --ink: #231d20;
   --wine: #671432;
-  --paper: #faf8f3;
+  --paper: #f7f7f7;
   --edge: #dad5cd;
   --muted: #635d5b;
   --serif: Georgia, 'Times New Roman', serif;
@@ -108,7 +108,7 @@ header {
 .hero {
   margin-top: 34px;
   border: 1px solid var(--edge);
-  background: #f4eee4;
+  background: #ededed;
   display: grid;
   grid-template-columns: 1.12fr 1fr;
   overflow: hidden;
@@ -276,7 +276,7 @@ h2 {
   box-shadow: 1px 2px 8px #2f271c26;
 }
 .card:nth-child(3n + 2) .thumb {
-  background: #e2e9e5;
+  background: #e5e5e5;
 }
 .card:nth-child(3n) .thumb {
   background: #eee2df;
@@ -387,7 +387,7 @@ button:disabled {
   background: #fff;
 }
 .secondary:hover {
-  background: #f5e9ed;
+  background: #eeeeee;
   color: #441426;
 }
 .workspace {
@@ -412,7 +412,7 @@ button:disabled {
 }
 .notice {
   padding: 12px 16px;
-  background: #f3ebe2;
+  background: #ebebeb;
   border-left: 3px solid #a88056;
 }
 .meta {
@@ -458,14 +458,14 @@ th {
 }
 th {
   color: var(--wine);
-  background: #f6f1eb;
+  background: #f1f1f1;
 }
 p[role='status'] {
   min-height: 1.5em;
 }
 footer {
   border-top: 1px solid var(--edge);
-  background: #f3efe8;
+  background: #eeeeee;
 }
 .foot {
   justify-content: space-between;

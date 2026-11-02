@@ -11,7 +11,7 @@ test('R134a import has 100 distinct paired designs and stable detail paths',()=>
  assert.equal(r134a.length,100);
  for(const field of ['id','title','summary','detail_path'])assert.equal(new Set(r134a.map(e=>e[field])).size,100,field);
  assert.equal(entries.length,1346);
- for(const e of importedEntries){assert.equal(byPath.get(e.detail_path).id,e.id);assert.deepEqual(e.formats,['pdf','webp']);assert.equal(e.assets.pdf.mime,'application/pdf');assert.equal(e.assets.webp.mime,'image/webp');assert.match(e.preview,/^https:\/\/assets\.templateatlas\.com\//);assert.equal(e.preview.includes(e.assets.webp.sha256),false);}
+ for(const e of importedEntries){assert.equal(byPath.get(e.detail_path).id,e.id);assert.deepEqual(e.formats,e.importedCollection==='100-envelope-savings'?['pdf','webp','docx']:['pdf','webp']);assert.equal(e.assets.pdf.mime,'application/pdf');assert.equal(e.assets.webp.mime,'image/webp');if(e.importedCollection==='100-envelope-savings'){assert.equal(e.assets.docx.mime,'application/vnd.openxmlformats-officedocument.wordprocessingml.document');assert.match(e.assets.docx.sha256,/^[0-9a-f]{64}$/);}assert.match(e.preview,/^https:\/\/assets\.templateatlas\.com\//);assert.equal(e.preview.includes(e.assets.webp.sha256),false);}
  checkFormat('webp');
  assert.equal(collections[0].items.reduce((n,e)=>n+e.rows,0),5780);
 });

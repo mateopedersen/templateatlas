@@ -19,6 +19,17 @@ const id = "file-" + crypto.randomUUID();
       <text x="16" y="25.8" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="8" font-weight="800" letter-spacing=".3">PDF</text>
       <path d="M12 10h6M12 13h7" stroke="#bcb0ae" stroke-width="1.3" stroke-linecap="round"/>
     </>
+  ) : kind === "word" ? (
+    <>
+      <ellipse cx="21" cy="36" rx="13" ry="2" fill="#14293b" opacity=".18"/>
+      <path d="M12 6h12l9 9v19a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2" fill="#aebdcb"/>
+      <path d="M10 4h13l9 9v19a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2" fill={'url(#' + id + 'paper)'} stroke="#fff" stroke-width=".7"/>
+      <path d="M23 4v7a2 2 0 0 0 2 2h7" fill="#e2ebf4" stroke="#a4b7c7" stroke-width=".7"/>
+      <path d="M25 18h4M25 22h4M25 26h4" stroke="#93aec4" stroke-width="1.2" stroke-linecap="round"/>
+      <rect x="4" y="17" width="20" height="14" rx="3" fill="#285c8b"/>
+      <path d="M5.5 18.5h17" stroke="#b7d9f3" stroke-opacity=".65"/>
+      <text x="14" y="27.4" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10" font-weight="800">W</text>
+    </>
   ) : kind === "image" ? (
     <>
       <ellipse cx="21" cy="35" rx="15" ry="2" fill="#302735" opacity=".15"/>

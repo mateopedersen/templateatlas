@@ -8325,7 +8325,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "f6187285008600aad1730a9b5d7109ed650a78e4dc70460a7903bf37c85c782c",
-            "webp": "2744229f0c51f3e9afc589709d8d86d2128e2a20c77d721a5b2436b53b6cfbe4"
+            "webp": "2744229f0c51f3e9afc589709d8d86d2128e2a20c77d721a5b2436b53b6cfbe4",
+            "docx": "e9de17425cdcddd69c732ef707bda334711ad656f74435181e3bdefe586ee189"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Dark green envelope header",
@@ -8339,7 +8340,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -8351,6 +8353,11 @@
             "mime": "image/webp",
             "bytes": 287354,
             "sha256": "2744229f0c51f3e9afc589709d8d86d2128e2a20c77d721a5b2436b53b6cfbe4"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 825640,
+            "sha256": "e9de17425cdcddd69c732ef707bda334711ad656f74435181e3bdefe586ee189"
           }
         },
         "pages": 1,
@@ -8401,7 +8408,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "be163f99c8cd595c1fdb56d0b7ee35d33f6e823c6411c521028611873038a273",
-            "webp": "5d15f70d810bf2d6f75c1e405e60a51839828ac6340f1d442d4ae5f30deba4f8"
+            "webp": "5d15f70d810bf2d6f75c1e405e60a51839828ac6340f1d442d4ae5f30deba4f8",
+            "docx": "f910359974b6a143e9c83e9dfcf2c54f7ca79371f88fded4ec61e6f7df3b2367"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Black typographic ledger",
@@ -8415,7 +8423,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -8427,6 +8436,11 @@
             "mime": "image/webp",
             "bytes": 227288,
             "sha256": "5d15f70d810bf2d6f75c1e405e60a51839828ac6340f1d442d4ae5f30deba4f8"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 557696,
+            "sha256": "f910359974b6a143e9c83e9dfcf2c54f7ca79371f88fded4ec61e6f7df3b2367"
           }
         },
         "pages": 1,
@@ -8477,7 +8491,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "21e67d9c7e86a3f1ea6178c597f1a37f906e9e06be9477931032b4fae704d80f",
-            "webp": "01df8be8db5251425c53ade45130812294c62993069f47db812811ad35155ce8"
+            "webp": "01df8be8db5251425c53ade45130812294c62993069f47db812811ad35155ce8",
+            "docx": "5b0abeae02a9b4a663b15bef478771d3ff2da4355b022980140679330a3f7ebd"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Envelope and coin header",
@@ -8491,7 +8506,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -8503,6 +8519,11 @@
             "mime": "image/webp",
             "bytes": 253590,
             "sha256": "01df8be8db5251425c53ade45130812294c62993069f47db812811ad35155ce8"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 810296,
+            "sha256": "5b0abeae02a9b4a663b15bef478771d3ff2da4355b022980140679330a3f7ebd"
           }
         },
         "pages": 1,
@@ -8553,7 +8574,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "109cf0e3d4fd94870d849b572e30851bb75d53f41d35efb424c0d994af08546e",
-            "webp": "cbab9957091038d1f958e5b67795c416c5ba1cfebbf0e7bcae4968398f9dca0e"
+            "webp": "cbab9957091038d1f958e5b67795c416c5ba1cfebbf0e7bcae4968398f9dca0e",
+            "docx": "3c3a1eb49d93e0cd87957a283ac309a8bfdb855088c7efe360d9de33959adc61"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Lavender envelope header",
@@ -8567,7 +8589,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -8579,6 +8602,11 @@
             "mime": "image/webp",
             "bytes": 318932,
             "sha256": "cbab9957091038d1f958e5b67795c416c5ba1cfebbf0e7bcae4968398f9dca0e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 813077,
+            "sha256": "3c3a1eb49d93e0cd87957a283ac309a8bfdb855088c7efe360d9de33959adc61"
           }
         },
         "pages": 1,
@@ -8629,7 +8657,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "615bb927064ed45d4e92a60cf4d0467e2e66d93daac42ce4bfb639e9d5d38a5a",
-            "webp": "70df00ae8c12509da68f57d4f48724ee41e42144e9959b6eaa94b240f6da7184"
+            "webp": "70df00ae8c12509da68f57d4f48724ee41e42144e9959b6eaa94b240f6da7184",
+            "docx": "d81c6fc50f33825b8d2b60fa5ddaad32382f8f7ac062cb71060f2cdf04a0a1d9"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Green savings jar header",
@@ -8643,7 +8672,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -8655,6 +8685,11 @@
             "mime": "image/webp",
             "bytes": 269700,
             "sha256": "70df00ae8c12509da68f57d4f48724ee41e42144e9959b6eaa94b240f6da7184"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 801560,
+            "sha256": "d81c6fc50f33825b8d2b60fa5ddaad32382f8f7ac062cb71060f2cdf04a0a1d9"
           }
         },
         "pages": 1,
@@ -8705,7 +8740,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "b21266591990b12d268dc341de482367e46b8180b1e8a9c3c7f7a389b4ff76b9",
-            "webp": "d4019a6c2e07a2a09b73488cbcd446077eb3e06fbd075b1fa8ab399788e7981e"
+            "webp": "d4019a6c2e07a2a09b73488cbcd446077eb3e06fbd075b1fa8ab399788e7981e",
+            "docx": "5f880d3fc595185815baa57f029d8eb1a483aa41f5e6eeae0e5f16c093a4752d"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue floral wreath",
@@ -8719,7 +8755,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -8731,6 +8768,11 @@
             "mime": "image/webp",
             "bytes": 481210,
             "sha256": "d4019a6c2e07a2a09b73488cbcd446077eb3e06fbd075b1fa8ab399788e7981e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1285563,
+            "sha256": "5f880d3fc595185815baa57f029d8eb1a483aa41f5e6eeae0e5f16c093a4752d"
           }
         },
         "pages": 1,
@@ -8781,7 +8823,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "6d949a13f0741a0f6dac1253d21d5ef4d7eb55ce69e3e5bcf7516016595e4cb4",
-            "webp": "6b0e2cba6e6cb99bf417a9b7377c7d99f990d79417f88efa77dc7eb5c557a3f3"
+            "webp": "6b0e2cba6e6cb99bf417a9b7377c7d99f990d79417f88efa77dc7eb5c557a3f3",
+            "docx": "c8f0bfe08d5a88b93b89c0814f80022ce44e6623f962e0fe7ef2b1aa0a1ba1a9"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome floral border",
@@ -8795,7 +8838,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -8807,6 +8851,11 @@
             "mime": "image/webp",
             "bytes": 218744,
             "sha256": "6b0e2cba6e6cb99bf417a9b7377c7d99f990d79417f88efa77dc7eb5c557a3f3"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 702238,
+            "sha256": "c8f0bfe08d5a88b93b89c0814f80022ce44e6623f962e0fe7ef2b1aa0a1ba1a9"
           }
         },
         "pages": 1,
@@ -8857,7 +8906,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "a845afd576afa9fdb607871ad98d9c33669cafdc51fe7528eeafbfca28503249",
-            "webp": "f1e2d4711f81817fc669f00c9c843f86c4490bb44256a5691d61040773b5ec59"
+            "webp": "f1e2d4711f81817fc669f00c9c843f86c4490bb44256a5691d61040773b5ec59",
+            "docx": "7e2e9749454619c63c5705b9e7fa6a4abc1da8faf785dec13fecfa69f86f3150"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Olive botanical branch",
@@ -8871,7 +8921,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -8883,6 +8934,11 @@
             "mime": "image/webp",
             "bytes": 342678,
             "sha256": "f1e2d4711f81817fc669f00c9c843f86c4490bb44256a5691d61040773b5ec59"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 919838,
+            "sha256": "7e2e9749454619c63c5705b9e7fa6a4abc1da8faf785dec13fecfa69f86f3150"
           }
         },
         "pages": 1,
@@ -8933,7 +8989,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "49851d035a57ea6f9686154068785053c6e5be3c2f17d229b46b5a2d0c821245",
-            "webp": "4a401d4c41733418ea2eb312abf7f20276f50a08da648f698ac3c9447d0174dc"
+            "webp": "4a401d4c41733418ea2eb312abf7f20276f50a08da648f698ac3c9447d0174dc",
+            "docx": "f4d8dd69d63bf96109501d91d453d66f96742534eee1f14aa61f22441a7d2354"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Rust floral header",
@@ -8947,7 +9004,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -8959,6 +9017,11 @@
             "mime": "image/webp",
             "bytes": 202196,
             "sha256": "4a401d4c41733418ea2eb312abf7f20276f50a08da648f698ac3c9447d0174dc"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 631402,
+            "sha256": "f4d8dd69d63bf96109501d91d453d66f96742534eee1f14aa61f22441a7d2354"
           }
         },
         "pages": 1,
@@ -9009,7 +9072,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "28a378a38ad9c458eaab6a386a909410e5161335f560ddbf52b57ec373dc685f",
-            "webp": "18f26bf0ea9d34071a66bea6293b27f5ed4e78b402e0cc6217c9413511c62a09"
+            "webp": "18f26bf0ea9d34071a66bea6293b27f5ed4e78b402e0cc6217c9413511c62a09",
+            "docx": "0920e89132b0e113e3df8101b0190c9c6b8560d87988d6a575166c41c99df154"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome botanical sprigs",
@@ -9023,7 +9087,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9035,6 +9100,11 @@
             "mime": "image/webp",
             "bytes": 423810,
             "sha256": "18f26bf0ea9d34071a66bea6293b27f5ed4e78b402e0cc6217c9413511c62a09"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1156664,
+            "sha256": "0920e89132b0e113e3df8101b0190c9c6b8560d87988d6a575166c41c99df154"
           }
         },
         "pages": 1,
@@ -9085,7 +9155,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "79227595ad2821a88baa9bead40b6e0dcdb38b413c549c11b023338c642b6a78",
-            "webp": "2afbb1c6a0481dd5fdf497617e2aff036f7cff9dbf217f7859e18d34a210a621"
+            "webp": "2afbb1c6a0481dd5fdf497617e2aff036f7cff9dbf217f7859e18d34a210a621",
+            "docx": "1a32113d3b61d32326cc061232ea9d467a54771fe5bf369977e0d74a5f9a0c8c"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Purple framed envelope",
@@ -9099,7 +9170,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9111,6 +9183,11 @@
             "mime": "image/webp",
             "bytes": 228574,
             "sha256": "2afbb1c6a0481dd5fdf497617e2aff036f7cff9dbf217f7859e18d34a210a621"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 669753,
+            "sha256": "1a32113d3b61d32326cc061232ea9d467a54771fe5bf369977e0d74a5f9a0c8c"
           }
         },
         "pages": 1,
@@ -9161,7 +9238,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "9cfee14a7d34784b7622980ec47357bce9442a93d80dd930bafebc2604a74b1b",
-            "webp": "6c2472a1ed6b45fab6dfc6a10ca0395f35b989f2d05a868dde9d0b005ad904a3"
+            "webp": "6c2472a1ed6b45fab6dfc6a10ca0395f35b989f2d05a868dde9d0b005ad904a3",
+            "docx": "f5ea15cb1b82571686d3f2b43c79462ca7cde166264376e8bac7a96eb224de18"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Rose envelope accent",
@@ -9175,7 +9253,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9187,6 +9266,11 @@
             "mime": "image/webp",
             "bytes": 258374,
             "sha256": "6c2472a1ed6b45fab6dfc6a10ca0395f35b989f2d05a868dde9d0b005ad904a3"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 596416,
+            "sha256": "f5ea15cb1b82571686d3f2b43c79462ca7cde166264376e8bac7a96eb224de18"
           }
         },
         "pages": 1,
@@ -9237,7 +9321,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "092f124d4501cd02dfe3cc3cc5333c717bf58210ee118ee4868ed1293d43b3df",
-            "webp": "2b65d39faa44d5c43757c41d84501fe11eadc7b164639fc19758fb8cbe5cb435"
+            "webp": "2b65d39faa44d5c43757c41d84501fe11eadc7b164639fc19758fb8cbe5cb435",
+            "docx": "b617857666a01a63a7c87fe611d5175205f67eaee46fd7bfd07b83c76864ab6d"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome arched envelope",
@@ -9251,7 +9336,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9263,6 +9349,11 @@
             "mime": "image/webp",
             "bytes": 183580,
             "sha256": "2b65d39faa44d5c43757c41d84501fe11eadc7b164639fc19758fb8cbe5cb435"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 594444,
+            "sha256": "b617857666a01a63a7c87fe611d5175205f67eaee46fd7bfd07b83c76864ab6d"
           }
         },
         "pages": 1,
@@ -9313,7 +9404,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "dbb10bcb307580428d70db73ec3cda1d236fe65aaa29cfae850bec85b96d67b7",
-            "webp": "9692ff3a4d8fc6ff26e44b0244b5ccd8051c511f59fc47918bc816f2127278d7"
+            "webp": "9692ff3a4d8fc6ff26e44b0244b5ccd8051c511f59fc47918bc816f2127278d7",
+            "docx": "26a9ea00a77027d7cf42a7ad2e6bb8d256c67422403a47c551a9dc9d0420d527"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Burgundy framed envelope",
@@ -9327,7 +9419,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9339,6 +9432,11 @@
             "mime": "image/webp",
             "bytes": 330252,
             "sha256": "9692ff3a4d8fc6ff26e44b0244b5ccd8051c511f59fc47918bc816f2127278d7"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 899622,
+            "sha256": "26a9ea00a77027d7cf42a7ad2e6bb8d256c67422403a47c551a9dc9d0420d527"
           }
         },
         "pages": 1,
@@ -9389,7 +9487,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "b8ee3ab0ad5170d4052e4b5181a38c60a6b776d4e3bfd37984940a60a30c9faa",
-            "webp": "882da3a8bdb9b3a8f678eb8b3fe38b17aa75c9f08d27722d3bfc1f48432979d4"
+            "webp": "882da3a8bdb9b3a8f678eb8b3fe38b17aa75c9f08d27722d3bfc1f48432979d4",
+            "docx": "b9b1505660816731039d974f1de61cf1482bb4ba45d14a35176145c7458ad7a9"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Pink arched envelope",
@@ -9403,7 +9502,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9415,6 +9515,11 @@
             "mime": "image/webp",
             "bytes": 205054,
             "sha256": "882da3a8bdb9b3a8f678eb8b3fe38b17aa75c9f08d27722d3bfc1f48432979d4"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 585512,
+            "sha256": "b9b1505660816731039d974f1de61cf1482bb4ba45d14a35176145c7458ad7a9"
           }
         },
         "pages": 1,
@@ -9465,7 +9570,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "f033d1f636aa314b49996b711a6bf82cf81aa3ef75e863c35d1844145f81b320",
-            "webp": "d5cc82ff6560f294700b6c05818157e1bb35c1d5d46dd70ce444c73cd824b7cf"
+            "webp": "d5cc82ff6560f294700b6c05818157e1bb35c1d5d46dd70ce444c73cd824b7cf",
+            "docx": "3b76ecbbf59c0cffc807a6998afdfadfdb1c68d412cf1fba0f6d1e6f4ad4e96b"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Air mail envelope header",
@@ -9479,7 +9585,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9491,6 +9598,11 @@
             "mime": "image/webp",
             "bytes": 537456,
             "sha256": "d5cc82ff6560f294700b6c05818157e1bb35c1d5d46dd70ce444c73cd824b7cf"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1311241,
+            "sha256": "3b76ecbbf59c0cffc807a6998afdfadfdb1c68d412cf1fba0f6d1e6f4ad4e96b"
           }
         },
         "pages": 1,
@@ -9541,7 +9653,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "bfec3968d758ef173c8b8aba72bbaff67aea7cd6bf14285c54363fa486f70ae3",
-            "webp": "8ca19e0204e31fe8f02c611d5440d76b2af9f326a92ada4724cf068228f71743"
+            "webp": "8ca19e0204e31fe8f02c611d5440d76b2af9f326a92ada4724cf068228f71743",
+            "docx": "1644d04c733e872b53a7bbc9ad1c6ce070ee63ddb121d3ba25ca55075e68212a"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Air mail suitcase header",
@@ -9555,7 +9668,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9567,6 +9681,11 @@
             "mime": "image/webp",
             "bytes": 177276,
             "sha256": "8ca19e0204e31fe8f02c611d5440d76b2af9f326a92ada4724cf068228f71743"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 453305,
+            "sha256": "1644d04c733e872b53a7bbc9ad1c6ce070ee63ddb121d3ba25ca55075e68212a"
           }
         },
         "pages": 1,
@@ -9617,7 +9736,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "0c95f9b8c68a3782c27785b92792e0fedf8085910da57af17bd44850ded47e70",
-            "webp": "85fe43dd5886fd8586f83d2e213118c71c24db7d726c28817236a4f4ec7b5ea1"
+            "webp": "85fe43dd5886fd8586f83d2e213118c71c24db7d726c28817236a4f4ec7b5ea1",
+            "docx": "c4ec6f14c944b91667aa169a1f15405a26fa4042ba7bcf058e51134c9c8fbce7"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome savings post",
@@ -9631,7 +9751,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9643,6 +9764,11 @@
             "mime": "image/webp",
             "bytes": 335714,
             "sha256": "85fe43dd5886fd8586f83d2e213118c71c24db7d726c28817236a4f4ec7b5ea1"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1002413,
+            "sha256": "c4ec6f14c944b91667aa169a1f15405a26fa4042ba7bcf058e51134c9c8fbce7"
           }
         },
         "pages": 1,
@@ -9693,7 +9819,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "eac2caf55a22f19fbfaa54f046b61af384e0a24615447f2ca473eecf9c2204ee",
-            "webp": "fe35c023589398903321666ca6e407d201467d77617cfa12a22b7047458364af"
+            "webp": "fe35c023589398903321666ca6e407d201467d77617cfa12a22b7047458364af",
+            "docx": "0dce9bd085311fce9caeba988f76d58154647b50fb387e3056a2670b93825e93"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome mail panel",
@@ -9707,7 +9834,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9719,6 +9847,11 @@
             "mime": "image/webp",
             "bytes": 218284,
             "sha256": "fe35c023589398903321666ca6e407d201467d77617cfa12a22b7047458364af"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 712924,
+            "sha256": "0dce9bd085311fce9caeba988f76d58154647b50fb387e3056a2670b93825e93"
           }
         },
         "pages": 1,
@@ -9769,7 +9902,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "0d21bbe73cf59cbbfc65e5fd1e9bf8743f9b54006a8c80deb5a259ff98a5d3a2",
-            "webp": "fdec5560bba2658c5760564d327701c5bfdae32a7c0b48eb6d72374e7ed8ebfe"
+            "webp": "fdec5560bba2658c5760564d327701c5bfdae32a7c0b48eb6d72374e7ed8ebfe",
+            "docx": "c76f8614092c20f3a4c90d01b58ff9340cfb97719d0538e490587eb62078b516"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Terracotta travel case",
@@ -9783,7 +9917,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9795,6 +9930,11 @@
             "mime": "image/webp",
             "bytes": 328388,
             "sha256": "fdec5560bba2658c5760564d327701c5bfdae32a7c0b48eb6d72374e7ed8ebfe"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 929020,
+            "sha256": "c76f8614092c20f3a4c90d01b58ff9340cfb97719d0538e490587eb62078b516"
           }
         },
         "pages": 1,
@@ -9845,7 +9985,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "882d1b0ca0a022f2f3ef60c6510db239b155ab184319b81841a9b6818d9a8b3a",
-            "webp": "a49e6955bae975106ca71d94d9fd5f1e0c3283210c35e9c2e162e51907b118bb"
+            "webp": "a49e6955bae975106ca71d94d9fd5f1e0c3283210c35e9c2e162e51907b118bb",
+            "docx": "e61a9b3613ca2f7c2ff54abe29efd2d87010ac8ebd19b9fe60ba2bea15f7bab7"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Olive envelope collage",
@@ -9859,7 +10000,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9871,6 +10013,11 @@
             "mime": "image/webp",
             "bytes": 266000,
             "sha256": "a49e6955bae975106ca71d94d9fd5f1e0c3283210c35e9c2e162e51907b118bb"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 774956,
+            "sha256": "e61a9b3613ca2f7c2ff54abe29efd2d87010ac8ebd19b9fe60ba2bea15f7bab7"
           }
         },
         "pages": 1,
@@ -9921,7 +10068,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "258af0e98e2880a2bc44832cc4546f6408931ce213f27215dbc7954cd04bf157",
-            "webp": "889eb297191a50c4b5df08a5d21e1a4f396f3d6ff982c995254dcfa6da3f9f73"
+            "webp": "889eb297191a50c4b5df08a5d21e1a4f396f3d6ff982c995254dcfa6da3f9f73",
+            "docx": "50e6317f1ffb097ddac4e573d7baee6acc3fa45e37a7012613efdff751057f70"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Rose folded envelope",
@@ -9935,7 +10083,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -9947,6 +10096,11 @@
             "mime": "image/webp",
             "bytes": 331982,
             "sha256": "889eb297191a50c4b5df08a5d21e1a4f396f3d6ff982c995254dcfa6da3f9f73"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 982090,
+            "sha256": "50e6317f1ffb097ddac4e573d7baee6acc3fa45e37a7012613efdff751057f70"
           }
         },
         "pages": 1,
@@ -9997,7 +10151,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "626e95c5b21bd2ffb0f6a7df1aa7cd42dcdd4756cb52fed23a3d3d96957232f9",
-            "webp": "c555d8e0cab508a3075d1318c6e5a244e5ef6b91d5624d347dfb052abe1ed31e"
+            "webp": "c555d8e0cab508a3075d1318c6e5a244e5ef6b91d5624d347dfb052abe1ed31e",
+            "docx": "7ea634a91db48cd677c693bfdc4ff14f2cf1deabbf78a407f19b9fc8a2a5b4ce"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome sunrise envelope",
@@ -10011,7 +10166,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10023,6 +10179,11 @@
             "mime": "image/webp",
             "bytes": 240568,
             "sha256": "c555d8e0cab508a3075d1318c6e5a244e5ef6b91d5624d347dfb052abe1ed31e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 780709,
+            "sha256": "7ea634a91db48cd677c693bfdc4ff14f2cf1deabbf78a407f19b9fc8a2a5b4ce"
           }
         },
         "pages": 1,
@@ -10073,7 +10234,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "e8c2206d7a2d1c1a0286354313a3d769cf041c7e804832268224fe69dc658139",
-            "webp": "b597d458d183754457489e05058ea87da49bb3ce528621bd5c0ab1d5052791a1"
+            "webp": "b597d458d183754457489e05058ea87da49bb3ce528621bd5c0ab1d5052791a1",
+            "docx": "c6323e4be753832ffa202587d49065a8f0e8081c150385cc8df654181cf046aa"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Black vertical title rule",
@@ -10087,7 +10249,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10099,6 +10262,11 @@
             "mime": "image/webp",
             "bytes": 261268,
             "sha256": "b597d458d183754457489e05058ea87da49bb3ce528621bd5c0ab1d5052791a1"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 756439,
+            "sha256": "c6323e4be753832ffa202587d49065a8f0e8081c150385cc8df654181cf046aa"
           }
         },
         "pages": 1,
@@ -10149,7 +10317,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "ea7e9cae6defef3530f7e76c72dadb4dd8d547b67f9c72e0b1099f7afce2c7b6",
-            "webp": "b3111d1bd4bd8cc0f541ca3407df1f8fef275788b210ee15c180491c9c9c67de"
+            "webp": "b3111d1bd4bd8cc0f541ca3407df1f8fef275788b210ee15c180491c9c9c67de",
+            "docx": "afe8198f63f90362cfdd12001908aa97cd5c350b8dd5e321b0278eff928d11f8"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue coin stack header",
@@ -10163,7 +10332,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10175,6 +10345,11 @@
             "mime": "image/webp",
             "bytes": 230576,
             "sha256": "b3111d1bd4bd8cc0f541ca3407df1f8fef275788b210ee15c180491c9c9c67de"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 652602,
+            "sha256": "afe8198f63f90362cfdd12001908aa97cd5c350b8dd5e321b0278eff928d11f8"
           }
         },
         "pages": 1,
@@ -10225,7 +10400,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "a59400885a567a7a56d34ae31145021cb7d6bd382c158db1662967a9807632ca",
-            "webp": "738d608cd9e21c49dea92b2a60c863f3f7053bad882e0f7b1f00316a8f0c6a5f"
+            "webp": "738d608cd9e21c49dea92b2a60c863f3f7053bad882e0f7b1f00316a8f0c6a5f",
+            "docx": "1e548e6fad0ab7cddaf685309bae9741f105c94ff80586e0849e61a687e12390"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue savings ribbon",
@@ -10239,7 +10415,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10251,6 +10428,11 @@
             "mime": "image/webp",
             "bytes": 341446,
             "sha256": "738d608cd9e21c49dea92b2a60c863f3f7053bad882e0f7b1f00316a8f0c6a5f"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1024069,
+            "sha256": "1e548e6fad0ab7cddaf685309bae9741f105c94ff80586e0849e61a687e12390"
           }
         },
         "pages": 1,
@@ -10301,7 +10483,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "193a96938d4c571dfd7994e3427ae166c433c9b75c7ac8916a6b5ac2f498c460",
-            "webp": "ba69d8406a32d56228b50fae9cf993abebf7961e5720d2ea9fe0747911733dd2"
+            "webp": "ba69d8406a32d56228b50fae9cf993abebf7961e5720d2ea9fe0747911733dd2",
+            "docx": "bb5ef1b36bbe2ed6ab7a07a6e40c4abbd11a4eac1c15c6e36d9e023b274eebbd"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Peach award ribbon",
@@ -10315,7 +10498,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10327,6 +10511,11 @@
             "mime": "image/webp",
             "bytes": 271288,
             "sha256": "ba69d8406a32d56228b50fae9cf993abebf7961e5720d2ea9fe0747911733dd2"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 752712,
+            "sha256": "bb5ef1b36bbe2ed6ab7a07a6e40c4abbd11a4eac1c15c6e36d9e023b274eebbd"
           }
         },
         "pages": 1,
@@ -10377,7 +10566,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "79b9af006a65e1e12843e27a4d57339e618f3022e2318ebe05d6832ac0453ee1",
-            "webp": "2a2a4eb4f8117c82a5ed8bbd27a1e9a864e1be1b8bf5b4dec96f69d18084abc7"
+            "webp": "2a2a4eb4f8117c82a5ed8bbd27a1e9a864e1be1b8bf5b4dec96f69d18084abc7",
+            "docx": "8b754ca62a88c364e0c4b346c26554b9219c0ff277a956b14b391177ee38d997"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Pink heart envelope",
@@ -10391,7 +10581,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10403,6 +10594,11 @@
             "mime": "image/webp",
             "bytes": 322624,
             "sha256": "2a2a4eb4f8117c82a5ed8bbd27a1e9a864e1be1b8bf5b4dec96f69d18084abc7"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 945033,
+            "sha256": "8b754ca62a88c364e0c4b346c26554b9219c0ff277a956b14b391177ee38d997"
           }
         },
         "pages": 1,
@@ -10453,7 +10649,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "f529240387f1b47b51c92a4aaceabda2112cb0a7e7dbec0a73a6ab9e65e96228",
-            "webp": "2cd9b49261e0692b8f85cf3d71bba71d0987bdb0d2e765d20dd971283d6fd2b7"
+            "webp": "2cd9b49261e0692b8f85cf3d71bba71d0987bdb0d2e765d20dd971283d6fd2b7",
+            "docx": "96b3292a972563d2b008d983e719dfdd94af0cb15405233eb1b7dd8b7a5cf6d9"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Purple ribbon header",
@@ -10467,7 +10664,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10479,6 +10677,11 @@
             "mime": "image/webp",
             "bytes": 204524,
             "sha256": "2cd9b49261e0692b8f85cf3d71bba71d0987bdb0d2e765d20dd971283d6fd2b7"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 613794,
+            "sha256": "96b3292a972563d2b008d983e719dfdd94af0cb15405233eb1b7dd8b7a5cf6d9"
           }
         },
         "pages": 1,
@@ -10529,7 +10732,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "3e96def38207552a5b92f6d5ac529841ac133ed3f00bbd0586fd6d3422b04347",
-            "webp": "dee7a1852ba9e5a6ca8b4df9402f8f7314a424ebfd313186f8590902769c9f72"
+            "webp": "dee7a1852ba9e5a6ca8b4df9402f8f7314a424ebfd313186f8590902769c9f72",
+            "docx": "2d79310ce67263ca546edf519429ef3f0914c65f0f636d37f421460120341416"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Rose envelope and goal bar",
@@ -10543,7 +10747,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10555,6 +10760,11 @@
             "mime": "image/webp",
             "bytes": 233290,
             "sha256": "dee7a1852ba9e5a6ca8b4df9402f8f7314a424ebfd313186f8590902769c9f72"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 609628,
+            "sha256": "2d79310ce67263ca546edf519429ef3f0914c65f0f636d37f421460120341416"
           }
         },
         "pages": 1,
@@ -10605,7 +10815,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "9f1b86b1b4cf1bf2d6f6749163b8994d3add028c5928b3c576e30eb946b2ab98",
-            "webp": "7819fe4e374f85be089490f7d91a4b64ebd52efd92f275b7616e6c7d86df9fad"
+            "webp": "7819fe4e374f85be089490f7d91a4b64ebd52efd92f275b7616e6c7d86df9fad",
+            "docx": "719478e9541e74a2fa9587eb55d71183ffbdb1f78717f8b551a374714e5992cc"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome arch header",
@@ -10619,7 +10830,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10631,6 +10843,11 @@
             "mime": "image/webp",
             "bytes": 160158,
             "sha256": "7819fe4e374f85be089490f7d91a4b64ebd52efd92f275b7616e6c7d86df9fad"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 799752,
+            "sha256": "719478e9541e74a2fa9587eb55d71183ffbdb1f78717f8b551a374714e5992cc"
           }
         },
         "pages": 1,
@@ -10681,7 +10898,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "482ab8c8d9928798cb98fa06becb112d7cc772ed46ceca9712714acc627df276",
-            "webp": "a3294b3315072161079e975ea354d0642977fa65efb9e70be6e648639794c091"
+            "webp": "a3294b3315072161079e975ea354d0642977fa65efb9e70be6e648639794c091",
+            "docx": "051cdca8fc8de355d4debed0a9100ad7129bb193663fa23c23cbaf058263b54e"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Mint arch header",
@@ -10695,7 +10913,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10707,6 +10926,11 @@
             "mime": "image/webp",
             "bytes": 328224,
             "sha256": "a3294b3315072161079e975ea354d0642977fa65efb9e70be6e648639794c091"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 947945,
+            "sha256": "051cdca8fc8de355d4debed0a9100ad7129bb193663fa23c23cbaf058263b54e"
           }
         },
         "pages": 1,
@@ -10757,7 +10981,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "48658423a4c672fe60fda80c713bbb3a116edbbea594f9af97b6684b83253052",
-            "webp": "6f9ed1eba4ed785f97cfa2fb9a59767205895b4e012e7f4f829bc3bebf0850ed"
+            "webp": "6f9ed1eba4ed785f97cfa2fb9a59767205895b4e012e7f4f829bc3bebf0850ed",
+            "docx": "5413aa29e2a0e38650cdcfb932c9b78a3b7a90d26cfe2afe0136ac9f3db3ffd5"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Peach house illustration",
@@ -10771,7 +10996,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10783,6 +11009,11 @@
             "mime": "image/webp",
             "bytes": 185086,
             "sha256": "6f9ed1eba4ed785f97cfa2fb9a59767205895b4e012e7f4f829bc3bebf0850ed"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 601805,
+            "sha256": "5413aa29e2a0e38650cdcfb932c9b78a3b7a90d26cfe2afe0136ac9f3db3ffd5"
           }
         },
         "pages": 1,
@@ -10833,7 +11064,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "6b2ded7a44cca5a4a2750b435f091abda14302644d0f99973e2986884d1522b2",
-            "webp": "ab864d34e6f5fef6889a9a62e5adcc3cff3a568ccd1121d293a055094a7c77d6"
+            "webp": "ab864d34e6f5fef6889a9a62e5adcc3cff3a568ccd1121d293a055094a7c77d6",
+            "docx": "634314416ce6b1ba7f055be731e6f2ec36a66a967b1f0272fbc5d506db18a6fe"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Amber arched envelope",
@@ -10847,7 +11079,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10859,6 +11092,11 @@
             "mime": "image/webp",
             "bytes": 264078,
             "sha256": "ab864d34e6f5fef6889a9a62e5adcc3cff3a568ccd1121d293a055094a7c77d6"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 593596,
+            "sha256": "634314416ce6b1ba7f055be731e6f2ec36a66a967b1f0272fbc5d506db18a6fe"
           }
         },
         "pages": 1,
@@ -10909,7 +11147,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "3330dbd482bb38fd11a6267aeafb19f51e8a59808435e321ef5c08f62bf0fe08",
-            "webp": "11b9b7173ee34c8cc8a70f1cd8bfc6063a229107b42dc4f5b979d68fd9b6386e"
+            "webp": "11b9b7173ee34c8cc8a70f1cd8bfc6063a229107b42dc4f5b979d68fd9b6386e",
+            "docx": "07645ccdffaad68a09bd5210da8a5b20a8618d56ec4efafc690257ff8f7fab8b"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome savings jar",
@@ -10923,7 +11162,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -10935,6 +11175,11 @@
             "mime": "image/webp",
             "bytes": 136624,
             "sha256": "11b9b7173ee34c8cc8a70f1cd8bfc6063a229107b42dc4f5b979d68fd9b6386e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 599325,
+            "sha256": "07645ccdffaad68a09bd5210da8a5b20a8618d56ec4efafc690257ff8f7fab8b"
           }
         },
         "pages": 1,
@@ -10985,7 +11230,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "84bf81fbcf679f0fc69a8dfc0fc814f86b8675eee2f8e799f9f9b0123cd8ff48",
-            "webp": "4ec3676f9a6135304963e143599ab65c3e2829725a510c553fb2afd8b5d5007e"
+            "webp": "4ec3676f9a6135304963e143599ab65c3e2829725a510c553fb2afd8b5d5007e",
+            "docx": "4953bcf9ef7db57f0cfd6f80f2d983ec0fc64d9030d585eed0a0754f3a9d4aca"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Black savings goal band",
@@ -10999,7 +11245,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11011,6 +11258,11 @@
             "mime": "image/webp",
             "bytes": 216770,
             "sha256": "4ec3676f9a6135304963e143599ab65c3e2829725a510c553fb2afd8b5d5007e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 527870,
+            "sha256": "4953bcf9ef7db57f0cfd6f80f2d983ec0fc64d9030d585eed0a0754f3a9d4aca"
           }
         },
         "pages": 1,
@@ -11061,7 +11313,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "f65d8b5df4482c5fad3988d7c85882ab20cfeeace0d19bd4370aac947c85cdf2",
-            "webp": "553c5296097b5cfe472629a64ead8db8a9da9c5fb3ff149db066c7e0061f5183"
+            "webp": "553c5296097b5cfe472629a64ead8db8a9da9c5fb3ff149db066c7e0061f5183",
+            "docx": "8a5fa2d1d312a8894d7b06eea380991ebb18841fa1afe18b68a2de9ff7986d66"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue number header",
@@ -11075,7 +11328,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11087,6 +11341,11 @@
             "mime": "image/webp",
             "bytes": 266424,
             "sha256": "553c5296097b5cfe472629a64ead8db8a9da9c5fb3ff149db066c7e0061f5183"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 752842,
+            "sha256": "8a5fa2d1d312a8894d7b06eea380991ebb18841fa1afe18b68a2de9ff7986d66"
           }
         },
         "pages": 1,
@@ -11137,7 +11396,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "2314fc7592f8521946b2c530f2b6491026dc79d692f4c0b3217d41e15b67271f",
-            "webp": "7a16d7fa3c6a7cf95dba0a6c64bfaa9a0d25bd5c3cf3ed1867cffadd533f610b"
+            "webp": "7a16d7fa3c6a7cf95dba0a6c64bfaa9a0d25bd5c3cf3ed1867cffadd533f610b",
+            "docx": "3a338babf18dc388a1fb8163071761f7864464b88a1aab49032f8c9ec7bbf5d5"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Gold coin stack header",
@@ -11151,7 +11411,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11163,6 +11424,11 @@
             "mime": "image/webp",
             "bytes": 438782,
             "sha256": "7a16d7fa3c6a7cf95dba0a6c64bfaa9a0d25bd5c3cf3ed1867cffadd533f610b"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1184308,
+            "sha256": "3a338babf18dc388a1fb8163071761f7864464b88a1aab49032f8c9ec7bbf5d5"
           }
         },
         "pages": 1,
@@ -11213,7 +11479,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "76a6512a6d8b999a58a6b4c0b4ca0edcb0ee893522e3caad0cc6cf8758edc8dd",
-            "webp": "83866af2ba7bd0dd9d0d824519d51c104b27b05f1598504ad43041e2276dde95"
+            "webp": "83866af2ba7bd0dd9d0d824519d51c104b27b05f1598504ad43041e2276dde95",
+            "docx": "9d3f567d690d6d4ec7200132de4875224e2431c795a28a67ae5d3cd7e0ef715b"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Sage number header",
@@ -11227,7 +11494,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11239,6 +11507,11 @@
             "mime": "image/webp",
             "bytes": 175610,
             "sha256": "83866af2ba7bd0dd9d0d824519d51c104b27b05f1598504ad43041e2276dde95"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 515483,
+            "sha256": "9d3f567d690d6d4ec7200132de4875224e2431c795a28a67ae5d3cd7e0ef715b"
           }
         },
         "pages": 1,
@@ -11289,7 +11562,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "712f4672a7728908578f62e67c4a2c2dc82ce35b9dfc904ad6492f27b9e59e7a",
-            "webp": "07fd2db7225011bee819a3d1a1d628ad4f50d2c11b8791022297bdb8cddadc20"
+            "webp": "07fd2db7225011bee819a3d1a1d628ad4f50d2c11b8791022297bdb8cddadc20",
+            "docx": "fd9c3bb9bd11f7fbe0da41889de018363b386e474808a57baaf8d89f12750644"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome goal equation",
@@ -11303,7 +11577,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11315,6 +11590,11 @@
             "mime": "image/webp",
             "bytes": 259794,
             "sha256": "07fd2db7225011bee819a3d1a1d628ad4f50d2c11b8791022297bdb8cddadc20"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 867456,
+            "sha256": "fd9c3bb9bd11f7fbe0da41889de018363b386e474808a57baaf8d89f12750644"
           }
         },
         "pages": 1,
@@ -11365,7 +11645,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "9e1bf84172fda6859ce0aec75fcf947fc9684903ad9a1c06416ff0512eea66ea",
-            "webp": "acab5c131541aff671e3048a33af66117959426711ced7ae5b88b69e244ecaaf"
+            "webp": "acab5c131541aff671e3048a33af66117959426711ced7ae5b88b69e244ecaaf",
+            "docx": "36e9f6d2f03107d787e19f777010966d50d612992b078f97eceb8ea32b930472"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Four-panel envelope grid",
@@ -11379,7 +11660,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11391,6 +11673,11 @@
             "mime": "image/webp",
             "bytes": 324394,
             "sha256": "acab5c131541aff671e3048a33af66117959426711ced7ae5b88b69e244ecaaf"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 976220,
+            "sha256": "36e9f6d2f03107d787e19f777010966d50d612992b078f97eceb8ea32b930472"
           }
         },
         "pages": 1,
@@ -11441,7 +11728,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "5bed93744324c2be5e813d40c0e4434101121f2332f3822cb22bc45ca779ce11",
-            "webp": "20619161ec71e3048ec21b4f6d25d434714c352c24e75c79b7b320e11630abeb"
+            "webp": "20619161ec71e3048ec21b4f6d25d434714c352c24e75c79b7b320e11630abeb",
+            "docx": "b13659c601d25bd151af5c93893c620ac6e036068ba684c45c4e97b6fbbc785d"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Lavender four-panel grid",
@@ -11455,7 +11743,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11467,6 +11756,11 @@
             "mime": "image/webp",
             "bytes": 423214,
             "sha256": "20619161ec71e3048ec21b4f6d25d434714c352c24e75c79b7b320e11630abeb"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1127034,
+            "sha256": "b13659c601d25bd151af5c93893c620ac6e036068ba684c45c4e97b6fbbc785d"
           }
         },
         "pages": 1,
@@ -11517,7 +11811,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "0a6b344a438c50dda6732f4231ceb9368d770dccd82eb3cebe30514014ea0e22",
-            "webp": "84251f6f38d3b837a0f8ec2a97399ec0e6a9a1f547243e1a985188a579a9502e"
+            "webp": "84251f6f38d3b837a0f8ec2a97399ec0e6a9a1f547243e1a985188a579a9502e",
+            "docx": "0f535a1952c864133791b3aa2aaf8dcc26b3868b67e3fa6bc39218247c4f10c0"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Rose four-panel grid",
@@ -11531,7 +11826,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11543,6 +11839,11 @@
             "mime": "image/webp",
             "bytes": 349946,
             "sha256": "84251f6f38d3b837a0f8ec2a97399ec0e6a9a1f547243e1a985188a579a9502e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 990991,
+            "sha256": "0f535a1952c864133791b3aa2aaf8dcc26b3868b67e3fa6bc39218247c4f10c0"
           }
         },
         "pages": 1,
@@ -11593,7 +11894,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "5057bdc7038a49be3926b732641b951e10167712bf47d42d2096b68c60fd7514",
-            "webp": "4b71c0207febda15269f4bdb04bcad561fdbf7f20134a85193c23f50ed7eb832"
+            "webp": "4b71c0207febda15269f4bdb04bcad561fdbf7f20134a85193c23f50ed7eb832",
+            "docx": "1fae6076d7cb1ef2cd40721722ac30d9d29fdb145bf1e1f73dd785140d6d1026"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue four-panel savings jar",
@@ -11607,7 +11909,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11619,6 +11922,11 @@
             "mime": "image/webp",
             "bytes": 364914,
             "sha256": "4b71c0207febda15269f4bdb04bcad561fdbf7f20134a85193c23f50ed7eb832"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1050242,
+            "sha256": "1fae6076d7cb1ef2cd40721722ac30d9d29fdb145bf1e1f73dd785140d6d1026"
           }
         },
         "pages": 1,
@@ -11669,7 +11977,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "3b66b84238374bfc831cff040a5b642dde3aa7edc395b00db70c59af4635e727",
-            "webp": "7de5fd4b8443f1fa6da636f0b2b7c9ead34df6f22fd493a1558ce233b736fff5"
+            "webp": "7de5fd4b8443f1fa6da636f0b2b7c9ead34df6f22fd493a1558ce233b736fff5",
+            "docx": "7d485176d7efc403a7fe1776cc9e32db24b657f880b2f2440c53f933f8fe9521"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Peach four-panel ribbon",
@@ -11683,7 +11992,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11695,6 +12005,11 @@
             "mime": "image/webp",
             "bytes": 393222,
             "sha256": "7de5fd4b8443f1fa6da636f0b2b7c9ead34df6f22fd493a1558ce233b736fff5"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1119300,
+            "sha256": "7d485176d7efc403a7fe1776cc9e32db24b657f880b2f2440c53f933f8fe9521"
           }
         },
         "pages": 1,
@@ -11745,7 +12060,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "063c36873a3fcd8de1306c8a40e885724677c50e26d765ed70519f45c500663c",
-            "webp": "1013e030530c6bdfc91f71e31867bfb9334eea9b51b2c633700f60303f994c9b"
+            "webp": "1013e030530c6bdfc91f71e31867bfb9334eea9b51b2c633700f60303f994c9b",
+            "docx": "5c987983885fd08737415222d73996fdec555416119e65d442a1804cc72b0c5a"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Peach envelope title",
@@ -11759,7 +12075,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11771,6 +12088,11 @@
             "mime": "image/webp",
             "bytes": 395912,
             "sha256": "1013e030530c6bdfc91f71e31867bfb9334eea9b51b2c633700f60303f994c9b"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1238658,
+            "sha256": "5c987983885fd08737415222d73996fdec555416119e65d442a1804cc72b0c5a"
           }
         },
         "pages": 1,
@@ -11821,7 +12143,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "d41b24524298db7b84cdd411e899b5c28e3b04f3fec871289b304ba3f9f728e3",
-            "webp": "4b8785b0fa6f77e8db5e48dfea2856a13a89e093984f62b3d2abd0c03525ac03"
+            "webp": "4b8785b0fa6f77e8db5e48dfea2856a13a89e093984f62b3d2abd0c03525ac03",
+            "docx": "a0d705da90d1a2f718035f51913447e24da2375959dc5b8d23fdc7a25ed2c9b8"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome heart envelope",
@@ -11835,7 +12158,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11847,6 +12171,11 @@
             "mime": "image/webp",
             "bytes": 184546,
             "sha256": "4b8785b0fa6f77e8db5e48dfea2856a13a89e093984f62b3d2abd0c03525ac03"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 606009,
+            "sha256": "a0d705da90d1a2f718035f51913447e24da2375959dc5b8d23fdc7a25ed2c9b8"
           }
         },
         "pages": 1,
@@ -11897,7 +12226,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "9868ebed7ca46ad72b8b5e8691e3567767edbb191a73225572b45ba5000b16dd",
-            "webp": "fba7f974bcbef5f319eb14d08c0a62ba59b8e0270900f08a19a60076d824dbe1"
+            "webp": "fba7f974bcbef5f319eb14d08c0a62ba59b8e0270900f08a19a60076d824dbe1",
+            "docx": "f75ade47e95d8e0369c471ab2ee42315cb41028324c0492ead355b0bf56bf7b1"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Lavender Envelope and Coin Header",
@@ -11911,7 +12241,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11923,6 +12254,11 @@
             "mime": "image/webp",
             "bytes": 408240,
             "sha256": "fba7f974bcbef5f319eb14d08c0a62ba59b8e0270900f08a19a60076d824dbe1"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1116891,
+            "sha256": "f75ade47e95d8e0369c471ab2ee42315cb41028324c0492ead355b0bf56bf7b1"
           }
         },
         "pages": 1,
@@ -11973,7 +12309,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "d801fe910a4acca118c2b0890a2c2ddbd67b576483e4bb62a5ce15c23ea00311",
-            "webp": "ef86d0feb10fedf19f66f850808724ac079600e1df9089cbc1be541e27b09e97"
+            "webp": "ef86d0feb10fedf19f66f850808724ac079600e1df9089cbc1be541e27b09e97",
+            "docx": "3348b4911b69dbddce470f9d7bcb6efc397c0f65d1060a915022f709e575ba9c"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome envelope outline",
@@ -11987,7 +12324,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -11999,6 +12337,11 @@
             "mime": "image/webp",
             "bytes": 190976,
             "sha256": "ef86d0feb10fedf19f66f850808724ac079600e1df9089cbc1be541e27b09e97"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 610542,
+            "sha256": "3348b4911b69dbddce470f9d7bcb6efc397c0f65d1060a915022f709e575ba9c"
           }
         },
         "pages": 1,
@@ -12049,7 +12392,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "bd68bb87228469e963fc8365b9c552ea9dc68e741df38e1738e38305a81f1e7f",
-            "webp": "075689f401a6e31902a96a9555b958c6e60d949e87f6109503d497f97bc59eb0"
+            "webp": "075689f401a6e31902a96a9555b958c6e60d949e87f6109503d497f97bc59eb0",
+            "docx": "8abdd2ec8cffce4c59bfe085ebd9da559c2fadcf037d2e989b47da588aeae2e6"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Teal leaves and envelope",
@@ -12063,7 +12407,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12075,6 +12420,11 @@
             "mime": "image/webp",
             "bytes": 448798,
             "sha256": "075689f401a6e31902a96a9555b958c6e60d949e87f6109503d497f97bc59eb0"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1263483,
+            "sha256": "8abdd2ec8cffce4c59bfe085ebd9da559c2fadcf037d2e989b47da588aeae2e6"
           }
         },
         "pages": 1,
@@ -12125,7 +12475,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "5a2b69a76fe28cdea0fb3f70e55d409db95965a03271500019cf136eeb7840b9",
-            "webp": "3f3d0a0fe9e70996d5deaae5d179c3758233d9bff38605161392ded06d3f2fb6"
+            "webp": "3f3d0a0fe9e70996d5deaae5d179c3758233d9bff38605161392ded06d3f2fb6",
+            "docx": "cd98f555fe18bfa96d351650e73f44d7fa107b6316b311267ba06dae160351ad"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome side column",
@@ -12139,7 +12490,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12151,6 +12503,11 @@
             "mime": "image/webp",
             "bytes": 315428,
             "sha256": "3f3d0a0fe9e70996d5deaae5d179c3758233d9bff38605161392ded06d3f2fb6"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 960512,
+            "sha256": "cd98f555fe18bfa96d351650e73f44d7fa107b6316b311267ba06dae160351ad"
           }
         },
         "pages": 1,
@@ -12201,7 +12558,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "e8bcd3d4f92a7c16f80dd8aaab9f5c7f7568a4c84302b72ff5ef3f51cd07dc30",
-            "webp": "b3ab6db528b20b0af4fcbdec47b3e4c1837e2466a3548898652d234461cd2ba3"
+            "webp": "b3ab6db528b20b0af4fcbdec47b3e4c1837e2466a3548898652d234461cd2ba3",
+            "docx": "46e2eb6a6caf7e2ec08af78030fac2edbcd6cbe75798ddec2e77e32e921f10e8"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Sage envelope side panel",
@@ -12215,7 +12573,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12227,6 +12586,11 @@
             "mime": "image/webp",
             "bytes": 349470,
             "sha256": "b3ab6db528b20b0af4fcbdec47b3e4c1837e2466a3548898652d234461cd2ba3"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 865770,
+            "sha256": "46e2eb6a6caf7e2ec08af78030fac2edbcd6cbe75798ddec2e77e32e921f10e8"
           }
         },
         "pages": 1,
@@ -12277,7 +12641,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "eee96746fad3c1c9d0b3878922e282ed6b8caa0ceac351e10651e47f50db065d",
-            "webp": "fa811660ab3a23551c573d8873d29cda7ef44bcc01f05857f1f713331f9d3aec"
+            "webp": "fa811660ab3a23551c573d8873d29cda7ef44bcc01f05857f1f713331f9d3aec",
+            "docx": "e9eaec82af233da8aa662fb6726d0c05ed2a87277210518504e7f87e5d35c658"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Rose arched side panel",
@@ -12291,7 +12656,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12303,6 +12669,11 @@
             "mime": "image/webp",
             "bytes": 249334,
             "sha256": "fa811660ab3a23551c573d8873d29cda7ef44bcc01f05857f1f713331f9d3aec"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 619947,
+            "sha256": "e9eaec82af233da8aa662fb6726d0c05ed2a87277210518504e7f87e5d35c658"
           }
         },
         "pages": 1,
@@ -12353,7 +12724,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "a79691aa6a9957fa8107757c245cfc6648bdb8098b850680826ba2dfd81c41ff",
-            "webp": "654e635fdc8922fff62a04af038a4b9f3f9afe6e621624ca0336731a01539cd4"
+            "webp": "654e635fdc8922fff62a04af038a4b9f3f9afe6e621624ca0336731a01539cd4",
+            "docx": "2d1930ad4b112aa4df009c66f560ff051fe1d778111fc0beef65d3acf30c3101"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Pink envelope side panel",
@@ -12367,7 +12739,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12379,6 +12752,11 @@
             "mime": "image/webp",
             "bytes": 347702,
             "sha256": "654e635fdc8922fff62a04af038a4b9f3f9afe6e621624ca0336731a01539cd4"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 830245,
+            "sha256": "2d1930ad4b112aa4df009c66f560ff051fe1d778111fc0beef65d3acf30c3101"
           }
         },
         "pages": 1,
@@ -12429,7 +12807,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "0ea233c96cee6935fd4ec2a508505fd0f9c716bc4141c25f3eedc91e16505c24",
-            "webp": "dfddf4fb2e297d7de91d91cb997894a3900c4f36b8751596d3934d3a7551bc1b"
+            "webp": "dfddf4fb2e297d7de91d91cb997894a3900c4f36b8751596d3934d3a7551bc1b",
+            "docx": "f8996c91bb457d17b7da0e7b58ec4e43d63d7abf12687363b7f7bfad390663e5"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome open envelope",
@@ -12443,7 +12822,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12455,6 +12835,11 @@
             "mime": "image/webp",
             "bytes": 160512,
             "sha256": "dfddf4fb2e297d7de91d91cb997894a3900c4f36b8751596d3934d3a7551bc1b"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 443471,
+            "sha256": "f8996c91bb457d17b7da0e7b58ec4e43d63d7abf12687363b7f7bfad390663e5"
           }
         },
         "pages": 1,
@@ -12505,7 +12890,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "d2963cdde91388f7c0f18e3153d1dee6bdbb477503793900041864be3e30bf93",
-            "webp": "6153ef0bfab57d62623fe1853d7a85c8502ac189346deb3d572346c2636b0dc9"
+            "webp": "6153ef0bfab57d62623fe1853d7a85c8502ac189346deb3d572346c2636b0dc9",
+            "docx": "cc85572f37e7c4d0797da210bf20fab6e33005d9fdcd0900cb1d7bea178b8b34"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome portrait grid",
@@ -12519,7 +12905,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12531,6 +12918,11 @@
             "mime": "image/webp",
             "bytes": 269584,
             "sha256": "6153ef0bfab57d62623fe1853d7a85c8502ac189346deb3d572346c2636b0dc9"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 761842,
+            "sha256": "cc85572f37e7c4d0797da210bf20fab6e33005d9fdcd0900cb1d7bea178b8b34"
           }
         },
         "pages": 1,
@@ -12581,7 +12973,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "2389621d28a55f766e7a9151d363c1a10be3dca888fd24b983edd10efc202f41",
-            "webp": "ba0a39666dc226f492b3414860d8049ecf440429507f70fdd9392136ff73dbbe"
+            "webp": "ba0a39666dc226f492b3414860d8049ecf440429507f70fdd9392136ff73dbbe",
+            "docx": "6bd8e2a464069ad0392478f69326c37467c639d354a15e47c6cba235d577f9ea"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue coin header",
@@ -12595,7 +12988,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12607,6 +13001,11 @@
             "mime": "image/webp",
             "bytes": 223252,
             "sha256": "ba0a39666dc226f492b3414860d8049ecf440429507f70fdd9392136ff73dbbe"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 563577,
+            "sha256": "6bd8e2a464069ad0392478f69326c37467c639d354a15e47c6cba235d577f9ea"
           }
         },
         "pages": 1,
@@ -12657,7 +13056,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "55b5a6f41ce02e29daf842fe8ec9e5324d5f34100d5a8f31b5bee199bd3ac803",
-            "webp": "c2b29e5918218bb52f43e6fba7e43da08c05a1ee19b99eae446e07ef6cf82962"
+            "webp": "c2b29e5918218bb52f43e6fba7e43da08c05a1ee19b99eae446e07ef6cf82962",
+            "docx": "56be2a0d448f792c78f8fe463331a8790a4b243cedbd50efd0028bfc083939f1"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Peach lower title band",
@@ -12671,7 +13071,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12683,6 +13084,11 @@
             "mime": "image/webp",
             "bytes": 236174,
             "sha256": "c2b29e5918218bb52f43e6fba7e43da08c05a1ee19b99eae446e07ef6cf82962"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 561224,
+            "sha256": "56be2a0d448f792c78f8fe463331a8790a4b243cedbd50efd0028bfc083939f1"
           }
         },
         "pages": 1,
@@ -12733,7 +13139,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "7b74e54ea9c7f1b7d254c6f1efbd7afe00646dc1ca0c5d9c8e384c8a7f08f8e5",
-            "webp": "5a0b6c30114c68192551af160311f69f1b0fade665cd34664333cac30a2a591b"
+            "webp": "5a0b6c30114c68192551af160311f69f1b0fade665cd34664333cac30a2a591b",
+            "docx": "8a201981fcad61aacd90aa7ae10392879d501982a614ecf4b960412bacf88e28"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Pink savings jar header",
@@ -12747,7 +13154,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12759,6 +13167,11 @@
             "mime": "image/webp",
             "bytes": 232080,
             "sha256": "5a0b6c30114c68192551af160311f69f1b0fade665cd34664333cac30a2a591b"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 631760,
+            "sha256": "8a201981fcad61aacd90aa7ae10392879d501982a614ecf4b960412bacf88e28"
           }
         },
         "pages": 1,
@@ -12809,7 +13222,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "c7662e96f72187092ac2beb11a04bfbfffdfc45148bc23668733f3ba69dc44c3",
-            "webp": "7ffdf658fe93482b872c0b545745e25cc62bc5fb856bd46230af04527c95f675"
+            "webp": "7ffdf658fe93482b872c0b545745e25cc62bc5fb856bd46230af04527c95f675",
+            "docx": "53c45228481696e0d98195e4ecc236362885675f754e4967ae19dc77ac3482da"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Lavender envelope strip",
@@ -12823,7 +13237,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12835,6 +13250,11 @@
             "mime": "image/webp",
             "bytes": 338188,
             "sha256": "7ffdf658fe93482b872c0b545745e25cc62bc5fb856bd46230af04527c95f675"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 806065,
+            "sha256": "53c45228481696e0d98195e4ecc236362885675f754e4967ae19dc77ac3482da"
           }
         },
         "pages": 1,
@@ -12885,7 +13305,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "85adcad884dec9d5cccddf26b015ab6430fa14818fb7a2b0b87f7d0a7a374553",
-            "webp": "5faf0d08954310a52a5d368dcb5910b332f7990ad81f42ba45cf7af9596c7df0"
+            "webp": "5faf0d08954310a52a5d368dcb5910b332f7990ad81f42ba45cf7af9596c7df0",
+            "docx": "693b361bb92ffd80e23503c746240fd8905992f547a4f6f3f9a66e9e4321a3d0"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Lavender jar header",
@@ -12899,7 +13320,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12911,6 +13333,11 @@
             "mime": "image/webp",
             "bytes": 219528,
             "sha256": "5faf0d08954310a52a5d368dcb5910b332f7990ad81f42ba45cf7af9596c7df0"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 576486,
+            "sha256": "693b361bb92ffd80e23503c746240fd8905992f547a4f6f3f9a66e9e4321a3d0"
           }
         },
         "pages": 1,
@@ -12961,7 +13388,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "2b4b4b7aad937af67e2c487026d437691bae51d2cf67b99493fca0e8dbfebbed",
-            "webp": "f5ccce1487f5efb9fb23a76307f46c9f41183c3fd7434242738b6efc4676081d"
+            "webp": "f5ccce1487f5efb9fb23a76307f46c9f41183c3fd7434242738b6efc4676081d",
+            "docx": "6f06f71517cbfcb4e2ac0369debfcb06467f06915a249a11293ce304fc39283f"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome lower title",
@@ -12975,7 +13403,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -12987,6 +13416,11 @@
             "mime": "image/webp",
             "bytes": 260398,
             "sha256": "f5ccce1487f5efb9fb23a76307f46c9f41183c3fd7434242738b6efc4676081d"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 644272,
+            "sha256": "6f06f71517cbfcb4e2ac0369debfcb06467f06915a249a11293ce304fc39283f"
           }
         },
         "pages": 1,
@@ -13037,7 +13471,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "90d920a476121b8f810727c016e146ab0f5c4ba3fcd613b7b7e3731f49b5035f",
-            "webp": "42ff33dde4f5e42d71750875e4c11352b44c224a67a67de3c916111a2d9bfe6e"
+            "webp": "42ff33dde4f5e42d71750875e4c11352b44c224a67a67de3c916111a2d9bfe6e",
+            "docx": "7de79ea34fa3d303026a8deb6a99a813143062b67ab45d64b0049f8dcb1f9c2e"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Mint envelope sidebar",
@@ -13051,7 +13486,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13063,6 +13499,11 @@
             "mime": "image/webp",
             "bytes": 247776,
             "sha256": "42ff33dde4f5e42d71750875e4c11352b44c224a67a67de3c916111a2d9bfe6e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 608533,
+            "sha256": "7de79ea34fa3d303026a8deb6a99a813143062b67ab45d64b0049f8dcb1f9c2e"
           }
         },
         "pages": 1,
@@ -13113,7 +13554,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "0e8246ff6ee37e3baf4028818d23ade8f66172a1dcfaf8876b9c53ddea799a3a",
-            "webp": "c84f87e257f172e99dd69d0a5bf2fb46a423f56563527cc0c3558db0f015f8b7"
+            "webp": "c84f87e257f172e99dd69d0a5bf2fb46a423f56563527cc0c3558db0f015f8b7",
+            "docx": "4819f4ce43c5b006b481f48e634f232db06d8cca0930d0f721d9dc09858e2d5e"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome split grid",
@@ -13127,7 +13569,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13139,6 +13582,11 @@
             "mime": "image/webp",
             "bytes": 262914,
             "sha256": "c84f87e257f172e99dd69d0a5bf2fb46a423f56563527cc0c3558db0f015f8b7"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 691376,
+            "sha256": "4819f4ce43c5b006b481f48e634f232db06d8cca0930d0f721d9dc09858e2d5e"
           }
         },
         "pages": 1,
@@ -13189,7 +13637,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "b56a1395399376a703c3caa39a5f501df699ea7c8fac1009271d67eb9f849c57",
-            "webp": "3163ab93ba0f85a9be1eb60cdc23abef56c29217f9710dafbba4ee69e9720649"
+            "webp": "3163ab93ba0f85a9be1eb60cdc23abef56c29217f9710dafbba4ee69e9720649",
+            "docx": "e7018349c02d8fee6bc11d4df7260780a15a38a93dc81296751fbb56afbc44ef"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Peach ribbon header",
@@ -13203,7 +13652,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13215,6 +13665,11 @@
             "mime": "image/webp",
             "bytes": 254576,
             "sha256": "3163ab93ba0f85a9be1eb60cdc23abef56c29217f9710dafbba4ee69e9720649"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 667551,
+            "sha256": "e7018349c02d8fee6bc11d4df7260780a15a38a93dc81296751fbb56afbc44ef"
           }
         },
         "pages": 1,
@@ -13265,7 +13720,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "137583ea8569c73fe03fd4571ae59d5601eef118b9a2129b59058425adcf2f1d",
-            "webp": "e599a036baaa397920d11955752c2fd4339364b3e98f5523b8e947bb2c98688c"
+            "webp": "e599a036baaa397920d11955752c2fd4339364b3e98f5523b8e947bb2c98688c",
+            "docx": "4439ea56ef55543b2c9a7ac2356a55ce44d3e15d4c57695ee0c7f33c566b6038"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Rose envelope heading",
@@ -13279,7 +13735,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13291,6 +13748,11 @@
             "mime": "image/webp",
             "bytes": 308832,
             "sha256": "e599a036baaa397920d11955752c2fd4339364b3e98f5523b8e947bb2c98688c"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 932457,
+            "sha256": "4439ea56ef55543b2c9a7ac2356a55ce44d3e15d4c57695ee0c7f33c566b6038"
           }
         },
         "pages": 1,
@@ -13341,7 +13803,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "ba73845bac77fff6e80e886f3a4d413b7c7a8850ba597af23f79d938878f91b8",
-            "webp": "6e555f46bf28289727c8974ee5897abed932e33615f9482544d645aa273ccdf1"
+            "webp": "6e555f46bf28289727c8974ee5897abed932e33615f9482544d645aa273ccdf1",
+            "docx": "a2fa605dbeb335deda32a552981468e3814d2c499fa34385b8bd51ee030f6392"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome travel sidebar",
@@ -13355,7 +13818,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13367,6 +13831,11 @@
             "mime": "image/webp",
             "bytes": 369040,
             "sha256": "6e555f46bf28289727c8974ee5897abed932e33615f9482544d645aa273ccdf1"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1046922,
+            "sha256": "a2fa605dbeb335deda32a552981468e3814d2c499fa34385b8bd51ee030f6392"
           }
         },
         "pages": 1,
@@ -13417,7 +13886,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "aeb6b35e53151bb97b1ca94e5b313a95e33f404a9d71278a185c7c4f278c4491",
-            "webp": "c847cf46ad28c81eee487072cec8ccd8e11f69ad33136a1b26efd0718b07ac5e"
+            "webp": "c847cf46ad28c81eee487072cec8ccd8e11f69ad33136a1b26efd0718b07ac5e",
+            "docx": "a6a8ebfb2deb4e3f883f6b687034a39d5029703f81e20c385b22bd53a68b090e"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue travel sidebar",
@@ -13431,7 +13901,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13443,6 +13914,11 @@
             "mime": "image/webp",
             "bytes": 544570,
             "sha256": "c847cf46ad28c81eee487072cec8ccd8e11f69ad33136a1b26efd0718b07ac5e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1339777,
+            "sha256": "a6a8ebfb2deb4e3f883f6b687034a39d5029703f81e20c385b22bd53a68b090e"
           }
         },
         "pages": 1,
@@ -13493,7 +13969,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "94cb8218cde3b9c67bdcd224f67358072ce640bc421a5e9513f0241dd18a7b81",
-            "webp": "62251fcd352dd3b7611f5853761df8eebed3689a407026eb49c82be78e6acd9e"
+            "webp": "62251fcd352dd3b7611f5853761df8eebed3689a407026eb49c82be78e6acd9e",
+            "docx": "8a37f98e0098cedabd157c9a09eae14c4676c994bb82712c897a3d94e3fb1396"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Mint envelope header",
@@ -13507,7 +13984,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13519,6 +13997,11 @@
             "mime": "image/webp",
             "bytes": 269982,
             "sha256": "62251fcd352dd3b7611f5853761df8eebed3689a407026eb49c82be78e6acd9e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 670122,
+            "sha256": "8a37f98e0098cedabd157c9a09eae14c4676c994bb82712c897a3d94e3fb1396"
           }
         },
         "pages": 1,
@@ -13569,7 +14052,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "059939ad18dc1a229a9398436e2a5c8dffae881702884a0314c7fecc4955e43b",
-            "webp": "2ca9ebc654fc05bef36810593acfe826f0117436c25badedca57683fc5cc36ce"
+            "webp": "2ca9ebc654fc05bef36810593acfe826f0117436c25badedca57683fc5cc36ce",
+            "docx": "5385706819c6662fc470462cdb63d7b8db803be2083bc5017a3a845c7afe55ab"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome lower goal band",
@@ -13583,7 +14067,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13595,6 +14080,11 @@
             "mime": "image/webp",
             "bytes": 216226,
             "sha256": "2ca9ebc654fc05bef36810593acfe826f0117436c25badedca57683fc5cc36ce"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 526169,
+            "sha256": "5385706819c6662fc470462cdb63d7b8db803be2083bc5017a3a845c7afe55ab"
           }
         },
         "pages": 1,
@@ -13645,7 +14135,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "07b8f8bc59231b299db0ce7328796e5f7f8f0a887f2719637c23c31d9c77ba1e",
-            "webp": "78848bfc55e8e92ad88f2d5800cfa6cbb4faa28c58a8cb1c9813e0b7f52c706c"
+            "webp": "78848bfc55e8e92ad88f2d5800cfa6cbb4faa28c58a8cb1c9813e0b7f52c706c",
+            "docx": "6e9c08563d0e81b00f12dd8955c984e5a9900dc8bb7f40f62bef07cf6b2d5645"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Orange number and coins",
@@ -13659,7 +14150,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13671,6 +14163,11 @@
             "mime": "image/webp",
             "bytes": 227130,
             "sha256": "78848bfc55e8e92ad88f2d5800cfa6cbb4faa28c58a8cb1c9813e0b7f52c706c"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 653911,
+            "sha256": "6e9c08563d0e81b00f12dd8955c984e5a9900dc8bb7f40f62bef07cf6b2d5645"
           }
         },
         "pages": 1,
@@ -13721,7 +14218,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "9223f9d86b98cdc2b174c10065e80f555db17d9e2f3ed0910f25a358111ba3b9",
-            "webp": "d60ea7c650400d4549026a976acc66037867c74d011984f7f2597d75473694f3"
+            "webp": "d60ea7c650400d4549026a976acc66037867c74d011984f7f2597d75473694f3",
+            "docx": "ab16eab42000134d676c0caf8d78c0fd475edb645e9193310f1bfa0545add8b8"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome circular title",
@@ -13735,7 +14233,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13747,6 +14246,11 @@
             "mime": "image/webp",
             "bytes": 411128,
             "sha256": "d60ea7c650400d4549026a976acc66037867c74d011984f7f2597d75473694f3"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1171871,
+            "sha256": "ab16eab42000134d676c0caf8d78c0fd475edb645e9193310f1bfa0545add8b8"
           }
         },
         "pages": 1,
@@ -13797,7 +14301,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "e970bc1abb3084e5bd661f86975c7d5e3b804d602c730d9420f7fee86e61638e",
-            "webp": "3ed74e53c809a729df769fa0581f92e27253fc912c561fc5534249e589f3ce3e"
+            "webp": "3ed74e53c809a729df769fa0581f92e27253fc912c561fc5534249e589f3ce3e",
+            "docx": "a07acec389e8e7816b480dc2526afd4426379a691940d1e1e15b5e7860da259a"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Lavender banner header",
@@ -13811,7 +14316,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13823,6 +14329,11 @@
             "mime": "image/webp",
             "bytes": 223510,
             "sha256": "3ed74e53c809a729df769fa0581f92e27253fc912c561fc5534249e589f3ce3e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 579257,
+            "sha256": "a07acec389e8e7816b480dc2526afd4426379a691940d1e1e15b5e7860da259a"
           }
         },
         "pages": 1,
@@ -13873,7 +14384,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "ab004e79ff2a1550942907af9581c59ef6832574bf9861d717651a28c68f05c8",
-            "webp": "f3a556743a0c113a184873ce968f5f3fcc4aa736c7b64d5d361c1c2cca790587"
+            "webp": "f3a556743a0c113a184873ce968f5f3fcc4aa736c7b64d5d361c1c2cca790587",
+            "docx": "6115947a6e7eefb74bb8801dea7e93b77ed3b61ac8576f5169dbff184ef3c386"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Rose house and split grid",
@@ -13887,7 +14399,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13899,6 +14412,11 @@
             "mime": "image/webp",
             "bytes": 310990,
             "sha256": "f3a556743a0c113a184873ce968f5f3fcc4aa736c7b64d5d361c1c2cca790587"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 809230,
+            "sha256": "6115947a6e7eefb74bb8801dea7e93b77ed3b61ac8576f5169dbff184ef3c386"
           }
         },
         "pages": 1,
@@ -13949,7 +14467,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "608f9387c375e82d5df193029447008e9e2634541aad315cebf599e62e8e174f",
-            "webp": "5af08a3699c468aaed33e89e121bc68622e5c769962a8853c37dc851991af2f0"
+            "webp": "5af08a3699c468aaed33e89e121bc68622e5c769962a8853c37dc851991af2f0",
+            "docx": "2f0bfe87360a916a7b8ef67b84bcbe5edbb581dd4b6fcd759d13bfd5f5cb7e7f"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue lower title band",
@@ -13963,7 +14482,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -13975,6 +14495,11 @@
             "mime": "image/webp",
             "bytes": 268132,
             "sha256": "5af08a3699c468aaed33e89e121bc68622e5c769962a8853c37dc851991af2f0"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 697335,
+            "sha256": "2f0bfe87360a916a7b8ef67b84bcbe5edbb581dd4b6fcd759d13bfd5f5cb7e7f"
           }
         },
         "pages": 1,
@@ -14025,7 +14550,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "9f9b0bcc69538837882f5eb6155847f81de6dc657f5214d0315f2fc38e73519e",
-            "webp": "a2fa6b99396247faa3cb06e98de70157d0e049f898fc87e8d396101383613b0e"
+            "webp": "a2fa6b99396247faa3cb06e98de70157d0e049f898fc87e8d396101383613b0e",
+            "docx": "3e42d475748dc00fc7145808ce584832fc45511219ea8f7bc68b8e3b0a45189b"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Green botanical border",
@@ -14039,7 +14565,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14051,6 +14578,11 @@
             "mime": "image/webp",
             "bytes": 347210,
             "sha256": "a2fa6b99396247faa3cb06e98de70157d0e049f898fc87e8d396101383613b0e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1004444,
+            "sha256": "3e42d475748dc00fc7145808ce584832fc45511219ea8f7bc68b8e3b0a45189b"
           }
         },
         "pages": 1,
@@ -14101,7 +14633,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "ea5e5c6f4e50d8aba8a862f79d7771a52079bb77e2cda2a10a73a6478b7ef50e",
-            "webp": "246ed79ad046bfab4a2be848b67ce3b3fb453ac95e67de483e85b76c4291de02"
+            "webp": "246ed79ad046bfab4a2be848b67ce3b3fb453ac95e67de483e85b76c4291de02",
+            "docx": "fc43585fa8db948d7b5441b340b45afeafc73b51751371cd06fa05b91255cce9"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Terracotta botanical sidebar",
@@ -14115,7 +14648,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14127,6 +14661,11 @@
             "mime": "image/webp",
             "bytes": 414836,
             "sha256": "246ed79ad046bfab4a2be848b67ce3b3fb453ac95e67de483e85b76c4291de02"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1166850,
+            "sha256": "fc43585fa8db948d7b5441b340b45afeafc73b51751371cd06fa05b91255cce9"
           }
         },
         "pages": 1,
@@ -14177,7 +14716,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "e3aa80a92a3d187b317e1aa47d02254de6fae59c2cdc0f779c92ccf8ae13b1e5",
-            "webp": "ccdedb6f9a751450dad184fe3070a6a5098940547eaede2e07c6dd6f2bf0ae03"
+            "webp": "ccdedb6f9a751450dad184fe3070a6a5098940547eaede2e07c6dd6f2bf0ae03",
+            "docx": "7a6e4de2ceecab146f8fcf588c3fe101dbcf3063b6b8183c88a26d39f3f180a0"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome botanical sidebar",
@@ -14191,7 +14731,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14203,6 +14744,11 @@
             "mime": "image/webp",
             "bytes": 444802,
             "sha256": "ccdedb6f9a751450dad184fe3070a6a5098940547eaede2e07c6dd6f2bf0ae03"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1241720,
+            "sha256": "7a6e4de2ceecab146f8fcf588c3fe101dbcf3063b6b8183c88a26d39f3f180a0"
           }
         },
         "pages": 1,
@@ -14253,7 +14799,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "89ef410f5784963f22487f407f4b63dab5ccbbe30811f870fe0674efa9b4cc39",
-            "webp": "6a664d2440d36079f74403ca54aac52c337698101f136911b3da1c0f616980b5"
+            "webp": "6a664d2440d36079f74403ca54aac52c337698101f136911b3da1c0f616980b5",
+            "docx": "ed154b94a11a80441d9bc40aaa7e227c0cb61da01399c6dc1a2834950afe95c5"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome floral corners",
@@ -14267,7 +14814,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14279,6 +14827,11 @@
             "mime": "image/webp",
             "bytes": 230052,
             "sha256": "6a664d2440d36079f74403ca54aac52c337698101f136911b3da1c0f616980b5"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 661287,
+            "sha256": "ed154b94a11a80441d9bc40aaa7e227c0cb61da01399c6dc1a2834950afe95c5"
           }
         },
         "pages": 1,
@@ -14329,7 +14882,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "4c9f458d45ec1c0db75d68cdccfe9428a079d2c8f88d3fa65ce91aa0804d8043",
-            "webp": "80dc6140564437720d4bdcc56b7168a6661b5b52447e2cc3b0d4e6d0cf3b8551"
+            "webp": "80dc6140564437720d4bdcc56b7168a6661b5b52447e2cc3b0d4e6d0cf3b8551",
+            "docx": "c3744f678da05647605b649175602ca9de9e4e717e2c9729ff83da9d6fa7ed7d"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Sage floral lower banner",
@@ -14343,7 +14897,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14355,6 +14910,11 @@
             "mime": "image/webp",
             "bytes": 308368,
             "sha256": "80dc6140564437720d4bdcc56b7168a6661b5b52447e2cc3b0d4e6d0cf3b8551"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 810179,
+            "sha256": "c3744f678da05647605b649175602ca9de9e4e717e2c9729ff83da9d6fa7ed7d"
           }
         },
         "pages": 1,
@@ -14405,7 +14965,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "bb7f2ed0bf675d7ce49ba94f5c5dbf0cb228eea03d02fa2b33b27c70980fd86b",
-            "webp": "01f42fdf3564b2e0827573a1efe3c9ddc0bff268c0bf6681abcca542eb46e2ff"
+            "webp": "01f42fdf3564b2e0827573a1efe3c9ddc0bff268c0bf6681abcca542eb46e2ff",
+            "docx": "096abae11131e94c727ec2b2c74c4fd176a805c32edefe23a8811ea480421162"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue arch sidebar",
@@ -14419,7 +14980,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14431,6 +14993,11 @@
             "mime": "image/webp",
             "bytes": 239408,
             "sha256": "01f42fdf3564b2e0827573a1efe3c9ddc0bff268c0bf6681abcca542eb46e2ff"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 633409,
+            "sha256": "096abae11131e94c727ec2b2c74c4fd176a805c32edefe23a8811ea480421162"
           }
         },
         "pages": 1,
@@ -14481,7 +15048,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "c8e9a65fd3d29cdb84b74039aec5263b7e7e5255d7f89cff492d321c766cf260",
-            "webp": "e6e2625a493cd4db779603fe7160bae477630ea684932e075460b4a175c617cf"
+            "webp": "e6e2625a493cd4db779603fe7160bae477630ea684932e075460b4a175c617cf",
+            "docx": "526b8d223c9219b5761a10415c99b230a17a2dc5aea2bcbe3ac808431e755c5b"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue paired arches",
@@ -14495,7 +15063,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14507,6 +15076,11 @@
             "mime": "image/webp",
             "bytes": 314498,
             "sha256": "e6e2625a493cd4db779603fe7160bae477630ea684932e075460b4a175c617cf"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 863200,
+            "sha256": "526b8d223c9219b5761a10415c99b230a17a2dc5aea2bcbe3ac808431e755c5b"
           }
         },
         "pages": 1,
@@ -14557,7 +15131,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "b09c70efd4b775638b5279eb72a592c345bb8a53426b2336eedb404cef2c7846",
-            "webp": "f3ae06df872275fb9cb524fbcbc0819687f150adec8be003ff130752c825d7a8"
+            "webp": "f3ae06df872275fb9cb524fbcbc0819687f150adec8be003ff130752c825d7a8",
+            "docx": "cf468e206866cb4b0051749760acf8500c49e3978ddf0307cb31a5fe4c516dff"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome split tables",
@@ -14571,7 +15146,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14583,6 +15159,11 @@
             "mime": "image/webp",
             "bytes": 197214,
             "sha256": "f3ae06df872275fb9cb524fbcbc0819687f150adec8be003ff130752c825d7a8"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 596293,
+            "sha256": "cf468e206866cb4b0051749760acf8500c49e3978ddf0307cb31a5fe4c516dff"
           }
         },
         "pages": 1,
@@ -14633,7 +15214,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "158cfa29b05504de39552b055c472329e356aac0933a0b6a5c258692b6bbce88",
-            "webp": "7ff130933a1038470fc5fa046fc45d2b9ab245986f2a37b11e5a2d9911f9e141"
+            "webp": "7ff130933a1038470fc5fa046fc45d2b9ab245986f2a37b11e5a2d9911f9e141",
+            "docx": "cdda1e81037321c1b48679536ed66a6e03f9d0017478e8704c30c924947fa257"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Gold arch header",
@@ -14647,7 +15229,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14659,6 +15242,11 @@
             "mime": "image/webp",
             "bytes": 333038,
             "sha256": "7ff130933a1038470fc5fa046fc45d2b9ab245986f2a37b11e5a2d9911f9e141"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 809718,
+            "sha256": "cdda1e81037321c1b48679536ed66a6e03f9d0017478e8704c30c924947fa257"
           }
         },
         "pages": 1,
@@ -14709,7 +15297,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "5f146051eed4bf7048f194e0a3f7a4dec5ca1e1815aa231a64e6b1a36f5c3b82",
-            "webp": "45db13f7414d9c361ef2678a89357bea7760410b9448fd56a0f5d9f5e5fd9467"
+            "webp": "45db13f7414d9c361ef2678a89357bea7760410b9448fd56a0f5d9f5e5fd9467",
+            "docx": "5bca2ce0962f6989f5993b33fb840ad9aab260f9afb8608f5f44006777e20d39"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome lower caption",
@@ -14723,7 +15312,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14735,6 +15325,11 @@
             "mime": "image/webp",
             "bytes": 141868,
             "sha256": "45db13f7414d9c361ef2678a89357bea7760410b9448fd56a0f5d9f5e5fd9467"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 404342,
+            "sha256": "5bca2ce0962f6989f5993b33fb840ad9aab260f9afb8608f5f44006777e20d39"
           }
         },
         "pages": 1,
@@ -14785,7 +15380,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "4c47be1951639fde1e06c93efdbd49747fab99b900bd8c06a872003a4391b243",
-            "webp": "fc48c03d61b24643d2f7b2a63e509ba3b25234517585f1ca85a95af8412fc970"
+            "webp": "fc48c03d61b24643d2f7b2a63e509ba3b25234517585f1ca85a95af8412fc970",
+            "docx": "4f5665353a11531a2a401d8329e9cea1621aa00bdf700f1e05a4d18448730f9d"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Lavender ribbon and four panels",
@@ -14799,7 +15395,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14811,6 +15408,11 @@
             "mime": "image/webp",
             "bytes": 306052,
             "sha256": "fc48c03d61b24643d2f7b2a63e509ba3b25234517585f1ca85a95af8412fc970"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 865938,
+            "sha256": "4f5665353a11531a2a401d8329e9cea1621aa00bdf700f1e05a4d18448730f9d"
           }
         },
         "pages": 1,
@@ -14861,7 +15463,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "a791c2565a5890130a626d5aa2d93d10a5e5154bfb54dcae9883a8d69ef4f310",
-            "webp": "b9ef153eedbe24fa2e3b3d592d3153ce88d72e173166377da0e1d9854ccb8023"
+            "webp": "b9ef153eedbe24fa2e3b3d592d3153ce88d72e173166377da0e1d9854ccb8023",
+            "docx": "c8954e045c4f8b4df5d3c485b81787acfbe500115ca33a41288f21d3842d38fb"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Pink envelope and four panels",
@@ -14875,7 +15478,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14887,6 +15491,11 @@
             "mime": "image/webp",
             "bytes": 261528,
             "sha256": "b9ef153eedbe24fa2e3b3d592d3153ce88d72e173166377da0e1d9854ccb8023"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 748778,
+            "sha256": "c8954e045c4f8b4df5d3c485b81787acfbe500115ca33a41288f21d3842d38fb"
           }
         },
         "pages": 1,
@@ -14937,7 +15546,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "f33b4b3463d567772cabcbdd07a09993ad25e83a9e838ba9222bdb23abc524cb",
-            "webp": "0efe5270a8ea7ac60e12cb556f95fe1de49029f2828d06cfd1ae01b8413d2fd8"
+            "webp": "0efe5270a8ea7ac60e12cb556f95fe1de49029f2828d06cfd1ae01b8413d2fd8",
+            "docx": "5ca8973c6d934e8cd0318f4db9682146592458d92a346b10e38889c11ab915e4"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome four panels",
@@ -14951,7 +15561,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -14963,6 +15574,11 @@
             "mime": "image/webp",
             "bytes": 246028,
             "sha256": "0efe5270a8ea7ac60e12cb556f95fe1de49029f2828d06cfd1ae01b8413d2fd8"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 728701,
+            "sha256": "5ca8973c6d934e8cd0318f4db9682146592458d92a346b10e38889c11ab915e4"
           }
         },
         "pages": 1,
@@ -15013,7 +15629,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "ff9dc49e68d429c9a7b393bd745891e7935ea26845d136bfa03d1532d8613398",
-            "webp": "1ee145a79dcf0a727cd0305251790fe2c383a4af9bc5c77dc4818eecf83b77ff"
+            "webp": "1ee145a79dcf0a727cd0305251790fe2c383a4af9bc5c77dc4818eecf83b77ff",
+            "docx": "47c126e1acecd467a037854a5ed78dda3a4f520043fa54c710f2bc72464e07b7"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Terracotta suitcase header",
@@ -15027,7 +15644,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15039,6 +15657,11 @@
             "mime": "image/webp",
             "bytes": 166522,
             "sha256": "1ee145a79dcf0a727cd0305251790fe2c383a4af9bc5c77dc4818eecf83b77ff"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 408534,
+            "sha256": "47c126e1acecd467a037854a5ed78dda3a4f520043fa54c710f2bc72464e07b7"
           }
         },
         "pages": 1,
@@ -15089,7 +15712,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "0456783a3532d813db3c2df2cdaca7235793d95d3a543c17506c994609b48b53",
-            "webp": "4d713ad5534c9f9dc3a237330f02b9d0dc4fc859ecd6e78b4359d0281f0f8fad"
+            "webp": "4d713ad5534c9f9dc3a237330f02b9d0dc4fc859ecd6e78b4359d0281f0f8fad",
+            "docx": "210b853fe5aad04407b382118b715ca2c0e322e4af66a76ee1cb5c526c11a04f"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Rose five-column layout",
@@ -15103,7 +15727,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15115,6 +15740,11 @@
             "mime": "image/webp",
             "bytes": 281698,
             "sha256": "4d713ad5534c9f9dc3a237330f02b9d0dc4fc859ecd6e78b4359d0281f0f8fad"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 647411,
+            "sha256": "210b853fe5aad04407b382118b715ca2c0e322e4af66a76ee1cb5c526c11a04f"
           }
         },
         "pages": 1,
@@ -15165,7 +15795,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "50904cbde0dd995cc40717c5ecb9a059e8c2ceaba9a33f385bbfb833f549baa4",
-            "webp": "f5a91763099d28547df4974af62e18b946b87ace99fb894d2a4cce8010698548"
+            "webp": "f5a91763099d28547df4974af62e18b946b87ace99fb894d2a4cce8010698548",
+            "docx": "a6d6dbd0f862b59d00e1a447838c125177f64f502597ad68e89812a6c29873ec"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Ivory envelope ledger",
@@ -15179,7 +15810,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15191,6 +15823,11 @@
             "mime": "image/webp",
             "bytes": 237372,
             "sha256": "f5a91763099d28547df4974af62e18b946b87ace99fb894d2a4cce8010698548"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 630205,
+            "sha256": "a6d6dbd0f862b59d00e1a447838c125177f64f502597ad68e89812a6c29873ec"
           }
         },
         "pages": 1,
@@ -15241,7 +15878,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "cdcc35b37eb54eda503fa875e2c878625d8fa02ef5b4835b5c8f682fd060c625",
-            "webp": "cd19a70f7b255db1c1b33b68ab286bba9fa36fcb3588b1333b6fbc54367512ae"
+            "webp": "cd19a70f7b255db1c1b33b68ab286bba9fa36fcb3588b1333b6fbc54367512ae",
+            "docx": "8fc73a21be741326b0fc7e17be40db18bea25024ed4514886b864ed0f466e765"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Lavender side column",
@@ -15255,7 +15893,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15267,6 +15906,11 @@
             "mime": "image/webp",
             "bytes": 396748,
             "sha256": "cd19a70f7b255db1c1b33b68ab286bba9fa36fcb3588b1333b6fbc54367512ae"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1052294,
+            "sha256": "8fc73a21be741326b0fc7e17be40db18bea25024ed4514886b864ed0f466e765"
           }
         },
         "pages": 1,
@@ -15317,7 +15961,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "6a7b53de8584028e2e5b22f521699ba921944d842f5551b4bbc90cbe497780d9",
-            "webp": "7b552a854c164cb4351e474ef583867d154902554ea93b76cc53f87d2240a076"
+            "webp": "7b552a854c164cb4351e474ef583867d154902554ea93b76cc53f87d2240a076",
+            "docx": "74ae66576dc3d186493e35b886662f3fc83171b2e934e551b6fe91a14f6c2a07"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Sage envelope header",
@@ -15331,7 +15976,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15343,6 +15989,11 @@
             "mime": "image/webp",
             "bytes": 207072,
             "sha256": "7b552a854c164cb4351e474ef583867d154902554ea93b76cc53f87d2240a076"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 460098,
+            "sha256": "74ae66576dc3d186493e35b886662f3fc83171b2e934e551b6fe91a14f6c2a07"
           }
         },
         "pages": 1,
@@ -15393,7 +16044,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "baadd51bd41806e72f0a2dee31916fe7fc0a8a8e463ae9ac71332c7c6d9761d6",
-            "webp": "365affa8fdd0615dc5b9097b6dd37c1b562312c6ee56a67b3a0f41df28b28bf3"
+            "webp": "365affa8fdd0615dc5b9097b6dd37c1b562312c6ee56a67b3a0f41df28b28bf3",
+            "docx": "dc1ea15969afb115921ae17645c29af9530adf2d9d30356b313adaeb2670aad2"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome ledger header",
@@ -15407,7 +16059,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15419,6 +16072,11 @@
             "mime": "image/webp",
             "bytes": 298648,
             "sha256": "365affa8fdd0615dc5b9097b6dd37c1b562312c6ee56a67b3a0f41df28b28bf3"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 799963,
+            "sha256": "dc1ea15969afb115921ae17645c29af9530adf2d9d30356b313adaeb2670aad2"
           }
         },
         "pages": 1,
@@ -15469,7 +16127,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "079a21043b2afc20d3bc19ce9f5e108bb6da6133c2af3726c1beb22e2a123c6e",
-            "webp": "a7f1bff8a62bd5dd3da586a72a756519c75a80c545f105f7f3696b56165ddb84"
+            "webp": "a7f1bff8a62bd5dd3da586a72a756519c75a80c545f105f7f3696b56165ddb84",
+            "docx": "79e4384f7c84e29a17c751f3283cba545f9c2c002631ca149acff220ec3f9167"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Amber number header",
@@ -15483,7 +16142,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15495,6 +16155,11 @@
             "mime": "image/webp",
             "bytes": 238016,
             "sha256": "a7f1bff8a62bd5dd3da586a72a756519c75a80c545f105f7f3696b56165ddb84"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 636815,
+            "sha256": "79e4384f7c84e29a17c751f3283cba545f9c2c002631ca149acff220ec3f9167"
           }
         },
         "pages": 1,
@@ -15545,7 +16210,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "3c4daa4c010510901cc8cdff3bebb949bb6ee0f66aa5d75af16cbfc036e59d06",
-            "webp": "528ba8fb4bf1f867025c8aac994c0e8a786da5dd4df94b30b9b02fdae15785fc"
+            "webp": "528ba8fb4bf1f867025c8aac994c0e8a786da5dd4df94b30b9b02fdae15785fc",
+            "docx": "e40106770f2003f06abcd76ae5f9248edfa32f822d41c37c1b9a2c22ad737346"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Monochrome five-column grid",
@@ -15559,7 +16225,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15571,6 +16238,11 @@
             "mime": "image/webp",
             "bytes": 240668,
             "sha256": "528ba8fb4bf1f867025c8aac994c0e8a786da5dd4df94b30b9b02fdae15785fc"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 708644,
+            "sha256": "e40106770f2003f06abcd76ae5f9248edfa32f822d41c37c1b9a2c22ad737346"
           }
         },
         "pages": 1,
@@ -15621,7 +16293,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "55dad92209f8eb139044134e868752581ce5e259fa4390d18632374dc59babbf",
-            "webp": "5480785e5279bd8372d5a5b3142821d53fd786d4ae4a7f2bf5f1a048737ab071"
+            "webp": "5480785e5279bd8372d5a5b3142821d53fd786d4ae4a7f2bf5f1a048737ab071",
+            "docx": "ea4affd508b13cee4e9f00f11fc5d8ba2aa67075e2a52c739380370ff95a101f"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Peach lower envelope band",
@@ -15635,7 +16308,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15647,6 +16321,11 @@
             "mime": "image/webp",
             "bytes": 332970,
             "sha256": "5480785e5279bd8372d5a5b3142821d53fd786d4ae4a7f2bf5f1a048737ab071"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 592691,
+            "sha256": "ea4affd508b13cee4e9f00f11fc5d8ba2aa67075e2a52c739380370ff95a101f"
           }
         },
         "pages": 1,
@@ -15697,7 +16376,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "479f04e9580b4234ef2bb6e5f89ef9c5536394840dc2cf7ad6dd35125e7abe4f",
-            "webp": "bd71f803a2c428bd5307ce2812570c0b22aec706879ac8043551cafaf5d1e62b"
+            "webp": "bd71f803a2c428bd5307ce2812570c0b22aec706879ac8043551cafaf5d1e62b",
+            "docx": "5bdea973cbc1f3d76acb8ca09315ff23e386fd519eb60363f93c7399d340638a"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Pink envelope sidebar",
@@ -15711,7 +16391,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15723,6 +16404,11 @@
             "mime": "image/webp",
             "bytes": 439942,
             "sha256": "bd71f803a2c428bd5307ce2812570c0b22aec706879ac8043551cafaf5d1e62b"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 1223973,
+            "sha256": "5bdea973cbc1f3d76acb8ca09315ff23e386fd519eb60363f93c7399d340638a"
           }
         },
         "pages": 1,
@@ -15773,7 +16459,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "adfdfe743835ef290cfbb95dadb243d32122181b64609de981f4b375b7769c59",
-            "webp": "381b3fbfaa2411ece36c177da0ba73b6f879c0cd2c48d9a767f670c7bdda27a0"
+            "webp": "381b3fbfaa2411ece36c177da0ba73b6f879c0cd2c48d9a767f670c7bdda27a0",
+            "docx": "04b18bef92a2c0ec9cdac1ce733ada1c4c2297412806d46e7f163a17ccfee607"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Blue arched envelope header",
@@ -15787,7 +16474,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15799,6 +16487,11 @@
             "mime": "image/webp",
             "bytes": 278254,
             "sha256": "381b3fbfaa2411ece36c177da0ba73b6f879c0cd2c48d9a767f670c7bdda27a0"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 685114,
+            "sha256": "04b18bef92a2c0ec9cdac1ce733ada1c4c2297412806d46e7f163a17ccfee607"
           }
         },
         "pages": 1,
@@ -15849,7 +16542,8 @@
           "status": "source-reviewed",
           "source_sha256": {
             "pdf": "56dd11218c0717e9f28ca257f1c2daa443c72e572a6b508b5c55619817dfbc54",
-            "webp": "c991ef2e17ef4abdcab8c2aea46c2522d1ee4c407ba4a8414aa1bc28db3a33d7"
+            "webp": "c991ef2e17ef4abdcab8c2aea46c2522d1ee4c407ba4a8414aa1bc28db3a33d7",
+            "docx": "b0c02486ab734d203e8546cdbd18de89d2714f1a8ffd87c881b6de431f710bb9"
           },
           "reviewed_content": {
             "title": "100 Envelope Savings Challenge — Mint Envelope and Four Panels",
@@ -15863,7 +16557,8 @@
         },
         "formats": [
           "pdf",
-          "webp"
+          "webp",
+          "docx"
         ],
         "assets": {
           "pdf": {
@@ -15875,6 +16570,11 @@
             "mime": "image/webp",
             "bytes": 226132,
             "sha256": "c991ef2e17ef4abdcab8c2aea46c2522d1ee4c407ba4a8414aa1bc28db3a33d7"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 587928,
+            "sha256": "b0c02486ab734d203e8546cdbd18de89d2714f1a8ffd87c881b6de431f710bb9"
           }
         },
         "pages": 1,

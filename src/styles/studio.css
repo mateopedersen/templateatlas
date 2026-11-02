@@ -29,7 +29,7 @@
   --muted: #655c60;
   --serif: "Atlas Display", Georgia, serif;
   --ui: "Atlas Sans", system-ui, sans-serif;
-  --paper: #f9f7f2;
+  --paper: #ffffff;
 }
 body {
   font-family: var(--ui);
@@ -80,7 +80,7 @@ body {
 }
 .header-search {
   border-radius: 12px;
-  background: #f5f2ed;
+  background: #f1f1f1;
 }
 .masthead .header-search button {
   border-radius: 7px;
@@ -113,7 +113,7 @@ button {
     border-color 0.14s;
 }
 .listlink:hover {
-  background: #fff9f3;
+  background: #f9f9f9;
 }
 .workspace .panel {
   border-top: 3px solid #82435e;
@@ -164,7 +164,7 @@ h2,
     #432034 65%,
     #2d1a27 100%
   );
-  color: #fff6e8;
+  color: #f4f4f4;
   box-shadow: 0 12px 36px #4526361c;
 }
 .studio-hero[data-active="chart"] {
@@ -225,7 +225,7 @@ h2,
   font: 500 clamp(55px, 5.3vw, 84px)/0.91 var(--serif);
   letter-spacing: -0.066em;
   margin: 16px 0 15px;
-  color: #fff8ee;
+  color: #f7f7f7;
 }
 .stage-intro h1 i {
   color: var(--accent);
@@ -583,7 +583,7 @@ h2,
   color: #5d472a;
 }
 .collection-tile.lilac {
-  background: #e5e1ee;
+  background: #e7e7e7;
   border-color: #d5cfe3;
   color: #48374f;
 }
@@ -601,7 +601,7 @@ h2,
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #fffcf5aa;
+  background: #fbfbfbaa;
   transform: rotate(-35deg);
 }
 .tile-decoration {
@@ -675,7 +675,7 @@ h2,
   border-radius: 12px;
 }
 .shelf[open] {
-  background: #fffdf9;
+  background: #fcfcfc;
 }
 .shelf-symbol {
   border-radius: 11px;
@@ -1122,7 +1122,7 @@ a:focus-visible {
 .suggest a:hover,
 .suggest a[aria-selected="true"] {
   color: var(--wine);
-  background: #f4e8ec;
+  background: #ededed;
 }
 .surface-heading {
   display: flex;
@@ -1138,7 +1138,7 @@ a:focus-visible {
   display: grid;
   place-items: center;
   border-radius: 16px;
-  background: #f1e2e4;
+  background: #e8e8e8;
   color: var(--wine);
 }
 .studio-picker {
@@ -1167,7 +1167,7 @@ a:focus-visible {
   padding: 22px;
   border: 1px solid var(--edge);
   border-radius: 12px;
-  background: #fffdf9;
+  background: #fcfcfc;
 }
 .file-guide h2 {
   font-size: 26px;

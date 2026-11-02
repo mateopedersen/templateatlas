@@ -60,6 +60,7 @@ const featuredPapers = [
           >
             Download Image <span>{size(item.assets.webp.bytes)}</span>
           </button>
+          {item.assets.docx && <button class="secondary-download" data-catalog-download={item.id} data-format="docx">Download Word <span>{size(item.assets.docx.bytes)}</span></button>}
           <p role="status" data-download-message></p>
         </div>
         <dl class="imported-facts">
@@ -204,15 +205,16 @@ const featuredPapers = [
                 <p class="imported-card-summary">{e.intro}</p>
                 {e.description_paragraphs.length > 0 && (
                   <details class="imported-card-more">
-                    <summary aria-label={"More about " + e.title}>
+                    <summary>
                       <span class="more-label">More</span>
                       <span class="less-label">Less</span>
+                      <span class="more-context"> about {e.title}</span>
                     </summary>
                     {e.description_paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
                   </details>
                 )}
                 <TemplateProperties class="imported-badges" paper={e.paper} orientation={e.orientation} color={e.color}/>
-                <div class="download-set imported-card-downloads">
+                <div class:list={["download-set", "imported-card-downloads", {"has-word": !!e.assets.docx}]}>
                   <button
                     data-catalog-download={e.id}
                     data-format="pdf"
@@ -232,6 +234,11 @@ const featuredPapers = [
                     <span class="file-button-copy"><strong>Image</strong></span>
                     <FileIcon kind="download" class="file-button-arrow" />
                   </button>
+                  {e.assets.docx && <button class="secondary-download" data-catalog-download={e.id} data-format="docx" aria-label={"Download Word: " + e.title}>
+                    <span class="file-button-icon"><FileIcon kind="word" /></span>
+                    <span class="file-button-copy"><strong>Word</strong></span>
+                    <FileIcon kind="download" class="file-button-arrow" />
+                  </button>}
                   <p role="status" data-download-message></p>
                 </div>
               </div>
