@@ -6,7 +6,7 @@ html {
   --ink: #231d20;
   --wine: #671432;
   --paper: #f7f7f7;
-  --edge: #dad5cd;
+  --edge: #e5f0f4;
   --muted: #635d5b;
   --serif: Georgia, 'Times New Roman', serif;
 }
@@ -162,7 +162,7 @@ header {
   object-fit: cover;
   object-position: top;
   background: white;
-  border: 1px solid #ddd5ca;
+  border: 1px solid #e5f0f4;
   box-shadow: 2px 12px 26px #30131e55;
 }
 .sheet.s0 {
@@ -265,7 +265,7 @@ h2 {
 }
 .thumb {
   height: 165px;
-  background: #ebe6dc;
+  background: #e5f0f4;
   overflow: hidden;
   text-align: center;
   padding: 14px 26px 0;
@@ -279,7 +279,7 @@ h2 {
   background: #e5e5e5;
 }
 .card:nth-child(3n) .thumb {
-  background: #eee2df;
+  background: #eaf3f7;
 }
 .card p,
 .panel p {
@@ -401,7 +401,7 @@ button:disabled {
 }
 .preview {
   padding: 20px;
-  background: #e8e4dc;
+  background: #e5f0f4;
   text-align: center;
   border-radius: 5px;
 }
@@ -420,7 +420,7 @@ button:disabled {
 }
 .badge {
   display: inline-block;
-  border: 1px solid #d6cfc6;
+  border: 1px solid #e5f0f4;
   border-radius: 3px;
   padding: 4px 7px;
   color: #55494a;

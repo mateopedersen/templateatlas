@@ -1,7 +1,7 @@
 /* A single navigation system used across the entire site. */
 .masthead {position: relative; z-index: 20; box-shadow: 0 4px 24px #3e1c2910;}
 .masthead .bar {gap: clamp(12px, 1.4vw, 24px);}
-.masthead .header-search {border-radius: 12px; background: #f3f3f3; border-color: #e9e1d9; height: 44px;}
+.masthead .header-search {border-radius: 12px; background: #f3f3f3; border-color: #e5f0f4; height: 44px;}
 .masthead .header-search:focus-within {background: #fff; border-color: #9d7183; box-shadow: 0 0 0 3px #711d3d12;}
 .masthead .header-search button {border-radius: 8px; width: 29px; height: 29px; display: grid; place-items: center;}
 .masthead .atlas-nav {display:flex; align-items:center; gap:3px; overflow:visible;}
@@ -11,9 +11,9 @@
 .atlas-nav-item[open] > summary, .atlas-nav-item summary:hover, .masthead .atlas-nav > .nav-direct:hover {background:#f2f2f2; color:#681b3a; text-decoration:none;}
 .nav-chevron {width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s;}
 .atlas-nav-item[open] .nav-chevron {transform:rotate(225deg) translate(-1px,-1px);}
-.nav-panel {position:absolute; top:calc(100% - 2px); right:3%; width:min(870px,94vw); background:#fdfdfd; border:1px solid #e8ddd7; border-radius:18px; box-shadow:0 20px 60px #35111f25, 0 2px 8px #35111f0d; color:#34242e; overflow:hidden; z-index:25;}
+.nav-panel {position:absolute; top:calc(100% - 2px); right:3%; width:min(870px,94vw); background:#fdfdfd; border:1px solid #e5f0f4; border-radius:18px; box-shadow:0 20px 60px #35111f25, 0 2px 8px #35111f0d; color:#34242e; overflow:hidden; z-index:25;}
 .nav-small-panel {width:min(470px,94vw);}
-.nav-panel-heading {display:flex; justify-content:space-between; align-items:center; gap:20px; padding:24px 28px 19px; background:linear-gradient(110deg,#f4f4f4,#f7f7f7); border-bottom:1px solid #eee5e0;}
+.nav-panel-heading {display:flex; justify-content:space-between; align-items:center; gap:20px; padding:24px 28px 19px; background:linear-gradient(110deg,#f4f4f4,#f7f7f7); border-bottom:1px solid #e5f0f4;}
 .nav-panel-heading strong {display:block; font-size:21px; line-height:1.2; letter-spacing:-.03em; color:#462033;}
 .nav-panel-heading p {margin:5px 0 0; font-size:13px; color:#71626b;}
 .nav-eyebrow {display:block; color:#946176; font-size:10px; font-weight:800; letter-spacing:.14em; margin-bottom:8px;}
@@ -25,7 +25,7 @@
 .nav-category-grid a svg, .nav-tool-grid a svg {opacity:0; color:#98526b; flex:none;}
 .masthead .nav-category-grid a:hover, .masthead .nav-tool-grid a:hover, .masthead .nav-feature-list a:hover {background:#f3f3f3; color:#741d3e; text-decoration:none;}
 .nav-category-grid a:hover svg, .nav-tool-grid a:hover svg {opacity:1;}
-.nav-panel-footer {display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 28px; background:#f7f7f7; border-top:1px solid #eee6e0; font-size:12px; color:#81737a;}
+.nav-panel-footer {display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 28px; background:#f7f7f7; border-top:1px solid #e5f0f4; font-size:12px; color:#81737a;}
 .masthead .nav-panel-footer a {display:inline-flex; align-items:center; gap:7px; color:#712341; font-weight:750;}
 .nav-feature-list {display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:14px;}
 .masthead .nav-feature-list a {display:flex; align-items:center; gap:10px; padding:10px; border-radius:10px;}
@@ -138,7 +138,7 @@
 }
 
 /* Illustrated library index */
-.atlas-rail { background: #f3eadb; border-top: 1px solid #decfba; border-bottom: 1px solid #cdb9a2; }
+.atlas-rail { background: #e5f0f4; border-top: 1px solid #dce9ef; border-bottom: 1px solid #cdb9a2; }
 .atlas-rail .atlas-nav-item > summary, .masthead .atlas-rail .nav-direct {
   color: #4e303b;
   gap: 7px;
@@ -147,7 +147,7 @@
   padding-block: 6px;
 }
 .atlas-rail :is(summary, .nav-direct)::after { background: #7b3451; height: 2px; }
-.atlas-rail .nav-panel { border-radius: 0 0 7px 7px; border-color: #d6c7b7; }
+.atlas-rail .nav-panel { border-radius: 0 0 7px 7px; border-color: #dce9ef; }
 .nav-category-panel .nav-panel-heading { padding: 15px 20px; background: #502238; color: white; }
 .nav-category-panel .nav-panel-heading strong { color: #f5f5f5; font: 620 22px/1.2 "Avenir Next", "Atlas Sans", sans-serif; }
 .nav-category-panel .nav-category-grid { gap: 0; padding: 0; }
@@ -169,9 +169,9 @@
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   font: 650 14px/1.25 "Avenir Next", "Atlas Sans", sans-serif; min-height: 39px;
 }
-.masthead .header-account .account-cta { border-radius: 6px; padding: 6px 13px; background: #f1e3ce; border: 1px solid #cbb290; color: #563246; }
+.masthead .header-account .account-cta { border-radius: 6px; padding: 6px 13px; background: #e5f0f4; border: 1px solid #cbb290; color: #563246; }
 .masthead .header-account .account-cta[hidden] { display: none; }
-.masthead .header-account .account-cta:hover { background: #ead8bc; }
+.masthead .header-account .account-cta:hover { background: #dce9ef; }
 @media (max-width: 730px) {
   .masthead .header-account { gap: 5px; }
   .masthead .header-account :is(.signin, .account-cta) { gap: 3px; font-size: 12px; }
@@ -211,7 +211,7 @@
   .library-intro-copy strong { margin: 4px 0; font-size: 16px; }
   .library-intro-copy strong br { display: none; }
   .nav-category-panel .nav-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .nav-category-grid section { border-bottom: 1px solid #ede4dd; }
+  .nav-category-grid section { border-bottom: 1px solid #e5f0f4; }
 }
 
 /* Balanced header with tactile search and account controls. */
@@ -225,7 +225,7 @@
   width: 100%; max-width: none; height: 50px; gap: 9px;
   padding: 4px 5px 4px 9px;
   background: linear-gradient(180deg, #fdfdfd, #f2f2f2);
-  border: 1px solid #d4bfaa; border-radius: 13px;
+  border: 1px solid #dce9ef; border-radius: 13px;
   box-shadow: inset 0 1px 2px #fff, 0 2px 5px #603a2912;
 }
 .search-lens { display: grid; place-items: center; flex: 0 0 36px; width: 36px; height: 36px; }
@@ -245,14 +245,14 @@
   min-height: 42px; padding: 6px 12px; border-radius: 9px;
   font-size: 13px; text-decoration: none; white-space: nowrap;
 }
-.masthead .header-account .signin { color: #63344b; background: #fcfcfc; border: 1px solid #e7d9ce; box-shadow: 0 2px 4px #4321330d; }
+.masthead .header-account .signin { color: #63344b; background: #fcfcfc; border: 1px solid #e5f0f4; box-shadow: 0 2px 4px #4321330d; }
 .masthead .header-account .signin:hover { background: #f0f0f0; }
 .masthead .header-account .account-cta {
   color: #5d2a41; border: 1px solid #c9ac88;
-  background: linear-gradient(165deg, #fff3dd, #ead4b9);
+  background: linear-gradient(165deg, #e5f0f4, #dce9ef);
   box-shadow: inset 0 1px 0 #fff9, 0 3px 0 #d3b99b, 0 4px 6px #72512f14;
 }
-.masthead .header-account .account-cta:hover { background: linear-gradient(165deg, #f7f7f7, #f0dbc2); }
+.masthead .header-account .account-cta:hover { background: linear-gradient(165deg, #f7f7f7, #e5f0f4); }
 .masthead .header-account .account-cta[hidden] { display: none; }
 @media (max-width: 1000px) {
   .masthead .bar { grid-template-columns: auto minmax(180px, 1fr) auto; gap: 12px; }
@@ -312,7 +312,7 @@
 }
 
 /* Navigation objects sit on one warm, raised shelf. */
-.atlas-rail { background: linear-gradient(180deg, #f7f7f7, #f1e5d7); border-top: 1px solid #eaded1; border-bottom: 1px solid #d8c4b5; box-shadow: inset 0 1px #fff, 0 3px 8px #4522330c; }
+.atlas-rail { background: linear-gradient(180deg, #f7f7f7, #e5f0f4); border-top: 1px solid #e5f0f4; border-bottom: 1px solid #dce9ef; box-shadow: inset 0 1px #fff, 0 3px 8px #4522330c; }
 .masthead .atlas-rail .atlas-nav { gap: clamp(8px, 1.6vw, 24px); }
 .atlas-rail .atlas-nav-item > summary, .masthead .atlas-rail .nav-direct {
   min-height: 52px; padding: 6px 12px; gap: 8px; border-radius: 9px 9px 0 0;
@@ -322,8 +322,8 @@
 .atlas-rail .atlas-nav-item > summary:hover, .atlas-rail details[open] > summary, .masthead .atlas-rail .nav-direct:hover { background: #fafafa; box-shadow: inset 0 1px #fff, 0 2px 6px #55263a12; }
 .atlas-rail :is(summary, .nav-direct)::after { left: 8px; right: 8px; height: 3px; background: #92516b; border-radius: 4px 4px 0 0; }
 .masthead .header-account :is(.signin, .account-cta) { font: 700 13px/1.2 "Avenir Next", Avenir, "Atlas Sans", sans-serif; gap: 8px; }
-.account-icon { width: 30px; height: 30px; flex-basis: 30px; display: grid; place-items: center; border: 1px solid #ead8ce; background: linear-gradient(150deg, #fcfcfc, #eadbd0); box-shadow: inset 0 1px #fff; border-radius: 9px; }
-.account-cta .account-icon { background: linear-gradient(150deg, #fcfcfc, #eadbd0); }
+.account-icon { width: 30px; height: 30px; flex-basis: 30px; display: grid; place-items: center; border: 1px solid #e5f0f4; background: linear-gradient(150deg, #fcfcfc, #e5f0f4); box-shadow: inset 0 1px #fff; border-radius: 9px; }
+.account-cta .account-icon { background: linear-gradient(150deg, #fcfcfc, #e5f0f4); }
 .account-icon svg { width: 26px; height: 26px; }
 @media (max-width: 730px) {
   .atlas-rail .atlas-nav-item > summary, .masthead .atlas-rail .nav-direct { min-height: 45px; padding: 5px; gap: 4px; font-size: 12px; }
@@ -340,20 +340,20 @@
 @media (max-width: 390px) { .masthead .header-account .signin .account-icon svg { display: block; width: 19px; height: 19px; } }
 
 /* Editor and utility menus share the library drawer's paper and wine palette. */
-.atlas-rail .nav-small-panel { width: min(720px, 100%); border-radius: 0 0 14px 14px; border-color: #ded0c4; background: #fdfdfd; box-shadow: 0 22px 48px #28131e38; }
+.atlas-rail .nav-small-panel { width: min(720px, 100%); border-radius: 0 0 14px 14px; border-color: #e5f0f4; background: #fdfdfd; box-shadow: 0 22px 48px #28131e38; }
 .nav-small-panel .nav-panel-heading { padding: 18px 22px; background: linear-gradient(110deg, #4d2038, #704158); border-bottom: 0; }
 .nav-small-panel .nav-panel-heading strong { color: #f7f7f7; font: 700 20px/1.2 "Avenir Next", "Atlas Sans", sans-serif; }
 .nav-small-panel .nav-panel-heading p { color: #f2e3dc; font-size: 12px; margin-top: 5px; }
 .nav-small-panel .nav-feature-list, .nav-small-panel .nav-tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 14px; }
 .masthead .nav-small-panel .nav-feature-list a, .masthead .nav-small-panel .nav-tool-grid a { display: flex; align-items: center; gap: 10px; margin: 0; padding: 8px; border: 1px solid transparent; border-radius: 10px; color: #493340; text-decoration: none; }
 .masthead .nav-small-panel :is(.nav-feature-list, .nav-tool-grid) a:hover { background: #f3f3f3; border-color: #efded8; }
-.nav-small-panel .nav-feature-icon { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 48px; background: linear-gradient(145deg, #f4f4f4, #f0e5dd); border: 1px solid #e9dbd3; border-radius: 11px; box-shadow: inset 0 1px #fff; }
+.nav-small-panel .nav-feature-icon { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 48px; background: linear-gradient(145deg, #f4f4f4, #e5f0f4); border: 1px solid #e5f0f4; border-radius: 11px; box-shadow: inset 0 1px #fff; }
 .nav-small-panel .nav-feature-icon svg { width: 43px; height: 43px; filter: drop-shadow(0 2px 1px #51344020); }
 .nav-small-panel :is(.nav-feature-list a > span:nth-child(2), .nav-tool-copy) { flex: 1; min-width: 0; }
 .nav-small-panel :is(.nav-feature-list, .nav-tool-grid) strong { display: block; color: #4e2d3e; font: 700 13px/1.25 "Avenir Next", "Atlas Sans", sans-serif; }
 .nav-small-panel :is(.nav-feature-list, .nav-tool-grid) small { display: block; margin-top: 3px; color: #776970; font: 500 11px/1.3 "Avenir Next", "Atlas Sans", sans-serif; }
 .nav-small-panel :is(.nav-feature-list, .nav-tool-grid) a > svg { flex: none; color: #9a7182; }
-.nav-small-panel .nav-panel-footer { background: #f3f3f3; border-color: #eee4dd; }
+.nav-small-panel .nav-panel-footer { background: #f3f3f3; border-color: #e5f0f4; }
 @media (max-width: 730px) {
   .nav-small-panel .nav-feature-list, .nav-small-panel .nav-tool-grid { grid-template-columns: 1fr; padding: 10px; }
   .atlas-rail .nav-small-panel { max-height: min(75vh, 640px); overflow: auto; }
@@ -369,14 +369,14 @@
 
 /* Quick paths to the library's most useful starting points. */
 .masthead .atlas-rail .atlas-nav { align-items: center; }
-.nav-quick-links { display: flex; align-items: center; gap: 5px; margin-left: auto; padding-left: 16px; border-left: 1px solid #d7c5b7; }
+.nav-quick-links { display: flex; align-items: center; gap: 5px; margin-left: auto; padding-left: 16px; border-left: 1px solid #dce9ef; }
 .nav-quick-label { color: #856576; font: 700 10px/1 "Avenir Next", "Atlas Sans", sans-serif; letter-spacing: .1em; text-transform: uppercase; margin-right: 3px; }
 .masthead .nav-quick-links a { display: inline-flex; align-items: center; gap: 5px; min-height: 39px; padding: 3px 9px 3px 4px; border: 1px solid transparent; border-radius: 9px; color: #563345; font: 650 13px/1.2 "Avenir Next", "Atlas Sans", sans-serif; text-decoration: none; white-space: nowrap; transition: background .15s, border-color .15s, box-shadow .15s; }
-.masthead .nav-quick-links a:hover, .masthead .nav-quick-links a:focus-visible { background: #fafafa; border-color: #e5d4c7; box-shadow: 0 2px 5px #4d263411; }
+.masthead .nav-quick-links a:hover, .masthead .nav-quick-links a:focus-visible { background: #fafafa; border-color: #e5f0f4; box-shadow: 0 2px 5px #4d263411; }
 .nav-quick-links svg { display: block; width: 31px; height: 31px; flex: none; filter: drop-shadow(0 2px 1px #51344024); }
 @media (max-width: 1050px) {
   .masthead .atlas-rail .atlas-nav { flex-wrap: wrap; column-gap: 12px; }
-  .nav-quick-links { flex: 1 1 100%; justify-content: center; margin: 0; padding: 3px 0 5px; border-left: 0; border-top: 1px solid #e5d7ca; }
+  .nav-quick-links { flex: 1 1 100%; justify-content: center; margin: 0; padding: 3px 0 5px; border-left: 0; border-top: 1px solid #e5f0f4; }
 }
 @media (max-width: 730px) {
   .nav-quick-links { justify-content: space-between; gap: 2px; }
@@ -384,3 +384,69 @@
   .masthead .nav-quick-links a { min-width: 0; padding: 3px; font-size: 11px; }
   .nav-quick-links svg { width: 25px; height: 25px; }
 }
+
+/* An airy ice-white navigation drawer with illustrated destinations. */
+.atlas-rail { background: linear-gradient(180deg,#fbfdfe,#f1f7f9); border-color:#dce7eb; box-shadow:0 3px 12px #283b4812; }
+.atlas-rail .atlas-nav-item > summary, .masthead .atlas-rail .nav-direct { border-radius:10px; min-height:50px; color:#492b3b; }
+.atlas-rail .atlas-nav-item > summary:hover, .atlas-rail details[open] > summary, .masthead .atlas-rail .nav-direct:hover { background:#fff; box-shadow:0 3px 12px #25384516,inset 0 0 0 1px #e2ebef; }
+.atlas-rail :is(summary,.nav-direct)::after { bottom:0; background:#82445e; }
+.nav-quick-links { border-color:#dce6eb; }
+.masthead .nav-quick-links a:hover, .masthead .nav-quick-links a:focus-visible { background:#fff; border-color:#d9e6eb; }
+.atlas-rail .nav-drawer { display:flex; flex-direction:column; width:min(980px,100%); max-height:min(76vh,670px); overflow:hidden; background:#f7fbfd; border:1px solid #d6e3e9; border-radius:0 0 18px 18px; box-shadow:0 24px 50px #26354030,0 2px 7px #26354012; animation:drawer-appear .2s ease-out; }
+.atlas-rail .maker-drawer { width:min(780px,100%); }
+@keyframes drawer-appear { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+.drawer-heading { display:flex; align-items:center; justify-content:space-between; gap:18px; flex:none; padding:21px 25px 19px; background:linear-gradient(110deg,#fff,#eff7fa); border-bottom:1px solid #e0eaf0; }
+.drawer-kicker { display:block; color:#945c74; font:750 10px/1.3 "Avenir Next","Atlas Sans",sans-serif; letter-spacing:.12em; }
+.drawer-heading strong { display:block; margin-top:4px; color:#402737; font:700 22px/1.15 "Avenir Next","Atlas Sans",sans-serif; letter-spacing:-.035em; }
+.drawer-heading p { margin:5px 0 0; color:#68747c; font:500 12px/1.4 "Avenir Next","Atlas Sans",sans-serif; }
+.masthead .drawer-heading-link { display:inline-flex; align-items:center; gap:8px; padding:9px 11px; color:#632a45; background:#fff; border:1px solid #e2e9ed; border-radius:10px; box-shadow:0 2px 5px #2635400a; font:700 12px/1.2 "Avenir Next","Atlas Sans",sans-serif; text-decoration:none; white-space:nowrap; }
+.masthead .drawer-heading-link:hover { border-color:#b9879b; }
+.drawer-scroll, .category-contents { min-height:0; overflow-y:auto; overscroll-behavior:contain; scrollbar-width:thin; scrollbar-color:#b8cbd3 transparent; }
+.drawer-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; padding:15px; }
+.masthead .drawer-list > a, .masthead .category-tiles > a { display:flex; align-items:center; gap:11px; min-width:0; padding:10px; color:#44303c; text-decoration:none; background:#fff; border:1px solid #e5edf1; border-radius:13px; box-shadow:0 2px 7px #364c5908; transition:transform .16s,box-shadow .16s,border-color .16s; }
+.masthead .drawer-list > a:hover, .masthead .category-tiles > a:hover, .masthead .drawer-list > a:focus-visible, .masthead .category-tiles > a:focus-visible { transform:translateY(-2px); border-color:#cfadbb; box-shadow:0 7px 16px #45303d14; }
+.drawer-art { display:grid; place-items:center; width:55px; height:55px; flex:0 0 55px; border:1px solid #dfeaf0; border-radius:12px; background:linear-gradient(145deg,#fff,#eaf3f7); box-shadow:inset 0 1px #fff; }
+.drawer-art svg { display:block; width:52px; height:52px; }
+.drawer-copy { flex:1; min-width:0; }
+.drawer-copy strong { display:block; color:#472d3d; font:700 14px/1.25 "Avenir Next","Atlas Sans",sans-serif; }
+.drawer-copy small { display:block; margin-top:4px; color:#5f6b74; font:500 12px/1.35 "Avenir Next","Atlas Sans",sans-serif; }
+.drawer-list > a > svg, .category-tiles > a > svg { flex:none; color:#ad8495; }
+.drawer-footer { display:flex; justify-content:space-between; align-items:center; gap:12px; flex:none; padding:12px 22px; border-top:1px solid #dfeaf0; background:#f3f8fa; color:#71818a; font:500 11px/1.3 "Avenir Next","Atlas Sans",sans-serif; }
+.masthead .drawer-footer a { display:inline-flex; align-items:center; gap:7px; color:#6e304b; font-weight:750; text-decoration:none; }
+.category-browser { display:grid; grid-template-columns:225px minmax(0,1fr); min-height:0; flex:1; }
+.category-tabs { display:flex; flex-direction:column; gap:5px; padding:16px 10px 16px 14px; background:#eef5f8; border-right:1px solid #dce8ee; }
+.category-tabs button { display:flex; align-items:center; gap:9px; width:100%; min-height:44px; margin:0; padding:8px 10px; color:#5e5962; background:transparent; border:1px solid transparent; border-radius:10px; box-shadow:none; text-align:left; font:700 12px/1.25 "Avenir Next","Atlas Sans",sans-serif; cursor:pointer; }
+.category-tabs button svg { margin-left:auto; flex:none; }
+.category-tabs button[aria-selected="true"] { color:#57243e; background:#fff; border-color:#dae5ea; box-shadow:0 3px 8px #2635400d; }
+.category-tabs button:hover { color:#57243e; background:#fff; }
+.category-tabs button:focus-visible { outline:2px solid #82445e; outline-offset:2px; }
+.tab-number { display:grid; place-items:center; width:25px; height:25px; flex:none; border-radius:7px; background:#e3edf1; color:#748b95; font-size:10px; }
+.category-tabs [aria-selected="true"] .tab-number { background:#f4e9ed; color:#80455e; }
+.category-contents { padding:16px; background:#f9fcfd; }
+.category-contents section[hidden] { display:none; }
+.group-heading { display:flex; align-items:baseline; gap:9px; margin:1px 2px 12px; }
+.group-heading span { color:#99808d; font:750 10px/1 "Avenir Next","Atlas Sans",sans-serif; letter-spacing:.1em; }
+.group-heading h2 { margin:0; color:#432d3a; font:700 17px/1.2 "Avenir Next","Atlas Sans",sans-serif; }
+.category-tiles { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.masthead .category-tiles > a { font:700 13px/1.3 "Avenir Next","Atlas Sans",sans-serif; }
+.category-tiles > a > span:nth-child(2) { flex:1; min-width:0; }
+@media (max-width:730px) {
+  .atlas-rail .nav-drawer { width:100%; max-height:min(70vh,calc(100dvh - 235px),650px); }
+  .drawer-heading { padding:15px; gap:10px; }
+  .drawer-heading strong { font-size:19px; }
+  .drawer-heading p { font-size:11px; }
+  .masthead .drawer-heading-link { padding:8px; font-size:11px; }
+  .category-browser { display:flex; flex-direction:column; }
+  .category-tabs { flex-direction:row; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:thin; padding:8px; border:0; border-bottom:1px solid #dce8ee; }
+  .category-tabs button { flex:0 0 auto; width:auto; min-height:38px; white-space:nowrap; }
+  .category-tabs button svg { display:none; }
+  .category-contents { padding:12px; }
+  .drawer-list { grid-template-columns:1fr; padding:10px; }
+  .drawer-footer { padding:11px 14px; }
+}
+@media (max-width:420px) {
+  .category-tiles { grid-template-columns:1fr; }
+  .drawer-footer > span { display:none; }
+  .drawer-footer { justify-content:flex-end; }
+}
+@media (prefers-reduced-motion:reduce) { .atlas-rail .nav-drawer { animation:none; } .drawer-list > a,.category-tiles > a { transition:none; } }

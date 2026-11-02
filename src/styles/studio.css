@@ -25,7 +25,7 @@
 :root {
   --wine: #63203c;
   --ink: #231e21;
-  --edge: #e5ded5;
+  --edge: #e5f0f4;
   --muted: #655c60;
   --serif: "Atlas Display", Georgia, serif;
   --ui: "Atlas Sans", system-ui, sans-serif;
@@ -73,7 +73,7 @@ body {
   }
 }
 .masthead {
-  background: rgba(255, 254, 251, 0.97);
+  background: rgba(248, 252, 254, 0.97);
 }
 .masthead .bar {
   min-height: 74px;
@@ -134,7 +134,7 @@ h2,
 .workspace .preview {
   border-radius: 14px;
   padding: clamp(20px, 3vw, 48px);
-  background: radial-gradient(ellipse at 30% 4%, #f2eddd, #dcd4c9);
+  background: radial-gradient(ellipse at 30% 4%, #f8fcfe, #e3eef3);
 }
 .workspace .preview img {
   box-shadow: 5px 14px 28px #42352d29;
@@ -254,7 +254,7 @@ h2,
   font-size: 13px;
 }
 .stage-primary {
-  background: #fff3df;
+  background: #e5f0f4;
   color: #44263a;
   padding: 8px 9px 8px 18px;
   min-height: 43px;
@@ -291,7 +291,7 @@ h2,
   padding: 3px;
   gap: 2px;
   background: #1e101d48;
-  border: 1px solid #f2dcc72e;
+  border: 1px solid #e5f0f42e;
   border-radius: 24px;
   z-index: 3;
 }
@@ -311,7 +311,7 @@ h2,
 }
 .edition-dock button[aria-pressed="true"] {
   color: #3b2632;
-  background: #f5e8d8;
+  background: #e5f0f4;
   box-shadow: 0 2px 7px #0002;
 }
 .edition-dock button:hover:not([aria-pressed="true"]) {
@@ -343,8 +343,8 @@ h2,
   position: absolute;
   inset: 0 0 0 7%;
   background:
-    linear-gradient(#f2d9bf15 1px, transparent 1px),
-    linear-gradient(90deg, #f2d9bf15 1px, transparent 1px);
+    linear-gradient(#e5f0f415 1px, transparent 1px),
+    linear-gradient(90deg, #e5f0f415 1px, transparent 1px);
   background-size: 27px 27px;
   mask-image: linear-gradient(90deg, transparent, #000 35%);
 }
@@ -354,7 +354,7 @@ h2,
   aspect-ratio: 1;
   top: 0;
   right: 8%;
-  border: 1px solid #edd6b84b;
+  border: 1px solid #dce9ef4b;
   border-radius: 50%;
   transform: rotate(-22deg) scaleX(1.36);
 }
@@ -363,7 +363,7 @@ h2,
   content: "";
   position: absolute;
   inset: 10%;
-  border: 1px dashed #edd6b846;
+  border: 1px dashed #dce9ef46;
   border-radius: 50%;
 }
 .target-rings:after {
@@ -399,7 +399,7 @@ h2,
 .art-book {
   isolation: isolate;
   overflow: hidden;
-  background: #f2e9d6;
+  background: #e5f0f4;
   color: #482838;
   box-shadow:
     1px 1px #dacfb5,
@@ -415,7 +415,7 @@ h2,
   inset: 0 auto 0 0;
   width: 7%;
   z-index: 2;
-  background: linear-gradient(90deg, #3a253b66, #fff3db59 40%, #3d23351a 90%);
+  background: linear-gradient(90deg, #3a253b66, #e5f0f459 40%, #3d23351a 90%);
   border-right: 1px solid #61503c40;
 }
 .art-kicker {
@@ -472,7 +472,7 @@ h2,
   box-shadow: 0 10px 23px #27142145;
   transform: rotate(-19deg) skewY(3deg);
   padding: 10% 3% 4%;
-  border: 1px solid #f7e8cfaa;
+  border: 1px solid #e5f0f4aa;
 }
 .ambient-card i,
 .ambient-card b {
@@ -498,8 +498,8 @@ h2,
 }
 .micro-grid {
   background-image:
-    linear-gradient(#d7c6ac40 1px, transparent 1px),
-    linear-gradient(90deg, #dfceb540 1px, transparent 1px);
+    linear-gradient(#dce9ef40 1px, transparent 1px),
+    linear-gradient(90deg, #dce9ef40 1px, transparent 1px);
   background-size: 14px 14px;
   height: 100%;
 }
@@ -509,9 +509,9 @@ h2,
   top: 75%;
   transform: rotate(-5deg);
   padding: 9px 16px;
-  background: #eee7d3;
+  background: #e5f0f4;
   color: #493b36;
-  border: 1px solid #fff6df;
+  border: 1px solid #e5f0f4;
   border-radius: 8px;
   font: 700 clamp(8px, 1.45cqw, 12px)/1 var(--ui);
   letter-spacing: 0.025em;
@@ -562,12 +562,12 @@ h2,
   isolation: isolate;
   position: relative;
   overflow: hidden;
-  border: 1px solid #ddd0c5;
+  border: 1px solid #e5f0f4;
   border-radius: 15px;
   padding: 16px 18px 17px;
   text-decoration: none;
   color: #482b2b;
-  background: #eee0d6;
+  background: #e5f0f4;
   transition:
     transform 0.16s,
     box-shadow 0.16s;
@@ -578,8 +578,8 @@ h2,
   color: #254841;
 }
 .collection-tile.amber {
-  background: #f0e6cf;
-  border-color: #e1d6bd;
+  background: #e5f0f4;
+  border-color: #dce9ef;
   color: #5d472a;
 }
 .collection-tile.lilac {
@@ -698,7 +698,7 @@ h2,
   box-shadow: 0 3px 10px #46343007;
 }
 .card .thumb {
-  background: radial-gradient(ellipse at 20% 0%, #f7efdf, #d8ccbb);
+  background: radial-gradient(ellipse at 20% 0%, #e5f0f4, #dce9ef);
   height: 180px;
 }
 .card .thumb img {

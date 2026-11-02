@@ -2,9 +2,7 @@
 import categories from '../data/categories.json';
 import { tools } from '../lib/tools.mjs';
 import Icon from './Icon.astro';
-import AtlasEmblem from './AtlasEmblem.astro';
-import NavigationObject from './NavigationObject.astro';
-import WorkbenchArt from './WorkbenchArt.astro';
+import MenuArt from './MenuArt.astro';
 const path = Astro.url.pathname;
 const groups = [
   {title:'Work & business', motif:'portfolio', paths:['business-commerce','resumes-careers','legal-official-documents','real-estate-rental','construction-maintenance']},
@@ -30,38 +28,49 @@ const create = [
 ---
 <nav class="atlas-nav" aria-label="Main navigation" data-atlas-nav>
   <details class="atlas-nav-item atlas-categories">
-    <summary class:list={[{ current: /^\/(templates|categories|search)\//.test(path) }]}><NavigationObject kind="categories" />Categories <span class="nav-chevron" aria-hidden="true"></span></summary>
-    <div class="nav-panel nav-category-panel">
-      <div class="library-intro">
-        <div class="library-folio"><img src="/library-folio-3d.webp" alt="" width="900" height="600" /></div>
-        <div class="library-intro-copy"><span>THE TEMPLATEATLAS LIBRARY</span><strong>Find your next<br />great starting point.</strong><a href="/categories/">Explore all categories <Icon name="arrow" size={15}/></a></div>
+    <summary class:list={[{ current: /^\/(templates|categories|search)\//.test(path) }]}><MenuArt kind="categories" />Categories <span class="nav-chevron" aria-hidden="true"></span></summary>
+    <div class="nav-panel nav-drawer category-drawer">
+      <div class="drawer-heading"><div><span class="drawer-kicker">THE TEMPLATEATLAS LIBRARY</span><strong>Find a starting point</strong><p>Explore ideas for work, learning, and everyday life.</p></div><a class="drawer-heading-link" href="/categories/">All Categories <Icon name="arrow" size={15}/></a></div>
+      <div class="category-browser" data-category-browser>
+        <div class="category-tabs" role="tablist" aria-label="Browse category groups">
+          {groups.map((group,index)=><button type="button" role="tab" id={`nav-tab-${index}`} aria-controls={`nav-group-${index}`} aria-selected={index===0 ? 'true' : 'false'} tabindex={index===0 ? '0' : '-1'} data-category-tab><span class="tab-number">{String(index+1).padStart(2,'0')}</span><span>{group.title}</span><Icon name="chevron" size={14}/></button>)}
+        </div>
+        <div class="category-contents">
+          {groups.map((group,index)=><section id={`nav-group-${index}`} role="tabpanel" aria-labelledby={`nav-tab-${index}`} data-category-group><div class="group-heading"><span>EXPLORE</span><h2>{group.title}</h2></div><div class="category-tiles">{group.paths.map(slug=>{const cat=categories.find(c=>c.path===`/categories/${slug}/`);return cat && <a href={cat.path}><span class="drawer-art"><MenuArt kind={slug}/></span><span>{names[slug] || cat.title}</span><Icon name="arrow" size={14}/></a>})}</div></section>)}
+        </div>
       </div>
-      <div class="nav-category-grid">
-        {groups.map(group => <section><div class="shelf-emblem"><AtlasEmblem motif={group.motif} size={44} /></div><h2>{group.title}</h2>{group.paths.map(slug => {const cat=categories.find(c=>c.path===`/categories/${slug}/`); return cat && <a href={cat.path}>{names[slug] || cat.title}<Icon name="chevron" size={12}/></a>})}</section>)}
-      </div>
-      <div class="library-bottom"><span>Discover something useful</span><a href="/templates/">See all templates <Icon name="arrow" size={14}/></a></div>
+      <div class="drawer-footer"><span>Explore the full library</span><a href="/templates/">Browse All Templates <Icon name="arrow" size={14}/></a></div>
     </div>
   </details>
-  <details class="atlas-nav-item"><summary class:list={[{ current: /^\/(create|studio)\//.test(path) }]}><NavigationObject kind="create" />Create <span class="nav-chevron" aria-hidden="true"></span></summary>
-    <div class="nav-panel nav-small-panel"><div class="nav-panel-heading"><div><strong>Create from scratch</strong><p>Build and customize with our editors.</p></div></div><div class="nav-feature-list">{create.map(([title,copy,href,icon])=><a href={href}><span class="nav-feature-icon"><WorkbenchArt kind={icon} /></span><span><strong>{title}</strong><small>{copy}</small></span><Icon name="chevron" size={13}/></a>)}</div><div class="nav-panel-footer"><a href="/create/">Explore all creators <Icon name="arrow" size={14}/></a></div></div>
+  <details class="atlas-nav-item"><summary class:list={[{ current: /^\/(create|studio)\//.test(path) }]}><MenuArt kind="create" />Create <span class="nav-chevron" aria-hidden="true"></span></summary>
+    <div class="nav-panel nav-drawer maker-drawer"><div class="drawer-heading"><div><span class="drawer-kicker">YOUR CREATIVE WORKSPACE</span><strong>Make it your own</strong><p>Start with an editor and build something useful.</p></div><a class="drawer-heading-link" href="/create/">All Creators <Icon name="arrow" size={15}/></a></div><div class="drawer-scroll"><div class="drawer-list">{create.map(([title,copy,href,icon])=><a href={href}><span class="drawer-art"><MenuArt kind={icon} /></span><span class="drawer-copy"><strong>{title}</strong><small>{copy}</small></span><Icon name="arrow" size={14}/></a>)}</div></div><div class="drawer-footer"><span>Choose an editor to get started</span><a href="/create/">Explore All Creators <Icon name="arrow" size={14}/></a></div></div>
   </details>
-  <details class="atlas-nav-item"><summary class:list={[{ current: /^\/tools\//.test(path) }]}><NavigationObject kind="tools" />Tools <span class="nav-chevron" aria-hidden="true"></span></summary>
-    <div class="nav-panel nav-small-panel"><div class="nav-panel-heading"><div><strong>Tools for everyday tasks</strong><p>Calculate, convert, and plan.</p></div></div><div class="nav-tool-grid">{Object.entries(tools).map(([slug,tool])=><a href={`/tools/${slug}/`}><span class="nav-feature-icon"><WorkbenchArt kind={slug} /></span><span class="nav-tool-copy"><strong>{tool.title}</strong><small>{tool.intro}</small></span><Icon name="chevron" size={13}/></a>)}</div><div class="nav-panel-footer"><a href="/tools/">Explore all tools <Icon name="arrow" size={14}/></a></div></div>
+  <details class="atlas-nav-item"><summary class:list={[{ current: /^\/tools\//.test(path) }]}><MenuArt kind="tools" />Tools <span class="nav-chevron" aria-hidden="true"></span></summary>
+    <div class="nav-panel nav-drawer maker-drawer"><div class="drawer-heading"><div><span class="drawer-kicker">THE TOOLBOX</span><strong>A little help, right here</strong><p>Useful tools for calculations, dates, and planning.</p></div><a class="drawer-heading-link" href="/tools/">All Tools <Icon name="arrow" size={15}/></a></div><div class="drawer-scroll"><div class="drawer-list">{Object.entries(tools).map(([slug,tool])=><a href={`/tools/${slug}/`}><span class="drawer-art"><MenuArt kind={slug} /></span><span class="drawer-copy"><strong>{tool.title}</strong><small>{tool.intro}</small></span><Icon name="arrow" size={14}/></a>)}</div></div><div class="drawer-footer"><span>Find the right tool for the task</span><a href="/tools/">Explore All Tools <Icon name="arrow" size={14}/></a></div></div>
   </details>
-  <a class:list={["nav-direct", { current: path.startsWith("/help/") }]} href="/help/"><NavigationObject kind="help" />Help</a>
+  <a class:list={["nav-direct", { current: path.startsWith("/help/") }]} href="/help/"><MenuArt kind="help" />Help</a>
   <div class="nav-quick-links" aria-label="Explore the library">
     <span class="nav-quick-label">Explore</span>
-    <a href="/templates/"><WorkbenchArt kind="design" /><span>All Templates</span></a>
-    <a href="/categories/charts-graphs/"><WorkbenchArt kind="chart" /><span>Charts &amp; Graphs</span></a>
-    <a href="/tools/calendar-2027/"><WorkbenchArt kind="calendar" /><span>2027 Calendar</span></a>
+    <a href="/templates/"><MenuArt kind="resume" /><span>All Templates</span></a>
+    <a href="/categories/charts-graphs/"><MenuArt kind="chart" /><span>Charts &amp; Graphs</span></a>
+    <a href="/tools/calendar-2027/"><MenuArt kind="year" /><span>2027 Calendar</span></a>
   </div>
 </nav>
 <script>
  const nav = document.querySelector<HTMLElement>('[data-atlas-nav]');
  if (nav) {
    const menus = [...nav.querySelectorAll<HTMLDetailsElement>('details')];
+   menus.forEach(menu => menu.querySelector('summary')?.addEventListener('click', () => menus.forEach(other => {if(other !== menu) other.open = false;})));
    menus.forEach(menu => menu.addEventListener('toggle', () => {if (menu.open) menus.forEach(other => {if(other !== menu) other.open = false;});}));
+   const browser = nav.querySelector<HTMLElement>('[data-category-browser]');
+   if (browser) {
+     const tabs = [...browser.querySelectorAll<HTMLButtonElement>('[data-category-tab]')];
+     const groups = [...browser.querySelectorAll<HTMLElement>('[data-category-group]')];
+     const select = (index: number, focus = false) => { tabs.forEach((tab,i) => {tab.setAttribute('aria-selected', String(i === index)); tab.tabIndex = i === index ? 0 : -1; groups[i].hidden = i !== index;}); if(focus) tabs[index].focus(); };
+     tabs.forEach((tab,i) => {tab.addEventListener('click', () => select(i)); tab.addEventListener('keydown', e => {if(e.key === 'ArrowDown' || e.key === 'ArrowRight') {e.preventDefault(); select((i+1)%tabs.length,true);} else if(e.key === 'ArrowUp' || e.key === 'ArrowLeft') {e.preventDefault(); select((i+tabs.length-1)%tabs.length,true);} else if(e.key === 'Home') {e.preventDefault(); select(0,true);} else if(e.key === 'End') {e.preventDefault(); select(tabs.length-1,true);}});});
+     select(0);
+   }
    document.addEventListener('click', e => {if (!nav.contains(e.target as Node)) menus.forEach(menu => menu.open = false);});
-   document.addEventListener('keydown', e => {if(e.key === 'Escape') {const open=menus.find(menu=>menu.open); if(open) {open.open=false; open.querySelector('summary')?.focus();}}});
+   document.addEventListener('keydown', e => {if(e.key === 'Escape') {const open=menus.find(menu=>menu.open); if(open) {menus.forEach(menu => menu.open=false); open.querySelector('summary')?.focus();}}});
  }
 </script>
