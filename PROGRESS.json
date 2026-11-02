@@ -229,7 +229,7 @@
     ]
   },
   "envelope_intake_2026_11_02": {
-    "status": "deployed; verification pending",
+    "status": "live_verified",
     "sourceZipSha256": "ad1ad59872e2aef5eb06f8702adb953e8103fd02bd34e89a9a15bd47d0c1074b",
     "designs": 100,
     "pdf": 100,
@@ -238,6 +238,20 @@
     "r2_readback_verified": 300,
     "pdf_amounts_and_fields_checked": 100,
     "search_entries_staged": 1346,
-    "workerVersion": "21467a2a-2e02-4f38-b895-fd6e69629084"
+    "workerVersion": "21467a2a-2e02-4f38-b895-fd6e69629084",
+    "live_detail_pages": 100,
+    "live_preview_checksums": 100,
+    "live_downloads_verified": 11,
+    "quota_checked": true
+  },
+  "local_3d_navigation_2026_11_02": {
+    "status": "live_verified",
+    "checks": [
+      "Category menu: 20 links and 3D artwork displayed",
+      "No horizontal overflow at 727 CSS pixels",
+      "Savings filters returned correct count",
+      "Astro check and build passed"
+    ],
+    "workerVersion": "e82723f3-bdf3-479a-87fa-860e2bc59fa3"
   }
 }

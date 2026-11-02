@@ -30,11 +30,14 @@ const create = [
   <details class="atlas-nav-item atlas-categories">
     <summary class:list={[{ current: /^\/(templates|categories|search)\//.test(path) }]}><AtlasEmblem motif="portfolio" size={23} />Categories <span class="nav-chevron" aria-hidden="true"></span></summary>
     <div class="nav-panel nav-category-panel">
-      <div class="nav-panel-heading"><div><strong>Browse the library</strong></div><a class="nav-view-all" href="/categories/">All categories <Icon name="arrow" size={15}/></a></div>
+      <div class="library-intro">
+        <div class="library-folio"><img src="/library-folio-3d.webp" alt="" width="900" height="600" /></div>
+        <div class="library-intro-copy"><span>THE TEMPLATEATLAS LIBRARY</span><strong>Find your next<br />great starting point.</strong><a href="/categories/">Explore all categories <Icon name="arrow" size={15}/></a></div>
+      </div>
       <div class="nav-category-grid">
         {groups.map(group => <section><div class="shelf-emblem"><AtlasEmblem motif={group.motif} size={44} /></div><h2>{group.title}</h2>{group.paths.map(slug => {const cat=categories.find(c=>c.path===`/categories/${slug}/`); return cat && <a href={cat.path}>{names[slug] || cat.title}<Icon name="chevron" size={12}/></a>})}</section>)}
       </div>
-      <div class="nav-panel-footer"><a href="/templates/">Browse all templates <Icon name="arrow" size={14}/></a></div>
+      <div class="library-bottom"><span>Discover something useful</span><a href="/templates/">See all templates <Icon name="arrow" size={14}/></a></div>
     </div>
   </details>
   <details class="atlas-nav-item"><summary class:list={[{ current: /^\/(create|studio)\//.test(path) }]}><AtlasEmblem motif="draft" size={23} />Create <span class="nav-chevron" aria-hidden="true"></span></summary>
