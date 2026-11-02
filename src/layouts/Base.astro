@@ -12,7 +12,6 @@ import "../styles/navigation.css";
 const {
   title,
   description = "Browse editable documents, build charts from your own data, and plan your year with TemplateAtlas.",
-  noindex = false,
 } = Astro.props;
 const path = Astro.url.pathname;
 const accountCandidate =
@@ -67,7 +66,7 @@ const jsonLd = info
     <meta name="description" content={description} />
     <meta
       name="robots"
-      content={noindex ? "noindex, follow" : "index, follow"}
+      content="noindex, follow, noimageindex"
     />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/templateatlas-world-3d.png" />

@@ -4,20 +4,24 @@ import astro from '@astrojs/cloudflare/entrypoints/server';
 import { handleApi, resumePending, DownloadActor } from './server/index.mjs';
 import * as server from './server/index.mjs';
 import { renderDocument } from './lib/render.mjs';
-import { entries, categories, categoryItems, routes } from './lib/catalog.mjs';
+import { entries, routes } from './lib/catalog.mjs';
 import aliases from './data/aliases.json' with { type: 'json' };
-import { tools } from './lib/tools.mjs';
 import { catalogAsset } from './server/catalog-assets.mjs';
+import { withNoIndex } from './lib/indexing.mjs';
 export { DownloadActor };
 export default {
   async scheduled(event, env, ctx) {
     ctx.waitUntil(resumePending(env, { renderDocument }));
   },
   async fetch(req, env, ctx) {
+    return withNoIndex(await handleRequest(req, env, ctx));
+  },
+};
+async function handleRequest(req, env, ctx) {
     const url = new URL(req.url),
       p = url.pathname,
       local = ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname);
-    if (url.hostname === 'assets.templateatlas.com') return catalogAsset(req, env, ctx);
+    if (url.hostname === 'assets.templateatlas.com' && p !== '/robots.txt') return catalogAsset(req, env, ctx);
     // Staging is closed unless a separately verified access policy has been installed.
     if (!local && env.DEPLOY_STAGE !== 'production')
       return new Response('Private staging environment', {
@@ -86,39 +90,12 @@ export default {
     if (p === '/robots.txt')
       return new Response(
         (env.DEPLOY_STAGE === 'production'
-          ? 'User-agent: *\nAllow: /\nSitemap: https://templateatlas.com/sitemap.xml'
+          ? 'User-agent: *\nAllow: /'
           : 'User-agent: *\nDisallow: /') + '\n',
       );
     if (p === '/sitemap.xml') {
-      const state = await catalogState(env.DB);
-      if (!state.ready)
-        return new Response('Catalog unavailable', { status: 503 });
-      const paths = [
-        '/',
-        '/templates/',
-        '/categories/',
-        '/about/',
-        '/help/',
-        '/tools/',
-        ...Object.keys(tools).map((k) => '/tools/' + k + '/'),
-        ...categories
-          .filter(
-            (c) =>
-              categoryItems(c).length || c.path === '/categories/calculators/',
-          )
-          .map((c) => c.path),
-        ...entries
-          .filter((s) => !state.held.has(s.id))
-          .flatMap((s) => [s.topic_path, s.detail_path]),
-      ];
       return new Response(
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
-          [...new Set(paths)]
-            .map(
-              (x) => '<url><loc>https://templateatlas.com' + x + '</loc></url>',
-            )
-            .join('') +
-          '</urlset>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>',
         { headers: { 'Content-Type': 'application/xml' } },
       );
     }
@@ -134,8 +111,5 @@ export default {
       'Content-Security-Policy',
       "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://assets.templateatlas.com data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'",
     );
-    if (env.DEPLOY_STAGE !== 'production')
-      response.headers.set('X-Robots-Tag', 'noindex, nofollow');
     return response;
-  },
-};
+}
