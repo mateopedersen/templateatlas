@@ -2,13 +2,14 @@ import assert from "node:assert/strict";
 import { createHash, randomUUID } from "node:crypto";
 import { writeFile } from "node:fs/promises";
 import release from "../src/data/release.json" with { type: "json" };
+import { entries } from '../src/lib/catalog.mjs';
 
 const origin = "https://templateatlas.com";
 const get = (path, options = {}) =>
   fetch(new URL(path, origin), { redirect: "manual", ...options });
 const health = await (await get("/api/health")).json();
 assert.equal(health.stage, "production");
-assert.equal(health.templates, release.length);
+assert.equal(health.templates, entries.length);
 const start = await get("/api/session");
 assert(start.ok);
 const cookie = start.headers

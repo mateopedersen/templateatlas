@@ -132,7 +132,7 @@ export default {
     response.headers.set('X-Frame-Options', 'DENY');
     response.headers.set(
       'Content-Security-Policy',
-      "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'",
+      "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://assets.templateatlas.com data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'",
     );
     if (env.DEPLOY_STAGE !== 'production')
       response.headers.set('X-Robots-Tag', 'noindex, nofollow');

@@ -38,7 +38,7 @@
         "year": null,
         "title": "R-134a US Overview Chart \u2014 Prism Product Studio, US Letter Portrait",
         "summary": "45-row R-134a saturation reference covering -40 to 180\u00b0F in 5\u00b0F steps, with \u00b0F, \u00b0C, psig, bar(g). A rounded, shaded equipment header sits above a clean multi-column table. US Letter portrait layout in color.",
-        "alt": "US Overview R-134a chart in Prism Product Studio style, showing a refrigerant-cylinder photograph, a refrigerant-cylinder illustration and a 45-row table.",
+        "alt": "US Overview R-134a chart in Prism Product Studio style, showing a refrigerant-cylinder photograph and a 45-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -160,7 +160,7 @@
         "year": null,
         "title": "R-134a US Detailed Chart \u2014 Prism Product Studio, US Letter Portrait",
         "summary": "61-row R-134a saturation reference covering 0 to 120\u00b0F in 2\u00b0F steps, with \u00b0F, \u00b0C, psig, psia. A rounded, shaded equipment header sits above a clean multi-column table. US Letter portrait layout in color.",
-        "alt": "US Detailed R-134a chart in Prism Product Studio style, showing a refrigerant-cylinder photograph, a refrigerant-cylinder illustration and a 61-row table.",
+        "alt": "US Detailed R-134a chart in Prism Product Studio style, showing a refrigerant-cylinder photograph and a 61-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -221,7 +221,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Prism Product Studio, A4 Portrait",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A rounded, shaded equipment header sits above a clean multi-column table. A4 portrait layout in color.",
-        "alt": "SI Detailed R-134a chart in Prism Product Studio style, showing an illustrative liquid-vapor vessel and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Prism Product Studio style, showing an illustrative liquid-vapor vessel and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -524,7 +524,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Precision Console, US Letter Portrait",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A dark instrument-console frame surrounds the reference dial and aligned data columns. US Letter portrait layout in color.",
-        "alt": "SI Detailed R-134a chart in Precision Console style, showing a shaded pressure dial and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Precision Console style, showing a shaded pressure dial and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -827,7 +827,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Thermal Ribbon, A4 Portrait",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). Angled ribbons frame the heading above a shaded, banded reference table. A4 portrait layout in color.",
-        "alt": "SI Detailed R-134a chart in Thermal Ribbon style, showing an illustrative liquid-vapor vessel and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Thermal Ribbon style, showing an illustrative liquid-vapor vessel and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -1130,7 +1130,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Layered Technical Folio, US Letter Portrait",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). Layered paper panels separate the dimensional illustration from the complete table. US Letter portrait layout in color.",
-        "alt": "SI Detailed R-134a chart in Layered Technical Folio style, showing an illustrative liquid-vapor vessel and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Layered Technical Folio style, showing an illustrative liquid-vapor vessel and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -1433,7 +1433,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Copper Laboratory, A4 Portrait",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A copper-coil illustration and three reference-state callouts lead into the data table. A4 portrait layout in color.",
-        "alt": "SI Detailed R-134a chart in Copper Laboratory style, showing an illustrated heat-exchanger coil and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Copper Laboratory style, showing an illustrated heat-exchanger coil and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -1736,7 +1736,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Molecular Atmosphere, US Letter Portrait",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A molecular model accompanies the heading above a softly shaded reference table. US Letter portrait layout in color.",
-        "alt": "SI Detailed R-134a chart in Molecular Atmosphere style, showing a molecular model and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Molecular Atmosphere style, showing a molecular model and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -1856,7 +1856,7 @@
         "year": null,
         "title": "R-134a US Overview Chart \u2014 Vertical Equipment Stage, US Letter Portrait",
         "summary": "45-row R-134a saturation reference covering -40 to 180\u00b0F in 5\u00b0F steps, with \u00b0F, \u00b0C, psig, bar(g). An equipment panel on the left leaves the main table open on the right. US Letter portrait layout in color.",
-        "alt": "US Overview R-134a chart in Vertical Equipment Stage style, showing a refrigerant-cylinder photograph, a refrigerant-cylinder illustration and a 45-row table.",
+        "alt": "US Overview R-134a chart in Vertical Equipment Stage style, showing a refrigerant-cylinder photograph and a 45-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -1978,7 +1978,7 @@
         "year": null,
         "title": "R-134a US Detailed Chart \u2014 Vertical Equipment Stage, US Letter Portrait",
         "summary": "61-row R-134a saturation reference covering 0 to 120\u00b0F in 2\u00b0F steps, with \u00b0F, \u00b0C, psig, psia. An equipment panel on the left leaves the main table open on the right. US Letter portrait layout in color.",
-        "alt": "US Detailed R-134a chart in Vertical Equipment Stage style, showing a refrigerant-cylinder photograph, a refrigerant-cylinder illustration and a 61-row table.",
+        "alt": "US Detailed R-134a chart in Vertical Equipment Stage style, showing a refrigerant-cylinder photograph and a 61-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -2039,7 +2039,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Vertical Equipment Stage, A4 Portrait",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). An equipment panel on the left leaves the main table open on the right. A4 portrait layout in color.",
-        "alt": "SI Detailed R-134a chart in Vertical Equipment Stage style, showing a contact-thermometer photograph and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Vertical Equipment Stage style, showing a contact-thermometer photograph and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -2099,7 +2099,7 @@
         "year": null,
         "title": "R-134a Pressure Lookup Chart \u2014 Vertical Equipment Stage, US Letter Portrait",
         "summary": "41-row R-134a saturation reference covering 0 to 200 psig in 5-psi steps, with psig, \u00b0F, \u00b0C. An equipment panel on the left leaves the main table open on the right. US Letter portrait layout in black-and-white.",
-        "alt": "Pressure Lookup R-134a chart in Vertical Equipment Stage style, showing a refrigerant-cylinder photograph, a refrigerant-cylinder illustration and a 41-row table.",
+        "alt": "Pressure Lookup R-134a chart in Vertical Equipment Stage style, showing a refrigerant-cylinder photograph and a 41-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -2342,7 +2342,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Machined Reference, US Letter Portrait",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A raised plate-style border and small technical illustration frame the reference data. US Letter portrait layout in color.",
-        "alt": "SI Detailed R-134a chart in Machined Reference style, showing an illustrative liquid-vapor vessel and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Machined Reference style, showing an illustrative liquid-vapor vessel and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -2645,7 +2645,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Saturation Curve Gallery, A4 Portrait",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A saturation curve above the table shows the pressure-temperature relationship visually. A4 portrait layout in color.",
-        "alt": "SI Detailed R-134a chart in Saturation Curve Gallery style, showing a molecular model, a plotted saturation curve and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Saturation Curve Gallery style, showing a molecular model, a plotted saturation curve and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -2887,7 +2887,7 @@
         "year": null,
         "title": "R-134a US Detailed Chart \u2014 Crystal Equilibrium, A4 Portrait",
         "summary": "61-row R-134a saturation reference covering 0 to 120\u00b0F in 2\u00b0F steps, with \u00b0F, \u00b0C, psig, psia. A raised white heading panel, narrow accent stripe, and layered table create a light composition. A4 portrait layout in color.",
-        "alt": "US Detailed R-134a chart in Crystal Equilibrium style, showing a refrigerant-cylinder photograph, a refrigerant-cylinder illustration and a 61-row table.",
+        "alt": "US Detailed R-134a chart in Crystal Equilibrium style, showing a refrigerant-cylinder photograph and a 61-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -2948,7 +2948,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Crystal Equilibrium, US Letter Portrait",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A raised white heading panel, narrow accent stripe, and layered table create a light composition. US Letter portrait layout in color.",
-        "alt": "SI Detailed R-134a chart in Crystal Equilibrium style, showing an illustrative liquid-vapor vessel and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Crystal Equilibrium style, showing an illustrative liquid-vapor vessel and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -3068,7 +3068,7 @@
         "year": null,
         "title": "R-134a US Overview Chart \u2014 Product Stage, US Letter Landscape",
         "summary": "45-row R-134a saturation reference covering -40 to 180\u00b0F in 5\u00b0F steps, with \u00b0F, \u00b0C, psig, bar(g). A vertical equipment stage and reference-state callouts sit beside the wide data table. US Letter landscape layout in color.",
-        "alt": "US Overview R-134a chart in Product Stage style, showing a refrigerant-cylinder photograph, a refrigerant-cylinder illustration and a 45-row table.",
+        "alt": "US Overview R-134a chart in Product Stage style, showing a refrigerant-cylinder photograph and a 45-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -3129,7 +3129,7 @@
         "year": null,
         "title": "R-134a SI Overview Chart \u2014 Product Stage, A4 Landscape",
         "summary": "61-row R-134a saturation reference covering -40 to 80\u00b0C in 2\u00b0C steps, with \u00b0C, \u00b0F, bar(g), kPa(a). A vertical equipment stage and reference-state callouts sit beside the wide data table. A4 landscape layout in color.",
-        "alt": "SI Overview R-134a chart in Product Stage style, showing a refrigerant-cylinder photograph, a refrigerant-cylinder illustration and a 61-row table.",
+        "alt": "SI Overview R-134a chart in Product Stage style, showing a refrigerant-cylinder photograph and a 61-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -3190,7 +3190,7 @@
         "year": null,
         "title": "R-134a US Detailed Chart \u2014 Product Stage, US Letter Landscape",
         "summary": "61-row R-134a saturation reference covering 0 to 120\u00b0F in 2\u00b0F steps, with \u00b0F, \u00b0C, psig, psia. A vertical equipment stage and reference-state callouts sit beside the wide data table. US Letter landscape layout in color.",
-        "alt": "US Detailed R-134a chart in Product Stage style, showing a refrigerant-cylinder photograph, a refrigerant-cylinder illustration and a 61-row table.",
+        "alt": "US Detailed R-134a chart in Product Stage style, showing a refrigerant-cylinder photograph and a 61-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -3251,7 +3251,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Product Stage, A4 Landscape",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A vertical equipment stage and reference-state callouts sit beside the wide data table. A4 landscape layout in color.",
-        "alt": "SI Detailed R-134a chart in Product Stage style, showing a refrigerant-cylinder photograph, a refrigerant-cylinder illustration and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Product Stage style, showing a refrigerant-cylinder photograph and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -3554,7 +3554,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Instrument Console, US Letter Landscape",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A framed landscape console places an illustrated dial above the complete table. US Letter landscape layout in color.",
-        "alt": "SI Detailed R-134a chart in Instrument Console style, showing a shaded pressure dial and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Instrument Console style, showing a shaded pressure dial and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -3857,7 +3857,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Folded Prism, A4 Landscape",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). Angular folded color fields form a compact heading above the wide reference grid. A4 landscape layout in color.",
-        "alt": "SI Detailed R-134a chart in Folded Prism style, showing an illustrative liquid-vapor vessel and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Folded Prism style, showing an illustrative liquid-vapor vessel and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -4160,7 +4160,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Circular Instrument, US Letter Landscape",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A circular dial, small saturation curve, and reference-state labels occupy the left sidebar. US Letter landscape layout in color.",
-        "alt": "SI Detailed R-134a chart in Circular Instrument style, showing a shaded pressure dial, a plotted saturation curve and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Circular Instrument style, showing a shaded pressure dial, a plotted saturation curve and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -4463,7 +4463,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Thermal Ribbon, A4 Landscape",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). Angled ribbons frame the heading above a shaded, banded reference table. A4 landscape layout in color.",
-        "alt": "SI Detailed R-134a chart in Thermal Ribbon style, showing an illustrated heat-exchanger coil and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Thermal Ribbon style, showing an illustrated heat-exchanger coil and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -4766,7 +4766,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Editorial Platform, US Letter Landscape",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). The table takes priority above a lower title band with a molecular illustration. US Letter landscape layout in color.",
-        "alt": "SI Detailed R-134a chart in Editorial Platform style, showing a molecular model and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Editorial Platform style, showing a molecular model and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -5069,7 +5069,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Temperature Laboratory, A4 Landscape",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). A right-hand equipment sidebar balances the wide table and reference-state labels. A4 landscape layout in color.",
-        "alt": "SI Detailed R-134a chart in Temperature Laboratory style, showing a contact-thermometer photograph and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Temperature Laboratory style, showing a contact-thermometer photograph and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -5372,7 +5372,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Isometric Folio, US Letter Landscape",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). Layered, angled panels give the wide table and technical illustration a dimensional frame. US Letter landscape layout in color.",
-        "alt": "SI Detailed R-134a chart in Isometric Folio style, showing an illustrative liquid-vapor vessel and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Isometric Folio style, showing an illustrative liquid-vapor vessel and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -5678,7 +5678,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Prismatic Laboratory, A4 Landscape",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, \u00b0F, bar(g), psig, kPa(a). A molecular medallion heads a wide table with additional pressure-unit columns. A4 landscape layout in color.",
-        "alt": "SI Detailed R-134a chart in Prismatic Laboratory style, showing a molecular model and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Prismatic Laboratory style, showing a molecular model and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
@@ -5985,7 +5985,7 @@
         "year": null,
         "title": "R-134a SI Detailed Chart \u2014 Sculpted Paper, US Letter Landscape",
         "summary": "81-row R-134a saturation reference covering -20 to 60\u00b0C in 1\u00b0C steps, with \u00b0C, bar(g), kPa(a). Pale sculpted paper layers frame the heading, illustration, and full reference table. US Letter landscape layout in color.",
-        "alt": "SI Detailed R-134a chart in Sculpted Paper style, showing a shaded pressure dial and a 81-row table.",
+        "alt": "SI Detailed R-134a chart in Sculpted Paper style, showing a shaded pressure dial and an 81-row table.",
         "formats": [
           "pdf",
           "webp"
