@@ -682,7 +682,8 @@ h2,
   font-family: var(--ui);
 }
 .card h3 {
-  font: 550 22px/1.15 var(--serif);
+  font: 700 22px/1.22 'Avenir Next', Avenir, 'Atlas Sans', sans-serif;
+  letter-spacing: -0.025em;
 }
 .filters input,
 .filters select,

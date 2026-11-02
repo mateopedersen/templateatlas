@@ -259,6 +259,10 @@ h2 {
   font: normal 23px/1.16 var(--serif);
   margin: 7px 0 9px;
 }
+.card h3 {
+  font: 700 23px/1.22 'Avenir Next', Avenir, 'Atlas Sans', sans-serif;
+  letter-spacing: -0.025em;
+}
 .thumb {
   height: 165px;
   background: #ebe6dc;
