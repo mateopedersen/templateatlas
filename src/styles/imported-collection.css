@@ -244,7 +244,8 @@
 .imported-card-body > p:not(.over) {
   font-size: 12px;
   line-height: 1.5;
-  color: #655e62;
+  color: #4c4249;
+  font-weight: 600;
 }
 .imported-card-summary {
   margin: 0 0 10px;
@@ -283,6 +284,8 @@
 }
 .imported-card-more p {
   margin: 8px 0 0;
+  color: #4c4249;
+  font-weight: 600;
 }
 .imported-card-more .less-label,
 .imported-card-more[open] .more-label {
@@ -318,6 +321,11 @@
   gap: 8px;
 }
 .imported-card-downloads.has-word { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }
+.imported-card-downloads.has-excel { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.workspace .imported-card-downloads.has-excel button { min-width:0; padding-inline:9px; gap:7px; }
+.imported-card-downloads.has-excel .file-button-icon { flex-basis:30px; }
+.imported-card-downloads.has-excel .file-button-icon svg { width:30px; height:30px; }
+.imported-card-downloads.has-excel .file-button-copy { flex:1; }
 .workspace .imported-card-downloads.has-word button { justify-content: center; gap: 4px; padding-inline: 5px; }
 .imported-card-downloads.has-word .file-button-icon { flex-basis: 27px; height: 30px; }
 .imported-card-downloads.has-word .file-button-icon svg { width: 27px; height: 27px; }

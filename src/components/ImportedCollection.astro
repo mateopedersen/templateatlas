@@ -1,16 +1,16 @@
 ---
 import "../styles/imported-collection.css";
-import FileIcon from "./FileIcon.astro";
 import TemplateProperties from "./TemplateProperties.astro";
 import ImageLicenseMetadata from "./ImageLicenseMetadata.astro";
 import HomeIcon from "./HomeIcon.astro";
+import ImportedDownloads from "./ImportedDownloads.astro";
 const { collection, item } = Astro.props;
-const savings = collection.id === "100-envelope-savings";
-const label = savings ? "Savings Trackers" : "R-134a Charts";
+const weekly = collection.id === "52-week-savings";
+const savings = collection.kind === "savings" || collection.id === "100-envelope-savings";
+const label = weekly ? "52-Week Savings" : savings ? "Savings Trackers" : "R-134a Charts";
 const items = collection.items.filter(
   (e: any) => !Astro.locals.held?.has(e.id),
 );
-const size = (n: number) => (n / 1024 / 1024).toFixed(2) + " MB";
 const options = (key: string) =>
   [...new Set(items.map((e: any) => e[key]))] as string[];
 const featuredPapers = [
@@ -49,20 +49,7 @@ const featuredPapers = [
         <p>
           {item.paper} · {item.orientation} · {item.color}
         </p>
-        <div class="download-set">
-          <button data-catalog-download={item.id} data-format="pdf">
-            Download PDF <span>{size(item.assets.pdf.bytes)}</span>
-          </button>
-          <button
-            class="secondary-download"
-            data-catalog-download={item.id}
-            data-format="webp"
-          >
-            Download Image <span>{size(item.assets.webp.bytes)}</span>
-          </button>
-          {item.assets.docx && <button class="secondary-download" data-catalog-download={item.id} data-format="docx">Download Word <span>{size(item.assets.docx.bytes)}</span></button>}
-          <p role="status" data-download-message></p>
-        </div>
+        <ImportedDownloads entry={item}/>
         <dl class="imported-facts">
           {!savings && <> <dt>Reference grid</dt>
           <dd>{item.range}</dd>
@@ -135,7 +122,7 @@ const featuredPapers = [
             fetchpriority="high"
           />
         </a>
-        {savings ? <section class="imported-source-note"><h2>Using this tracker</h2><p>The PDF includes 100 checkboxes and three fields for your savings purpose and dates. The Image is a static printable version.</p></section> : <section class="imported-source-note">
+        {savings ? <section class="imported-source-note"><h2>Using This Tracker</h2>{weekly ? <><p>Follow the 52 printed weekly amounts. The PDF includes fields for actual deposits, completion checkboxes, and summary information. Word includes editable deposit fields and checkboxes; Excel calculates your goal, saved amount, remaining balance, and progress.</p><p>The Image is a static printable page. The Word and Excel versions use their own editable layouts with the matching plan and artwork.</p></> : <p>The PDF includes 100 checkboxes and three fields for your savings purpose and dates. The Image is a static printable version.</p>}</section> : <section class="imported-source-note">
           <h2>Using this reference</h2>
           <p>
             The PDF preserves the one-page print layout. The matching Image is a
@@ -162,7 +149,7 @@ const featuredPapers = [
       </>
     ) : (
       <>
-        {savings ? <details class="imported-collection-note"><summary>Which savings plan should I choose?</summary><p>The classic plan uses amounts from $1 to $100 for a $5,050 goal. Equal-deposit plans repeat the same amount 100 times.</p><p>Mark each envelope after saving its amount, in any order and at your own pace.</p></details> : <details class="imported-collection-note">
+        {savings ? <details class="imported-collection-note"><summary>Which Savings Plan Should I Choose?</summary>{weekly ? <><p>Classic increases from $1 to $52; Reverse begins at $52 and decreases to $1. Both total $1,378. Alternating pairs small and large deposits. Fixed plans repeat the same deposit each week.</p><p>Exact $1,000 uses one-cent adjustments in weeks 13, 26, 39, and 52. Cyclic $5,000 follows a varied sequence with adjusted final deposits. Choose a weekly commitment that fits your budget, then record each deposit as it happens.</p></> : <><p>The classic plan uses amounts from $1 to $100 for a $5,050 goal. Equal-deposit plans repeat the same amount 100 times.</p><p>Mark each envelope after saving its amount, in any order and at your own pace.</p></>}</details> : <details class="imported-collection-note">
           <summary>Which data edition should I choose?</summary>
           <p>
             <strong>Choose the data first.</strong> US Overview uses 5°F steps;
@@ -214,33 +201,7 @@ const featuredPapers = [
                   </details>
                 )}
                 <TemplateProperties class="imported-badges" paper={e.paper} orientation={e.orientation} color={e.color}/>
-                <div class:list={["download-set", "imported-card-downloads", {"has-word": !!e.assets.docx}]}>
-                  <button
-                    data-catalog-download={e.id}
-                    data-format="pdf"
-                    aria-label={"Download PDF: " + e.title}
-                  >
-                    <span class="file-button-icon"><FileIcon kind="pdf" /></span>
-                    <span class="file-button-copy"><strong>PDF</strong><small>{Math.ceil(e.assets.pdf.bytes / 1024)} KB</small></span>
-                    <FileIcon kind="download" class="file-button-arrow" />
-                  </button>
-                  <button
-                    class="secondary-download"
-                    data-catalog-download={e.id}
-                    data-format="webp"
-                    aria-label={"Download Image: " + e.title}
-                  >
-                    <span class="file-button-icon"><FileIcon kind="image" /></span>
-                    <span class="file-button-copy"><strong>Image</strong></span>
-                    <FileIcon kind="download" class="file-button-arrow" />
-                  </button>
-                  {e.assets.docx && <button class="secondary-download" data-catalog-download={e.id} data-format="docx" aria-label={"Download Word: " + e.title}>
-                    <span class="file-button-icon"><FileIcon kind="word" /></span>
-                    <span class="file-button-copy"><strong>Word</strong></span>
-                    <FileIcon kind="download" class="file-button-arrow" />
-                  </button>}
-                  <p role="status" data-download-message></p>
-                </div>
+                <ImportedDownloads entry={e}/>
               </div>
             </article>
           ))}
