@@ -9,8 +9,9 @@ const { collection, item } = Astro.props;
 const weekly = collection.id === "52-week-savings";
 const savings = collection.kind === "savings" || collection.id === "100-envelope-savings";
 const application = collection.kind === "application";
-const label = collection.navigation_label || (weekly ? "52-Week Savings" : savings ? "Savings Trackers" : "R-134a Charts");
-const noun = application ? "applications" : savings ? "trackers" : "charts";
+const petRecord = collection.kind === "pet-record";
+const label = collection.navigation_label || (weekly ? "52-Week Savings" : savings ? "Savings Trackers" : petRecord ? "Dog Vaccination Record" : "R-134a Charts");
+const noun = application ? "applications" : savings ? "trackers" : petRecord ? "records" : "charts";
 const items = collection.items.filter(
   (e: any) => !Astro.locals.held?.has(e.id),
 );
@@ -34,7 +35,7 @@ const featuredPapers = application ? items.slice(0,2) : [
 {!item && (
   <section class="print-cover" aria-labelledby="collection-title">
     <div class="print-cover-copy">
-      <p>{items.length} Printable Designs <span aria-hidden="true">/</span> {options("edition").length} {application ? "Application Types" : savings ? "Savings Plans" : "Data Editions"}</p>
+      <p>{items.length} Printable Designs <span aria-hidden="true">/</span> {options("edition").length} {application ? "Application Types" : savings ? "Savings Plans" : petRecord ? "Record Types" : "Data Editions"}</p>
       <h1 id="collection-title">{collection.title}</h1>
       <p class="print-cover-intro">{collection.lead || (savings ? "Choose a savings goal and a printable layout for your challenge." : "Choose a reference sheet for your units, paper size, and print setup.")}</p>
     </div>
@@ -45,8 +46,8 @@ const featuredPapers = application ? items.slice(0,2) : [
 )}
 <div class:list={["workspace", "imported-workspace", { "imported-browse": !item }]}>
   <aside class:list={["panel", "imported-controls", {"application-controls":application}]}>
-    {item && <p class="over">{application ? "Commercial Application" : savings ? "Savings tracker" : "Refrigerant reference"}</p>}
-    {item && <h2>{application ? "Download This Application" : savings ? "Download This Tracker" : "Download This Chart"}</h2>}
+    {item && <p class="over">{application ? "Commercial Application" : savings ? "Savings tracker" : petRecord ? "Dog vaccination record" : "Refrigerant reference"}</p>}
+    {item && <h2>{application ? "Download This Application" : savings ? "Download This Tracker" : petRecord ? "Download This Record" : "Download This Chart"}</h2>}
     {item ? (
       <>
         <p>
@@ -54,7 +55,7 @@ const featuredPapers = application ? items.slice(0,2) : [
         </p>
         <ImportedDownloads entry={item}/>
         <dl class="imported-facts">
-          {!savings && !application && <> <dt>Reference grid</dt>
+          {!savings && !application && !petRecord && <> <dt>Reference grid</dt>
           <dd>{item.range}</dd>
           <dt>Data rows</dt>
           <dd>{item.rows}</dd>
@@ -63,6 +64,7 @@ const featuredPapers = application ? items.slice(0,2) : [
           </>}
           {savings && <><dt>Savings goal</dt><dd>{"$" + item.goal.toLocaleString("en-US")}</dd></>}
           {application && <><dt>Business Use</dt><dd>{item.subject}</dd><dt>Application Type</dt><dd>{item.editionLabel || item.edition}</dd></>}
+          {petRecord && <><dt>Record Type</dt><dd>{item.edition}</dd><dt>PDF Form Fields</dt><dd>{item.pdf_fields}</dd><dt>Word Content Controls</dt><dd>{item.docx_controls}</dd></>}
           <dt>Image dimensions</dt>
           <dd>{item.pixels.join(" × ")} px</dd>
           <dt>PDF length</dt>
@@ -97,9 +99,9 @@ const featuredPapers = application ? items.slice(0,2) : [
             </fieldset>}
             {(["edition", "paper", "color"] as const).filter(key=>!application || key!=="paper" || options("paper").length>1).map(key => (
               <label class="print-filter-field">
-                <span>{{edition: application ? "Application Type" : savings ? "Savings plan" : "Data edition", paper: "Paper size", color: "Print style"}[key]}</span>
+                <span>{{edition: application ? "Application Type" : savings ? "Savings plan" : petRecord ? "Record type" : "Data edition", paper: "Paper size", color: "Print style"}[key]}</span>
                 <select name={key}>
-                  <option value="">{{edition: application ? "All Application Types" : savings ? "All savings plans" : "All editions", paper: "All sizes", color: "All styles"}[key]}</option>
+                  <option value="">{{edition: application ? "All Application Types" : savings ? "All savings plans" : petRecord ? "All record types" : "All editions", paper: "All sizes", color: "All styles"}[key]}</option>
                   {options(key).map(value => <option value={value}>{value === "US Letter" ? "US Letter (8.5 × 11 in)" : value === "A4" ? "A4 (210 × 297 mm)" : value}</option>)}
                 </select>
               </label>
@@ -121,7 +123,7 @@ const featuredPapers = application ? items.slice(0,2) : [
           {item.description_paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
         </section>
         <ImportedPreview item={item}/>
-        {application ? <section class="imported-source-note"><h2>Using This Application</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : savings ? <section class="imported-source-note"><h2>Using This Tracker</h2>{weekly ? <><p>Follow the 52 printed weekly amounts. The PDF includes fields for actual deposits, completion checkboxes, and summary information. Word includes editable deposit fields and checkboxes; Excel calculates your goal, saved amount, remaining balance, and progress.</p><p>The Image is a static printable page. The Word and Excel versions use their own editable layouts with the matching plan and artwork.</p></> : <p>The PDF includes 100 checkboxes and three fields for your savings purpose and dates. The Image is a static printable version.</p>}</section> : <section class="imported-source-note">
+        {petRecord ? <section class="imported-source-note"><h2>Using This Record</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : application ? <section class="imported-source-note"><h2>Using This Application</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : savings ? <section class="imported-source-note"><h2>Using This Tracker</h2>{weekly ? <><p>Follow the 52 printed weekly amounts. The PDF includes fields for actual deposits, completion checkboxes, and summary information. Word includes editable deposit fields and checkboxes; Excel calculates your goal, saved amount, remaining balance, and progress.</p><p>The Image is a static printable page. The Word and Excel versions use their own editable layouts with the matching plan and artwork.</p></> : <p>The PDF includes 100 checkboxes and three fields for your savings purpose and dates. The Image is a static printable version.</p>}</section> : <section class="imported-source-note">
           <h2>Using this reference</h2>
           <p>
             The PDF preserves the one-page print layout. The matching Image is a
@@ -148,7 +150,7 @@ const featuredPapers = application ? items.slice(0,2) : [
       </>
     ) : (
       <>
-        {application ? <details class="imported-collection-note"><summary>Which Application Should I Choose?</summary>{collection.selection_guide.map((paragraph:string)=><p>{paragraph}</p>)}</details> : savings ? <details class="imported-collection-note"><summary>Which Savings Plan Should I Choose?</summary>{weekly ? <><p>Classic increases from $1 to $52; Reverse begins at $52 and decreases to $1. Both total $1,378. Alternating pairs small and large deposits. Fixed plans repeat the same deposit each week.</p><p>Exact $1,000 uses one-cent adjustments in weeks 13, 26, 39, and 52. Cyclic $5,000 follows a varied sequence with adjusted final deposits. Choose a weekly commitment that fits your budget, then record each deposit as it happens.</p></> : <><p>The classic plan uses amounts from $1 to $100 for a $5,050 goal. Equal-deposit plans repeat the same amount 100 times.</p><p>Mark each envelope after saving its amount, in any order and at your own pace.</p></>}</details> : <details class="imported-collection-note">
+        {petRecord ? <details class="imported-collection-note"><summary>Which Record Type Should I Choose?</summary>{collection.selection_guide.map((paragraph:string)=><p>{paragraph}</p>)}</details> : application ? <details class="imported-collection-note"><summary>Which Application Should I Choose?</summary>{collection.selection_guide.map((paragraph:string)=><p>{paragraph}</p>)}</details> : savings ? <details class="imported-collection-note"><summary>Which Savings Plan Should I Choose?</summary>{weekly ? <><p>Classic increases from $1 to $52; Reverse begins at $52 and decreases to $1. Both total $1,378. Alternating pairs small and large deposits. Fixed plans repeat the same deposit each week.</p><p>Exact $1,000 uses one-cent adjustments in weeks 13, 26, 39, and 52. Cyclic $5,000 follows a varied sequence with adjusted final deposits. Choose a weekly commitment that fits your budget, then record each deposit as it happens.</p></> : <><p>The classic plan uses amounts from $1 to $100 for a $5,050 goal. Equal-deposit plans repeat the same amount 100 times.</p><p>Mark each envelope after saving its amount, in any order and at your own pace.</p></>}</details> : <details class="imported-collection-note">
           <summary>Which data edition should I choose?</summary>
           <p>
             <strong>Choose the data first.</strong> US Overview uses 5°F steps;
@@ -211,14 +213,14 @@ const featuredPapers = application ? items.slice(0,2) : [
         <p data-empty-charts hidden>
           No designs match these filters. Try another option.
         </p>
-        {!savings && !application && <p class="imported-legacy">
+        {!savings && !application && !petRecord && <p class="imported-legacy">
           <a href="/templates/r134a-pressure-temperature-chart/r134a-pressure-temperature-chart-essential/">
             View the earlier editable PowerPoint reference →
           </a>
         </p>}
       </>
     )}
-    {!savings && !application && <section class="imported-sources">
+    {!savings && !application && !petRecord && <section class="imported-sources">
       <h2>Data, sources, and credits</h2>
       <p>
         This collection uses CoolProp 8.0.0 / HEOS R-134a saturation data. The
