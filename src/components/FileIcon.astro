@@ -30,6 +30,17 @@ const id = "file-" + crypto.randomUUID();
       <path d="M5.5 18.5h15" stroke="#b6dcc7" stroke-opacity=".6"/>
       <path d="m10 21 6 7m0-7-6 7" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
     </>
+  ) : kind === "odt" ? (
+    <>
+      <ellipse cx="21" cy="36" rx="13" ry="2" fill="#234454" opacity=".18"/>
+      <path d="M12 6h12l9 9v19a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2" fill="#a5bfcb"/>
+      <path d="M10 4h13l9 9v19a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2" fill="#f7fcff" stroke="#c5d9e3" stroke-width=".7"/>
+      <path d="m23 4 9 9h-7a2 2 0 0 1-2-2Z" fill="#d8e8f0"/>
+      <path d="M12 10h6M12 13h7M25 19h4M25 23h4M25 27h4" stroke="#9bb8c8" stroke-width="1.2" stroke-linecap="round"/>
+      <rect x="4" y="17" width="24" height="14" rx="3" fill="#31566d"/>
+      <path d="M5.5 18.5h21" stroke="#b4deec" stroke-opacity=".65"/>
+      <text x="16" y="26.7" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="7.5" font-weight="800">ODT</text>
+    </>
   ) : kind === "word" ? (
     <>
       <ellipse cx="21" cy="36" rx="13" ry="2" fill="#14293b" opacity=".18"/>

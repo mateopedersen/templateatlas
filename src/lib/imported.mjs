@@ -7,7 +7,10 @@ export const importedEntries = collections.flatMap((c) =>
 );
 export const publicCatalogAssets = new Map(
   collections.flatMap((c) => [
-    ...c.items.map((item) => [item.previewAsset.path, item.previewAsset]),
+    ...c.items.flatMap((item) => [
+      [item.previewAsset.path, item.previewAsset],
+      ...(item.previewPages || []).map(page => [page.asset.path, page.asset]),
+    ]),
     ...c.documents.map((document) => [document.path, document]),
   ]),
 );

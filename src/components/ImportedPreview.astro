@@ -1,0 +1,30 @@
+---
+const { item } = Astro.props;
+const pages = item.previewPages || [{page:1,url:item.preview,size:item.previewSize}];
+const multiple = pages.length > 1;
+---
+<div class="document-preview" data-page-preview>
+  {multiple && <div class="document-preview-toolbar">
+    <strong>Document Preview</strong>
+    <div class="document-page-tabs" role="tablist" aria-label="Preview document pages">
+      {pages.map((page:any,index:number)=><button type="button" role="tab" id={`${item.id}-page-tab-${index}`} aria-controls={`${item.id}-page-panel-${index}`} aria-selected={index===0?'true':'false'} tabindex={index===0?0:-1} data-preview-page={index}>Page {page.page}</button>)}
+    </div>
+  </div>}
+  {pages.map((page:any,index:number)=><section id={`${item.id}-page-panel-${index}`} role={multiple?'tabpanel':undefined} aria-labelledby={multiple?`${item.id}-page-tab-${index}`:undefined} data-preview-panel hidden={index!==0}>
+    <a class="imported-large-preview" href={page.url} aria-label={`Enlarge preview${multiple?` page ${page.page}`:''} of ${item.title}`}>
+      <img src={page.url} alt={multiple?`${item.title} — page ${page.page} of ${pages.length}`:item.alt} width={page.size[0]} height={page.size[1]} loading={index===0?'eager':'lazy'} fetchpriority={index===0?'high':'auto'}/>
+    </a>
+    {multiple && <p class="document-page-caption">Page {page.page} Of {pages.length} · {item.paper}</p>}
+  </section>)}
+</div>
+<script>
+ for (const root of document.querySelectorAll<HTMLElement>('[data-page-preview]')) {
+  const tabs=[...root.querySelectorAll<HTMLButtonElement>('[data-preview-page]')];
+  const panels=[...root.querySelectorAll<HTMLElement>('[data-preview-panel]')];
+  const select=(index:number,focus=false)=>{tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===index));tab.tabIndex=i===index?0:-1;panels[i].hidden=i!==index;});if(focus)tabs[index].focus();};
+  tabs.forEach((tab,index)=>{
+   tab.addEventListener('click',()=>select(index));
+   tab.addEventListener('keydown',e=>{let next=index;if(e.key==='ArrowRight')next=(index+1)%tabs.length;else if(e.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=tabs.length-1;else return;e.preventDefault();select(next,true);});
+  });
+ }
+</script>

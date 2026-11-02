@@ -1,5 +1,17 @@
 # Production release verification
 
+## Commercial lease application intake — November 2, 2026
+
+- Preserved the complete supplied ZIP privately and verified its SHA-256 (`d5543f931036da8476f57dcf25d15bc7a5c4b87ecf0c0c082045bc34b2cb0330`) before extracting. The archive contains exactly 100 PDF, 100 WebP, 100 DOCX and 100 ODT originals. No source repair was required; original bytes are preserved.
+- Checked every container and all PDF field labels against the Word and OpenDocument contents. All 100 Word and 100 ODT documents opened in the local office renderer and retained the source PDF page count. The 100 applications contain 251 pages, spanning 20 business uses and five application types. All use US Letter portrait pages; 30 are color and 70 monochrome.
+- Inspected all source PDF pages and native Word/ODT pages in contact sheets, plus all 100 first-page WebP previews. Two ODT files use a different readable font fallback. One ODT QA PDF has a ligature text-extraction mismatch; the original XML and actual rendered text were checked and are correct. This is recorded as an extraction exception, not a source repair.
+- Added individually reviewed titles, complete short introductions and separate expanded descriptions. Nonprofit authority/financial terminology and pop-up occupancy dates are reflected in their own copy. Existing topic and earlier detail addresses are preserved.
+- Uploaded and read back all 651 new R2 bodies: 400 originals and 251 individual-page previews. All SHA-256 values, byte counts and MIME types matched. Staged and compared 400 D1 file rows and all 1,546 search rows before deployment.
+- ODT has its own SVG and download button. It is a downloadable catalog format; unsupported personalized ODT generation remains unavailable. Four download controls have equal widths/heights, with no clipped text or horizontal overflow across all 100 cards at 390, 768 and 1,440 CSS pixels. Business-use/application-type filters, form-length selection, reset, independent More expansion and keyboard page tabs passed browser checks.
+- Astro check: zero errors and warnings, ten existing hints. Build and editorial validation passed. Automated suite: 82 passed, zero failed, one optional renderer test skipped. Live delivery checks are recorded separately after deployment.
+
+The resulting catalog has 1,546 designs and 3,808 original downloadable files. The public asset allowlist contains 553 objects. Noindex/noimageindex remains enabled; billing and administrator access remain disabled.
+
 The public domain serves the US English application over HTTPS. The www host redirects to the apex. Cloudflare deploys the Astro application and an independently authenticated private Linux renderer.
 
 | Check | Production evidence |

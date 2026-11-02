@@ -4,16 +4,19 @@ import TemplateProperties from "./TemplateProperties.astro";
 import ImageLicenseMetadata from "./ImageLicenseMetadata.astro";
 import HomeIcon from "./HomeIcon.astro";
 import ImportedDownloads from "./ImportedDownloads.astro";
+import ImportedPreview from "./ImportedPreview.astro";
 const { collection, item } = Astro.props;
 const weekly = collection.id === "52-week-savings";
 const savings = collection.kind === "savings" || collection.id === "100-envelope-savings";
-const label = weekly ? "52-Week Savings" : savings ? "Savings Trackers" : "R-134a Charts";
+const application = collection.kind === "application";
+const label = collection.navigation_label || (weekly ? "52-Week Savings" : savings ? "Savings Trackers" : "R-134a Charts");
+const noun = application ? "applications" : savings ? "trackers" : "charts";
 const items = collection.items.filter(
   (e: any) => !Astro.locals.held?.has(e.id),
 );
 const options = (key: string) =>
   [...new Set(items.map((e: any) => e[key]))] as string[];
-const featuredPapers = [
+const featuredPapers = application ? items.slice(0,2) : [
   items.find((entry: any) => entry.orientation === "Landscape"),
   items.find((entry: any) => entry.orientation === "Portrait"),
 ].filter(Boolean);
@@ -31,9 +34,9 @@ const featuredPapers = [
 {!item && (
   <section class="print-cover" aria-labelledby="collection-title">
     <div class="print-cover-copy">
-      <p>{items.length} Printable Designs <span aria-hidden="true">/</span> {options("edition").length} {savings ? "Savings Plans" : "Data Editions"}</p>
+      <p>{items.length} Printable Designs <span aria-hidden="true">/</span> {options("edition").length} {application ? "Application Types" : savings ? "Savings Plans" : "Data Editions"}</p>
       <h1 id="collection-title">{collection.title}</h1>
-      <p class="print-cover-intro">{savings ? "Choose a savings goal and a printable layout for your challenge." : "Choose a reference sheet for your units, paper size, and print setup."}</p>
+      <p class="print-cover-intro">{collection.lead || (savings ? "Choose a savings goal and a printable layout for your challenge." : "Choose a reference sheet for your units, paper size, and print setup.")}</p>
     </div>
     <div class="print-cover-art" aria-hidden="true">
       {featuredPapers.map((sheet: any) => <img src={sheet.preview} width={sheet.previewSize[0]} height={sheet.previewSize[1]} alt="" />)}
@@ -41,9 +44,9 @@ const featuredPapers = [
   </section>
 )}
 <div class:list={["workspace", "imported-workspace", { "imported-browse": !item }]}>
-  <aside class="panel imported-controls">
-    {item && <p class="over">{savings ? "Savings tracker" : "Refrigerant reference"}</p>}
-    {item && <h2>{savings ? "Download This Tracker" : "Download This Chart"}</h2>}
+  <aside class:list={["panel", "imported-controls", {"application-controls":application}]}>
+    {item && <p class="over">{application ? "Commercial Application" : savings ? "Savings tracker" : "Refrigerant reference"}</p>}
+    {item && <h2>{application ? "Download This Application" : savings ? "Download This Tracker" : "Download This Chart"}</h2>}
     {item ? (
       <>
         <p>
@@ -51,7 +54,7 @@ const featuredPapers = [
         </p>
         <ImportedDownloads entry={item}/>
         <dl class="imported-facts">
-          {!savings && <> <dt>Reference grid</dt>
+          {!savings && !application && <> <dt>Reference grid</dt>
           <dd>{item.range}</dd>
           <dt>Data rows</dt>
           <dd>{item.rows}</dd>
@@ -59,19 +62,27 @@ const featuredPapers = [
           <dd>{item.units.join(" · ")}</dd>
           </>}
           {savings && <><dt>Savings goal</dt><dd>{"$" + item.goal.toLocaleString("en-US")}</dd></>}
+          {application && <><dt>Business Use</dt><dd>{item.subject}</dd><dt>Application Type</dt><dd>{item.editionLabel || item.edition}</dd></>}
           <dt>Image dimensions</dt>
           <dd>{item.pixels.join(" × ")} px</dd>
           <dt>PDF length</dt>
-          <dd>1 page</dd>
+          <dd>{item.pages} {item.pages===1 ? "page" : "pages"}</dd>
         </dl>
-        <a href={collection.topic_path}>Browse all {items.length} {savings ? "trackers" : "charts"} →</a>
+        <a href={collection.topic_path}>Browse all {items.length} {noun} →</a>
       </>
     ) : (
       <>
         <details class="print-filter-drawer" open>
           <summary><span class="finder-title"><span class="finder-title-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span><strong>Print options</strong><small>Choose your format</small></span></span></summary>
           <form id="chart-filters" data-chart-filters data-total={items.length}>
-            <fieldset class="layout-picker">
+            {application && <label class="print-filter-field"><span>Business Use</span><select name="subject"><option value="">All Business Uses</option>{options("subject").sort((a,b)=>a.localeCompare(b,'en-US')).map(value=><option value={value}>{value}</option>)}</select></label>}
+            {application ? <fieldset class="layout-picker">
+              <legend>Form Length</legend>
+              <div class="layout-samples">
+                {options("pages").sort((a,b)=>Number(a)-Number(b)).map(pages=>{const example=items.find((entry:any)=>entry.pages===pages);return <label><input type="radio" name="pages" value={String(pages)}/><span class="layout-choice"><span class="layout-proof"><img src={example.preview} alt="" loading="lazy"/></span><span class="layout-name">{pages} {Number(pages)===1?'Page':'Pages'}</span></span></label>;})}
+              </div>
+              <label class="layout-any"><input type="radio" name="pages" value="" checked/> Any Length</label>
+            </fieldset> : <fieldset class="layout-picker">
               <legend>Page layout</legend>
               <div class="layout-samples">
                 {options("orientation").map(layout => {
@@ -83,12 +94,12 @@ const featuredPapers = [
                 })}
               </div>
               <label class="layout-any"><input type="radio" name="orientation" value="" checked /> Any layout</label>
-            </fieldset>
-            {(["edition", "paper", "color"] as const).map(key => (
+            </fieldset>}
+            {(["edition", "paper", "color"] as const).filter(key=>!application || key!=="paper" || options("paper").length>1).map(key => (
               <label class="print-filter-field">
-                <span>{{edition: savings ? "Savings plan" : "Data edition", paper: "Paper size", color: "Print style"}[key]}</span>
+                <span>{{edition: application ? "Application Type" : savings ? "Savings plan" : "Data edition", paper: "Paper size", color: "Print style"}[key]}</span>
                 <select name={key}>
-                  <option value="">{{edition: savings ? "All savings plans" : "All editions", paper: "All sizes", color: "All styles"}[key]}</option>
+                  <option value="">{{edition: application ? "All Application Types" : savings ? "All savings plans" : "All editions", paper: "All sizes", color: "All styles"}[key]}</option>
                   {options(key).map(value => <option value={value}>{value === "US Letter" ? "US Letter (8.5 × 11 in)" : value === "A4" ? "A4 (210 × 297 mm)" : value}</option>)}
                 </select>
               </label>
@@ -109,20 +120,8 @@ const featuredPapers = [
         <section class="imported-description" aria-label="About this template">
           {item.description_paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
         </section>
-        <a
-          class="imported-large-preview"
-          href={item.preview}
-          aria-label={"Enlarge preview of " + item.title}
-        >
-          <img
-            src={item.preview}
-            alt={item.alt}
-            width={item.previewSize[0]}
-            height={item.previewSize[1]}
-            fetchpriority="high"
-          />
-        </a>
-        {savings ? <section class="imported-source-note"><h2>Using This Tracker</h2>{weekly ? <><p>Follow the 52 printed weekly amounts. The PDF includes fields for actual deposits, completion checkboxes, and summary information. Word includes editable deposit fields and checkboxes; Excel calculates your goal, saved amount, remaining balance, and progress.</p><p>The Image is a static printable page. The Word and Excel versions use their own editable layouts with the matching plan and artwork.</p></> : <p>The PDF includes 100 checkboxes and three fields for your savings purpose and dates. The Image is a static printable version.</p>}</section> : <section class="imported-source-note">
+        <ImportedPreview item={item}/>
+        {application ? <section class="imported-source-note"><h2>Using This Application</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : savings ? <section class="imported-source-note"><h2>Using This Tracker</h2>{weekly ? <><p>Follow the 52 printed weekly amounts. The PDF includes fields for actual deposits, completion checkboxes, and summary information. Word includes editable deposit fields and checkboxes; Excel calculates your goal, saved amount, remaining balance, and progress.</p><p>The Image is a static printable page. The Word and Excel versions use their own editable layouts with the matching plan and artwork.</p></> : <p>The PDF includes 100 checkboxes and three fields for your savings purpose and dates. The Image is a static printable version.</p>}</section> : <section class="imported-source-note">
           <h2>Using this reference</h2>
           <p>
             The PDF preserves the one-page print layout. The matching Image is a
@@ -149,7 +148,7 @@ const featuredPapers = [
       </>
     ) : (
       <>
-        {savings ? <details class="imported-collection-note"><summary>Which Savings Plan Should I Choose?</summary>{weekly ? <><p>Classic increases from $1 to $52; Reverse begins at $52 and decreases to $1. Both total $1,378. Alternating pairs small and large deposits. Fixed plans repeat the same deposit each week.</p><p>Exact $1,000 uses one-cent adjustments in weeks 13, 26, 39, and 52. Cyclic $5,000 follows a varied sequence with adjusted final deposits. Choose a weekly commitment that fits your budget, then record each deposit as it happens.</p></> : <><p>The classic plan uses amounts from $1 to $100 for a $5,050 goal. Equal-deposit plans repeat the same amount 100 times.</p><p>Mark each envelope after saving its amount, in any order and at your own pace.</p></>}</details> : <details class="imported-collection-note">
+        {application ? <details class="imported-collection-note"><summary>Which Application Should I Choose?</summary>{collection.selection_guide.map((paragraph:string)=><p>{paragraph}</p>)}</details> : savings ? <details class="imported-collection-note"><summary>Which Savings Plan Should I Choose?</summary>{weekly ? <><p>Classic increases from $1 to $52; Reverse begins at $52 and decreases to $1. Both total $1,378. Alternating pairs small and large deposits. Fixed plans repeat the same deposit each week.</p><p>Exact $1,000 uses one-cent adjustments in weeks 13, 26, 39, and 52. Cyclic $5,000 follows a varied sequence with adjusted final deposits. Choose a weekly commitment that fits your budget, then record each deposit as it happens.</p></> : <><p>The classic plan uses amounts from $1 to $100 for a $5,050 goal. Equal-deposit plans repeat the same amount 100 times.</p><p>Mark each envelope after saving its amount, in any order and at your own pace.</p></>}</details> : <details class="imported-collection-note">
           <summary>Which data edition should I choose?</summary>
           <p>
             <strong>Choose the data first.</strong> US Overview uses 5°F steps;
@@ -171,6 +170,8 @@ const featuredPapers = [
               data-paper={e.paper}
               data-orientation={e.orientation}
               data-color={e.color}
+              data-subject={e.subject}
+              data-pages={e.pages}
             >
               <a class="imported-thumb" href={e.detail_path}>
                 <img
@@ -181,6 +182,7 @@ const featuredPapers = [
                   loading="lazy"
                   decoding="async"
                 />
+                {e.pages>1 && <span class="imported-page-count">{e.pages} Pages</span>}
               </a>
               <div class="imported-card-body">
                 <p class="over">
@@ -207,16 +209,16 @@ const featuredPapers = [
           ))}
         </div>
         <p data-empty-charts hidden>
-          No designs match these filters. Try another paper size or plan.
+          No designs match these filters. Try another option.
         </p>
-        {!savings && <p class="imported-legacy">
+        {!savings && !application && <p class="imported-legacy">
           <a href="/templates/r134a-pressure-temperature-chart/r134a-pressure-temperature-chart-essential/">
             View the earlier editable PowerPoint reference →
           </a>
         </p>}
       </>
     )}
-    {!savings && <section class="imported-sources">
+    {!savings && !application && <section class="imported-sources">
       <h2>Data, sources, and credits</h2>
       <p>
         This collection uses CoolProp 8.0.0 / HEOS R-134a saturation data. The
@@ -299,7 +301,7 @@ const featuredPapers = [
     document
       .querySelectorAll<HTMLElement>("[data-chart-card]")
       .forEach((card) => {
-        card.hidden = ["edition", "paper", "orientation", "color"].some(
+        card.hidden = ["edition", "paper", "orientation", "color", "subject", "pages"].some(
           (key) => values.get(key) && card.dataset[key] !== values.get(key),
         );
         if (!card.hidden) count++;

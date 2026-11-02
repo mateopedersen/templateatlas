@@ -296,7 +296,10 @@ export async function documents(env, actor, id, method, input = {}) {
   requireValue(r.meta.changes === 1, 'REVISION_CONFLICT');
   return { id, revision: next };
 }
-export const formatMimes = jobMimes;
+export const formatMimes = Object.freeze({
+  ...jobMimes,
+  odt: 'application/vnd.oasis.opendocument.text',
+});
 export function checkFormat(format) {
   requireValue(
     typeof format === 'string' && Object.hasOwn(formatMimes, format),
@@ -318,6 +321,9 @@ export async function createExport(
   } = input;
   requireValue(revision(rev) && paper === 'letter');
   checkFormat(format);
+  // Registered catalog downloads may include formats the personal exporter
+  // does not generate. Reject those before creating a conversion job.
+  requireValue(Object.hasOwn(jobMimes, format), 'FORMAT_UNAVAILABLE');
   const doc = await owned(env, actor, id);
   return startJob(env, actor, doc, rev, format, idem, options, ctx);
 }

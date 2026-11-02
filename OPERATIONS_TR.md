@@ -45,6 +45,10 @@ Kod sürümünü geri alırken önceki Git commitini ve o sürümün katalog man
 
 ### Ek tasarım koleksiyonları
 
+Commercial Lease Application aynı mevcut konu adresinde 100 başvuru tasarımı ve 400 özgün dosya sunar: PDF, Image, Word ve ODT. Başvurular 20 iş kolu ve beş tür altında, 1–4 sayfa olarak filtrelenir. PDF doldurulabilir alanlar, Word yapılandırılmış düzenlenebilir alanlar, ODT düzenlenebilir OpenDocument metin düzeni içerir. Word/ODT görünümü kullanılan ofis uygulaması ve fontlara göre farklılaşabilir. ODT kişisel belge dışa aktarma motoruna eklenmemiştir; bu destek doğrulanmış katalog dosyalarının indirilmesi içindir.
+
+Çok sayfalı tasarımlarda `previewPages` her sayfanın R2 önizleme kaydını tutar. İlk sayfa kart ve kapakta kullanılır; ayrıntı ekranındaki sayfa düğmeleri belgenin tamamını gösterir. Image indirmesi kaynak paketteki bütün sayfaları tek görselde içeren özgün dosyayı verir. Bir tasarımın PDF/Image/Word/ODT biçimleri tek ücretsiz seçim sayılır. Kaynak dosyaları ve 651 nesnenin R2 okuma doğrulaması özel `commercial-lease-intake` alanında korunur; tamamlanan belgeleri yeniden üretmeyin.
+
 R-134a ek koleksiyonu `src/data/imported-collections.json` içinde 100 sabit tasarım kimliğiyle tanımlıdır. Ana konu adresi korunur; her tasarımın kendi ayrıntı adresi, İngilizce başlığı ve açıklaması bulunur. PDF ve Image biçimleri aynı kimliği kullandığı için aynı tasarımın ikinci biçimi yeni ücretsiz seçim sayılmaz.
 
 Dosyaların tamamı R2'dedir. `assets.templateatlas.com` yalnız manifestte açıkça listelenen küçük önizlemeleri ve yöntem/lisans belgelerini sunar. PDF ve tam boy WebP asılları özel katalog alanında kalır ve imzalı indirme akışıyla verilir. Public kod deposu orijinal dosyaları içermez.

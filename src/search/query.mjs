@@ -35,6 +35,7 @@ const supported = new Set([
   'pdf',
   'xlsx',
   'docx',
+  'odt',
   'pptx',
   'svg',
   'jpeg',

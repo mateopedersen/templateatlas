@@ -204,6 +204,7 @@
   display: none;
 }
 .imported-thumb {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,6 +212,14 @@
   padding: 12px;
   height: 220px;
 }
+.imported-page-count { position:absolute; right:10px; bottom:10px; padding:5px 8px; border:1px solid #d7e4eb; border-radius:7px; background:#ffffffed; color:#4d3542; font-size:11px; font-weight:650; box-shadow:0 2px 5px #2434410d; }
+.document-preview-toolbar { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin:22px 0 12px; color:#4f3043; }
+.document-preview-toolbar strong { font-size:15px; }
+.document-page-tabs { display:flex; flex-wrap:wrap; gap:6px; }
+.workspace .document-page-tabs button { min-height:36px; margin:0; padding:7px 11px; background:#f2f8fb; color:#553246; border:1px solid #d8e6ec; border-radius:8px; box-shadow:none; font-size:12px; }
+.workspace .document-page-tabs button[aria-selected="true"] { color:#fff; background:#67263f; border-color:#67263f; }
+.document-preview [data-preview-panel][hidden] { display:none; }
+.document-page-caption { margin:9px 0 22px; color:#52616a; font-size:12px; text-align:center; }
 .imported-thumb img {
   width: 100%;
   height: 100%;
@@ -321,11 +330,11 @@
   gap: 8px;
 }
 .imported-card-downloads.has-word { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }
-.imported-card-downloads.has-excel { grid-template-columns:repeat(2,minmax(0,1fr)); }
-.workspace .imported-card-downloads.has-excel button { min-width:0; padding-inline:9px; gap:7px; }
-.imported-card-downloads.has-excel .file-button-icon { flex-basis:30px; }
-.imported-card-downloads.has-excel .file-button-icon svg { width:30px; height:30px; }
-.imported-card-downloads.has-excel .file-button-copy { flex:1; }
+.imported-card-downloads.has-four-formats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.workspace .imported-card-downloads.has-four-formats button { min-width:0; padding-inline:9px; gap:7px; }
+.imported-card-downloads.has-four-formats .file-button-icon { flex-basis:30px; }
+.imported-card-downloads.has-four-formats .file-button-icon svg { width:30px; height:30px; }
+.imported-card-downloads.has-four-formats .file-button-copy { flex:1; }
 .workspace .imported-card-downloads.has-word button { justify-content: center; gap: 4px; padding-inline: 5px; }
 .imported-card-downloads.has-word .file-button-icon { flex-basis: 27px; height: 30px; }
 .imported-card-downloads.has-word .file-button-icon svg { width: 27px; height: 27px; }
@@ -826,3 +835,13 @@
 .imported-breadcrumb .breadcrumb-home svg { display: block; width: 32px; height: 32px; flex: 0 0 32px; }
 .imported-breadcrumb .breadcrumb-home span { display: block; line-height: 1; }
 .imported-breadcrumb .breadcrumb-divider { align-self: center; flex: none; }
+
+@media (min-width: 731px) {
+  .imported-controls.application-controls {
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #b9cbd4 #f4f9fc;
+  }
+}
