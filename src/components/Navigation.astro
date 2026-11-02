@@ -77,6 +77,13 @@ const create = [
    menus.forEach(menu => {
      const scroll = menu.querySelector<HTMLElement>('.drawer-scroll, .category-contents');
      scroll?.addEventListener('scroll', () => refreshDrawer(menu), {passive:true});
+     // Font and content layout can settle after the menu first opens.
+     // Keep scroll controls tied to the final available space.
+     const contentSize = new ResizeObserver(() => requestAnimationFrame(() => refreshDrawer(menu)));
+     if (scroll) {
+       contentSize.observe(scroll);
+       if (scroll.firstElementChild) contentSize.observe(scroll.firstElementChild);
+     }
      menu.querySelectorAll<HTMLButtonElement>('[data-scroll-up], [data-scroll-down]').forEach(button => button.addEventListener('click', () => scroll?.scrollBy({top: (button.hasAttribute('data-scroll-up') ? -1 : 1) * scroll.clientHeight * .7, behavior: reduceMotion.matches ? 'instant' : 'smooth'})));
      menu.addEventListener('toggle', () => requestAnimationFrame(() => refreshDrawer(menu)));
    });
