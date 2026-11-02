@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient
+      id="cover"
+      x1="7"
+      y1="18"
+      x2="54"
+      y2="50"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#9C405C" />
+      <stop offset=".48" stop-color="#69223F" />
+      <stop offset="1" stop-color="#391A32" />
+    </linearGradient>
+    <linearGradient
+      id="pageLeft"
+      x1="10"
+      y1="18"
+      x2="28"
+      y2="43"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FFFEFA" />
+      <stop offset="1" stop-color="#EDE4D8" />
+    </linearGradient>
+    <linearGradient
+      id="pageRight"
+      x1="34"
+      y1="18"
+      x2="53"
+      y2="41"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FFFDF8" />
+      <stop offset="1" stop-color="#E8DCCD" />
+    </linearGradient>
+    <linearGradient
+      id="ocean"
+      x1="15"
+      y1="22"
+      x2="26"
+      y2="34"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#67C7BD" />
+      <stop offset="1" stop-color="#267C83" />
+    </linearGradient>
+    <linearGradient
+      id="pageEdge"
+      x1="14"
+      y1="39"
+      x2="50"
+      y2="49"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#F3D8A1" />
+      <stop offset="1" stop-color="#D8AA62" />
+    </linearGradient>
+    <filter
+      id="lift"
+      x="1"
+      y="9"
+      width="62"
+      height="55"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.35" />
+      <feOffset dy="2" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope=".2" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <clipPath id="atlasPage">
+      <path
+        d="M8.5 28.8 28.5 17.2a3.8 3.8 0 0 1 3.5.6v24.3c-7-4-15.4-7-23.5-9.8z"
+      />
+    </clipPath>
+  </defs>
+
+  <ellipse cx="32" cy="49.5" rx="23" ry="5.1" fill="#2B1225" opacity=".13" />
+  <g filter="url(#lift)">
+    <path d="M5 31.8 32 47l27-15.3v6L32 53.4 5 37.8z" fill="url(#cover)" />
+    <path
+      d="M8.5 37.4 32 50.8v-2.5L8.5 34.8z"
+      fill="url(#pageEdge)"
+      opacity=".9"
+    />
+    <path d="M32 48.3v2.5l23.5-13.4v-2.6z" fill="#C99555" opacity=".86" />
+    <path d="M5 31 32 15.3 59 31.1 32 47z" fill="url(#cover)" />
+    <path
+      d="M8.5 28.8 28.5 17.2a3.8 3.8 0 0 1 3.5.6v24.3c-7-4-15.4-7-23.5-9.8z"
+      fill="url(#pageLeft)"
+      stroke="#FFFDF7"
+      stroke-width=".65"
+    />
+    <path
+      d="M32 17.8a3.8 3.8 0 0 1 3.5-.6l20 11.6v3.5C47.4 35 39 38 32 42.1z"
+      fill="url(#pageRight)"
+      stroke="#FFFDF7"
+      stroke-width=".65"
+    />
+
+    <g clip-path="url(#atlasPage)">
+      <circle cx="20.5" cy="28.4" r="7.1" fill="url(#ocean)" />
+      <path
+        d="M14.2 27.9c2.8-.5 4.3-2.1 5.2-4 .7-.8 1.8-.7 2.5-.1l-.3 1.8 2.2 1.3 2.1-.3 1.6 2.4-2 1.2-1.1 2.8-2.4 2.1-2.2-1.7-1.2-2.4-2.3-1.1z"
+        fill="#E8BC76"
+      />
+      <path
+        d="M20.5 21.4c-1.7 2-2.4 4.2-2.4 7s.7 5 2.4 7m0-14c1.7 2 2.4 4.2 2.4 7s-.7 5-2.4 7M13.5 28.4h14"
+        stroke="#E7F7F1"
+        stroke-opacity=".72"
+        stroke-width=".55"
+      />
+      <circle cx="20.5" cy="28.4" r="7.1" stroke="#1E777A" stroke-width=".6" />
+    </g>
+
+    <path
+      d="M36.8 23.2h10.5"
+      stroke="#63203C"
+      stroke-width="1.55"
+      stroke-linecap="round"
+    />
+    <path
+      d="M36.8 26.4h13.2M36.8 28.5h9.8"
+      stroke="#A69683"
+      stroke-width=".85"
+      stroke-linecap="round"
+    />
+    <rect
+      x="36.8"
+      y="30.1"
+      width="13.4"
+      height="7.1"
+      rx="1"
+      fill="#F6EFE4"
+      stroke="#D8CCBC"
+      stroke-width=".55"
+    />
+    <path
+      d="M39 35.8v-2.1m2.5 2.1v-3.7m2.5 3.7v-2.8m2.5 2.8v-4.6"
+      stroke="#327F82"
+      stroke-width="1.15"
+      stroke-linecap="round"
+    />
+    <path
+      d="M32 18v24.2"
+      stroke="#B9804C"
+      stroke-opacity=".78"
+      stroke-width=".75"
+    />
+    <path
+      d="m8.5 28.8 20-11.6a3.8 3.8 0 0 1 3.5.6 3.8 3.8 0 0 1 3.5-.6l20 11.6"
+      stroke="#FFF8EA"
+      stroke-opacity=".8"
+      stroke-width=".7"
+    />
+  </g>
+</svg>

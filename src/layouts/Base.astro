@@ -1,39 +1,40 @@
 ---
-import Suggest from '../components/Suggest.astro';
-import '../styles/site.css';
-import '../styles/ledger.css';
-import '../styles/studio.css';
-import Icon from '../components/Icon.astro';
+import Suggest from "../components/Suggest.astro";
+import "../styles/site.css";
+import "../styles/ledger.css";
+import "../styles/studio.css";
+import Icon from "../components/Icon.astro";
+import Brand from "../components/Brand.astro";
 const {
   title,
-  description = 'Browse editable documents, build charts from your own data, and plan your year with TemplateAtlas.',
+  description = "Browse editable documents, build charts from your own data, and plan your year with TemplateAtlas.",
   noindex = false,
 } = Astro.props;
 const path = Astro.url.pathname;
 const accountCandidate =
   /(?:^|;\s*)(?:__Secure-)?better-auth\.session_token=/.test(
-    Astro.request.headers.get('cookie') || '',
+    Astro.request.headers.get("cookie") || "",
   );
-const canonicalUrl = new URL(path, 'https://templateatlas.com');
-const page = Astro.url.searchParams.get('page');
+const canonicalUrl = new URL(path, "https://templateatlas.com");
+const page = Astro.url.searchParams.get("page");
 if (
   page &&
   /^\d+$/.test(page) &&
   +page > 1 &&
-  (path.startsWith('/categories/') || path === '/templates/')
+  (path.startsWith("/categories/") || path === "/templates/")
 )
-  canonicalUrl.searchParams.set('page', page);
+  canonicalUrl.searchParams.set("page", page);
 const canonical = canonicalUrl.href;
 const info = Astro.props.entry;
 const jsonLd = info
   ? {
-      '@context': 'https://schema.org',
-      '@type': path === info.detail_path ? 'CreativeWork' : 'CollectionPage',
+      "@context": "https://schema.org",
+      "@type": path === info.detail_path ? "CreativeWork" : "CollectionPage",
       name: title,
       description,
       url: canonical,
-      inLanguage: 'en-US',
-      image: new URL(info.preview, 'https://templateatlas.com').href,
+      inLanguage: "en-US",
+      image: new URL(info.preview, "https://templateatlas.com").href,
       ...(path === info.detail_path
         ? {
             encodingFormat: info.formats.map(
@@ -42,13 +43,13 @@ const jsonLd = info
           }
         : {}),
     }
-  : path === '/'
+  : path === "/"
     ? {
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'TemplateAtlas',
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "TemplateAtlas",
         url: canonical,
-        inLanguage: 'en-US',
+        inLanguage: "en-US",
       }
     : null;
 ---
@@ -62,22 +63,22 @@ const jsonLd = info
     <meta name="description" content={description} />
     <meta
       name="robots"
-      content={noindex ? 'noindex, follow' : 'index, follow'}
+      content={noindex ? "noindex, follow" : "index, follow"}
     />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/atlas.webp" />
-    <meta property="og:title" content={title + ' · TemplateAtlas'} />
+    <link rel="icon" type="image/svg+xml" href="/templateatlas-mark.svg" />
+    <meta property="og:title" content={title + " · TemplateAtlas"} />
     <meta property="og:description" content={description} />
     {info && (
       <meta
         property="og:image"
-        content={new URL(info.preview, 'https://templateatlas.com')}
+        content={new URL(info.preview, "https://templateatlas.com")}
       />
     )}
     {jsonLd && (
       <script
         type="application/ld+json"
-        set:html={JSON.stringify(jsonLd).replaceAll('<', '\\u003c')}
+        set:html={JSON.stringify(jsonLd).replaceAll("<", "\\u003c")}
       />
     )}
     <meta name="theme-color" content="#65162f" />
@@ -88,10 +89,7 @@ const jsonLd = info
     </a>
     <header class="masthead">
       <div class="bar container">
-        <a class="brand" href="/">
-          <img alt="" width="43" height="43" src="/atlas.webp" />
-          TemplateAtlas
-        </a>
+        <Brand />
         <form class="header-search" action="/search/">
           <Icon name="search" size={17} />
           <label for="global-search" class="sr">
@@ -115,7 +113,7 @@ const jsonLd = info
         </nav>
         <div
           class="header-account"
-          data-member={accountCandidate ? 'possible' : 'guest'}
+          data-member={accountCandidate ? "possible" : "guest"}
         >
           <a class="signin" data-account href="/signin/">
             Sign in
@@ -129,16 +127,14 @@ const jsonLd = info
     <Suggest />
     <main
       id="main"
-      class:list={['container', { 'home-container': path === '/' }]}
+      class:list={["container", { "home-container": path === "/" }]}
     >
       <slot />
     </main>
     <footer>
       <div class="container foot">
         <div>
-          <a class="brand" href="/">
-            TemplateAtlas
-          </a>
+          <Brand />
           <p>Documents, charts, and calendars for everyday work.</p>
         </div>
         <nav aria-label="Footer">
@@ -151,18 +147,18 @@ const jsonLd = info
       </div>
     </footer>
     <script>
-      if (document.querySelector('[data-member=possible]'))
-        fetch('/api/session')
+      if (document.querySelector("[data-member=possible]"))
+        fetch("/api/session")
           .then((r) => r.json())
           .then((s) => {
             if (s.user) {
               const a =
-                document.querySelector<HTMLAnchorElement>('[data-account]')!;
-              a.href = '/account/';
-              a.textContent = 'Your account';
+                document.querySelector<HTMLAnchorElement>("[data-account]")!;
+              a.href = "/account/";
+              a.textContent = "Your account";
               document
-                .querySelector('.account-cta')
-                ?.setAttribute('hidden', '');
+                .querySelector(".account-cta")
+                ?.setAttribute("hidden", "");
             }
           })
           .catch(() => {});
