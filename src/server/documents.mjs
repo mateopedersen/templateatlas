@@ -299,6 +299,7 @@ export async function documents(env, actor, id, method, input = {}) {
 export const formatMimes = Object.freeze({
   ...jobMimes,
   odt: 'application/vnd.oasis.opendocument.text',
+  html: 'text/html',
 });
 export function checkFormat(format) {
   requireValue(
