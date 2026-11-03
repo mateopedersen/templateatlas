@@ -884,5 +884,6 @@
 
 /* Keep long file names readable at narrow card widths. */
 .imported-card-downloads [data-format="pptx"] .file-button-copy strong { font-size: 12px; white-space: nowrap; }
-.imported-card-downloads [data-format="pptx"] .file-button-arrow { display: none; }
-@container (max-width: 250px) { .imported-card-downloads.has-powerpoint { grid-template-columns: 1fr; } }
+.imported-card-downloads.has-powerpoint .file-button-arrow { display: block; }
+.imported-controls .imported-card-downloads.has-powerpoint { grid-template-columns: 1fr; }
+@container (max-width: 340px) { .imported-card-downloads.has-powerpoint { grid-template-columns: 1fr; } }
