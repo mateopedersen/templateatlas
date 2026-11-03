@@ -300,6 +300,8 @@ export const formatMimes = Object.freeze({
   ...jobMimes,
   odt: 'application/vnd.oasis.opendocument.text',
   html: 'text/html',
+  psd: 'image/vnd.adobe.photoshop',
+  zip: 'application/zip',
 });
 export function checkFormat(format) {
   requireValue(

@@ -43,6 +43,8 @@ const supported = new Set([
   'png',
   'webp',
   'html',
+  'psd',
+  'zip',
   'csv',
   'ics',
   'canva',
