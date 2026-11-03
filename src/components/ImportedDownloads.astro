@@ -3,6 +3,7 @@ import FileIcon from './FileIcon.astro';
 const { entry } = Astro.props;
 const labels: Record<string,string> = {pdf:'PDF',webp:'Image',docx:'Word',xlsx:'Excel',odt:'ODT',html:'Google Docs',psd:'Photoshop',zip:'Fonts'};
 const icons: Record<string,string> = {pdf:'pdf',webp:'image',docx:'word',xlsx:'excel',odt:'odt',html:'google-docs',psd:'photoshop',zip:'fonts'};
+if (entry.topic_path === '/templates/agency-agreement/') labels.html = 'Google Sheets';
 if (entry.topic_path === '/templates/baby-feeding-chart/') labels.html = 'Google Docs & Sheets';
 const formats = ['pdf','webp','docx','xlsx','odt','psd','zip','html'].filter(format => !!entry.assets[format]);
 const bytes = (value: number) => value < 1024*1024 ? Math.ceil(value/1024) + ' KB' : (value/1024/1024).toFixed(1) + ' MB';
