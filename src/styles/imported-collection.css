@@ -400,11 +400,16 @@
   display: grid;
   gap: 2px;
   text-align: left;
+  flex: 1 1 0;
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 .file-button-copy strong {
+  min-width: 0;
+  max-width: 100%;
   font-size: 13px;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 .file-button-copy small {
   font-size: 10px;
