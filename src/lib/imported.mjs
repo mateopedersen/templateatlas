@@ -9,6 +9,7 @@ export const publicCatalogAssets = new Map(
   collections.flatMap((c) => [
     ...c.items.flatMap((item) => [
       [item.previewAsset.path, item.previewAsset],
+      ...(item.thumbnailAsset ? [[item.thumbnailAsset.path, item.thumbnailAsset]] : []),
       ...(item.previewPages || []).map(page => [page.asset.path, page.asset]),
     ]),
     ...c.documents.map((document) => [document.path, document]),
