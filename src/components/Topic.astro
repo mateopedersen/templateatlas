@@ -118,6 +118,7 @@ const chart = Object.hasOwn(types, s.topic_slug),
 </div>
 <script>
   import { download } from '../lib/client.mjs';
+  import { showDownloadGate } from '../lib/download-gate.mjs';
   const button = document.querySelector<HTMLButtonElement>('[data-download]');
   button?.addEventListener('click', async () => {
     const status = document.querySelector<HTMLElement>('[data-msg]')!;
@@ -134,6 +135,7 @@ const chart = Object.hasOwn(types, s.topic_slug),
       });
       status.textContent = 'Your file has been downloaded.';
     } catch (e) {
+      if (showDownloadGate((e as any).code)) { status.textContent = ''; return; }
       status.textContent = (e as Error).message;
       if (
         [

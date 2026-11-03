@@ -1,3 +1,4 @@
+import { showDownloadGate } from '../lib/download-gate.mjs';
 import { awaitExport } from '../lib/export-state.mjs';
 import { initial, validate, csvRows, types } from './model.mjs';
 import { chartFormats } from './capabilities.mjs';
@@ -278,6 +279,7 @@ function mount(root) {
       );
     }
     if (!res.ok) {
+      showDownloadGate(result.code);
       const gate = [
         'SIGNUP_REQUIRED',
         'MEMBERSHIP_REQUIRED',

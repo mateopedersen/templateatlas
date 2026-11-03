@@ -1,3 +1,4 @@
+import { showDownloadGate } from '../lib/download-gate.mjs';
 import { awaitExport } from '../lib/export-state.mjs';
 const messages = {
   GUEST_SESSION_REQUIRED: 'Reload the page to reconnect your visitor session.',
@@ -47,6 +48,7 @@ function init(root) {
       throw Error('The service could not be reached. Try again.');
     }
     if (!res.ok) {
+      showDownloadGate(result.code);
       find('[data-native-gate]').hidden = ![
         'SIGNUP_REQUIRED',
         'EMAIL_VERIFICATION_REQUIRED',

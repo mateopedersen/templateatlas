@@ -273,6 +273,7 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
 </div>
 <script>
   import { download } from "../lib/client.mjs";
+  import { showDownloadGate } from "../lib/download-gate.mjs";
   for (const button of document.querySelectorAll<HTMLButtonElement>(
     "[data-catalog-download]",
   )) {
@@ -291,6 +292,7 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
         status.textContent = button.dataset.format === "html" ? "Open the downloaded shortcut to access the Google document links." : "Your file has been downloaded.";
       } catch (error) {
         const e = error as Error & { code?: string };
+        if (showDownloadGate(e.code)) { status.textContent = ""; return; }
         status.textContent = e.message;
         if (
           [

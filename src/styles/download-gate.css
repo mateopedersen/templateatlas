@@ -1,0 +1,23 @@
+.download-gate { width:min(510px,calc(100% - 32px)); max-width:none; max-height:calc(100dvh - 32px); padding:0; border:1px solid #e3e9eb; border-radius:24px; color:#352731; background:#fff; box-shadow:0 28px 85px #24152255; overflow:auto; }
+.download-gate::backdrop { background:rgba(30,22,29,.55); backdrop-filter:blur(4px); }
+.download-gate-card { position:relative; padding:32px 38px 28px; text-align:center; font-family:Manrope,Arial,sans-serif; }
+.download-gate-close { position:absolute; top:18px; right:18px; display:grid; place-items:center; width:36px; height:36px; border:1px solid #e4edef; border-radius:50%; background:#f6fafb; color:#58354a; font-size:24px; line-height:1; cursor:pointer; }
+.download-gate-close:hover { background:#eef3f4; }
+.download-gate-art { width:96px; height:82px; margin:0 auto 6px; }
+.download-gate-art svg { display:block; width:100%; height:100%; }
+.download-gate-eyebrow { margin:0 0 7px; color:#8b5069; font-size:11px; font-weight:800; letter-spacing:.12em; }
+.download-gate h2 { margin:0; font-family:inherit; font-weight:800; color:#482338; font-size:clamp(27px,5vw,34px); line-height:1.2; letter-spacing:-.035em; }
+.download-gate-lead { margin:12px auto 19px; max-width:395px; color:#5b505a; font-size:15px; line-height:1.6; }
+.download-gate-lead strong { color:#56253e; }
+.download-gate-benefits { display:grid; gap:14px; padding:19px; margin-bottom:20px; border:1px solid #e3edef; border-radius:16px; background:#f4f9fa; text-align:left; }
+.download-gate-benefits>div { display:flex; align-items:flex-start; gap:11px; }
+.download-gate-benefits>div>span { display:grid; place-items:center; flex:0 0 23px; height:23px; border-radius:50%; color:#fff; background:#783d58; font-size:13px; font-weight:800; }
+.download-gate-benefits p { display:grid; gap:2px; margin:0; }
+.download-gate-benefits strong { color:#493342; font-size:14px; line-height:1.35; }
+.download-gate-benefits small { color:#5f6870; font-size:12px; line-height:1.45; }
+.download-gate-primary { display:flex; justify-content:center; align-items:center; gap:12px; min-height:52px; padding:11px 20px; border:1px solid #532038; border-radius:12px; background:linear-gradient(145deg,#7d3958,#58213c); box-shadow:0 4px 0 #3e1b2d,0 9px 18px #56233b22; color:white; font-size:15px; font-weight:800; text-decoration:none; }
+.download-gate-primary:hover { background:linear-gradient(145deg,#8a4262,#682843); color:white; }
+.download-gate-primary:focus-visible,.download-gate-close:focus-visible,.download-gate-signin a:focus-visible { outline:3px solid #b47b93; outline-offset:3px; }
+.download-gate-signin { margin:19px 0 0; color:#6e626c; font-size:13px; }
+.download-gate-signin a { color:#622942; font-weight:800; text-underline-offset:3px; }
+@media(max-width:480px) { .download-gate-card { padding:25px 21px 23px; } .download-gate-art { width:80px; height:68px; } .download-gate-benefits { padding:15px; gap:12px; } }
