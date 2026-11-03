@@ -10,6 +10,20 @@ export const entries = [...seeds.flatMap((seed) => {
   const release = releases.get(seed.seed_id);
   return release ? [{ ...seed, ...release }] : [];
 }), ...importedEntries];
+// The library's top level lists each topic once. Individual imported designs
+// remain available on their topic and detail pages.
+export function topicEntries(availableEntries) {
+  const topics = new Map();
+  for (const entry of availableEntries) {
+    const existing = topics.get(entry.topic_path);
+    if (!existing || (existing.importedCollection && !entry.importedCollection)) {
+      topics.set(entry.topic_path, entry);
+    }
+  }
+  return [...topics.values()].map((entry) =>
+    entry.importedCollection ? { ...entry, importedCollection: undefined } : entry,
+  );
+}
 export const topicGroups = new Map();
 export const byPath = new Map();
 for (const entry of entries) {

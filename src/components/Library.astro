@@ -8,6 +8,7 @@ import {
   display,
   categoryItems,
   entries,
+  topicEntries,
   search,
 } from '../lib/catalog.mjs';
 import { types } from '../charts/model.mjs';
@@ -43,6 +44,7 @@ const visibleEntries = entries.filter((e) => !Astro.locals.held?.has(e.id));
 const available = (c: any) =>
   categoryItems(c).filter((e) => !Astro.locals.held?.has(e.id));
 const searching = path === '/search/';
+const browsingTopics = path === '/templates/';
 let failure = '',
   indexed: any = null;
 if (searching) {
@@ -57,7 +59,7 @@ const items = searching
   ? indexed?.results || []
   : cat
     ? available(cat)
-    : visibleEntries;
+    : browsingTopics ? topicEntries(visibleEntries) : visibleEntries;
 const goal = params.get('goal') || '',
   validGoal = chart && Object.hasOwn(facets.labels, goal);
 const visible = validGoal
@@ -266,10 +268,10 @@ const fmts = [...new Set(visibleEntries.flatMap((s) => s.formats))].sort();
           ? 'In this collection'
           : query
             ? 'Results for “' + query + '”'
-            : 'Browse documents'}
+            : browsingTopics ? 'Browse topics' : 'Browse documents'}
       </h2>
       <span>
-        {total.toLocaleString('en-US')} {total === 1 ? 'template' : 'templates'}
+        {total.toLocaleString('en-US')} {browsingTopics ? (total === 1 ? 'topic' : 'topics') : (total === 1 ? 'template' : 'templates')}
       </span>
     </div>
     {visible.length ? (
