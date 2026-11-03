@@ -54,8 +54,8 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
 {collection.print_note && <PrintScaleNote note={collection.print_note}/>}
 <div class:list={["workspace", "imported-workspace", { "imported-browse": !item }]}>
   <aside class:list={["panel", "imported-controls", {"application-controls":application}]}>
-    {item && <p class="over">{snow ? "Snow Removal Contract" : evaluation ? "Employee Evaluation" : protractor ? "Measuring Instrument" : bracket ? "Tournament Bracket" : application ? "Commercial Application" : savings ? "Savings tracker" : petRecord ? "Dog vaccination record" : "Refrigerant reference"}</p>}
-    {item && <h2>{snow ? "Download This Agreement" : evaluation ? "Download This Review" : protractor ? "Download This Protractor" : bracket ? "Download This Bracket" : application ? "Download This Application" : savings ? "Download This Tracker" : petRecord ? "Download This Record" : "Download This Chart"}</h2>}
+    {item && <p class="over">{receipt ? "Acknowledgment Receipt" : snow ? "Snow Removal Contract" : evaluation ? "Employee Evaluation" : protractor ? "Measuring Instrument" : bracket ? "Tournament Bracket" : application ? "Commercial Application" : savings ? "Savings tracker" : petRecord ? "Dog vaccination record" : "Refrigerant reference"}</p>}
+    {item && <h2>{receipt ? "Download This Receipt" : snow ? "Download This Agreement" : evaluation ? "Download This Review" : protractor ? "Download This Protractor" : bracket ? "Download This Bracket" : application ? "Download This Application" : savings ? "Download This Tracker" : petRecord ? "Download This Record" : "Download This Chart"}</h2>}
     {item ? (
       <>
         <p>
@@ -63,7 +63,7 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
         </p>
         <ImportedDownloads entry={item}/>
         <dl class="imported-facts">
-          {!savings && !application && !petRecord && !bracket && !protractor && !evaluation && !snow && <> <dt>Reference grid</dt>
+          {!receipt && !savings && !application && !petRecord && !bracket && !protractor && !evaluation && !snow && <> <dt>Reference grid</dt>
           <dd>{item.range}</dd>
           <dt>Data rows</dt>
           <dd>{item.rows}</dd>
