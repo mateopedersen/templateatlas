@@ -3,10 +3,11 @@ import FileIcon from './FileIcon.astro';
 const { entry } = Astro.props;
 const labels: Record<string,string> = {pdf:'PDF',webp:'Image',docx:'Word',xlsx:'Excel',odt:'ODT',html:'Google Docs'};
 const icons: Record<string,string> = {pdf:'pdf',webp:'image',docx:'word',xlsx:'excel',odt:'odt',html:'google-docs'};
+if (entry.topic_path === '/templates/baby-feeding-chart/') labels.html = 'Google Docs & Sheets';
 const formats = ['pdf','webp','docx','xlsx','odt','html'].filter(format => !!entry.assets[format]);
 const bytes = (value: number) => value < 1024*1024 ? Math.ceil(value/1024) + ' KB' : (value/1024/1024).toFixed(1) + ' MB';
 ---
-<div class:list={['download-set','imported-card-downloads',{'has-word':formats.length===3,'has-four-formats':formats.length===4}]}>
+<div class:list={['download-set','imported-card-downloads',{'has-word':formats.length===3,'has-four-formats':formats.length===4 || formats.length===5,'has-five-formats':formats.length===5}]}>
   {formats.map(format=><button class:list={[{'secondary-download':format!=='pdf'}]} data-catalog-download={entry.id} data-format={format} aria-label={`Download ${labels[format]}: ${entry.title}`}>
     <span class="file-button-icon"><FileIcon kind={icons[format]}/></span>
     <span class="file-button-copy"><strong>{labels[format]}</strong><small>{format === 'html' ? 'Shortcut' : bytes(entry.assets[format].bytes)}</small></span>

@@ -869,3 +869,5 @@
     scrollbar-color: #b9cbd4 #f4f9fc;
   }
 }
+
+.imported-card-downloads.has-five-formats button:last-of-type { grid-column: 1 / -1; }
