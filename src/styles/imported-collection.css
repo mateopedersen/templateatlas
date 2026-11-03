@@ -742,14 +742,8 @@
   position: absolute; display: block; object-fit: cover; object-position: top;
   background: #fff; border: 3px solid #f9f9f9; box-shadow: 1px 8px 18px #220e23aa;
 }
-.print-cover-art img:first-child { width: 70%; height: auto; top: 33%; right: 28%; transform: rotate(-10deg); }
-.print-cover-art img:last-child { width: 51%; height: auto; top: 15%; right: 6%; transform: rotate(9deg); }
-.print-cover-art img:first-child, .print-cover-art img:last-child {
-  top: 50%; width: auto; height: auto; max-height: calc(100% - 24px); max-width: 43%;
-  object-fit: contain; transform: translateY(-50%);
-}
-.print-cover-art img:first-child { right: 53%; }
-.print-cover-art img:last-child { right: 6%; }
+.print-cover-art img:first-child { width: 62%; height: auto; top: 20%; right: 40%; transform: rotate(-8deg); }
+.print-cover-art img:last-child { width: 49%; height: auto; top: 10%; right: 4%; transform: rotate(8deg); }
 .workspace.imported-browse aside.imported-controls {
   padding: 0 16px 0 0; background: transparent; border: 0; border-right: 1px solid #e5f0f4; border-radius: 0; box-shadow: none;
 }
@@ -784,9 +778,8 @@
   .print-cover .print-cover-copy h1 { font-size: clamp(23px,5vw,34px); }
   .print-cover-copy .print-cover-intro { font-size: 12px; }
   .print-cover-art { min-height: 0; }
-  .print-cover-art img:first-child, .print-cover-art img:last-child { width:auto; height:auto; max-height:calc(100% - 20px); max-width:43%; top:50%; transform:translateY(-50%); }
-  .print-cover-art img:first-child { right:53%; }
-  .print-cover-art img:last-child { right:5%; }
+  .print-cover-art img:first-child { width: 97%; right: 9%; top: 48%; }
+  .print-cover-art img:last-child { width: 88%; right: -9%; top: 20%; }
   .workspace.imported-browse aside.imported-controls { border: 0; padding: 0; margin-bottom: 12px; }
   .imported-controls .print-filter-drawer form { display:block; }
 }
