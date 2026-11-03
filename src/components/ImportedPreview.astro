@@ -16,11 +16,33 @@ const multiple = pages.length > 1;
     </a>
     {multiple && <p class="document-page-caption">Page {page.page} Of {pages.length} · {item.paper}</p>}
   </section>)}
+  <dialog class="preview-lightbox" aria-label={`Enlarged preview of ${item.title}`}>
+    <div class="preview-lightbox-bar">
+      <strong data-zoom-page>Page 1 Of {pages.length}</strong>
+      <div class="preview-lightbox-actions">
+        {multiple && <><button type="button" data-zoom-prev aria-label="Previous page">← Previous</button><button type="button" data-zoom-next>Next →</button></>}
+        <button type="button" data-zoom-out aria-label="Zoom out">−</button><span data-zoom-level>100%</span><button type="button" data-zoom-in aria-label="Zoom in">+</button><button type="button" data-zoom-close>Close</button>
+      </div>
+    </div>
+    <div class="preview-lightbox-scroll"><img alt="" data-zoom-image /></div>
+  </dialog>
 </div>
 <script>
  for (const root of document.querySelectorAll<HTMLElement>('[data-page-preview]')) {
   const tabs=[...root.querySelectorAll<HTMLButtonElement>('[data-preview-page]')];
   const panels=[...root.querySelectorAll<HTMLElement>('[data-preview-panel]')];
+  const dialog=root.querySelector<HTMLDialogElement>('.preview-lightbox')!;
+  const zoomImage=dialog.querySelector<HTMLImageElement>('[data-zoom-image]')!;
+  const level=dialog.querySelector<HTMLElement>('[data-zoom-level]')!;
+  const caption=dialog.querySelector<HTMLElement>('[data-zoom-page]')!;
+  let current=0, zoom=100;
+  const showZoom=()=>{const source=panels[current].querySelector<HTMLImageElement>('img')!;zoomImage.src=source.src;zoomImage.alt=source.alt;zoomImage.style.width=`${zoom}%`;level.textContent=`${zoom}%`;caption.textContent=`Page ${current+1} Of ${panels.length}`;const prev=dialog.querySelector<HTMLButtonElement>('[data-zoom-prev]'),next=dialog.querySelector<HTMLButtonElement>('[data-zoom-next]');if(prev)prev.disabled=current===0;if(next)next.disabled=current===panels.length-1;};
+  panels.forEach((panel,index)=>panel.querySelector('a')?.addEventListener('click',event=>{if(typeof dialog.showModal!=='function')return;event.preventDefault();current=index;zoom=100;showZoom();dialog.showModal();}));
+  dialog.querySelector('[data-zoom-close]')?.addEventListener('click',()=>dialog.close());
+  dialog.querySelector('[data-zoom-in]')?.addEventListener('click',()=>{zoom=Math.min(250,zoom+25);showZoom();});
+  dialog.querySelector('[data-zoom-out]')?.addEventListener('click',()=>{zoom=Math.max(50,zoom-25);showZoom();});
+  dialog.querySelector('[data-zoom-prev]')?.addEventListener('click',()=>{if(current>0){current--;showZoom();}});
+  dialog.querySelector('[data-zoom-next]')?.addEventListener('click',()=>{if(current<panels.length-1){current++;showZoom();}});
   const select=(index:number,focus=false)=>{tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===index));tab.tabIndex=i===index?0:-1;panels[i].hidden=i!==index;});if(focus)tabs[index].focus();};
   tabs.forEach((tab,index)=>{
    tab.addEventListener('click',()=>select(index));

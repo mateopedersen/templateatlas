@@ -86,7 +86,7 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
         <details class="print-filter-drawer" open>
           <summary><span class="finder-title"><span class="finder-title-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span><strong>Print options</strong><small>Choose your format</small></span></span></summary>
           <form id="chart-filters" data-chart-filters data-total={items.length}>
-            {application && <label class="print-filter-field"><span>Business Use</span><select name="subject"><option value="">All Business Uses</option>{options("subject").sort((a,b)=>a.localeCompare(b,'en-US')).map(value=><option value={value}>{value}</option>)}</select></label>}
+            {application && <div class="print-filter-field"><span>Business Use</span><select name="subject" aria-label="Business Use"><option value="">All Business Uses</option>{options("subject").sort((a,b)=>a.localeCompare(b,'en-US')).map(value=><option value={value}>{value}</option>)}</select></div>}
             {snow ? null : formCollection ? <fieldset class="layout-picker">
               <legend>Form Length</legend>
               <div class="layout-samples">
@@ -107,13 +107,13 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
               <label class="layout-any"><input type="radio" name="orientation" value="" checked /> Any layout</label>
             </fieldset>}
             {(["edition", "paper", "color"] as const).filter(key=>!formCollection || key!=="paper" || options("paper").length>1).map(key => (
-              <label class="print-filter-field">
+              <div class="print-filter-field">
                 <span>{{edition: snow ? "Service Type" : evaluation ? "Review Focus" : protractor ? "Instrument Type" : bracket ? "Team Count" : application ? "Application Type" : savings ? "Savings plan" : petRecord ? "Record type" : "Data edition", paper: "Paper size", color: "Print style"}[key]}</span>
-                <select name={key}>
+                <select name={key} aria-label={{edition: snow ? "Service Type" : evaluation ? "Review Focus" : protractor ? "Instrument Type" : bracket ? "Team Count" : application ? "Application Type" : savings ? "Savings plan" : petRecord ? "Record type" : "Data edition", paper: "Paper size", color: "Print style"}[key]}>
                   <option value="">{{edition: snow ? "All Service Types" : evaluation ? "All Review Focuses" : protractor ? "All Instrument Types" : bracket ? "All Team Counts" : application ? "All Application Types" : savings ? "All savings plans" : petRecord ? "All record types" : "All editions", paper: "All sizes", color: "All styles"}[key]}</option>
                   {options(key).map(value => <option value={value}>{value === "US Letter" ? "US Letter (8.5 × 11 in)" : value === "A4" ? "A4 (210 × 297 mm)" : value === "Tabloid" ? "Tabloid (11 × 17 in)" : value === "ANSI C" ? "ANSI C (17 × 22 in)" : value}</option>)}
                 </select>
-              </label>
+              </div>
             ))}
           </form>
         </details>
@@ -131,7 +131,7 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
         <section class="imported-description" aria-label="About this template">
           {item.description_paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
         </section>
-        {(evaluation || snow) && item.pages > 1 && <p class="document-page-caption">First-page preview · {item.pages}-page PDF and Word files</p>}
+        {(evaluation || snow) && item.pages > 1 && <p class="document-page-caption">{item.previewPages?.length > 1 ? `Preview all ${item.pages} pages · Select a page and click to zoom` : `First-page preview · ${item.pages}-page PDF and Word files`}</p>}
         <ImportedPreview item={item}/>
         {snow ? <section class="imported-source-note"><h2>Using This Agreement</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : evaluation ? <section class="imported-source-note"><h2>Using This Review</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : protractor ? <section class="imported-source-note"><h2>Using This Protractor</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : bracket ? <section class="imported-source-note"><h2>Using This Bracket</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : petRecord ? <section class="imported-source-note"><h2>Using This Record</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : application ? <section class="imported-source-note"><h2>Using This Application</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : savings ? <section class="imported-source-note"><h2>Using This Tracker</h2>{weekly ? <><p>Follow the 52 printed weekly amounts. The PDF includes fields for actual deposits, completion checkboxes, and summary information. Word includes editable deposit fields and checkboxes; Excel calculates your goal, saved amount, remaining balance, and progress.</p><p>The Image is a static printable page. The Word and Excel versions use their own editable layouts with the matching plan and artwork.</p></> : <p>The PDF includes 100 checkboxes and three fields for your savings purpose and dates. The Image is a static printable version.</p>}</section> : <section class="imported-source-note">
           <h2>Using this reference</h2>
@@ -194,7 +194,7 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
                   loading="lazy"
                   decoding="async"
                 />
-                {e.pages>1 && <span class="imported-page-count">{e.pages} Pages</span>}
+                {e.pages>1 && <span class="imported-page-count">{e.previewPages?.length > 1 ? `View ${e.pages} Pages` : `${e.pages} Pages`}</span>}
               </a>
               <div class="imported-card-body">
                 <p class="over">
@@ -304,6 +304,48 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
     });
   }
   const form = document.querySelector<HTMLFormElement>("[data-chart-filters]");
+  // A page-rendered menu remains readable and clickable even in embedded browsers
+  // that fail to display the operating system's native select popup.
+  form?.querySelectorAll<HTMLSelectElement>(".print-filter-field select").forEach((select) => {
+    const menu = document.createElement("details");
+    menu.className = "filter-menu";
+    const summary = document.createElement("summary");
+    summary.setAttribute("aria-label", select.getAttribute("aria-label") || "Choose an option");
+    const list = document.createElement("div");
+    list.className = "filter-menu-options";
+    const update = () => {
+      summary.textContent = select.selectedOptions[0]?.textContent || "Select";
+      list.querySelectorAll<HTMLButtonElement>("button").forEach(button => {
+        button.setAttribute("aria-pressed", String(button.value === select.value));
+      });
+    };
+    Array.from(select.options).forEach(option => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.value = option.value;
+      button.textContent = option.textContent;
+      button.addEventListener("click", () => {
+        select.value = button.value;
+        select.dispatchEvent(new Event("change", {bubbles: true}));
+        menu.open = false;
+        summary.focus();
+      });
+      list.append(button);
+    });
+    menu.append(summary, list);
+    select.after(menu);
+    select.hidden = true;
+    select.addEventListener("change", update);
+    form.addEventListener("reset", () => setTimeout(update, 0));
+    menu.addEventListener("toggle", () => {
+      if (menu.open) form.querySelectorAll<HTMLDetailsElement>(".filter-menu").forEach(other => { if (other !== menu) other.open = false; });
+    });
+    menu.addEventListener("keydown", event => {
+      if (event.key === "Escape" && menu.open) { menu.open = false; summary.focus(); }
+    });
+    document.addEventListener("click", event => { if (!menu.contains(event.target as Node)) menu.open = false; });
+    update();
+  });
   const drawer = document.querySelector<HTMLDetailsElement>(".print-filter-drawer");
   if (drawer && matchMedia("(max-width: 730px)").matches) drawer.open = false;
   function filter() {

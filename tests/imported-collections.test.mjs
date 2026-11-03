@@ -52,7 +52,7 @@ const noCache={match:async()=>null,put:async()=>{}};
 test('public asset host never exposes arbitrary originals or API paths',async()=>{
  let calls=0;const env={ASSET_ORIGINALS:{get:async()=>{calls++;}}};
  for(const path of ['/catalog/ta-r134a-dimensional-001/file.pdf','/api/session','/unknown.webp'])assert.equal((await catalogAsset(new Request('https://assets.templateatlas.com'+path),env,{waitUntil(){}},noCache)).status,404);
- assert.equal(calls,0);assert.equal(publicCatalogAssets.size,1053);
+ assert.equal(calls,0);assert.equal(publicCatalogAssets.size,1753);
 });
 test('R2 preview delivery uses only the allowlisted object and immutable cache headers',async()=>{
  const [path,asset]=publicCatalogAssets.entries().next().value;const keys=[];
@@ -83,7 +83,7 @@ test('employee reviews expose complete files and only a first-page image',()=>{
  checkFormat('html');
 });
 
-test('snow agreements share one collection and use first-page previews',()=>{
+test('snow agreements share one collection and offer all eight preview pages',()=>{
  const c=collections.find(c=>c.id==='snow-removal-contracts');
  assert.equal(c.items.length,100);
  assert.equal(new Set(c.items.map(e=>e.title)).size,100);
@@ -91,7 +91,12 @@ test('snow agreements share one collection and use first-page previews',()=>{
  assert.equal(c.items.filter(e=>e.color==='Color').length,10);
  for(const e of c.items){
   assert.equal(e.pages,8);
-  assert.equal(e.previewPages,undefined);
+  assert.equal(e.previewPages.length,8);
+  assert.equal(e.previewPages[0].url,e.preview);
+  for(const [index,page] of e.previewPages.entries()){
+   assert.equal(page.page,index+1);
+   assert.equal(publicCatalogAssets.get(new URL(page.url).pathname).sha256,page.asset.sha256);
+  }
   assert.doesNotMatch(e.title + ' ' + e.intro, /\b(?:Canada|Canadian|United States)\b/i);
   assert.match(e.description_paragraphs[1],/United States|Canada/);
   assert.equal(e.formats.join(','),'pdf,webp,docx,html');
