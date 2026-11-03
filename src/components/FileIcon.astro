@@ -56,6 +56,17 @@ const id = "file-" + crypto.randomUUID();
       <path d="M9 7h23" stroke="#fff" stroke-opacity=".35" stroke-linecap="round"/>
       <text x="20.5" y="26" text-anchor="middle" fill={kind === "photoshop" ? "#9fdcff" : "#6b294a"} font-family="Arial,sans-serif" font-size={kind === "photoshop" ? "13" : "16"} font-weight="700">{kind === "photoshop" ? "Ps" : "Aa"}</text>
     </>
+  ) : kind === "powerpoint" ? (
+    <>
+      <ellipse cx="21" cy="36" rx="13" ry="2" fill="#492217" opacity=".18"/>
+      <path d="M12 6h12l9 9v19a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2" fill="#cdb2a6"/>
+      <path d="M10 4h13l9 9v19a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2" fill={'url(#' + id + 'paper)'} stroke="#fff" stroke-width=".7"/>
+      <path d="M23 4v7a2 2 0 0 0 2 2h7" fill="#f3dace" stroke="#caa898" stroke-width=".7"/>
+      <circle cx="26" cy="22" r="4" fill="#df9475"/><path d="M26 18v4h4" fill="#bd593c"/>
+      <rect x="4" y="17" width="20" height="14" rx="3" fill="#a8442d"/>
+      <path d="M5.5 18.5h17" stroke="#ffdfcd" stroke-opacity=".65"/>
+      <text x="14" y="27.4" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10" font-weight="800">P</text>
+    </>
   ) : kind === "word" ? (
     <>
       <ellipse cx="21" cy="36" rx="13" ry="2" fill="#14293b" opacity=".18"/>
