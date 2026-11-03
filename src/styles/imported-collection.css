@@ -402,14 +402,14 @@
   text-align: left;
   flex: 1 1 0;
   min-width: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
 }
 .file-button-copy strong {
   min-width: 0;
   max-width: 100%;
   font-size: 13px;
   line-height: 1.2;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
 }
 .file-button-copy small {
   font-size: 10px;
@@ -876,3 +876,8 @@
 }
 
 .imported-card-downloads.has-five-formats button:last-of-type { grid-column: 1 / -1; }
+
+/* Keep long format names readable without competing with the download glyph. */
+.imported-card-downloads button[data-format="psd"] .file-button-copy strong { white-space: nowrap; font-size: 12px; }
+.imported-card-downloads button[data-format="psd"] .file-button-arrow { display: none; }
+@container (max-width: 250px) { .imported-card-downloads.has-five-formats { grid-template-columns: 1fr; } }
