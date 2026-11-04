@@ -3,7 +3,7 @@ const { images = [] } = Astro.props;
 const origin = 'https://templateatlas.com';
 const unique = new Map();
 for (const image of images) {
-  if (!image?.preview || !image?.detail_path) continue;
+  if (!image?.preview || !image?.detail_path || image.third_party_photography || image.topic_path === '/templates/ant-identification-chart/') continue;
   for (const preview of [image.preview, ...(image.previewPages || []).map((page: {url:string}) => page.url)]) {
    const url = new URL(preview, origin).href;
    if (!unique.has(url)) unique.set(url, {

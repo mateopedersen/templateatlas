@@ -887,3 +887,7 @@
 .imported-card-downloads.has-powerpoint .file-button-arrow { display: block; }
 .imported-controls .imported-card-downloads.has-powerpoint { grid-template-columns: 1fr; }
 @container (max-width: 340px) { .imported-card-downloads.has-powerpoint { grid-template-columns: 1fr; } }
+
+.ant-photo-notice { margin: 0 0 20px; padding: 16px 20px; border: 1px solid #d7e6eb; border-left: 4px solid #7b405b; border-radius: 12px; background: #f4f9fa; color: #35434a; font-size: 14px; line-height: 1.55; }
+.ant-photo-notice strong { color: #512339; font-size: 15px; }
+.ant-photo-notice p { margin: 5px 0 0; }
