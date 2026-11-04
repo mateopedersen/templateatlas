@@ -106,7 +106,7 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
             {(snow || agency || letterCollection || accident) ? null : formCollection ? <fieldset class="layout-picker">
               <legend>Form Length</legend>
               <div class="layout-samples">
-                {options("pages").sort((a,b)=>Number(a)-Number(b)).map(pages=>{const example=items.find((entry:any)=>entry.pages===pages);return <label><input type="radio" name="pages" value={String(pages)}/><span class="layout-choice"><span class="layout-proof"><img src={example.preview} alt="" loading="lazy"/></span><span class="layout-name">{pages} {Number(pages)===1?'Page':'Pages'}</span></span></label>;})}
+                {options("pages").sort((a,b)=>Number(a)-Number(b)).map(pages=>{const example=items.find((entry:any)=>entry.pages===pages);return <label><input type="radio" name="pages" value={String(pages)}/><span class="layout-choice"><span class="layout-proof"><img src={example.thumbnailAsset ? `https://assets.templateatlas.com${example.thumbnailAsset.path}` : example.preview} alt="" loading="lazy"/></span><span class="layout-name">{pages} {Number(pages)===1?'Page':'Pages'}</span></span></label>;})}
               </div>
               <label class="layout-any"><input type="radio" name="pages" value="" checked/> Any Length</label>
             </fieldset> : <fieldset class="layout-picker">
@@ -116,7 +116,7 @@ const featuredPapers = formCollection ? items.slice(0,2) : [
                   const example = items.find((entry: any) => entry.orientation === layout);
                   return <label>
                     <input type="radio" name="orientation" value={layout} />
-                    <span class="layout-choice"><span class="layout-proof"><img src={example.preview} alt="" loading="lazy" /></span><span class="layout-name">{layout}</span></span>
+                    <span class="layout-choice"><span class="layout-proof"><img src={example.thumbnailAsset ? `https://assets.templateatlas.com${example.thumbnailAsset.path}` : example.preview} alt="" loading="lazy" /></span><span class="layout-name">{layout}</span></span>
                   </label>;
                 })}
               </div>

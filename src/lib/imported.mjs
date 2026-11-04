@@ -1,4 +1,9 @@
 import collections from "../data/imported-collections.json" with { type: "json" };
+import thumbnails from '../data/thumbnail-map.json' with { type: 'json' };
+for (const collection of collections) for (const item of collection.items) {
+  const thumbnail = thumbnails[item.id];
+  if (thumbnail && !item.thumbnailAsset) { item.thumbnailAsset = thumbnail.asset; item.thumbnailSize = thumbnail.size; }
+}
 import { validateImportedEditorial } from './imported-editorial.mjs';
 validateImportedEditorial(collections);
 export { collections };

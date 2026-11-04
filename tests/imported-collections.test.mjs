@@ -52,7 +52,7 @@ const noCache={match:async()=>null,put:async()=>{}};
 test('public asset host never exposes arbitrary originals or API paths',async()=>{
  let calls=0;const env={ASSET_ORIGINALS:{get:async()=>{calls++;}}};
  for(const path of ['/catalog/ta-r134a-dimensional-001/file.pdf','/api/session','/unknown.webp'])assert.equal((await catalogAsset(new Request('https://assets.templateatlas.com'+path),env,{waitUntil(){}},noCache)).status,404);
- assert.equal(calls,0);assert.equal(publicCatalogAssets.size,4861);
+ assert.equal(calls,0);assert.equal(publicCatalogAssets.size,6965);
 });
 test('R2 preview delivery uses only the allowlisted object and immutable cache headers',async()=>{
  const [path,asset]=publicCatalogAssets.entries().next().value;const keys=[];
@@ -139,3 +139,5 @@ test("Complaint letters retain source formats and distinct content",()=>{const c
 test("Accident reports retain their pages and source formats",()=>{const c=collections.find(c=>c.id==="accident-report-forms");assert.equal(c.items.length,104);assert.equal(c.items.filter(e=>e.pages===1).length,29);assert.equal(c.items.filter(e=>e.pages===2).length,75);assert.ok(c.items.every(e=>e.pdf_fields===0&&e.previewPages.length===e.pages&&e.formats.join(",")==="pdf,webp,docx,odt"));assert.equal(new Set(c.items.map(e=>e.detail_path)).size,104);});
 
 test("Ant charts retain credited multi-page references and original formats",()=>{const c=collections.find(c=>c.id==="ant-identification-charts");assert.equal(c.items.length,100);assert.equal(c.items.filter(e=>e.pages===3).length,72);assert.equal(c.items.filter(e=>e.pages===4).length,28);assert.ok(c.items.every(e=>e.third_party_photography&&e.previewPages.length===e.pages&&e.formats.join(",")==="pdf,webp"));assert.equal(new Set(c.items.map(e=>e.detail_path)).size,100);});
+
+test("optimized collection thumbnails preserve full-size detail previews",()=>{for(const e of importedEntries){assert.ok(e.thumbnailAsset);assert.match(e.thumbnailAsset.sha256,/^[0-9a-f]{64}$/);assert.ok(e.thumbnailSize.every(n=>n>0));assert.ok(publicCatalogAssets.has(e.thumbnailAsset.path));assert.ok(e.previewAsset.path!==e.thumbnailAsset.path);}});
