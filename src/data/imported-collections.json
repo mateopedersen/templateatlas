@@ -217956,6 +217956,321 @@
     ],
     "items": [
       {
+        "id": "ta-accident-general-101",
+        "topic_path": "/templates/accident-report-form/",
+        "topic_slug": "accident-report-form",
+        "detail_path": "/templates/accident-report-form/accident-report-blue/",
+        "primary_category_path": "/categories/business-commerce/project-management/",
+        "builder_kind": "document",
+        "year": null,
+        "title": "Accident Report - Blue",
+        "summary": "A blue-accented general report for incident details, observed impact, and next steps.",
+        "intro": "A blue-accented general report for incident details, observed impact, and next steps.",
+        "alt": "First page of Accident Report - Blue, with labeled spaces for incident details, people, impact, witnesses, and response.",
+        "description_paragraphs": [
+          "The report begins with the reporter and incident details, followed by the involved person and a three-line account of the event.",
+          "Use the response and follow-up lines for immediate assistance and the next action. The PDF is a printable page, while Word and ODT can be edited."
+        ],
+        "formats": [
+          "pdf",
+          "webp",
+          "docx",
+          "odt"
+        ],
+        "assets": {
+          "pdf": {
+            "mime": "application/pdf",
+            "bytes": 44174,
+            "sha256": "865a8dcdc5dae2505bb7eb04114f6e1e3e74f74f5dc179d87a6ad8d928e2bc5b"
+          },
+          "webp": {
+            "mime": "image/webp",
+            "bytes": 136498,
+            "sha256": "9329bafbb2340774ff2e404f4e0d82db8a8b1a12aa0a175b563fe09089b3cd1e"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 38036,
+            "sha256": "2e8cd5581d6841be015a904649a19e9c4cf720fec70a33fe5297237d3a2f0e7e"
+          },
+          "odt": {
+            "mime": "application/vnd.oasis.opendocument.text",
+            "bytes": 27238,
+            "sha256": "af8074f2921395d0319f48eb786866b7bff19f13e75aee65f0e6898bba0e2cdb"
+          }
+        },
+        "pages": 1,
+        "preview": "https://assets.templateatlas.com/accident-report-form/general-101.aad46edf716cae41.webp",
+        "previewAsset": {
+          "key": "previews/accident-report-form/general-101.aad46edf716cae41.webp",
+          "path": "/accident-report-form/general-101.aad46edf716cae41.webp",
+          "sha256": "aad46edf716cae415877ffe4aee2a7e2384a5d3971d9b264fe163d0c0bad45c4",
+          "bytes": 53582,
+          "mime": "image/webp"
+        },
+        "previewSize": [
+          1236,
+          1600
+        ],
+        "previewPages": [
+          {
+            "page": 1,
+            "url": "https://assets.templateatlas.com/accident-report-form/general-101.aad46edf716cae41.webp",
+            "size": [
+              1236,
+              1600
+            ],
+            "asset": {
+              "key": "previews/accident-report-form/general-101.aad46edf716cae41.webp",
+              "path": "/accident-report-form/general-101.aad46edf716cae41.webp",
+              "sha256": "aad46edf716cae415877ffe4aee2a7e2384a5d3971d9b264fe163d0c0bad45c4",
+              "bytes": 53582,
+              "mime": "image/webp"
+            }
+          }
+        ],
+        "pixels": [
+          2125,
+          2750
+        ],
+        "number": 101,
+        "family": "Accident Report",
+        "design_label": "Accident Report",
+        "edition": "General Reports",
+        "paper": "US Letter",
+        "orientation": "Portrait",
+        "color": "Color",
+        "pdf_fields": 0,
+        "editorial_review": {
+          "status": "source-reviewed",
+          "source_sha256": {
+            "pdf": "865a8dcdc5dae2505bb7eb04114f6e1e3e74f74f5dc179d87a6ad8d928e2bc5b",
+            "webp": "9329bafbb2340774ff2e404f4e0d82db8a8b1a12aa0a175b563fe09089b3cd1e",
+            "docx": "2e8cd5581d6841be015a904649a19e9c4cf720fec70a33fe5297237d3a2f0e7e",
+            "odt": "af8074f2921395d0319f48eb786866b7bff19f13e75aee65f0e6898bba0e2cdb"
+          },
+          "reviewed_content": {
+            "title": "Accident Report - Blue",
+            "intro": "A blue-accented general report for incident details, observed impact, and next steps.",
+            "description_paragraphs": [
+              "The report begins with the reporter and incident details, followed by the involved person and a three-line account of the event.",
+              "Use the response and follow-up lines for immediate assistance and the next action. The PDF is a printable page, while Word and ODT can be edited."
+            ],
+            "alt": "First page of Accident Report - Blue, with labeled spaces for incident details, people, impact, witnesses, and response."
+          }
+        }
+      },
+      {
+        "id": "ta-accident-general-102",
+        "topic_path": "/templates/accident-report-form/",
+        "topic_slug": "accident-report-form",
+        "detail_path": "/templates/accident-report-form/incident-report-form-green/",
+        "primary_category_path": "/categories/business-commerce/project-management/",
+        "builder_kind": "document",
+        "year": null,
+        "title": "Incident Report Form - Green",
+        "summary": "A green-accented report that places the involved person before the incident details.",
+        "intro": "A green-accented report that places the involved person before the incident details.",
+        "alt": "First page of Incident Report Form - Green, with labeled spaces for incident details, people, impact, witnesses, and response.",
+        "description_paragraphs": [
+          "The green section headings guide the reader from the reporter and involved person to the incident account, witness contact, and response.",
+          "Use the response and follow-up lines for immediate assistance and the next action. The PDF is a printable page, while Word and ODT can be edited."
+        ],
+        "formats": [
+          "pdf",
+          "webp",
+          "docx",
+          "odt"
+        ],
+        "assets": {
+          "pdf": {
+            "mime": "application/pdf",
+            "bytes": 44216,
+            "sha256": "bbf0479f200ac55234938e0b198aa44fad053bb540a20ce9f3d27c2023cf0c61"
+          },
+          "webp": {
+            "mime": "image/webp",
+            "bytes": 134512,
+            "sha256": "ddbf24b560d1a145e07c605c45694a3c15a361bda4fc4d4fbc1b3a7805152044"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 38037,
+            "sha256": "9e3dd34c83062957276e93d62967d1e53bcb0950dc187cc27014ed49cbcce4dc"
+          },
+          "odt": {
+            "mime": "application/vnd.oasis.opendocument.text",
+            "bytes": 26893,
+            "sha256": "6e86012b3ca6370661fa06acf02bde4e124d0a4add52376ca730338eeee6ccda"
+          }
+        },
+        "pages": 1,
+        "preview": "https://assets.templateatlas.com/accident-report-form/general-102.1e87dd0dd63414b3.webp",
+        "previewAsset": {
+          "key": "previews/accident-report-form/general-102.1e87dd0dd63414b3.webp",
+          "path": "/accident-report-form/general-102.1e87dd0dd63414b3.webp",
+          "sha256": "1e87dd0dd63414b36da8e5f846af12a6bddf919a37de018167c6bf4b62406e73",
+          "bytes": 51888,
+          "mime": "image/webp"
+        },
+        "previewSize": [
+          1236,
+          1600
+        ],
+        "previewPages": [
+          {
+            "page": 1,
+            "url": "https://assets.templateatlas.com/accident-report-form/general-102.1e87dd0dd63414b3.webp",
+            "size": [
+              1236,
+              1600
+            ],
+            "asset": {
+              "key": "previews/accident-report-form/general-102.1e87dd0dd63414b3.webp",
+              "path": "/accident-report-form/general-102.1e87dd0dd63414b3.webp",
+              "sha256": "1e87dd0dd63414b36da8e5f846af12a6bddf919a37de018167c6bf4b62406e73",
+              "bytes": 51888,
+              "mime": "image/webp"
+            }
+          }
+        ],
+        "pixels": [
+          2125,
+          2750
+        ],
+        "number": 102,
+        "family": "Incident Report Form",
+        "design_label": "Incident Report Form",
+        "edition": "General Reports",
+        "paper": "US Letter",
+        "orientation": "Portrait",
+        "color": "Color",
+        "pdf_fields": 0,
+        "editorial_review": {
+          "status": "source-reviewed",
+          "source_sha256": {
+            "pdf": "bbf0479f200ac55234938e0b198aa44fad053bb540a20ce9f3d27c2023cf0c61",
+            "webp": "ddbf24b560d1a145e07c605c45694a3c15a361bda4fc4d4fbc1b3a7805152044",
+            "docx": "9e3dd34c83062957276e93d62967d1e53bcb0950dc187cc27014ed49cbcce4dc",
+            "odt": "6e86012b3ca6370661fa06acf02bde4e124d0a4add52376ca730338eeee6ccda"
+          },
+          "reviewed_content": {
+            "title": "Incident Report Form - Green",
+            "intro": "A green-accented report that places the involved person before the incident details.",
+            "description_paragraphs": [
+              "The green section headings guide the reader from the reporter and involved person to the incident account, witness contact, and response.",
+              "Use the response and follow-up lines for immediate assistance and the next action. The PDF is a printable page, while Word and ODT can be edited."
+            ],
+            "alt": "First page of Incident Report Form - Green, with labeled spaces for incident details, people, impact, witnesses, and response."
+          }
+        }
+      },
+      {
+        "id": "ta-accident-general-103",
+        "topic_path": "/templates/accident-report-form/",
+        "topic_slug": "accident-report-form",
+        "detail_path": "/templates/accident-report-form/accident-incident-report-form-burgundy/",
+        "primary_category_path": "/categories/business-commerce/project-management/",
+        "builder_kind": "document",
+        "year": null,
+        "title": "Accident Incident Report Form - Burgundy",
+        "summary": "A burgundy-accented form that places the event narrative ahead of the people involved.",
+        "intro": "A burgundy-accented form that places the event narrative ahead of the people involved.",
+        "alt": "First page of Accident Incident Report Form - Burgundy, with labeled spaces for incident details, people, impact, witnesses, and response.",
+        "description_paragraphs": [
+          "This layout presents the incident date and location before three writing lines for what happened, then records people, impacts, response, and a witness.",
+          "Use the response and follow-up lines for immediate assistance and the next action. The PDF is a printable page, while Word and ODT can be edited."
+        ],
+        "formats": [
+          "pdf",
+          "webp",
+          "docx",
+          "odt"
+        ],
+        "assets": {
+          "pdf": {
+            "mime": "application/pdf",
+            "bytes": 44565,
+            "sha256": "0611b61819d556b6e5e0e2573f88d73e321e07448e0c3c98574a58eb24948615"
+          },
+          "webp": {
+            "mime": "image/webp",
+            "bytes": 138224,
+            "sha256": "073d80a682bc0c0233e71c0f8f87209200560057365959ba2e1b868de578e3c4"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 38041,
+            "sha256": "70a4d1d5415186dd97573d546aa32abca7aee553fcca4df296b5e58b3bc24f5c"
+          },
+          "odt": {
+            "mime": "application/vnd.oasis.opendocument.text",
+            "bytes": 26973,
+            "sha256": "2f415f275448639cdcba9a362bfb08b20accc80a94303836fc4629a7811ef2a4"
+          }
+        },
+        "pages": 1,
+        "preview": "https://assets.templateatlas.com/accident-report-form/general-103.f246ab03fbacc7a4.webp",
+        "previewAsset": {
+          "key": "previews/accident-report-form/general-103.f246ab03fbacc7a4.webp",
+          "path": "/accident-report-form/general-103.f246ab03fbacc7a4.webp",
+          "sha256": "f246ab03fbacc7a40b686b67a76919c44edef52ef04079ae68201e5c1879f6ed",
+          "bytes": 53924,
+          "mime": "image/webp"
+        },
+        "previewSize": [
+          1236,
+          1600
+        ],
+        "previewPages": [
+          {
+            "page": 1,
+            "url": "https://assets.templateatlas.com/accident-report-form/general-103.f246ab03fbacc7a4.webp",
+            "size": [
+              1236,
+              1600
+            ],
+            "asset": {
+              "key": "previews/accident-report-form/general-103.f246ab03fbacc7a4.webp",
+              "path": "/accident-report-form/general-103.f246ab03fbacc7a4.webp",
+              "sha256": "f246ab03fbacc7a40b686b67a76919c44edef52ef04079ae68201e5c1879f6ed",
+              "bytes": 53924,
+              "mime": "image/webp"
+            }
+          }
+        ],
+        "pixels": [
+          2125,
+          2750
+        ],
+        "number": 103,
+        "family": "Accident Incident Report Form",
+        "design_label": "Accident Incident Report Form",
+        "edition": "General Reports",
+        "paper": "US Letter",
+        "orientation": "Portrait",
+        "color": "Color",
+        "pdf_fields": 0,
+        "editorial_review": {
+          "status": "source-reviewed",
+          "source_sha256": {
+            "pdf": "0611b61819d556b6e5e0e2573f88d73e321e07448e0c3c98574a58eb24948615",
+            "webp": "073d80a682bc0c0233e71c0f8f87209200560057365959ba2e1b868de578e3c4",
+            "docx": "70a4d1d5415186dd97573d546aa32abca7aee553fcca4df296b5e58b3bc24f5c",
+            "odt": "2f415f275448639cdcba9a362bfb08b20accc80a94303836fc4629a7811ef2a4"
+          },
+          "reviewed_content": {
+            "title": "Accident Incident Report Form - Burgundy",
+            "intro": "A burgundy-accented form that places the event narrative ahead of the people involved.",
+            "description_paragraphs": [
+              "This layout presents the incident date and location before three writing lines for what happened, then records people, impacts, response, and a witness.",
+              "Use the response and follow-up lines for immediate assistance and the next action. The PDF is a printable page, while Word and ODT can be edited."
+            ],
+            "alt": "First page of Accident Incident Report Form - Burgundy, with labeled spaces for incident details, people, impact, witnesses, and response."
+          }
+        }
+      },
+      {
         "id": "ta-accident-report-design-076",
         "topic_path": "/templates/accident-report-form/",
         "topic_slug": "accident-report-form",
@@ -229577,6 +229892,111 @@
               "The second page includes immediate response, supporting evidence, review, corrective actions, and signatures. The PDF is printable; the Image shows the first page."
             ],
             "alt": "First page of the Equipment Failure Incident Report, with incident details, event context, and space to describe what happened."
+          }
+        }
+      },
+      {
+        "id": "ta-accident-general-104",
+        "topic_path": "/templates/accident-report-form/",
+        "topic_slug": "accident-report-form",
+        "detail_path": "/templates/accident-report-form/accident-report-form-black-and-white/",
+        "primary_category_path": "/categories/business-commerce/project-management/",
+        "builder_kind": "document",
+        "year": null,
+        "title": "Accident Report Form - Black and White",
+        "summary": "A grayscale report for documenting a general accident or incident on one page.",
+        "intro": "A grayscale report for documenting a general accident or incident on one page.",
+        "alt": "First page of Accident Report Form - Black and White, with labeled spaces for incident details, people, impact, witnesses, and response.",
+        "description_paragraphs": [
+          "The grayscale layout includes the incident date and location, the person involved, a short narrative, observed injury or damage, and follow-up.",
+          "Use the response and follow-up lines for immediate assistance and the next action. The PDF is a printable page, while Word and ODT can be edited."
+        ],
+        "formats": [
+          "pdf",
+          "webp",
+          "docx",
+          "odt"
+        ],
+        "assets": {
+          "pdf": {
+            "mime": "application/pdf",
+            "bytes": 44513,
+            "sha256": "629fa192abe14ed30d6d8be1269bc9165c2c222b0fa0f3c5bbbbe97ae9ca3cb1"
+          },
+          "webp": {
+            "mime": "image/webp",
+            "bytes": 117460,
+            "sha256": "cf9e2fe9fc575cc6fa15f1b625ebee4782db72409932cd8681f856d23832bc3b"
+          },
+          "docx": {
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "bytes": 38031,
+            "sha256": "86523c0d4eeee27b1bfc9556cdbde4e79091e5cda76d81d65197b4eb82a6794f"
+          },
+          "odt": {
+            "mime": "application/vnd.oasis.opendocument.text",
+            "bytes": 23023,
+            "sha256": "ee51e65899fb5b3f766f54a0a8daca14bab2270adddefd9aeb00f13d9feaff0c"
+          }
+        },
+        "pages": 1,
+        "preview": "https://assets.templateatlas.com/accident-report-form/general-104.f276d4a8515eb3b8.webp",
+        "previewAsset": {
+          "key": "previews/accident-report-form/general-104.f276d4a8515eb3b8.webp",
+          "path": "/accident-report-form/general-104.f276d4a8515eb3b8.webp",
+          "sha256": "f276d4a8515eb3b8d67a09aa3908bd976f1550caa03b034dd1f7fdc48e23fc7a",
+          "bytes": 49178,
+          "mime": "image/webp"
+        },
+        "previewSize": [
+          1236,
+          1600
+        ],
+        "previewPages": [
+          {
+            "page": 1,
+            "url": "https://assets.templateatlas.com/accident-report-form/general-104.f276d4a8515eb3b8.webp",
+            "size": [
+              1236,
+              1600
+            ],
+            "asset": {
+              "key": "previews/accident-report-form/general-104.f276d4a8515eb3b8.webp",
+              "path": "/accident-report-form/general-104.f276d4a8515eb3b8.webp",
+              "sha256": "f276d4a8515eb3b8d67a09aa3908bd976f1550caa03b034dd1f7fdc48e23fc7a",
+              "bytes": 49178,
+              "mime": "image/webp"
+            }
+          }
+        ],
+        "pixels": [
+          2125,
+          2750
+        ],
+        "number": 104,
+        "family": "Accident Report Form",
+        "design_label": "Accident Report Form",
+        "edition": "General Reports",
+        "paper": "US Letter",
+        "orientation": "Portrait",
+        "color": "Black and White",
+        "pdf_fields": 0,
+        "editorial_review": {
+          "status": "source-reviewed",
+          "source_sha256": {
+            "pdf": "629fa192abe14ed30d6d8be1269bc9165c2c222b0fa0f3c5bbbbe97ae9ca3cb1",
+            "webp": "cf9e2fe9fc575cc6fa15f1b625ebee4782db72409932cd8681f856d23832bc3b",
+            "docx": "86523c0d4eeee27b1bfc9556cdbde4e79091e5cda76d81d65197b4eb82a6794f",
+            "odt": "ee51e65899fb5b3f766f54a0a8daca14bab2270adddefd9aeb00f13d9feaff0c"
+          },
+          "reviewed_content": {
+            "title": "Accident Report Form - Black and White",
+            "intro": "A grayscale report for documenting a general accident or incident on one page.",
+            "description_paragraphs": [
+              "The grayscale layout includes the incident date and location, the person involved, a short narrative, observed injury or damage, and follow-up.",
+              "Use the response and follow-up lines for immediate assistance and the next action. The PDF is a printable page, while Word and ODT can be edited."
+            ],
+            "alt": "First page of Accident Report Form - Black and White, with labeled spaces for incident details, people, impact, witnesses, and response."
           }
         }
       }
