@@ -46,6 +46,7 @@ const familyStudio =
   (path.startsWith('/create/') || path.startsWith('/studio/')) &&
   Object.hasOwn(routes, path);
 const valid = !!(
+  collection ||
   s ||
   path === '/' ||
   library ||
