@@ -6,10 +6,13 @@ import { importedEntries } from './imported.mjs';
 const routes = {...baseRoutes, ...Object.fromEntries(importedEntries.map(e=>[e.detail_path,'template_detail']))};
 export { categories, routes };
 const releases = new Map(catalog.map((r) => [r.id, r]));
-export const entries = [...seeds.flatMap((seed) => {
+const baseEntries = seeds.flatMap((seed) => {
   const release = releases.get(seed.seed_id);
   return release ? [{ ...seed, ...release }] : [];
-}), ...importedEntries];
+});
+const uniqueEntries = new Map(baseEntries.map((entry) => [entry.id, entry]));
+for (const entry of importedEntries) uniqueEntries.set(entry.id, entry);
+export const entries = [...uniqueEntries.values()];
 // The library's top level lists each topic once. Individual imported designs
 // remain available on their topic and detail pages.
 export function topicEntries(availableEntries) {

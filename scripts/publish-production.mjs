@@ -35,6 +35,12 @@ const supplementFiles = importedEntries.reduce(
   (n, e) => n + Object.keys(e.assets).length,
   0,
 );
+const projectedFiles = new Map(
+  topics.map((entry) => [entry.id, Object.keys(entry.assets || {}).length]),
+);
+for (const entry of importedEntries)
+  projectedFiles.set(entry.id, Object.keys(entry.assets || {}).length);
+const projectedAvailable = [...projectedFiles.values()].reduce((sum, count) => sum + count, 0);
 const baseIds = topics
   .map((e) => {
     assert.match(e.id, /^[-a-z0-9]+$/);
@@ -78,23 +84,24 @@ assert.deepEqual(
     revision,
     topics: topics.length,
     files,
-    available: files + supplementFiles,
+    available: projectedAvailable,
     indexed: topics.length,
   },
   "The remote catalog does not match this application release.",
 );
-const ids = importedEntries
-  .map((e) => {
-    assert.match(e.id, /^[-a-z0-9]+$/);
-    return "'" + e.id + "'";
-  })
-  .join(",");
 if (importedEntries.length) {
-  const actual = await query(
-    "SELECT template_id,format,object_key,sha256,size_bytes,mime,published FROM downloadable_assets WHERE published=1 AND template_id IN (" +
-      ids +
-      ")",
-  );
+  const actual = [];
+  for (let offset = 0; offset < importedEntries.length; offset += 100) {
+    const ids = importedEntries.slice(offset, offset + 100).map((entry) => {
+      assert.match(entry.id, /^[-a-z0-9]+$/);
+      return "'" + entry.id + "'";
+    }).join(",");
+    actual.push(...await query(
+      "SELECT template_id,format,object_key,sha256,size_bytes,mime,published FROM downloadable_assets WHERE published=1 AND template_id IN (" +
+        ids +
+        ")",
+    ));
+  }
   assert.equal(actual.length, supplementFiles);
   for (const entry of importedEntries)
     for (const [format, asset] of Object.entries(entry.assets))
@@ -113,7 +120,10 @@ if (importedEntries.length) {
 }
 const searchRelease = JSON.parse(read("src/data/search-release-id.json"));
 assert.match(searchRelease.sha256, /^[a-f0-9]{64}$/);
-assert.equal(searchRelease.expected, topics.length + importedEntries.length);
+assert.equal(
+  searchRelease.expected,
+  new Set([...topics.map((entry) => entry.id), ...importedEntries.map((entry) => entry.id)]).size,
+);
 const searchState = (await query(
   "SELECT expected,completed,(SELECT count(*) FROM search_templates WHERE revision='" +
     searchRelease.sha256 +
