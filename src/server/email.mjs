@@ -24,7 +24,7 @@ function provider(env) {
 export const accountEmailConfigured = (env) => provider(env) !== null;
 
 // Rate-limit without storing an address or checking whether it belongs to an account.
-// Request-level checks cover nonexistent accounts too. Delivery-level checks also cover an email-change confirmation replay.
+// Each request operation has its own recipient budget. All actual deliveries share a cap.
 export async function reserveEmailBudget(env, address, scope) {
   if (localMailEnabled(env)) return;
   requireValue(
@@ -33,7 +33,7 @@ export async function reserveEmailBudget(env, address, scope) {
   );
   const stamp = Date.now(),
     boundary = stamp - 15 * 60 * 1000,
-    maximum = scope === 'request' ? 5 : 8;
+    maximum = scope === 'delivery' ? 8 : 5;
   const key =
     'templateatlas.mail.' +
     scope +

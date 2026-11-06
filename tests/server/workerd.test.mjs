@@ -1073,6 +1073,18 @@ test('workerd HTTP, SQLite D1/DO and R2 with local email and Stripe service doub
         ).status,
         200,
       );
+      const receiptCount = () =>
+        db.prepare('SELECT COUNT(*) AS count FROM export_receipts').first('count');
+      const beforeInvalid = await receiptCount();
+      assert.equal(
+        (await post('/api/exports', {
+          documentId: doc.id,
+          documentRevision: 9999,
+          format: 'pdf',
+        })).status,
+        404,
+      );
+      assert.equal(await receiptCount(), beforeInvalid);
       const batch = await Promise.all(
         Array.from({ length: 12 }, () =>
           post('/api/exports', {

@@ -123,7 +123,7 @@ export async function handleApi(request, env, ctx, options = {}) {
           );
           if (localMailEnabled(env))
             requireValue(/^[^@\s]{1,64}@example\.test$/i.test(email));
-          await reserveEmailBudget(env, email, 'request');
+          await reserveEmailBudget(env, email, 'request.' + route);
         }
       }
       const r = await authResponse(env, request);

@@ -13,6 +13,7 @@ const schema = `
   CREATE INDEX IF NOT EXISTS intents_expiration ON intents(expires);
   CREATE TABLE IF NOT EXISTS imports (source TEXT PRIMARY KEY);
   CREATE TABLE IF NOT EXISTS writes (frame INTEGER PRIMARY KEY, count INTEGER NOT NULL);
+  CREATE TABLE IF NOT EXISTS export_requests (frame INTEGER PRIMARY KEY, count INTEGER NOT NULL);
   CREATE TABLE IF NOT EXISTS support_windows (frame INTEGER PRIMARY KEY, count INTEGER NOT NULL);
 `;
 
@@ -57,6 +58,7 @@ export class DownloadActor {
       exec('DELETE FROM intents');
       exec('DELETE FROM imports');
       exec('DELETE FROM writes');
+      exec('DELETE FROM export_requests');
       exec(
         "UPDATE principal SET verified_at=NULL,paid_through=0,billing_status='none',epoch=epoch+1,suspended=1 WHERE id=1",
       );
@@ -163,6 +165,19 @@ export class DownloadActor {
       requireValue(
         this.rows('SELECT count FROM support_windows WHERE frame=?', frame)[0]
           .count <= (action === 'support-limit' ? 3 : 12),
+        'RATE_LIMITED',
+      );
+      return {};
+    }
+    if (action === 'export-request-limit') {
+      const frame = Math.floor(now / 60);
+      exec('DELETE FROM export_requests WHERE frame<?', frame);
+      exec(
+        'INSERT INTO export_requests VALUES(?,1) ON CONFLICT(frame) DO UPDATE SET count=count+1',
+        frame,
+      );
+      requireValue(
+        this.rows('SELECT count FROM export_requests WHERE frame=?', frame)[0].count <= 40,
         'RATE_LIMITED',
       );
       return {};
