@@ -4,17 +4,49 @@ import {collections,importedEntries,publicCatalogAssets} from '../src/lib/import
 import {entries,byPath,categories} from '../src/lib/catalog.mjs';
 import {catalogAsset} from '../src/server/catalog-assets.mjs';
 import {searchRows} from '../src/search/indexer.mjs';
-import {checkFormat} from '../src/server/documents.mjs';
+import {checkFormat,formatMimes} from '../src/server/documents.mjs';
+import baseSeeds from '../src/data/seeds.json' with {type:'json'};
+import baseReleases from '../src/data/release.json' with {type:'json'};
 
-test('R134a import has 100 distinct paired designs and stable detail paths',()=>{
- const r134a = importedEntries.filter(e=>e.importedCollection === "r134a-dimensional");
- assert.equal(r134a.length,100);
- for(const field of ['id','title','summary','detail_path'])assert.equal(new Set(r134a.map(e=>e[field])).size,100,field);
- assert.equal(entries.length,3550);
- for(const e of importedEntries){assert.equal(byPath.get(e.detail_path).id,e.id);assert.deepEqual(e.formats,e.importedCollection==='sbar-templates'?['pdf','webp','docx','pptx']:e.importedCollection==='baby-dedication-certificates'?['pdf','webp','docx','psd','png','zip']:e.importedCollection==='five-whys-worksheets'?['pdf','webp','docx','psd','zip']:e.importedCollection==='baby-feeding-charts'?['pdf','webp','docx','xlsx','html']:['90-day-employee-evaluations','snow-removal-contracts','acknowledgment-receipts','agency-agreements','catering-contracts','apology-letters','complaint-letters'].includes(e.importedCollection)?['pdf','webp','docx','html']:['commercial-lease-applications','accident-report-forms','trailer-bill-of-sale-forms'].includes(e.importedCollection)?['pdf','webp','docx','odt']:['52-week-savings','tournament-brackets'].includes(e.importedCollection)?['pdf','webp','docx','xlsx']:['100-envelope-savings','dog-vaccination-records','96-well-worksheets'].includes(e.importedCollection)?['pdf','webp','docx']:['pdf','webp']);assert.equal(e.assets.pdf.mime,'application/pdf');assert.equal(e.assets.webp.mime,'image/webp');if(['100-envelope-savings','dog-vaccination-records','96-well-worksheets'].includes(e.importedCollection)){assert.equal(e.assets.docx.mime,'application/vnd.openxmlformats-officedocument.wordprocessingml.document');assert.match(e.assets.docx.sha256,/^[0-9a-f]{64}$/);}assert.match(e.preview,/^https:\/\/assets\.templateatlas\.com\//);assert.equal(e.preview.includes(e.assets.webp.sha256),false);}
- checkFormat('webp');
- assert.equal(collections[0].items.reduce((n,e)=>n+e.rows,0),5780);
+test('R134a import has 100 distinct designs in both original formats', () => {
+  const designs = importedEntries.filter(entry => entry.importedCollection === 'r134a-dimensional');
+  assert.equal(designs.length, 100);
+  for (const field of ['id', 'title', 'summary', 'detail_path']) {
+    assert.equal(new Set(designs.map(entry => entry[field])).size, 100, field);
+  }
+  for (const entry of designs) assert.deepEqual(entry.formats, ['pdf', 'webp']);
+  assert.equal(designs.reduce((rows, entry) => rows + entry.rows, 0), 5780);
+  checkFormat('webp');
 });
+
+test('the catalog includes every registered design and its declared original formats', () => {
+  const releasedSeedIds = new Set(baseReleases.map(release => release.id));
+  const expectedIds = new Set(baseSeeds.filter(seed => releasedSeedIds.has(seed.seed_id)).map(seed => seed.seed_id));
+  for (const collection of collections) {
+    for (const entry of collection.items) expectedIds.add(entry.id);
+  }
+  assert.equal(entries.length, expectedIds.size);
+  assert.deepEqual(new Set(entries.map(entry => entry.id)), expectedIds);
+
+  for (const entry of importedEntries) {
+    assert.equal(byPath.get(entry.detail_path)?.id, entry.id, entry.detail_path);
+    assert.ok(entry.formats.length > 0, entry.id);
+    assert.deepEqual([...entry.formats].sort(), Object.keys(entry.assets).sort(), entry.id);
+    for (const format of entry.formats) {
+      const asset = entry.assets[format];
+      const label = entry.id + ' ' + format;
+      assert.ok(Object.hasOwn(formatMimes, format), label);
+      assert.equal(asset.mime, formatMimes[format], label);
+      assert.match(asset.sha256, /^[0-9a-f]{64}$/, label);
+      assert.ok(Number.isSafeInteger(asset.bytes) && asset.bytes > 0, label);
+    }
+    assert.match(entry.preview, /^https:\/\/assets\.templateatlas\.com\//, entry.id);
+    if (entry.assets.webp) {
+      assert.equal(entry.preview.includes(entry.assets.webp.sha256), false, entry.id);
+    }
+  }
+});
+
 test('dog vaccination imports all 100 reviewed forms in three verified formats',()=>{
  const c=collections.find(c=>c.id==='dog-vaccination-records');
  assert.ok(c);assert.equal(c.kind,'pet-record');assert.equal(c.topic_path,'/templates/dog-vaccination-record/');
@@ -52,7 +84,18 @@ const noCache={match:async()=>null,put:async()=>{}};
 test('public asset host never exposes arbitrary originals or API paths',async()=>{
  let calls=0;const env={ASSET_ORIGINALS:{get:async()=>{calls++;}}};
  for(const path of ['/catalog/ta-r134a-dimensional-001/file.pdf','/api/session','/unknown.webp'])assert.equal((await catalogAsset(new Request('https://assets.templateatlas.com'+path),env,{waitUntil(){}},noCache)).status,404);
- assert.equal(calls,0);assert.equal(publicCatalogAssets.size,7811);
+ assert.equal(calls,0);
+
+ const allowedAssets = new Map();
+ for (const entry of importedEntries) {
+  allowedAssets.set(entry.previewAsset.path, entry.previewAsset);
+  if (entry.thumbnailAsset) allowedAssets.set(entry.thumbnailAsset.path, entry.thumbnailAsset);
+  for (const {asset} of entry.previewPages ?? []) allowedAssets.set(asset.path, asset);
+ }
+ for (const collection of collections) {
+  for (const document of collection.documents) allowedAssets.set(document.path, document);
+ }
+ assert.deepEqual(publicCatalogAssets, allowedAssets);
 });
 test('R2 preview delivery uses only the allowlisted object and immutable cache headers',async()=>{
  const [path,asset]=publicCatalogAssets.entries().next().value;const keys=[];
