@@ -276,17 +276,14 @@ export async function startJob(
       JSON.stringify([doc.id, rev, format, 'letter', '1']),
     ),
     id = 'exp-' + fingerprint;
-  await env.DB.prepare(
-    'INSERT OR IGNORE INTO export_receipts(owner,idem,fingerprint) VALUES(?,?,?)',
-  )
-    .bind(actor, idem, fingerprint)
-    .run();
-  const receipt = await env.DB.prepare(
+  const receiptQuery = env.DB.prepare(
     'SELECT fingerprint FROM export_receipts WHERE owner=? AND idem=?',
-  )
-    .bind(actor, idem)
-    .first();
-  requireValue(receipt?.fingerprint === fingerprint, 'IDEMPOTENCY_CONFLICT');
+  ).bind(actor, idem);
+  const receipt = await receiptQuery.first();
+  requireValue(
+    !receipt || receipt.fingerprint === fingerprint,
+    'IDEMPOTENCY_CONFLICT',
+  );
   await actorCall(env, actor, 'can-export', {
     resource: doc.template_id
       ? 'template:' + doc.template_id
@@ -294,6 +291,17 @@ export async function startJob(
   });
   const asset = await finalAsset(env, actor, id);
   if (asset) {
+    if (!receipt) {
+      await actorCall(env, actor, 'export-request-limit');
+      await env.DB.prepare(
+        `INSERT OR IGNORE INTO export_receipts(owner,idem,fingerprint,asset_id)
+         SELECT ?,?,?,a.id FROM downloadable_assets a JOIN member_documents d ON d.id=a.document_id
+         WHERE a.id=? AND a.published=1 AND d.owner=? AND d.deleted IS NULL AND ` + released,
+      ).bind(actor, idem, fingerprint, id, actor).run();
+      const reserved = await receiptQuery.first();
+      requireValue(reserved, 'NOT_FOUND');
+      requireValue(reserved.fingerprint === fingerprint, 'IDEMPOTENCY_CONFLICT');
+    }
     await env.DB.prepare(
       'UPDATE export_receipts SET asset_id=? WHERE owner=? AND idem=?',
     )
@@ -303,13 +311,34 @@ export async function startJob(
   }
   const key =
     'exports/' + doc.id + '/' + rev + '/' + fingerprint + '.' + format;
-  await env.DB.prepare(
+  const createJob = env.DB.prepare(
     `INSERT OR IGNORE INTO export_jobs(id,document_id,revision,format,object_key,created)
    SELECT ?,d.id,?,?,?,? FROM member_documents d JOIN member_revisions r ON d.id=r.document_id AND r.revision=?
-   WHERE d.id=? AND d.owner=? AND d.deleted IS NULL AND ` + released,
-  )
-    .bind(id, rev, format, key, unix(), rev, doc.id, actor)
-    .run();
+   WHERE d.id=? AND d.owner=? AND d.deleted IS NULL
+   AND NOT EXISTS(SELECT 1 FROM export_receipts WHERE owner=? AND idem=? AND fingerprint<>?)
+   AND ` + released,
+  ).bind(id, rev, format, key, unix(), rev, doc.id, actor, actor, idem, fingerprint);
+  if (receipt) {
+    await createJob.run();
+  } else {
+    const revision = await env.DB.prepare(
+      'SELECT 1 FROM member_revisions WHERE document_id=? AND revision=?',
+    ).bind(doc.id, rev).first();
+    requireValue(revision, 'NOT_FOUND');
+    await actorCall(env, actor, 'export-request-limit');
+    // A new idempotency receipt must commit with its owning job.
+    await env.DB.batch([
+      createJob,
+      env.DB.prepare(
+        `INSERT OR IGNORE INTO export_receipts(owner,idem,fingerprint)
+         SELECT ?,?,? FROM export_jobs j JOIN member_documents d ON d.id=j.document_id
+         WHERE j.id=? AND d.owner=? AND d.deleted IS NULL AND ` + released,
+      ).bind(actor, idem, fingerprint, id, actor),
+    ]);
+    const reserved = await receiptQuery.first();
+    requireValue(reserved, 'NOT_FOUND');
+    requireValue(reserved.fingerprint === fingerprint, 'IDEMPOTENCY_CONFLICT');
+  }
   await env.DB.prepare(
     "UPDATE export_jobs SET state='queued',attempts=0,error_code=NULL,next_attempt=0 WHERE id=? AND state='failed' AND error_code IN ('DEPENDENCY_UNAVAILABLE','RATE_LIMITED','SIGNUP_REQUIRED','EMAIL_VERIFICATION_REQUIRED','MEMBERSHIP_REQUIRED','ACCESS_REVOKED')",
   )
