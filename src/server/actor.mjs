@@ -2,7 +2,8 @@ import { requireValue, ApiError, failure, json, unix } from './common.mjs';
 
 export const WINDOW = 30 * 86400;
 const LIMIT = 5,
-  TTL = 120;
+  TTL = 120,
+  MAX_RETAINED_INTENTS = 1024;
 const schema = `
   CREATE TABLE IF NOT EXISTS principal (id INTEGER PRIMARY KEY CHECK(id=1), verified_at INTEGER, paid_through INTEGER NOT NULL DEFAULT 0,
     billing_status TEXT NOT NULL DEFAULT 'none', epoch INTEGER NOT NULL DEFAULT 0, transferred TEXT, suspended INTEGER NOT NULL DEFAULT 0, generation INTEGER NOT NULL DEFAULT 0);
@@ -260,6 +261,12 @@ export class DownloadActor {
           denied,
         );
       }
+      // Bound replay history independently of logical download grants.
+      requireValue(
+        this.rows('SELECT COUNT(*) AS count FROM intents')[0].count <
+          MAX_RETAINED_INTENTS,
+        'RATE_LIMITED',
+      );
       const nonce = crypto.randomUUID(),
         expires = now + TTL;
       exec(
