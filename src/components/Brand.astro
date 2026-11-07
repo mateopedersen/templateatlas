@@ -1,4 +1,5 @@
 ---
+const { lazy = false } = Astro.props;
 ---
 
 <a class="brand" href="/" aria-label="TemplateAtlas home">
@@ -8,5 +9,7 @@
     height="229"
     src="/templateatlas-lockup-optimized.webp"
     decoding="async"
+    loading={lazy ? "lazy" : "eager"}
+    fetchpriority={lazy ? "low" : "high"}
   />
 </a>

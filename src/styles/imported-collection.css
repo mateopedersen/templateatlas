@@ -187,6 +187,7 @@
 }
 .imported-grid {
   display: grid;
+  align-items: start;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
@@ -211,6 +212,7 @@
   background: #e5f0f4;
   padding: 12px;
   height: 220px;
+  flex-shrink: 0;
 }
 .imported-page-count { position:absolute; right:10px; bottom:10px; padding:5px 8px; border:1px solid #d7e4eb; border-radius:7px; background:#ffffffed; color:#4d3542; font-size:11px; font-weight:650; box-shadow:0 2px 5px #2434410d; }
 .document-preview-toolbar { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin:22px 0 12px; color:#4f3043; }

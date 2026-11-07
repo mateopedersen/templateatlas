@@ -3,7 +3,7 @@ import catalog from '../data/release.json' with { type: 'json' };
 import categories from '../data/categories.json' with { type: 'json' };
 import baseRoutes from '../data/routes.json' with { type: 'json' };
 import { importedEntries } from './imported.mjs';
-const routes = {...baseRoutes, ...Object.fromEntries(importedEntries.map(e=>[e.detail_path,'template_detail']))};
+const routes = {...baseRoutes, ...Object.fromEntries(importedEntries.filter(e=>e.detail_path).map(e=>[e.detail_path,'template_detail']))};
 export { categories, routes };
 const releases = new Map(catalog.map((r) => [r.id, r]));
 const baseEntries = seeds.flatMap((seed) => {
@@ -44,7 +44,7 @@ export function categoryItems(cat) {
   const members = new Set(cat.members);
   return entries.filter(
     (s) =>
-      (!cat.exact && s.primary_category_path === cat.path) ||
+      (!cat.exact && (s.primary_category_path === cat.path || s.primary_category_path?.startsWith(cat.path) && cat.path !== '/categories/')) ||
       members.has(s.seed_id),
   );
 }

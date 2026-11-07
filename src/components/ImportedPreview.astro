@@ -12,7 +12,7 @@ const multiple = pages.length > 1;
   </div>}
   {pages.map((page:any,index:number)=><section id={`${item.id}-page-panel-${index}`} role={multiple?'tabpanel':undefined} aria-labelledby={multiple?`${item.id}-page-tab-${index}`:undefined} data-preview-panel hidden={index!==0}>
     <a class="imported-large-preview" href={page.url} aria-label={`Enlarge preview${multiple?` page ${page.page}`:''} of ${item.title}`}>
-      <img src={page.url} alt={multiple?`${item.title} — page ${page.page} of ${pages.length}`:item.alt} width={page.size[0]} height={page.size[1]} loading={index===0?'eager':'lazy'} fetchpriority={index===0?'high':'auto'}/>
+      <img src={index === 0 && item.thumbnailAsset ? `https://assets.templateatlas.com${item.thumbnailAsset.path}` : page.url} alt={multiple?`${item.title} — page ${page.page} of ${pages.length}`:item.alt} width={page.size?.[0]} height={page.size?.[1]} loading={index===0?'eager':'lazy'} fetchpriority={index===0?'high':'auto'}/>
     </a>
     {multiple && <p class="document-page-caption">Page {page.page} Of {pages.length} · {item.paper}</p>}
   </section>)}
@@ -36,7 +36,7 @@ const multiple = pages.length > 1;
   const level=dialog.querySelector<HTMLElement>('[data-zoom-level]')!;
   const caption=dialog.querySelector<HTMLElement>('[data-zoom-page]')!;
   let current=0, zoom=100;
-  const showZoom=()=>{const source=panels[current].querySelector<HTMLImageElement>('img')!;zoomImage.src=source.src;zoomImage.alt=source.alt;zoomImage.style.width=`${zoom}%`;level.textContent=`${zoom}%`;caption.textContent=`Page ${current+1} Of ${panels.length}`;const prev=dialog.querySelector<HTMLButtonElement>('[data-zoom-prev]'),next=dialog.querySelector<HTMLButtonElement>('[data-zoom-next]');if(prev)prev.disabled=current===0;if(next)next.disabled=current===panels.length-1;};
+  const showZoom=()=>{const source=panels[current].querySelector<HTMLImageElement>('img')!;zoomImage.src=panels[current].querySelector<HTMLAnchorElement>('a')!.href;zoomImage.alt=source.alt;zoomImage.style.width=`${zoom}%`;level.textContent=`${zoom}%`;caption.textContent=`Page ${current+1} Of ${panels.length}`;const prev=dialog.querySelector<HTMLButtonElement>('[data-zoom-prev]'),next=dialog.querySelector<HTMLButtonElement>('[data-zoom-next]');if(prev)prev.disabled=current===0;if(next)next.disabled=current===panels.length-1;};
   panels.forEach((panel,index)=>panel.querySelector('a')?.addEventListener('click',event=>{if(typeof dialog.showModal!=='function')return;event.preventDefault();current=index;zoom=100;showZoom();dialog.showModal();}));
   dialog.querySelector('[data-zoom-close]')?.addEventListener('click',()=>dialog.close());
   dialog.querySelector('[data-zoom-in]')?.addEventListener('click',()=>{zoom=Math.min(250,zoom+25);showZoom();});

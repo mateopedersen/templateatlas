@@ -4,16 +4,19 @@ import ImageLicenseMetadata from './ImageLicenseMetadata.astro';
 const { items = [] } = Astro.props;
 const displayItems = items.map((item:any) => {
   const collection = collections.find(c => c.topic_path === item.topic_path && !item.importedCollection);
-  return collection ? {...item, title:collection.title, summary:collection.summary, preview:collection.items[0].preview, formats:[...new Set([...item.formats, 'webp'])]} : item;
+  const representative = collection ? collection.items[0] : item;
+  const cardPreview = representative.thumbnailAsset ? `https://assets.templateatlas.com${representative.thumbnailAsset.path}` : representative.preview;
+  const cardSize = representative.thumbnailSize || representative.previewSize;
+  return collection ? {...item, title:collection.title, summary:collection.summary, preview:collection.items[0].preview, cardPreview, cardSize, formats:[...new Set([...item.formats, 'webp'])]} : {...item, cardPreview, cardSize};
 });
 ---
 
 <ImageLicenseMetadata images={displayItems} />
 <div class="grid">
-  {displayItems.map((s: any) => (
+  {displayItems.map((s: any, index: number) => (
     <a class="card" href={s.importedCollection ? s.detail_path : s.topic_path}>
       <div class="thumb">
-        <img src={s.preview} alt="" loading="lazy" />
+        <img src={s.cardPreview} alt="" width={s.cardSize?.[0]} height={s.cardSize?.[1]} loading={index < 3 ? "eager" : "lazy"} decoding="async" />
       </div>
       <div class="card-body">
         <span class="tag">{s.formats.join(' · ')}</span>

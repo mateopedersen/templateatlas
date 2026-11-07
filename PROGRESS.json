@@ -7,9 +7,10 @@
     "categories": 68,
     "tools": 9,
     "plannedFixedPaths": 2420,
-    "templates": 1246,
-    "downloadFiles": 2708,
-    "topics": 1146
+    "templates": 6830,
+    "downloadFiles": 22104,
+    "topics": 1146,
+    "asOf": "2026-11-08"
   },
   "localAssetManifest": "src/data/release.json",
   "remoteProduction": "live",
@@ -23,7 +24,7 @@
   "verifiedDates": {
     "calendarYear": 2027,
     "datedTopics": 26,
-    "academicPlanner": "January\u2013December 2027"
+    "academicPlanner": "January–December 2027"
   },
   "releaseFingerprint": "880fa6476c1cb0a825ff5ee36cfe495bce7c9ea428912f958414a187963f48f8",
   "ownerCosts": {
@@ -58,9 +59,9 @@
     "sourceChecksPassed": 47,
     "totalUnitIntegrationTests": 71,
     "localTestsFailed": 0,
-    "remoteCatalogFilesVerified": 2508,
+    "remoteCatalogFilesVerified": 22104,
     "verifiedBytes": 84580363,
-    "remoteSearchRecords": 1246,
+    "remoteSearchRecords": 6830,
     "publicHTMLResponses": 2415,
     "adminForbidden": 5,
     "correctAliases": 1202,
@@ -140,7 +141,7 @@
     "status": "local-only; not published",
     "topic_titles": {
       "/templates/social-security-card/": "SSN / Social Security Card Template",
-      "/templates/doctors-note/": "Doctor\u2019s Note Template"
+      "/templates/doctors-note/": "Doctor’s Note Template"
     },
     "note": "Existing downloadable files and descriptions remain the previously reviewed checklist and request form; new template files are deferred per owner. Preserve existing URLs and IDs.",
     "checks": [
@@ -182,7 +183,7 @@
   },
   "local_topic_finder_2026_11_02": {
     "status": "local-only; not published",
-    "details": "Shared finder renders each standard topic\u2019s actual preview within the SVG; R134a uses its own refrigerant illustration. Result count redesigned; imported collection breadcrumbs restyled.",
+    "details": "Shared finder renders each standard topic’s actual preview within the SVG; R134a uses its own refrigerant illustration. Result count redesigned; imported collection breadcrumbs restyled.",
     "validation": [
       "1,146 standard topic records have previews",
       "Browser checked letter and lease preview URLs match their page previews",
@@ -253,5 +254,23 @@
       "Astro check and build passed"
     ],
     "workerVersion": "e82723f3-bdf3-479a-87fa-860e2bc59fa3"
+  },
+  "latestImportRelease": {
+    "date": "2026-11-08",
+    "workerVersion": "515b9948-16ff-478d-afe4-d09f79ad4549",
+    "searchRevision": "1c5e6b171e2892b01f978a1c7f6dea791c625cb5dce2cbf10306f75eec293890",
+    "designs": 370,
+    "downloadFiles": 1110,
+    "r2ObjectsVerified": 1600,
+    "liveDetailPagesVerified": 370,
+    "liveGalleryPagesVerified": 3,
+    "livePreviewBodiesVerified": 740,
+    "previewBytesVerified": 133041968,
+    "signedDownloadsVerified": 9,
+    "searchTopicsVerified": 3,
+    "activeSearchRecords": 6830,
+    "billing": "disabled",
+    "noindex": "enabled",
+    "result": "live_verified"
   }
 }

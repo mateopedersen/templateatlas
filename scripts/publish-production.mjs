@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import { execFileSync, spawn } from "node:child_process";
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { importedEntries } from "../src/lib/imported.mjs";
+import { entries } from "../src/lib/catalog.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const read = (name) => readFileSync(resolve(root, name), "utf8");
@@ -31,6 +32,20 @@ const release = read("src/data/release.json");
 const revision = createHash("sha256").update(release).digest("hex");
 assert.equal(revision, JSON.parse(read("src/data/release-id.json")).sha256);
 const topics = JSON.parse(release);
+const homeFeaturedSlugs = [
+  "project-proposal", "business-proposal", "budget-proposal", "consulting-proposal",
+  "invoice", "photography-invoice", "consulting-invoice", "service-invoice",
+  "january-2027-calendar", "2027-us-holidays-calendar", "2027-monthly-planner", "2027-birthday-calendar",
+  "line-chart", "scatter-plot", "heatmap", "pie-chart",
+  "meeting-agenda", "corporate-meeting-minutes", "conference-agenda", "board-meeting-agenda",
+  "college-resume", "acting-resume", "curriculum-vitae", "customer-service-resume",
+];
+const homeFeaturedIds = homeFeaturedSlugs.map((slug) => {
+  const item = entries.find((entry) => entry.topic_slug === slug);
+  assert.ok(item, `Missing static homepage item: ${slug}`);
+  assert.match(item.id, /^[-a-z0-9]+$/);
+  return "'" + item.id + "'";
+}).join(",");
 const supplementFiles = importedEntries.reduce(
   (n, e) => n + Object.keys(e.assets).length,
   0,
@@ -57,7 +72,7 @@ assert.equal(config.vars.DEPLOY_STAGE, "production");
 const sql =
   "SELECT ready,revision,topics,files,(SELECT count(*) FROM downloadable_assets WHERE template_id IS NOT NULL AND published=1) AS available,(SELECT count(*) FROM search_templates WHERE revision=(SELECT revision FROM search_active WHERE id=1) AND template_id IN (" +
   baseIds +
-  ")) AS indexed FROM catalog_install WHERE id=1";
+  ")) AS indexed,(SELECT count(*) FROM delivery_holds WHERE template_id IN (" + homeFeaturedIds + ")) AS home_held FROM catalog_install WHERE id=1";
 // The optional remote binding uses the same authenticated Cloudflare account.
 // Validate its target before opening it; every release gate below remains active.
 let platform;
@@ -86,13 +101,14 @@ assert.deepEqual(
     files,
     available: projectedAvailable,
     indexed: topics.length,
+    home_held: 0,
   },
   "The remote catalog does not match this application release.",
 );
 if (importedEntries.length) {
   const actual = [];
-  for (let offset = 0; offset < importedEntries.length; offset += 100) {
-    const ids = importedEntries.slice(offset, offset + 100).map((entry) => {
+  for (let offset = 0; offset < importedEntries.length; offset += 500) {
+    const ids = importedEntries.slice(offset, offset + 500).map((entry) => {
       assert.match(entry.id, /^[-a-z0-9]+$/);
       return "'" + entry.id + "'";
     }).join(",");
@@ -101,6 +117,7 @@ if (importedEntries.length) {
         ids +
         ")",
     ));
+    console.log("Verified production asset metadata: " + Math.min(offset + 500, importedEntries.length) + "/" + importedEntries.length + " templates");
   }
   assert.equal(actual.length, supplementFiles);
   for (const entry of importedEntries)
@@ -127,16 +144,28 @@ assert.equal(
 const searchState = (await query(
   "SELECT expected,completed,(SELECT count(*) FROM search_templates WHERE revision='" +
     searchRelease.sha256 +
-    "') AS actual FROM search_releases WHERE revision='" +
+    "') AS actual,(SELECT count(*) FROM search_templates t LEFT JOIN search_fts_docsize d ON d.id=t.row_id WHERE t.revision='" +
+    searchRelease.sha256 + "' AND d.id IS NULL) AS missing_fts,(SELECT count(*) FROM sqlite_master WHERE type='trigger' AND name='search_new') AS search_trigger FROM search_releases WHERE revision='" +
     searchRelease.sha256 +
     "'",
 ))[0];
 assert.equal(searchState.expected, searchRelease.expected);
 assert.equal(searchState.actual, searchRelease.expected);
 assert.ok(searchState.completed);
+assert.equal(searchState.missing_fts, 0, "The full-text index must cover the complete release.");
+assert.equal(searchState.search_trigger, 1, "The search insert trigger must be installed.");
 const activeSearch = (await query("SELECT revision FROM search_active WHERE id=1"))[0]
   .revision;
+if (searchRelease.previousSha256 && activeSearch !== searchRelease.sha256) assert.equal(activeSearch, searchRelease.previousSha256, "The active production search changed after the preserved snapshot was captured.");
 await runAsync("astro", ["build"], { env });
+// The homepage is rendered by the Worker and cached at the edge. Inspect the
+// compiled layout rather than requiring a prerendered index.html artifact.
+const layouts = readdirSync(resolve(root, "dist/server/chunks"))
+  .filter((name) => name.endsWith(".mjs"))
+  .map((name) => read("dist/server/chunks/" + name))
+  .filter((source) => source.includes("data-check-session"));
+assert.ok(layouts.some((source) => source.includes('<html lang="en-US">') && source.includes("noindex, follow, noimageindex")), "The compiled public layout must retain US English and noindex metadata.");
+assert.match(read("src/pages/index.astro"), /checkSession=\{true\}/);
 const compiled = JSON.parse(read("dist/server/wrangler.json"));
 assert.equal(compiled.account_id, config.account_id);
 assert.deepEqual(compiled.routes, config.routes);

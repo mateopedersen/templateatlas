@@ -6,6 +6,13 @@ import {validateImportedEditorial} from '../src/lib/imported-editorial.mjs';
 test('reviewed catalog passes the shared editorial intake gate',()=>{
   assert.equal(validateImportedEditorial(collections),true);
 });
+test('preserved production records cannot introduce new items or unreviewed copy',()=>{
+  for(const change of [e=>e.id='new-unreviewed-item',e=>e.title='Unreviewed replacement',e=>e.assets.webp.sha256='replaced']){
+    const preserved=structuredClone(collections.find(c=>c.preservedProduction));
+    change(preserved.items[0]);
+    assert.throws(()=>validateImportedEditorial([preserved]),/Preserved/);
+  }
+});
 test('changing original assets or reviewed copy invalidates the review',()=>{
   for(const change of [e=>e.assets.pdf.sha256='replaced', e=>e.intro='Unreviewed replacement', e=>e.description_paragraphs[0]='Unreviewed paragraph']) {
     const candidate=structuredClone(collections);

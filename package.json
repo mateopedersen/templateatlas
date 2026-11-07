@@ -14,7 +14,8 @@
     "local:load": "node scripts/load-local-assets.mjs",
     "check": "astro check",
     "build:production": "TEMPLATEATLAS_TARGET=production astro build",
-    "deploy:production": "node scripts/publish-production.mjs"
+    "deploy:production": "node scripts/publish-production.mjs",
+    "pretest": "node scripts/prepare-public-assets.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "14.4.3",

@@ -20,3 +20,7 @@ dist/
 private/
 receipts/
 .DS_Store
+
+src/data/imported-runtime.json
+
+src/data/public-assets-index.json

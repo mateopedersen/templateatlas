@@ -1,4 +1,4 @@
-import { publicCatalogAssets } from "../lib/imported.mjs";
+import { publicCatalogAssets } from "../lib/public-assets.mjs";
 
 export async function catalogAsset(request, env, ctx, cache = caches.default) {
   const url = new URL(request.url);

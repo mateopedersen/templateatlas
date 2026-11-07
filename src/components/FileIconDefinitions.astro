@@ -1,0 +1,5 @@
+---
+import FileIconArtwork from './FileIconArtwork.astro';
+const kinds = ['pdf','excel','odt','google-docs','photoshop','fonts','powerpoint','word','artwork','image','download'];
+---
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden;pointer-events:none"><defs>{kinds.map(kind => <symbol id={`templateatlas-file-${kind}`} viewBox="0 0 40 40"><FileIconArtwork kind={kind}/></symbol>)}</defs></svg>

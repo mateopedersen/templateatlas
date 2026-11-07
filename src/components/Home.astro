@@ -152,7 +152,7 @@ const data = Object.fromEntries(
                   aria-pressed={ix === 0 && i === 0 ? 'true' : 'false'}
                 >
                   <span class={'book-image t' + i}>
-                    <img src={s.preview} alt="" loading="lazy" />
+                    <img src={s.preview} alt="" loading={ix === 0 ? "eager" : "lazy"} decoding="async" />
                   </span>
                   <strong>{s.title}</strong>
                   <span class="format-pill">{s.formats[0].toUpperCase()}</span>

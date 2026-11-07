@@ -1,4 +1,6 @@
 ---
+import FileIconDefinitions from "../components/FileIconDefinitions.astro";
+import sansFont from "@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url";
 import Suggest from "../components/Suggest.astro";
 import "../styles/site.css";
 import "../styles/ledger.css";
@@ -12,6 +14,7 @@ import AccountIcon from "../components/AccountIcon.astro";
 import "../styles/navigation.css";
 const {
   title,
+  checkSession = false,
   description = "Browse editable documents, build charts from your own data, and plan your year with TemplateAtlas.",
 } = Astro.props;
 const path = Astro.url.pathname;
@@ -70,7 +73,9 @@ const jsonLd = info
       content="noindex, follow, noimageindex"
     />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/png" href="/templateatlas-world-3d.png" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" />
+    <link rel="preconnect" href="https://assets.templateatlas.com" crossorigin />
+    <link rel="preload" href={sansFont} as="font" type="font/woff2" crossorigin />
     <meta property="og:title" content={title + " · TemplateAtlas"} />
     <meta property="og:description" content={description} />
     {info && (
@@ -87,7 +92,8 @@ const jsonLd = info
     )}
     <meta name="theme-color" content="#65162f" />
   </head>
-  <body>
+  <body data-check-session={checkSession ? "true" : undefined}>
+    <FileIconDefinitions />
     <a href="#main" class="skip">
       Skip to content
     </a>
@@ -124,7 +130,7 @@ const jsonLd = info
     <footer>
       <div class="container foot">
         <div>
-          <Brand />
+          <Brand lazy={true} />
           <p>Documents, charts, and calendars for everyday work.</p>
         </div>
         <nav aria-label="Footer">
@@ -137,7 +143,10 @@ const jsonLd = info
       </div>
     </footer>
     <script>
-      if (document.querySelector("[data-member=possible]"))
+      if (
+        document.querySelector("[data-member=possible]") ||
+        document.body.dataset.checkSession === "true"
+      )
         fetch("/api/session")
           .then((r) => r.json())
           .then((s) => {

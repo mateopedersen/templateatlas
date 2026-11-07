@@ -1,6 +1,11 @@
 // Used by trusted catalog intake, outside the public request path.
 import { createHash } from 'node:crypto';
+import productionSnapshot from '../data/production-search-snapshot.json' with { type: 'json' };
 const digest = (s) => createHash('sha256').update(s).digest('hex');
+const productionSearch = new Map(productionSnapshot.rows.map((values) => {
+  const [id,title,subject,keyword,summary,category,path,preview,memberships,assets,paperSha,paperKind,calendarYear,useKind] = values;
+  return [id,{id,title,subject,keyword,summary,category,path,preview,memberships,assets,paperSha,paperKind,calendarYear,useKind}];
+}));
 const alias = {
   'non-disclosure-agreement': 'nda nondisclosure confidentiality',
   'curriculum-vitae': 'cv resume',
@@ -16,6 +21,8 @@ export function searchRows(entries, categories, paper = {}) {
   const byPath = new Map(categories.map((c) => [c.path, c]));
   return entries
     .map((e) => {
+      const prior = productionSearch.get(e.id);
+      if (prior) return prior;
       const groups = memberships.get(e.id);
       for (const current of groups) {
         const parent = byPath.get(current)?.parent;
@@ -65,6 +72,11 @@ export async function indexRelease(db, entries, categories, paper = {}) {
     .first('revision');
   if (active === revision)
     return { indexed: rows.length, revision, reused: true };
+  // Read history once: a correlated MIN query for every inserted row scans
+  // all earlier releases repeatedly and can exhaust D1's execution window.
+  const seen = new Map((await db.prepare(
+    'SELECT template_id,MIN(first_seen) AS first_seen FROM search_templates GROUP BY template_id',
+  ).all()).results.map((row) => [row.template_id, row.first_seen]));
   for (let i = 0; i < rows.length; i += 50) {
     await db.batch(
       rows.slice(i, i + 50).map((r) =>
@@ -72,7 +84,7 @@ export async function indexRelease(db, entries, categories, paper = {}) {
           .prepare(
             `INSERT OR IGNORE INTO search_templates
       (revision,template_id,title,subject,keyword,summary,category,path,preview,memberships,assets,paper_sha,paper_kind,calendar_year,use_kind,first_seen)
-      VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,COALESCE((SELECT MIN(first_seen) FROM search_templates WHERE template_id=?),unixepoch()))`,
+      VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,COALESCE(?,unixepoch()))`,
           )
           .bind(
             revision,
@@ -90,7 +102,7 @@ export async function indexRelease(db, entries, categories, paper = {}) {
             r.paperKind,
             r.calendarYear,
             r.useKind,
-            r.id,
+            seen.get(r.id) ?? null,
           ),
       ),
     );

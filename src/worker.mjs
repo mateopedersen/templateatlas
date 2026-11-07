@@ -1,20 +1,21 @@
 import { catalogState } from './lib/publication.mjs';
 import { searchResponse } from './search/query.mjs';
-import astro from '@astrojs/cloudflare/entrypoints/server';
-import { handleApi, resumePending, DownloadActor } from './server/index.mjs';
-import * as server from './server/index.mjs';
-import { renderDocument } from './lib/render.mjs';
-import { entries, routes } from './lib/catalog.mjs';
 import aliases from './data/aliases.json' with { type: 'json' };
 import { catalogAsset } from './server/catalog-assets.mjs';
 import { withNoIndex } from './lib/indexing.mjs';
-export { DownloadActor };
+export { DownloadActor } from './server/actor.mjs';
+import { publicPage } from './server/public-page-cache.mjs';
+const pageBuild = typeof __TEMPLATEATLAS_BUILD_ID__ === 'string' ? __TEMPLATEATLAS_BUILD_ID__ : 'local';
 export default {
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(resumePending(env, { renderDocument }));
+    ctx.waitUntil((async () => {
+      const [{ resumePending }, { renderDocument }] = await Promise.all([import('./server/index.mjs'), import('./lib/render.mjs')]);
+      await resumePending(env, { renderDocument });
+    })());
   },
   async fetch(req, env, ctx) {
-    return withNoIndex(await handleRequest(req, env, ctx));
+    const render = (request) => handleRequest(request, env, ctx);
+    return withNoIndex(await publicPage(req, env, ctx, pageBuild, render, caches.default));
   },
 };
 async function handleRequest(req, env, ctx) {
@@ -47,8 +48,11 @@ async function handleRequest(req, env, ctx) {
         new URL(p + url.search, env.PUBLIC_SITE_URL),
         307,
       );
-    if (!p.endsWith('/') && Object.hasOwn(routes, p + '/'))
-      return Response.redirect(new URL(p + '/' + url.search, url), 301);
+    if (!p.endsWith('/') && !p.split('/').at(-1).includes('.')) {
+      const { routes } = await import('./lib/catalog.mjs');
+      if (Object.hasOwn(routes, p + '/'))
+        return Response.redirect(new URL(p + '/' + url.search, url), 301);
+    }
     if (
       p === '/api/health' ||
       p === '/api/search' ||
@@ -64,7 +68,8 @@ async function handleRequest(req, env, ctx) {
             headers: { 'Cache-Control': 'no-store', 'Retry-After': '60' },
           },
         );
-      if (p === '/api/health')
+      if (p === '/api/health') {
+        const { entries } = await import('./lib/catalog.mjs');
         return Response.json(
           {
             app: 'TemplateAtlas',
@@ -74,17 +79,20 @@ async function handleRequest(req, env, ctx) {
           },
           { headers: { 'Cache-Control': 'no-store' } },
         );
+      }
     }
     if (p.startsWith('/admin/')) {
-      const guard = server.guardAdminPage;
+      const { guardAdminPage: guard } = await import('./server/index.mjs');
       const denied = guard
         ? await guard(req, env)
         : new Response('Administrator access required', { status: 403 });
       if (denied) return denied;
     }
     if (p === '/api/search') return searchResponse(req, env);
-    if (p.startsWith('/api/'))
+    if (p.startsWith('/api/')) {
+      const [{ handleApi }, { renderDocument }] = await Promise.all([import('./server/index.mjs'), import('./lib/render.mjs')]);
       return handleApi(req, env, ctx, { renderDocument });
+    }
     if (Object.hasOwn(aliases, p))
       return Response.redirect(new URL(aliases[p], url), 301);
     if (p === '/robots.txt')
@@ -99,6 +107,7 @@ async function handleRequest(req, env, ctx) {
         { headers: { 'Content-Type': 'application/xml' } },
       );
     }
+    const { default: astro } = await import('@astrojs/cloudflare/entrypoints/server');
     let response = await astro.fetch(req, env, ctx);
     if (!response.headers.get('content-type')?.includes('text/html'))
       return response;

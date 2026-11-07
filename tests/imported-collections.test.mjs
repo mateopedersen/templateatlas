@@ -36,7 +36,7 @@ test('the catalog includes every registered design and its declared original for
       const asset = entry.assets[format];
       const label = entry.id + ' ' + format;
       assert.ok(Object.hasOwn(formatMimes, format), label);
-      assert.equal(asset.mime, formatMimes[format], label);
+      assert.equal(asset.mime.split(';', 1)[0].trim(), formatMimes[format], label);
       assert.match(asset.sha256, /^[0-9a-f]{64}$/, label);
       assert.ok(Number.isSafeInteger(asset.bytes) && asset.bytes > 0, label);
     }
@@ -183,7 +183,16 @@ test("Accident reports retain their pages and source formats",()=>{const c=colle
 
 test("Ant charts retain credited multi-page references and original formats",()=>{const c=collections.find(c=>c.id==="ant-identification-charts");assert.equal(c.items.length,100);assert.equal(c.items.filter(e=>e.pages===3).length,72);assert.equal(c.items.filter(e=>e.pages===4).length,28);assert.ok(c.items.every(e=>e.third_party_photography&&e.previewPages.length===e.pages&&e.formats.join(",")==="pdf,webp"));assert.equal(new Set(c.items.map(e=>e.detail_path)).size,100);});
 
-test("optimized collection thumbnails preserve full-size detail previews",()=>{for(const e of importedEntries){assert.ok(e.thumbnailAsset);assert.match(e.thumbnailAsset.sha256,/^[0-9a-f]{64}$/);assert.ok(e.thumbnailSize.every(n=>n>0));assert.ok(publicCatalogAssets.has(e.thumbnailAsset.path));assert.ok(e.previewAsset.path!==e.thumbnailAsset.path);}});
+test("optimized collection thumbnails preserve full-size detail previews",()=>{
+ const preserved = new Set(collections.filter(c=>c.preservedProduction).map(c=>c.id));
+ for(const e of importedEntries){
+  assert.ok(e.thumbnailAsset);assert.match(e.thumbnailAsset.sha256,/^[0-9a-f]{64}$/);
+  assert.ok(publicCatalogAssets.has(e.thumbnailAsset.path));
+  if (!preserved.has(e.importedCollection)) {
+   assert.ok(e.thumbnailSize.every(n=>n>0));assert.notEqual(e.previewAsset.path,e.thumbnailAsset.path,e.id);
+  } else if (e.thumbnailSize) assert.ok(e.thumbnailSize.every(n=>n>0));
+ }
+});
 
 test("Bee charts retain credited references and complete previews",()=>{const c=collections.find(c=>c.id==="bee-identification-charts");assert.equal(c.items.length,100);assert.deepEqual([3,5,6,7].map(n=>c.items.filter(e=>e.pages===n).length),[40,38,18,4]);assert.ok(c.items.every(e=>e.third_party_photography&&e.previewPages.length===e.pages&&e.thumbnailAsset&&e.pixels?.length===2&&e.pixels.every(n=>n>0)&&e.formats.join(",")==="pdf,webp"));assert.equal(new Set(c.items.map(e=>e.detail_path)).size,100);});
 

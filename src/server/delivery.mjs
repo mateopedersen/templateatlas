@@ -20,7 +20,7 @@ function matches(asset, object) {
     !object ||
     object.size !== asset.size_bytes ||
     object.customMetadata?.sha256 !== asset.sha256 ||
-    asset.mime !== formatMimes[asset.format]
+    asset.mime?.split(';', 1)[0].trim().toLowerCase() !== formatMimes[asset.format]
   )
     return false;
   return (
