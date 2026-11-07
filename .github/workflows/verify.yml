@@ -15,7 +15,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: "24"
+          node-version: "24.22.1"
       - run: npm ci --no-fund --no-audit
       - run: python3 scripts/check-public.py
       - run: npm run check
