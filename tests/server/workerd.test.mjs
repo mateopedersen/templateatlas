@@ -924,12 +924,12 @@ test('workerd HTTP, SQLite D1/DO and R2 with local email and Stripe service doub
         0,
       );
 
-      const post = (url, body) =>
+      const post = (url, body, key = crypto.randomUUID()) =>
         req(url, {
           cookie: owner,
           method: 'POST',
           body,
-          headers: { 'idempotency-key': crypto.randomUUID() },
+          headers: { 'idempotency-key': key },
         });
       for (const [rev, name] of [
         [1, 'Morgan'],
@@ -1076,6 +1076,12 @@ test('workerd HTTP, SQLite D1/DO and R2 with local email and Stripe service doub
       const receiptCount = () =>
         db.prepare('SELECT COUNT(*) AS count FROM export_receipts').first('count');
       const beforeInvalid = await receiptCount();
+      const jobsBeforeInvalid = await db
+        .prepare('SELECT COUNT(*) AS count FROM export_jobs')
+        .first('count');
+      const assetsBeforeInvalid = await db
+        .prepare('SELECT COUNT(*) AS count FROM downloadable_assets')
+        .first('count');
       assert.equal(
         (await post('/api/exports', {
           documentId: doc.id,
@@ -1085,6 +1091,14 @@ test('workerd HTTP, SQLite D1/DO and R2 with local email and Stripe service doub
         404,
       );
       assert.equal(await receiptCount(), beforeInvalid);
+      assert.equal(
+        await db.prepare('SELECT COUNT(*) AS count FROM export_jobs').first('count'),
+        jobsBeforeInvalid,
+      );
+      assert.equal(
+        await db.prepare('SELECT COUNT(*) AS count FROM downloadable_assets').first('count'),
+        assetsBeforeInvalid,
+      );
       const batch = await Promise.all(
         Array.from({ length: 12 }, () =>
           post('/api/exports', {
@@ -1112,6 +1126,27 @@ test('workerd HTTP, SQLite D1/DO and R2 with local email and Stripe service doub
         job = await (await req('/api/exports/' + jobId, input)).json();
       }
       assert.equal(job.state, 'succeeded');
+      assert.equal(conversions, 1);
+      const receiptsBeforeReplay = await receiptCount();
+      const repeated = await Promise.all(
+        Array.from({ length: 2 }, () =>
+          post('/api/exports', {
+            documentId: doc.id,
+            documentRevision: 3,
+            format: 'pdf',
+          }, 'same-completed-export-key'),
+        ),
+      );
+      for (const response of repeated) {
+        assert.equal(response.status, 200);
+        assert.equal((await response.json()).id, jobId);
+      }
+      assert.equal(await receiptCount(), receiptsBeforeReplay + 1);
+      assert.equal(
+        await db.prepare('SELECT COUNT(*) AS count FROM export_jobs WHERE id=?')
+          .bind(jobId).first('count'),
+        1,
+      );
       assert.equal(conversions, 1);
       // Simulate a process exiting after writing bytes, before the publication transaction.
       await db.batch([
