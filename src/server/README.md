@@ -50,6 +50,17 @@ Validate your live Resend sender in its dashboard and send a verification and re
 
 ## Retention and recovery
 
+Apply migration `0016_export_receipt_retention.sql` before this Worker version.
+D1 export replay receipts retain the first request time for 24 hours, with at most
+1,024 rows per actor and 100,000 rows across the database. An atomic database
+trigger rejects new keys with HTTP 429 at capacity; existing exact-key retries
+still work and do not refresh retention. New inserts and scheduled maintenance
+prune expired receipts. Pre-migration rows have time zero and retire at the next
+prune. Receipts are separate from asset metadata, document revisions, download
+tickets, and permanent entitlement grants; pruning does not delete files, revoke
+already-issued valid tickets, or rerender an existing completed export. Reusing
+an expired key starts a new authorization within the same retained-row bounds.
+
 Users can request a paginated archive of their current inputs under Account → Personal data. Reauthentication is required, and the archive excludes paid catalog binaries. Users can close their account by reauthenticating and explicitly confirming deletion. The request revokes sessions immediately and schedules private file cleanup and stopping plan renewals. A failure to reach Stripe keeps the closure pending for retry. Provider-side accounting records follow the operator’s legal and provider retention policies.
 
 Inactive guest drafts enter deletion after seven days. Deleted documents are hidden immediately. After 24 hours, scheduled maintenance removes their private input and export objects, revisions, and corresponding metadata. User-owned drafts are not removed solely because a trial expires. On account closure the remaining account records are purged only after the billing and storage jobs finish. Backups require a separate, time-bounded retention schedule.

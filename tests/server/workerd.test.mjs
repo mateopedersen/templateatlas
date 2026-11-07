@@ -1148,6 +1148,35 @@ test('workerd HTTP, SQLite D1/DO and R2 with local email and Stripe service doub
         1,
       );
       assert.equal(conversions, 1);
+      // D1 replay rows have a separate bound from DownloadActor tickets.
+      const stillValidTicket = (await (await post('/api/download-intents', job.intent)).json()).url;
+      const receiptOwner = await db.prepare('SELECT owner FROM export_receipts WHERE asset_id=? LIMIT 1').bind(jobId).first('owner');
+      const ownerCount = () => db.prepare('SELECT COUNT(*) AS count FROM export_receipts WHERE owner=?').bind(receiptOwner).first('count');
+      const fill = 1023 - await ownerCount();
+      assert.ok(fill > 0);
+      await db.prepare("WITH RECURSIVE n(x) AS (VALUES(1) UNION ALL SELECT x+1 FROM n WHERE x<?) INSERT INTO export_receipts(owner,idem,fingerprint,asset_id,made) SELECT ?,'cap-fixture-'||x,'fixture',?,unixepoch() FROM n").bind(fill, receiptOwner, jobId).run();
+      assert.equal(await ownerCount(), 1023);
+      const lastSlot = await Promise.all(['a', 'b'].map(key => post('/api/exports', {documentId:doc.id,documentRevision:3,format:'pdf'}, 'last-receipt-slot-' + key)));
+      assert.deepEqual(lastSlot.map(response => response.status).sort(), [200, 429]);
+      for (const response of lastSlot) if (response.status === 429) assert.equal((await response.json()).code, 'RATE_LIMITED');
+      assert.equal(await ownerCount(), 1024);
+      assert.equal((await post('/api/exports', {documentId:doc.id,documentRevision:3,format:'pdf'}, 'same-completed-export-key')).status, 200);
+      assert.equal((await post('/api/exports', {documentId:doc.id,documentRevision:2,format:'pdf'}, 'same-completed-export-key')).status, 409);
+      assert.equal((await req(stillValidTicket, input)).status, 200);
+      assert.equal(conversions, 1);
+      // A receipt-limit rejection must roll back a newly-created logical job.
+      assert.equal((await req('/api/documents/' + doc.id, {cookie:owner,method:'PATCH',body:{expectedRevision:3,data:{...data,edits:{f1:'Casey'}}}})).status, 200);
+      const beforeDeniedJob = await db.prepare('SELECT COUNT(*) AS count FROM export_jobs').first('count');
+      assert.equal((await post('/api/exports', {documentId:doc.id,documentRevision:4,format:'pdf'}, 'blocked-new-revision-key')).status, 429);
+      assert.equal(await db.prepare('SELECT COUNT(*) AS count FROM export_jobs').first('count'), beforeDeniedJob);
+      assert.equal(conversions, 1);
+      // Legacy receipts and expired replay history retire without touching files
+      // or previously-authorized download tickets.
+      await db.prepare('UPDATE export_receipts SET made=0 WHERE owner=?').bind(receiptOwner).run();
+      assert.equal((await post('/api/exports', {documentId:doc.id,documentRevision:3,format:'pdf'}, 'after-retention-prune')).status, 200);
+      assert.equal(await ownerCount(), 1);
+      assert.equal((await req(stillValidTicket, input)).status, 200);
+      assert.equal(conversions, 1);
       // Simulate a process exiting after writing bytes, before the publication transaction.
       await db.batch([
         db

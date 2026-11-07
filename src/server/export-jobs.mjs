@@ -48,6 +48,16 @@ function retryable(err) {
     err.message === 'RATE_LIMITED'
   );
 }
+// A D1 trigger enforces retained-row ceilings atomically, including batch writes.
+async function receiptWrite(work) {
+  try {
+    return await work;
+  } catch (error) {
+    if (/\bEXPORT_RECEIPT_LIMIT\b/.test(String(error)))
+      throw new ApiError('RATE_LIMITED');
+    throw error;
+  }
+}
 async function finalAsset(env, actor, id) {
   const a = await env.DB.prepare(
     `SELECT a.document_id,a.document_revision,a.format FROM downloadable_assets a
@@ -293,11 +303,11 @@ export async function startJob(
   if (asset) {
     if (!receipt) {
       await actorCall(env, actor, 'export-request-limit');
-      await env.DB.prepare(
-        `INSERT OR IGNORE INTO export_receipts(owner,idem,fingerprint,asset_id)
-         SELECT ?,?,?,a.id FROM downloadable_assets a JOIN member_documents d ON d.id=a.document_id
+      await receiptWrite(env.DB.prepare(
+        `INSERT OR IGNORE INTO export_receipts(owner,idem,fingerprint,asset_id,made)
+         SELECT ?,?,?,a.id,unixepoch() FROM downloadable_assets a JOIN member_documents d ON d.id=a.document_id
          WHERE a.id=? AND a.published=1 AND d.owner=? AND d.deleted IS NULL AND ` + released,
-      ).bind(actor, idem, fingerprint, id, actor).run();
+      ).bind(actor, idem, fingerprint, id, actor).run());
       const reserved = await receiptQuery.first();
       requireValue(reserved, 'NOT_FOUND');
       requireValue(reserved.fingerprint === fingerprint, 'IDEMPOTENCY_CONFLICT');
@@ -327,14 +337,14 @@ export async function startJob(
     requireValue(revision, 'NOT_FOUND');
     await actorCall(env, actor, 'export-request-limit');
     // A new idempotency receipt must commit with its owning job.
-    await env.DB.batch([
+    await receiptWrite(env.DB.batch([
       createJob,
       env.DB.prepare(
-        `INSERT OR IGNORE INTO export_receipts(owner,idem,fingerprint)
-         SELECT ?,?,? FROM export_jobs j JOIN member_documents d ON d.id=j.document_id
+        `INSERT OR IGNORE INTO export_receipts(owner,idem,fingerprint,made)
+         SELECT ?,?,?,unixepoch() FROM export_jobs j JOIN member_documents d ON d.id=j.document_id
          WHERE j.id=? AND d.owner=? AND d.deleted IS NULL AND ` + released,
       ).bind(actor, idem, fingerprint, id, actor),
-    ]);
+    ]));
     const reserved = await receiptQuery.first();
     requireValue(reserved, 'NOT_FOUND');
     requireValue(reserved.fingerprint === fingerprint, 'IDEMPOTENCY_CONFLICT');

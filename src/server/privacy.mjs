@@ -100,6 +100,7 @@ async function removeObjects(bucket, prefix) {
 export async function retention(env) {
   const now = unix();
   await env.DB.batch([
+    env.DB.prepare('DELETE FROM export_receipts WHERE made < unixepoch()-86400'),
     env.DB.prepare('DELETE FROM local_test_messages WHERE expires<=?').bind(
       now,
     ),
