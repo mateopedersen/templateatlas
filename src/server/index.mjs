@@ -9,6 +9,7 @@ import {
   isId,
 } from './common.mjs';
 import { authResponse, identify, resumeTransfers } from './identity.mjs';
+import { initialGuestSummary } from './actor.mjs';
 import { accountEmailConfigured, reserveEmailBudget } from './email.mjs';
 import { intent, deliver } from './delivery.mjs';
 import {
@@ -177,7 +178,10 @@ export async function handleApi(request, env, ctx, options = {}) {
               .bind(identity.user.id)
               .first('time_zone')
           : null,
-        ...(await actorCall(env, identity.actor, 'summary')),
+        // Issuing a cookie alone must not allocate a per-visitor SQLite object.
+        ...(identity.cookie
+          ? initialGuestSummary()
+          : await actorCall(env, identity.actor, 'summary')),
       });
     } else if (path === '/api/contact') {
       method(request, ['POST']);
