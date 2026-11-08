@@ -39,9 +39,19 @@ export function json(data, status = 200) {
   });
 }
 export function failure(e) {
-  return e instanceof ApiError
-    ? json({ code: e.message }, e.status)
-    : json({ code: 'DEPENDENCY_UNAVAILABLE' }, 503);
+  const response =
+    e instanceof ApiError
+      ? json({ code: e.message }, e.status)
+      : json({ code: 'DEPENDENCY_UNAVAILABLE' }, 503);
+  if (
+    e instanceof ApiError &&
+    e.message === 'RATE_LIMITED' &&
+    Number.isSafeInteger(e.retryAfter) &&
+    e.retryAfter > 0 &&
+    e.retryAfter <= 86400
+  )
+    response.headers.set('Retry-After', String(e.retryAfter));
+  return response;
 }
 export async function readBody(request, maxBytes = 32768) {
   requireValue(

@@ -1,9 +1,22 @@
 import { requireValue, ApiError, failure, json, unix } from './common.mjs';
+import { admitGuestSession } from './guest-sessions.mjs';
 
 export const WINDOW = 30 * 86400;
 const LIMIT = 5,
   TTL = 120,
   MAX_RETAINED_INTENTS = 1024;
+
+export function initialGuestSummary() {
+  return {
+    freeUsed: 0,
+    freeLimit: LIMIT,
+    trialEndsAt: null,
+    paidThrough: null,
+    billingStatus: 'none',
+    cancelAtPeriodEnd: false,
+    premium: false,
+  };
+}
 const schema = `
   CREATE TABLE IF NOT EXISTS principal (id INTEGER PRIMARY KEY CHECK(id=1), verified_at INTEGER, paid_through INTEGER NOT NULL DEFAULT 0,
     billing_status TEXT NOT NULL DEFAULT 'none', epoch INTEGER NOT NULL DEFAULT 0, transferred TEXT, suspended INTEGER NOT NULL DEFAULT 0, generation INTEGER NOT NULL DEFAULT 0);
@@ -48,6 +61,8 @@ export class DownloadActor {
     return json(result);
   }
   dispatch(action, input, now) {
+    if (action === 'guest-session-admission')
+      return admitGuestSession(this.sql, input.networkHash, now);
     const state = this.rows('SELECT * FROM principal WHERE id=1')[0];
     const exec = (q, ...values) => this.sql.exec(q, ...values);
     const grants = () =>

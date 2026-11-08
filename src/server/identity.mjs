@@ -1,6 +1,7 @@
 import { sendMail } from './email.mjs';
 import { betterAuth } from 'better-auth';
 import { requireValue, sign, verify, actorCall, uuid } from './common.mjs';
+import { reserveGuestSession } from './guest-sessions.mjs';
 
 const guestCookie = '__Host-ta-guest';
 const guestAge = 60 * 60 * 24 * 365;
@@ -185,6 +186,7 @@ export async function identify(env, request, createGuest = false) {
   }
   if (guest) return { actor: guest, user: session?.user || null };
   requireValue(createGuest, 'GUEST_SESSION_REQUIRED');
+  await reserveGuestSession(env, request);
   const fresh = crypto.randomUUID();
   return {
     actor: 'guest:' + fresh,
