@@ -21,14 +21,16 @@ MIMES = {'pdf':'application/pdf','jpg':'image/jpeg','preview-jpg':'image/jpeg'}
 SLOTS = threading.BoundedSemaphore(2)
 
 def inspect_xml(payload):
-    lower=payload.lower()
-    if b'<!doctype' in lower or b'<!entity' in lower:
+    # Match the production policy: generated native XML is UTF-8 only.
+    text=payload.decode('utf-8-sig')
+    lower=text.lower()
+    if '\x00' in text or '<!doctype' in lower or '<!entity' in lower:
         raise ValueError('Unsupported XML declarations.')
-    if re.search(rb'<(?:[\w-]+:)?(?:script|foreignobject|oleobject)\b',lower):
+    if re.search(r'<(?:[\w-]+:)?(?:script|foreignobject|oleobject)\b',lower):
         raise ValueError('Unsupported active content.')
-    if re.search(rb'\b(?:includetext|includepicture|ddeauto)\b',lower):
+    if re.search(r'\b(?:includetext|includepicture|ddeauto)\b',lower):
         raise ValueError('Unsupported external field.')
-    return ET.fromstring(payload)
+    return ET.fromstring(text)
 
 def inspect_svg(data):
     root=inspect_xml(data)
