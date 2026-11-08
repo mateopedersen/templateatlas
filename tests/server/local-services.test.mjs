@@ -491,8 +491,10 @@ test('local inbox, support tickets and published-only D1 search in workerd', asy
     'D1 FTS activates complete snapshot, filters on actual asset hashes and honors holds',
     async () => {
       const sha = '1'.repeat(64),
+        fixtureId = 'security-fixture-' + randomBytes(12).toString('hex'),
+        assetId = 'security-asset-' + randomBytes(12).toString('hex'),
         base = {
-          id: 'ta-invoice-001',
+          id: fixtureId,
           title: 'Invoice',
           display_title: 'Invoice',
           topic_slug: 'invoice',
@@ -514,9 +516,9 @@ test('local inbox, support tickets and published-only D1 search in workerd', asy
       assert.equal((await search('invoice')).total, 0);
       await db
         .prepare(
-          "INSERT INTO downloadable_assets(id,template_id,version,format,object_key,sha256,size_bytes,filename,mime,published) VALUES('asset','ta-invoice-001','v1','xlsx','private',?,100,'invoice.xlsx','office',1)",
+          "INSERT INTO downloadable_assets(id,template_id,version,format,object_key,sha256,size_bytes,filename,mime,published) VALUES(?,?, 'v1','xlsx','private',?,100,'invoice.xlsx','office',1)",
         )
-        .bind(sha)
+        .bind(assetId, base.id, sha)
         .run();
       assert.equal((await search('invo')).total, 1);
       const corrected = await search('invocie');
@@ -540,7 +542,8 @@ test('local inbox, support tickets and published-only D1 search in workerd', asy
       );
       assert.equal((await search('" OR * NEAR(')).total, 0);
       await db
-        .prepare("INSERT INTO delivery_holds VALUES('ta-invoice-001','hold')")
+        .prepare('INSERT INTO delivery_holds VALUES(?,?)')
+        .bind(base.id, 'hold')
         .run();
       assert.equal((await search('invoice')).total, 0);
       await db.prepare('DELETE FROM delivery_holds').run();
