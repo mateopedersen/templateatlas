@@ -19,6 +19,7 @@ jobs:
       - run: npm ci --no-fund --no-audit
       - run: python3 scripts/check-public.py
       - run: npm run check
+      - run: python3 -I -B tests/server/local-xml-policy-test.py --source scripts/local-renderer.py --expected proposal -v
       - run: npm test
       - run: npm run build
       - run: npm run build:production
