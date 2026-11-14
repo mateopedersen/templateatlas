@@ -19,7 +19,7 @@ const receipt = collection.kind === "acknowledgment-receipt";
 const fiveWhys = collection.kind === "five-whys";
 const ruler = collection.kind === "ruler";
 const babyFeeding = collection.kind === "baby-feeding";
-const legalAgreement = ["consortium-agreement", "arbitration-agreement", "divorce-agreement"].includes(collection.kind);
+const legalAgreement = ["consortium-agreement", "arbitration-agreement", "divorce-agreement", "asset-purchase-agreement", "child-support-agreement", "car-rental-agreement"].includes(collection.kind);
 const agency = legalAgreement || collection.kind === "agency-agreement" || collection.kind === "catering-contract";
 const catering = collection.kind === "catering-contract";
 const dedication = collection.kind === "baby-dedication";
