@@ -12,7 +12,7 @@ const multiple = pages.length > 1;
   </div>}
   {pages.map((page:any,index:number)=><section id={`${item.id}-page-panel-${index}`} role={multiple?'tabpanel':undefined} aria-labelledby={multiple?`${item.id}-page-tab-${index}`:undefined} data-preview-panel hidden={index!==0}>
     <a class="imported-large-preview" href={page.url} aria-label={`Enlarge preview${multiple?` page ${page.page}`:''} of ${item.title}`}>
-      <img src={index === 0 && item.thumbnailAsset ? `https://assets.templateatlas.com${item.thumbnailAsset.path}` : page.url} alt={multiple?`${item.title} — page ${page.page} of ${pages.length}`:item.alt} width={page.size?.[0]} height={page.size?.[1]} loading={index===0?'eager':'lazy'} fetchpriority={index===0?'high':'auto'}/>
+      <img src={page.url} alt={multiple?`${item.title} — page ${page.page} of ${pages.length}`:item.alt} width={page.size?.[0]} height={page.size?.[1]} loading={index===0?'eager':'lazy'} fetchpriority={index===0?'high':'auto'}/>
     </a>
     {multiple && <p class="document-page-caption">Page {page.page} Of {pages.length} · {item.paper}</p>}
   </section>)}
