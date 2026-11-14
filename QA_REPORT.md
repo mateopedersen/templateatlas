@@ -111,3 +111,21 @@ Published 100 source-reviewed designs (75 standard, 25 color), 300 source downlo
 400 designs and 1,200 complete PDF/Word/Image downloads published. All 400 public detail pages and 800 public thumbnail/full-image objects passed MIME, bytes, checksum, cache and noindex checks. Twelve signed source downloads matched expected bytes and checksums. Each design counted as one free selection across formats. Billing remains disabled. Filters, reset, single More expansion, download geometry and 125% preview zoom passed at 375, 768 and 1440 pixels for every collection. All source first-page images were manually inspected; complete PDF/Word render receipts and structural checks were recorded, without claiming individual visual inspection of every internal page.
 
 R2: 1,604 verified objects, including four checksum-read-back private ZIP backups. Source archives over 300 MiB use multipart upload and ordered ranged readback. Worker: `80472aa8-acb7-4e6d-8928-c8ebdd9f7a48`. Search: 7,630 entries. Import/editorial tests: 29 passed.
+
+
+## Six collections — verified publication, 2026-11-14
+
+- https://templateatlas.com/templates/action-item/ — 200 designs; PDF, Word, Excel and Image.
+- https://templateatlas.com/templates/business-associate-agreement/ — 100 designs; PDF, Word and Image.
+- https://templateatlas.com/templates/commercial-lease-agreement/ — 100 designs; PDF, Word and Image.
+- https://templateatlas.com/templates/cash-advance-loan-agreement/ — 100 designs; PDF, Word and Image.
+- https://templateatlas.com/templates/zine-template/ — 100 designs; PDF, Word, Excel, Photoshop, Image and Print Files.
+- https://templateatlas.com/templates/buyers-agency-agreement/ — 100 designs; PDF, Word and Image.
+
+700 designs, 2,600 download controls and 2,700 native catalog files. Zine Print Files bundles preserve separate A4/Letter imposed PDFs, include fonts/licenses, a production guide and the offline print-layout tool; every one of the 100 bundles passed CRC and required-content checks. Reading PDFs and imposed print files have distinct instructions. Complete multipage documents are retained; gallery Images show only their first page.
+
+All 700 live detail pages and 1,400 public thumbnail/full-image objects passed copy, status, MIME, bytes, checksum, immutable-cache and noindex checks. Twenty-two signed source downloads across every offered format matched expected bytes/checksums; raw source paths remained private and multiple formats of the same design counted as one free selection. All six collections passed filter/reset, More/Less, download geometry, no horizontal overflow and 125% preview zoom at 375, 768 and 1440 pixels (18 configurations). Billing remains disabled.
+
+Actual source first-page images were manually inspected. Complete PDF/Word renders, page-count agreement and structural checks were recorded; this does not claim manual inspection of every internal page. Action Items Excel recalculation checked 89,971 formulas with no value differences. Zine layered Photoshop files retained native type layers. Twelve commercial-lease headings were corrected from source title paragraphs after detecting opening reference tables. Buyer design 61 was classified as Standard after inspecting its actual black-and-white first page; the package metadata had incorrectly labeled it Color. Original source files were preserved.
+
+R2: 3,310 verified objects (4,049,046,968 bytes), including ten private source ZIP backups verified by full ordered readback. R2 multipart/ranged verification preserves large source files without a CLI-size limit. Source-bound editorial gate passed for 5,874 reviewed imports; 1,320 existing production entries remain explicitly preserved. Import/editorial tests: 29 passed. Production build passed. Worker: `2681498e-371a-42e3-9cb7-c821c47fe16e`. Active search: 8,330 entries, revision `7180758797385fc17e856fdd8bcd08ad49ddb516098e068ba75f98cfd4e82555`.
