@@ -136,3 +136,8 @@ R2: 3,310 verified objects (4,049,046,968 bytes), including ten private source Z
 The Zine collection banner shows two distinct Color designs (Street Photography and Botanical Field Journal). The artwork remains clipped to its own column on narrow screens, keeping the introduction legible. Local and live checks passed at 375, 768, 1440 and 1920 pixels: two distinct loaded images, visible cover areas and no horizontal page overflow. Worker: `2cb56569-87b1-40da-bd48-483ec8916618`; active search remains 8,330.
 
 Owner-authorized cleanup matched 14 live package intakes against verified R2 receipts. All 18 source ZIP checksums matched their local copies and fresh R2 HEAD checks confirmed the private backups. Removed local source archives, extracted copies, previews, print bundles, recalculated derivatives and QA render caches; kept project code, editorial manifests, audit logs and R2 restoration keys. Package cleanup reclaimed 11.63 GB; the reproducible local build was removed after live verification.
+
+
+## Full-resolution detail previews — 2026-11-14
+
+ImportedPreview now loads the same original R2 image used by its enlarge link, rather than enlarging a gallery thumbnail. Gallery thumbnails remain unchanged. Live checks covered Cash Advance / Foreign Currency and Zine / Street Photography at 375 and 1440 pixels with device scale factor 2. The Cash Advance normal preview decoded at 5100 × 6600 (formerly a 556 × 720 thumbnail); Zine decoded at 3300 × 5100. Both normal/zoom views used the same original URL, retained 125% zoom/close, loaded without page errors or horizontal overflow, and kept noindex headers. Editorial validation and the production build passed. Worker: `3727cb89-d658-47b8-9129-a5eb28f82b25`; search remains 8,330.
