@@ -6,10 +6,11 @@ const icons: Record<string,string> = {pdf:'pdf',webp:'image',docx:'word',pptx:'p
 if (entry.topic_path === '/templates/catering-contract/') labels.html = 'Google Sheets';
 if (entry.topic_path === '/templates/agency-agreement/') labels.html = 'Google Sheets';
 if (entry.topic_path === '/templates/baby-feeding-chart/') labels.html = 'Google Docs & Sheets';
+if (entry.topic_path === '/templates/zine-template/') { labels.zip = 'Print Files'; icons.zip = 'print-pack'; }
 const formats = ['pdf','webp','docx','pptx','xlsx','odt','psd','png','zip','html'].filter(format => !!entry.assets[format]);
 const bytes = (value: number) => value < 1024*1024 ? Math.ceil(value/1024) + ' KB' : (value/1024/1024).toFixed(1) + ' MB';
 ---
-<div class:list={['download-set','imported-card-downloads',{'has-word':formats.length===3,'has-four-formats':formats.length===4 || formats.length===5,'has-five-formats':formats.length===5,'has-powerpoint':formats.includes('pptx')}]}>
+<div class:list={['download-set','imported-card-downloads',{'has-word':formats.length===3,'has-four-formats':formats.length>=4,'has-five-formats':formats.length===5,'has-powerpoint':formats.includes('pptx')}]}>
   {formats.map(format=><button class:list={[{'secondary-download':format!=='pdf'}]} data-catalog-download={entry.id} data-format={format} aria-label={`Download ${labels[format]}: ${entry.title}`}>
     <span class="file-button-icon"><FileIcon kind={icons[format]}/></span>
     <span class="file-button-copy"><strong>{labels[format]}</strong><small>{format === 'html' ? 'Shortcut' : bytes(entry.assets[format].bytes)}</small></span>

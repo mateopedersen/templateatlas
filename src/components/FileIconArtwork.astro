@@ -78,6 +78,20 @@ const id = "file-definition-" + kind + "-";
       <path d="M5.5 18.5h17" stroke="#b7d9f3" stroke-opacity=".65"/>
       <text x="14" y="27.4" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10" font-weight="800">W</text>
     </>
+  ) : kind === "print-pack" ? (
+    <>
+      <ellipse cx="20" cy="36" rx="15" ry="2" fill="#342432" opacity=".17"/>
+      <path d="M12 3h18v17H12z" fill="#c7d5dc" stroke="#9bafb9" stroke-width=".7"/>
+      <path d="M10 5h18v16H10z" fill={"url(#" + id + "paper)"} stroke="#fff" stroke-width=".7"/>
+      <path d="M14 9h10M14 12h10" stroke="#9baeb6" stroke-width="1" stroke-linecap="round"/>
+      <path d="m5 16 3-3h24l3 3v14H5z" fill="#d8e3e8" stroke="#a6bac4" stroke-width=".8"/>
+      <rect x="4" y="17" width="31" height="13" rx="3" fill="#733b57" stroke="#53233e" stroke-width=".7"/>
+      <path d="M7 19h25" stroke="#c38ca3" stroke-opacity=".7" stroke-linecap="round"/>
+      <circle cx="30" cy="23" r="1.2" fill="#b5d4c3"/>
+      <path d="M10 26h19v9H10z" fill="#aabcc5"/>
+      <path d="M10 25h17v9H10z" fill={"url(#" + id + "paper)"} stroke="#fff" stroke-width=".6"/>
+      <path d="M13 28h11M13 31h8" stroke="#b0bcc1" stroke-width=".9" stroke-linecap="round"/>
+    </>
   ) : kind === "artwork" ? (
     <>
       <ellipse cx="20" cy="35.5" rx="14" ry="2" fill="#342432" opacity=".15"/>
