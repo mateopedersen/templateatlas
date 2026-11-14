@@ -46,6 +46,8 @@ const args = [
   'node_modules/wrangler/bin/wrangler.js',
   'dev',
   '--local',
+  '--infer-origin-from-routes',
+  'false',
   '--log-level',
   'error',
   '--test-scheduled',
