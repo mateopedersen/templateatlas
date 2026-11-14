@@ -636,3 +636,5 @@ footer {
     border: 0;
   }
 }
+
+img.is-image-recovering { opacity: 0; }

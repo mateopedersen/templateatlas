@@ -1,7 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
-const source = JSON.parse(readFileSync(new URL('../src/data/imported-collections.json',import.meta.url)));
+import {collections as source} from '../src/lib/imported.mjs';
 import runtime from '../src/data/imported-runtime.json' with {type:'json'};
 import {publicCatalogAssets} from '../src/lib/public-assets.mjs';
 import {publicCatalogAssets as reviewedAssets} from '../src/lib/imported.mjs';
@@ -27,4 +26,10 @@ test('the smaller deployed catalog preserves every accepted content field, asset
       else assert.equal(status.status,proof.status);
     }
   }
+});
+
+test('partitioned production lookup preserves every public asset and rejects arbitrary originals',async()=>{
+ const {getPublicCatalogAsset}=await import('../src/lib/public-assets-runtime.mjs');
+ for(const [path,asset]of reviewedAssets)assert.deepEqual(await getPublicCatalogAsset(path),publicCatalogAssets.get(path));
+ for(const path of ['/catalog/private.pdf','/api/session','/unknown.webp'])assert.equal(await getPublicCatalogAsset(path),undefined);
 });

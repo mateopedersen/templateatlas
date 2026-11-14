@@ -19,7 +19,7 @@ const receipt = collection.kind === "acknowledgment-receipt";
 const fiveWhys = collection.kind === "five-whys";
 const ruler = collection.kind === "ruler";
 const babyFeeding = collection.kind === "baby-feeding";
-const legalAgreement = ["consortium-agreement", "arbitration-agreement", "divorce-agreement", "asset-purchase-agreement", "child-support-agreement", "car-rental-agreement", "business-associate-agreement", "commercial-lease-agreement", "cash-advance-loan-agreement", "buyers-agency-agreement"].includes(collection.kind);
+const legalAgreement = ["consortium-agreement", "arbitration-agreement", "divorce-agreement", "asset-purchase-agreement", "child-support-agreement", "car-rental-agreement", "business-associate-agreement", "commercial-lease-agreement", "cash-advance-loan-agreement", "buyers-agency-agreement", "business-purchase-agreement", "cohabitation-agreement", "equipment-lease-agreement", "collaboration-agreement", "independent-contractor-agreement", "commercial-sublease-agreement", "consignment-agreement", "hold-harmless-agreement", "forbearance-agreement"].includes(collection.kind);
 const agency = legalAgreement || collection.kind === "agency-agreement" || collection.kind === "catering-contract";
 const catering = collection.kind === "catering-contract";
 const dedication = collection.kind === "baby-dedication";
@@ -86,7 +86,7 @@ const featuredPapers = zine ? items.filter((entry: any) => entry.color === "Colo
       <p class="print-cover-intro">{collection.lead || (savings ? "Choose a savings goal and a printable layout for your challenge." : "Choose a reference sheet for your units, paper size, and print setup.")}</p>
     </div>
     <div class="print-cover-art" aria-hidden="true">
-      {featuredPapers.map((sheet: any) => <img src={sheet.thumbnailAsset ? `https://assets.templateatlas.com${sheet.thumbnailAsset.path}` : sheet.preview} width={imageSize(sheet)?.[0]} height={imageSize(sheet)?.[1]} alt="" fetchpriority="high" />)}
+      {featuredPapers.map((sheet: any) => <img src={sheet.thumbnailAsset ? `https://assets.templateatlas.com${sheet.thumbnailAsset.path}` : sheet.preview} data-preview-original={sheet.preview} width={imageSize(sheet)?.[0]} height={imageSize(sheet)?.[1]} alt="" fetchpriority="high" />)}
     </div>
   </section>
 )}
@@ -182,7 +182,7 @@ const featuredPapers = zine ? items.filter((entry: any) => entry.color === "Colo
         {item.description_paragraphs.length > 0 && <section class="imported-description" aria-label="About this template">
           {item.description_paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
         </section>}
-        {(tenFrame || disciplinaryForm || evaluation || snow || agency || accident || trailer || vehicleBillOfSale || naturalReference || barGraph || morseChart || bankReconciliation || shiftSchedule || nursingNotes || lateRentNotice || dayPlan || continuityPlan) && item.pages > 1 && <p class="document-page-caption">{tenFrame ? `First-page preview · complete ${item.pages}-page activity in PDF, Word, and Excel` : dayPlan ? `First-page preview · complete ${item.pages}-page PDF and editable Word file` : continuityPlan ? `First-page preview · complete ${item.pages}-page PDF and editable Word file` : nursingNotes ? `First-page preview · complete ${item.pages}-page PDF and editable Word file` : shiftSchedule ? `First-page preview · complete ${item.pages}-page PDF and editable Word and Excel files` : barGraph ? `First-page preview · ${item.pages}-page Word report and Excel workbook` : bankReconciliation ? `First-page preview · ${item.pages}-page Word workpaper and Excel workbook` : item.previewPages?.length > 1 ? `Preview all ${item.pages} pages · Select a page and click to zoom` : `First-page preview · ${item.pages}-page PDF and Word files`}</p>}
+        {(tenFrame || disciplinaryForm || evaluation || snow || agency || accident || trailer || vehicleBillOfSale || naturalReference || barGraph || morseChart || bankReconciliation || shiftSchedule || nursingNotes || lateRentNotice || dayPlan || continuityPlan) && item.pages > 1 && <p class="document-page-caption">{item.page_count_basis === "pdf" ? `First-page preview · complete ${item.pages}-page PDF and editable Word file` : tenFrame ? `First-page preview · complete ${item.pages}-page activity in PDF, Word, and Excel` : dayPlan ? `First-page preview · complete ${item.pages}-page PDF and editable Word file` : continuityPlan ? `First-page preview · complete ${item.pages}-page PDF and editable Word file` : nursingNotes ? `First-page preview · complete ${item.pages}-page PDF and editable Word file` : shiftSchedule ? `First-page preview · complete ${item.pages}-page PDF and editable Word and Excel files` : barGraph ? `First-page preview · ${item.pages}-page Word report and Excel workbook` : bankReconciliation ? `First-page preview · ${item.pages}-page Word workpaper and Excel workbook` : item.previewPages?.length > 1 ? `Preview all ${item.pages} pages · Select a page and click to zoom` : `First-page preview · ${item.pages}-page PDF and Word files`}</p>}
         <ImportedPreview item={item}/>
         {tenFrame || preserved || disciplinaryForm || dayPlan || continuityPlan ? <section class="imported-source-note"><h2>{collection.usage_title}</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : vehicleBillOfSale ? <section class="imported-source-note"><h2>{collection.usage_title}</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : (rubric || nursingNotes || cornellNotes || shiftSchedule || agency || well || dedication || sbar || letterCollection || accident || trailer || naturalReference || barGraph || bankReconciliation || lateRentNotice) ? <section class="imported-source-note"><h2>{rubric || lateRentNotice ? collection.usage_title : nursingNotes || cornellNotes || barGraph || morseChart || bankReconciliation || shiftSchedule ? collection.usage_title : trailer ? "Using This Form" : naturalReference || morseChart ? "Using This Chart" : accident ? "Using This Report" : letterCollection ? "Using This Letter" : sbar ? "Using This Form" : dedication ? "Using This Certificate" : agency ? "Using This Agreement" : "Using This Worksheet"}</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}{lateRentNotice && <p><a href={`${collection.topic_path}#official-rent-resources`}>Review official housing and state resources before use →</a></p>}{apology && item.pdf_fields < 21 && <p>Some PDF labels and nearby text share an editable field. Use the Word version to edit them separately.</p>}</section> : fiveWhys ? <section class="imported-source-note"><h2>Using This Worksheet</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : ruler ? <section class="imported-source-note"><h2>Using This Ruler</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : babyFeeding ? <section class="imported-source-note"><h2>Using This Resource</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}<p>For current guidance, see the <a href="https://www.cdc.gov/infant-toddler-nutrition/">CDC Infant and Toddler Nutrition resources</a>.</p></section> : receipt ? <section class="imported-source-note"><h2>Using This Receipt</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : snow ? <section class="imported-source-note"><h2>Using This Agreement</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : evaluation ? <section class="imported-source-note"><h2>Using This Review</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : protractor ? <section class="imported-source-note"><h2>Using This Protractor</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : bracket ? <section class="imported-source-note"><h2>Using This Bracket</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : petRecord ? <section class="imported-source-note"><h2>Using This Record</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : application ? <section class="imported-source-note"><h2>Using This Application</h2>{collection.usage_paragraphs.map((paragraph:string)=><p>{paragraph}</p>)}</section> : savings ? <section class="imported-source-note"><h2>Using This Tracker</h2>{weekly ? <><p>Follow the 52 printed weekly amounts. The PDF includes fields for actual deposits, completion checkboxes, and summary information. Word includes editable deposit fields and checkboxes; Excel calculates your goal, saved amount, remaining balance, and progress.</p><p>The Image is a static printable page. The Word and Excel versions use their own editable layouts with the matching plan and artwork.</p></> : <p>The PDF includes 100 checkboxes and three fields for your savings purpose and dates. The Image is a static printable version.</p>}</section> : <section class="imported-source-note">
           <h2>Using this reference</h2>
@@ -241,12 +241,13 @@ const featuredPapers = zine ? items.filter((entry: any) => entry.color === "Colo
                 <img
                   src={e.thumbnailAsset ? `https://assets.templateatlas.com${e.thumbnailAsset.path}` : e.preview}
                   alt={e.alt}
+                  data-preview-original={e.preview}
                   width={imageSize(e)?.[0]}
                   height={imageSize(e)?.[1]}
                   loading={index < 3 ? "eager" : "lazy"}
                   decoding="async"
                 />
-                {e.pages>1 && <span class="imported-page-count">{e.previewPages?.length > 1 ? `View ${e.pages} Pages` : `${e.pages} Pages`}</span>}
+                {e.pages>1 && <span class="imported-page-count">{e.page_count_basis === "pdf" ? `${e.pages} PDF Pages` : e.previewPages?.length > 1 ? `View ${e.pages} Pages` : `${e.pages} Pages`}</span>}
               </a>
               <div class="imported-card-body">
                 {!preserved && <p class="over">{e.number ? `${String(e.number).padStart(3, "0")} / ` : ""}{e.design_label || e.family}</p>}
@@ -254,6 +255,7 @@ const featuredPapers = zine ? items.filter((entry: any) => entry.color === "Colo
                   <a href={e.detail_path}>{e.title}</a>
                 </h2>
                 <p class="imported-card-summary">{e.intro}</p>
+                <div class="imported-card-actions">
                 {e.description_paragraphs.length > 0 && (
                   <details class="imported-card-more">
                     <summary>
@@ -266,6 +268,7 @@ const featuredPapers = zine ? items.filter((entry: any) => entry.color === "Colo
                 )}
                 {(e.paper || e.orientation || e.color) && <TemplateProperties class="imported-badges" paper={e.paper} orientation={e.orientation} color={e.color}/>}
                 <ImportedDownloads entry={e}/>
+                </div>
               </div>
             </article>
           ))}

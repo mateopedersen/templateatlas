@@ -7,7 +7,7 @@ import Base from '../layouts/Base.astro';
 import Home from '../components/Home.astro';
 import Topic from '../components/Topic.astro';
 import ImportedCollection from '../components/ImportedCollection.astro';
-import { collections } from '../lib/imported.mjs';
+import { getImportedCollection } from '../lib/imported.mjs';
 import Workbench from '../components/Workbench.astro';
 import ChartEditor from '../charts/ChartEditor.astro';
 import Library from '../components/Library.astro';
@@ -26,9 +26,9 @@ const url = Astro.url,
   path = url.pathname.replace(/\/+$/, '') + '/',
   s = byPath.get(path),
   cat = categories.find((c) => c.path === path);
-const collection = collections.find(c => c.topic_path === path || c.items.some(e => e.detail_path === path));
-const importedItem = collection?.items.find(e => e.detail_path === path);
-const pageEntry = collection ? {...s, preview:importedItem?.preview || collection.items[0].preview} : s;
+const collection: any = await getImportedCollection(path);
+const importedItem = collection?.items.find((e: any) => e.detail_path === path);
+const pageEntry = collection ? {...s, ...(importedItem || collection.items[0])} : s;
 const kind = path.split('/')[2],
   tool = path.startsWith('/tools/') && Object.hasOwn(tools, kind) ? kind : null,
   chart = path === '/create/chart/',
@@ -79,6 +79,7 @@ const selected = Astro.url.searchParams.get('topic') || 'line-chart',
 
 <Base
   entry={pageEntry}
+  preloadImages={importedItem ? [importedItem.preview] : collection ? [collection.items[0].thumbnailAsset ? `https://assets.templateatlas.com${collection.items[0].thumbnailAsset.path}` : collection.items[0].preview] : []}
   title={collection ? title : s && path === s.detail_path ? s.title + ' – file details' : title}
   noindex={
     !valid ||

@@ -15,10 +15,12 @@ import "../styles/navigation.css";
 const {
   title,
   checkSession = false,
+  preloadImages = [],
   description = "Browse editable documents, build charts from your own data, and plan your year with TemplateAtlas.",
 } = Astro.props;
-const path = Astro.url.pathname;
+const path = Astro.props.pagePath || Astro.url.pathname;
 const accountCandidate =
+  !Astro.props.anonymous &&
   /(?:^|;\s*)(?:__Secure-)?better-auth\.session_token=/.test(
     Astro.request.headers.get("cookie") || "",
   );
@@ -74,7 +76,8 @@ const jsonLd = info
     />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon-32.png" />
-    <link rel="preconnect" href="https://assets.templateatlas.com" crossorigin />
+    <link rel="preconnect" href="https://assets.templateatlas.com" />
+    {preloadImages.map((src: string) => <link rel="preload" as="image" href={src} fetchpriority="high" />)}
     <link rel="preload" href={sansFont} as="font" type="font/woff2" crossorigin />
     <meta property="og:title" content={title + " · TemplateAtlas"} />
     <meta property="og:description" content={description} />
@@ -143,6 +146,8 @@ const jsonLd = info
       </div>
     </footer>
     <script>
+      import { installImageRecovery } from "../lib/resilient-images.mjs";
+      installImageRecovery();
       if (
         document.querySelector("[data-member=possible]") ||
         document.body.dataset.checkSession === "true"

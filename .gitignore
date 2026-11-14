@@ -24,3 +24,10 @@ receipts/
 src/data/imported-runtime.json
 
 src/data/public-assets-index.json
+
+src/data/public-assets-shards/
+src/data/public-asset-loaders.mjs
+src/data/imported-runtime-parts/
+src/data/imported-card-index.mjs
+src/data/imported-collection-loaders.mjs
+src/data/home-snapshot.json

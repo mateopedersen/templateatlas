@@ -6,6 +6,7 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { importedEntries } from "../src/lib/imported.mjs";
 import { entries } from "../src/lib/catalog.mjs";
+import {homeFeaturedSlugs} from '../src/lib/home-featured.mjs';
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const read = (name) => readFileSync(resolve(root, name), "utf8");
@@ -32,14 +33,6 @@ const release = read("src/data/release.json");
 const revision = createHash("sha256").update(release).digest("hex");
 assert.equal(revision, JSON.parse(read("src/data/release-id.json")).sha256);
 const topics = JSON.parse(release);
-const homeFeaturedSlugs = [
-  "project-proposal", "business-proposal", "budget-proposal", "consulting-proposal",
-  "invoice", "photography-invoice", "consulting-invoice", "service-invoice",
-  "january-2027-calendar", "2027-us-holidays-calendar", "2027-monthly-planner", "2027-birthday-calendar",
-  "line-chart", "scatter-plot", "heatmap", "pie-chart",
-  "meeting-agenda", "corporate-meeting-minutes", "conference-agenda", "board-meeting-agenda",
-  "college-resume", "acting-resume", "curriculum-vitae", "customer-service-resume",
-];
 const homeFeaturedIds = homeFeaturedSlugs.map((slug) => {
   const item = entries.find((entry) => entry.topic_slug === slug);
   assert.ok(item, `Missing static homepage item: ${slug}`);
@@ -166,7 +159,12 @@ const layouts = readdirSync(resolve(root, "dist/server/chunks"))
   .filter((source) => source.includes("data-check-session"));
 assert.ok(layouts.some((source) => source.includes('<html lang="en-US">') && source.includes("noindex, follow, noimageindex")), "The compiled public layout must retain US English and noindex metadata.");
 assert.match(read("src/pages/index.astro"), /checkSession=\{true\}/);
+const snapshot=read('dist/client/render-snapshots/home/index.html');
+assert.match(snapshot, /rel="canonical" href="https:\/\/templateatlas.com\/"/);
+assert.match(snapshot,/data-check-session="true"/);
+assert.deepEqual([...snapshot.matchAll(/data-record="([^"]+)"/g)].map(match=>match[1]),homeFeaturedSlugs.map(slug=>entries.find(entry=>entry.topic_slug===slug).id));
 const compiled = JSON.parse(read("dist/server/wrangler.json"));
+assert.deepEqual(compiled.assets.run_worker_first,config.assets.run_worker_first);
 assert.equal(compiled.account_id, config.account_id);
 assert.deepEqual(compiled.routes, config.routes);
 assert.equal(

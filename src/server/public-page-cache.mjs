@@ -1,4 +1,5 @@
 const PUBLIC_PATH = /^(?:\/$|\/(?:templates|categories|tools|help|legal)(?:\/|$)|\/(?:about|contact)\/$)/;
+const revalidating = new Map();
 const SESSION_COOKIE = /(?:^|;\s*)(?:__Secure-|__Host-)?better-auth\./i;
 
 export function publicPageKey(request, env, version) {
@@ -17,20 +18,38 @@ function clientResponse(response, method, state) {
   result.headers.set('Cache-Control', 'public, max-age=0, must-revalidate');
   result.headers.set('X-TemplateAtlas-Cache', state);
   result.headers.set('Vary', 'Cookie');
+  result.headers.delete('X-TemplateAtlas-Stored-At');
   return result;
 }
 
 export async function publicPage(request, env, ctx, version, render, cache) {
   const key = publicPageKey(request, env, version);
   if (!key) return render(request);
+  const store = async (response) => {
+    if (response.status !== 200 || !response.headers.get('content-type')?.includes('text/html') || response.headers.has('set-cookie')) return false;
+    const stored = new Response(response.clone().body, response);
+    stored.headers.set('Cache-Control', 'public, max-age=60');
+    stored.headers.set('X-TemplateAtlas-Stored-At', String(Date.now()));
+    await cache.put(key, stored);
+    return true;
+  };
+  const getRequest = request.method === 'HEAD' ? new Request(request, {method:'GET'}) : request;
   const cached = await cache.match(key);
-  if (cached) return clientResponse(cached, request.method, 'HIT');
-  // HEAD warms the same GET representation, never an empty cached document.
-  const response = await render(request.method === 'HEAD' ? new Request(request, { method: 'GET' }) : request);
-  if (response.status !== 200 || !response.headers.get('content-type')?.includes('text/html') ||
-      response.headers.has('set-cookie')) return response;
-  const stored = new Response(response.clone().body, response);
-  stored.headers.set('Cache-Control', 'public, max-age=60');
-  ctx.waitUntil(cache.put(key, stored).catch(() => {}));
+  if (cached) {
+    const age = Date.now() - Number(cached.headers.get('X-TemplateAtlas-Stored-At') || Date.now());
+    if (age >= 30000 && !revalidating.has(key.url)) {
+      const task = (async () => {
+        const fresh = await render(getRequest);
+        if (!await store(fresh) && fresh.status === 404) await cache.delete?.(key);
+      })().catch(() => {}).finally(() => revalidating.delete(key.url));
+      revalidating.set(key.url, task);
+      ctx.waitUntil(task);
+    }
+    return clientResponse(cached, request.method, age >= 30000 ? 'STALE' : 'HIT');
+  }
+  // HEAD warms the same complete GET representation; never cache an empty document.
+  const response = await render(getRequest);
+  if (response.status !== 200 || !response.headers.get('content-type')?.includes('text/html') || response.headers.has('set-cookie')) return response;
+  ctx.waitUntil(store(response).catch(() => {}));
   return clientResponse(response, request.method, 'MISS');
 }

@@ -8,7 +8,7 @@
   ],
   "assets": {
     "binding": "ASSETS",
-    "run_worker_first": false
+    "run_worker_first": ["/render-snapshots/*"]
   },
   "workers_dev": false,
   "preview_urls": false,

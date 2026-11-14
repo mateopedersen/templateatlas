@@ -5,6 +5,7 @@ preparePublicAssets();
 export default defineConfig({
   site: "https://templateatlas.com",
   output: "server",
+  build: {inlineStylesheets: 'always'},
   session: false,
   adapter: cloudflare({
     imageService: "passthrough",
@@ -19,7 +20,7 @@ export default defineConfig({
     define: { __TEMPLATEATLAS_BUILD_ID__: JSON.stringify(Date.now().toString(36)) },
     // Node intake/release scripts keep the full source catalog; only the deployed
     // application uses the content-equivalent catalog without duplicated review evidence.
-    resolve: { alias: [{find: '../data/imported-collections.json', replacement: new URL('./src/data/imported-runtime.json', import.meta.url).pathname}] },
+    resolve: { alias: [{find:'../lib/public-assets.mjs', replacement:new URL('./src/lib/public-assets-runtime.mjs',import.meta.url).pathname}, {find: /^(?:.*\/)?imported\.mjs$/, replacement: new URL('./src/lib/imported-runtime.mjs', import.meta.url).pathname}] },
   },
   devToolbar: { enabled: false },
   trailingSlash: "ignore",

@@ -1,10 +1,10 @@
 import { catalogState } from './lib/publication.mjs';
 import { searchResponse } from './search/query.mjs';
 import aliases from './data/aliases.json' with { type: 'json' };
-import { catalogAsset } from './server/catalog-assets.mjs';
 import { withNoIndex } from './lib/indexing.mjs';
 export { DownloadActor } from './server/actor.mjs';
 import { publicPage } from './server/public-page-cache.mjs';
+import { homeSnapshot } from './server/home-snapshot.mjs';
 const pageBuild = typeof __TEMPLATEATLAS_BUILD_ID__ === 'string' ? __TEMPLATEATLAS_BUILD_ID__ : 'local';
 export default {
   async scheduled(event, env, ctx) {
@@ -14,15 +14,21 @@ export default {
     })());
   },
   async fetch(req, env, ctx) {
+    const started = performance.now();
     const render = (request) => handleRequest(request, env, ctx);
-    return withNoIndex(await publicPage(req, env, ctx, pageBuild, render, caches.default));
+    const response = withNoIndex(await publicPage(req, env, ctx, pageBuild, render, caches.default));
+    response.headers.set('Server-Timing', `edge;dur=${(performance.now() - started).toFixed(1)}`);
+    return response;
   },
 };
 async function handleRequest(req, env, ctx) {
     const url = new URL(req.url),
       p = url.pathname,
       local = ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname);
-    if (url.hostname === 'assets.templateatlas.com' && p !== '/robots.txt') return catalogAsset(req, env, ctx);
+    if (url.hostname === 'assets.templateatlas.com' && p !== '/robots.txt') {
+      const { catalogAsset } = await import('./server/catalog-assets.mjs');
+      return catalogAsset(req, env, ctx);
+    }
     // Staging is closed unless a separately verified access policy has been installed.
     if (!local && env.DEPLOY_STAGE !== 'production')
       return new Response('Private staging environment', {
@@ -37,6 +43,9 @@ async function handleRequest(req, env, ctx) {
       url.hostname = 'templateatlas.com';
       return Response.redirect(url, 301);
     }
+    if(p.startsWith('/render-snapshots/'))return new Response('Not found',{status:404,headers:{'Cache-Control':'no-store'}});
+    const snapshot=await homeSnapshot(req,env);
+    if(snapshot)return secureHTML(snapshot);
     if (
       local &&
       env.DEPLOY_STAGE === 'local' &&
@@ -48,7 +57,7 @@ async function handleRequest(req, env, ctx) {
         new URL(p + url.search, env.PUBLIC_SITE_URL),
         307,
       );
-    if (!p.endsWith('/') && !p.split('/').at(-1).includes('.')) {
+    if (!p.startsWith('/api/') && !p.endsWith('/') && !p.split('/').at(-1).includes('.')) {
       const { routes } = await import('./lib/catalog.mjs');
       if (Object.hasOwn(routes, p + '/'))
         return Response.redirect(new URL(p + '/' + url.search, url), 301);
@@ -109,8 +118,10 @@ async function handleRequest(req, env, ctx) {
     }
     const { default: astro } = await import('@astrojs/cloudflare/entrypoints/server');
     let response = await astro.fetch(req, env, ctx);
-    if (!response.headers.get('content-type')?.includes('text/html'))
-      return response;
+    return secureHTML(response);
+}
+function secureHTML(response) {
+    if (!response.headers.get('content-type')?.includes('text/html')) return response;
     response = new Response(response.body, response);
     response.headers.set('Cache-Control', 'private, no-store');
     response.headers.set('X-Content-Type-Options', 'nosniff');

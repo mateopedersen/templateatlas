@@ -98,11 +98,11 @@ test('public asset host never exposes arbitrary originals or API paths',async()=
  assert.deepEqual(publicCatalogAssets, allowedAssets);
 });
 test('R2 preview delivery uses only the allowlisted object and immutable cache headers',async()=>{
- const [path,asset]=publicCatalogAssets.entries().next().value;const keys=[];
- const env={ASSET_ORIGINALS:{get:async key=>{keys.push(key);return{size:asset.bytes,customMetadata:{sha256:asset.sha256},httpMetadata:{contentType:asset.mime},body:new Response(new Uint8Array(asset.bytes)).body};}}};
+ const [path,asset]=publicCatalogAssets.entries().next().value;const keys=[],headKeys=[];
+ const env={ASSET_ORIGINALS:{get:async key=>{keys.push(key);return{size:asset.bytes,customMetadata:{sha256:asset.sha256},httpMetadata:{contentType:asset.mime},body:new Response(new Uint8Array(asset.bytes)).body};},head:async key=>{headKeys.push(key);return{size:asset.bytes,customMetadata:{sha256:asset.sha256},httpMetadata:{contentType:asset.mime}};}}};
  const tasks=[];const response=await catalogAsset(new Request('https://assets.templateatlas.com'+path),env,{waitUntil:p=>tasks.push(p)},noCache);
  assert.equal(response.status,200);assert.equal(response.headers.get('content-type'),'image/webp');assert.match(response.headers.get('cache-control'),/immutable/);assert.equal(response.headers.get('set-cookie'),null);assert.deepEqual(keys,[asset.key]);assert.equal((await response.arrayBuffer()).byteLength,asset.bytes);await Promise.all(tasks);
- const head=await catalogAsset(new Request('https://assets.templateatlas.com'+path,{method:'HEAD'}),env,{waitUntil(){}},noCache);assert.equal(await head.text(),'');assert.equal(head.headers.get('content-length'),String(asset.bytes));
+ const head=await catalogAsset(new Request('https://assets.templateatlas.com'+path,{method:'HEAD'}),env,{waitUntil(){assert.fail('HEAD must not cache an empty GET response');}},noCache);assert.deepEqual(keys,[asset.key]);assert.deepEqual(headKeys,[asset.key]);assert.equal(await head.text(),'');assert.equal(head.headers.get('content-length'),String(asset.bytes));
 });
 test('missing or mismatched R2 preview metadata is never cached or released',async()=>{
  const [path,asset]=publicCatalogAssets.entries().next().value;
@@ -197,3 +197,17 @@ test("optimized collection thumbnails preserve full-size detail previews",()=>{
 test("Bee charts retain credited references and complete previews",()=>{const c=collections.find(c=>c.id==="bee-identification-charts");assert.equal(c.items.length,100);assert.deepEqual([3,5,6,7].map(n=>c.items.filter(e=>e.pages===n).length),[40,38,18,4]);assert.ok(c.items.every(e=>e.third_party_photography&&e.previewPages.length===e.pages&&e.thumbnailAsset&&e.pixels?.length===2&&e.pixels.every(n=>n>0)&&e.formats.join(",")==="pdf,webp"));assert.equal(new Set(c.items.map(e=>e.detail_path)).size,100);});
 
 test("Trailer forms have their source formats and two preview pages",()=>{const c=collections.find(c=>c.id==="trailer-bill-of-sale-forms");assert.equal(c.items.length,100);assert.ok(c.items.every(e=>e.pages===2&&e.previewPages.length===2&&e.formats.join(",")==="pdf,webp,docx,odt"&&e.pixels.length===2));assert.equal(new Set(c.items.map(e=>e.detail_path)).size,100)});
+
+test('HEAD checks reject mismatched preview metadata without fetching file bodies',async()=>{
+ const [path,asset]=publicCatalogAssets.entries().next().value;
+ const env={ASSET_ORIGINALS:{head:async()=>({size:asset.bytes,customMetadata:{sha256:'wrong'},httpMetadata:{contentType:asset.mime}}),get:async()=>assert.fail('HEAD fetched file bytes')}};
+ const response=await catalogAsset(new Request('https://assets.templateatlas.com'+path,{method:'HEAD'}),env,{waitUntil(){assert.fail('Invalid HEAD was cached');}},noCache);
+ assert.equal(response.status,503);assert.equal(response.headers.get('cache-control'),'no-store');
+});
+
+test('a transient R2 read failure retries the same allowlisted file and preserves its response metadata',async()=>{
+ const[path,asset]=publicCatalogAssets.entries().next().value;let calls=0;
+ const env={ASSET_ORIGINALS:{head:async key=>{assert.equal(key,asset.key);if(++calls===1)throw Error('connection reset');return{size:asset.bytes,customMetadata:{sha256:asset.sha256},httpMetadata:{contentType:asset.mime}}}}};
+ const response=await catalogAsset(new Request('https://assets.templateatlas.com'+path,{method:'HEAD'}),env,{waitUntil(){assert.fail('HEAD cached');}},noCache);
+ assert.equal(calls,2);assert.equal(response.status,200);assert.equal(response.headers.get('content-length'),String(asset.bytes));
+});

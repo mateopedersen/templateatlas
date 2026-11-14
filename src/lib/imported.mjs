@@ -6,8 +6,11 @@ for (const collection of collections) for (const item of collection.items) {
   if (thumbnail && !item.thumbnailAsset) { item.thumbnailAsset = thumbnail.asset; item.thumbnailSize = thumbnail.size; }
 }
 // The source catalog is validated by the mandatory build preparation and editorial gate.
-// Production aliases its data to the smaller, content-equivalent runtime catalog.
+// Production replaces this module with a compact card index and bounded collection loader.
 export { collections };
+export async function getImportedCollection(path) {
+  return collections.find(c=>c.topic_path===path || c.items.some(item=>item.detail_path===path));
+}
 export const importedEntries = collections.flatMap((c) =>
   c.items.map((item) => ({ ...item, importedCollection: c.id })),
 );

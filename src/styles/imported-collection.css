@@ -187,7 +187,7 @@
 }
 .imported-grid {
   display: grid;
-  align-items: start;
+  align-items: stretch;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
@@ -243,6 +243,7 @@
   flex-direction: column;
   flex: 1;
 }
+.imported-card-actions { margin-top: auto; padding-top: 4px; }
 .imported-card-body > .over {
   font-size: 10px;
   letter-spacing: 1.2px;
@@ -525,9 +526,10 @@
 @media (max-width: 730px) {
   .imported-grid {grid-template-columns: minmax(0, 1fr);}
   .imported-controls {position: static;}
-  .imported-workspace {
+  .workspace.imported-workspace {
     display: block;
   }
+  .imported-workspace > .imported-content { width: 100%; }
   .imported-controls {
     margin: 0 0 28px;
     padding: 22px;
@@ -883,6 +885,7 @@
 .imported-card-downloads button[data-format="psd"] .file-button-copy strong { white-space: nowrap; font-size: 12px; }
 .imported-card-downloads button[data-format="psd"] .file-button-arrow { display: none; }
 @container (max-width: 250px) { .imported-card-downloads.has-five-formats { grid-template-columns: 1fr; } }
+@container (max-width: 300px) { .imported-card-downloads.has-four-formats { grid-template-columns: minmax(0,1fr); } }
 
 /* Keep long file names readable at narrow card widths. */
 .imported-card-downloads [data-format="pptx"] .file-button-copy strong { font-size: 12px; white-space: nowrap; }

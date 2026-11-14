@@ -39,6 +39,12 @@ export function json(data, status = 200) {
   });
 }
 export function failure(e) {
+  if (!(e instanceof ApiError)) console.error('dependency_error', {
+    name: e?.name || 'Error',
+    message: String(e?.message || 'Unknown dependency failure').slice(0, 240)
+      .replace(/[\w.+-]+@[\w.-]+/g, '[email]')
+      .replace(/\b(?:[a-f0-9]{32,}|eyJ[\w.-]+)\b/gi, '[redacted]'),
+  });
   const response =
     e instanceof ApiError
       ? json({ code: e.message }, e.status)

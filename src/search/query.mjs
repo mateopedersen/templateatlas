@@ -163,10 +163,12 @@ export async function querySearch(db, params) {
   if (sort === 'newest') order = 'd.first_seen DESC,d.template_id';
   if (sort === 'relevance' && tokens.length) {
     order =
-      "CASE WHEN d.subject=? THEN 0 WHEN instr(' '||d.subject||' ',' '||?||' ')>0 THEN 1 WHEN d.subject LIKE ? THEN 2 ELSE 3 END," +
+      "CASE WHEN d.subject=? THEN 0 WHEN instr(' '||d.subject||' ',' '||?||' ')>0 THEN 1 WHEN instr(lower(d.subject),?)=1 THEN 2 ELSE 3 END," +
       score +
       ',d.title COLLATE NOCASE,d.template_id';
-    matchArgs = [query, query, query + '%'];
+    // D1 limits LIKE patterns to 50 bytes. Normalized prefix ranking uses a
+    // literal string search so longer supported titles keep their ranking.
+    matchArgs = [query, query, query];
   }
   const [items, facets] = await Promise.all([
     db

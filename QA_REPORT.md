@@ -141,3 +141,35 @@ Owner-authorized cleanup matched 14 live package intakes against verified R2 rec
 ## Full-resolution detail previews — 2026-11-14
 
 ImportedPreview now loads the same original R2 image used by its enlarge link, rather than enlarging a gallery thumbnail. Gallery thumbnails remain unchanged. Live checks covered Cash Advance / Foreign Currency and Zine / Street Photography at 375 and 1440 pixels with device scale factor 2. The Cash Advance normal preview decoded at 5100 × 6600 (formerly a 556 × 720 thumbnail); Zine decoded at 3300 × 5100. Both normal/zoom views used the same original URL, retained 125% zoom/close, loaded without page errors or horizontal overflow, and kept noindex headers. Editorial validation and the production build passed. Worker: `3727cb89-d658-47b8-9129-a5eb28f82b25`; search remains 8,330.
+
+
+## Agreement collections and shared performance repairs — 2026-11-15
+
+Eleven supplied archives added 1,100 designs and 3,300 unchanged native PDF/Word/WebP downloads. The two additional Commercial Lease packages contain distinct documents, with no exact PDF, Word, WebP or canonical Word-text duplicates. The existing 100 commercial leases and their URLs remain intact. Series A design 100 is an office sublease and was placed in the separate sublease topic. The final collection sizes are:
+
+- https://templateatlas.com/templates/business-purchase-agreement/ — 100 designs
+- https://templateatlas.com/templates/cohabitation-agreement/ — 100 designs
+- https://templateatlas.com/templates/equipment-lease-agreement/ — 100 designs
+- https://templateatlas.com/templates/collaboration-agreement/ — 100 designs
+- https://templateatlas.com/templates/independent-contractor-agreement/ — 100 designs
+- https://templateatlas.com/templates/commercial-sublease-agreement/ — 101 designs
+- https://templateatlas.com/templates/consignment-agreement/ — 100 designs
+- https://templateatlas.com/templates/hold-harmless-agreement/ — 100 designs
+- https://templateatlas.com/templates/forbearance-agreement/ — 100 designs
+- https://templateatlas.com/templates/commercial-lease-agreement/ — 299 designs
+
+All 1,100 first-page source previews were visually reviewed. Full PDF/Word structural, bounds and substantive paragraph checks covered the supplied documents, including 8,496 PDF pages. Fourteen Word files reflowed one page shorter in LibreOffice without losing substantive text; PDF-page labels accurately distinguish the supplied PDF counts. This is not a claim of manual visual inspection of every internal page. All 4,812 planned R2 objects, including original archive backups, passed complete byte/hash readback (2,280,181,327 bytes). Publication preflight matched all incoming file records and the complete 9,430-entry active search release.
+
+After the runtime change, all 1,200 affected detail pages and 2,400 public thumbnail/full-image endpoints passed copy, status, MIME, length, checksum-header and noindex checks. Eighty-four sampled image bodies matched source hashes, including the reported Forbearance designs 85 and 87. Two large original-image reads exceeded the initial audit's 20-second body deadline and subsequently passed complete readback. Thirty real signed PDF/Word/Image downloads matched native SHA-256, length and MIME, with one free selection per design across formats. Thirty format-specific searches returned the expected designs. Raw catalog originals remain private.
+
+Live diagnostics identified an actual Durable Object isolate memory-limit reset. The deployed catalog module was reduced from roughly 30 MB to 2.5 MB: the shared index now holds card/route fields, while at most two complete collection payloads are retained. Automated comparisons cover every accepted collection, content field and stable detail URL. Media metadata is loaded in 64 small partitions. Transient reads retry without changing native bytes, and an image can recover using its own full-size original. HEAD requests use metadata reads and cannot cache an empty GET representation.
+
+Cards stretch consistently within each row, and More, properties and downloads share a bottom-aligned group without truncating introductions. A separate mobile flex-width conflict was repaired; narrow cards with multiple formats now allocate readable button rows. Final live checks covered the reported cards at 390/1440/2300 pixels, 3,000 legacy button placements across six viewport/topic configurations, filters/reset/More, complete 5,100 × 6,600 normal previews and 125% zoom. All 24 homepage thumbnails and selection previews worked at both 390 and 1440 pixels.
+
+Long-title searches also exposed D1's [50-byte LIKE-pattern limit](https://developers.cloudflare.com/d1/platform/limits/). Literal prefix ranking now avoids that limit while retaining full-text, format, source-checksum and delivery-hold checks. A regression fixture models the stricter database boundary, and real production queries plus all 30 final search cases passed.
+
+The anonymous homepage now uses a build-generated snapshot after checking current publication state and all featured delivery holds. Member requests retain normal rendering; the internal snapshot URL returns 404 publicly. Missing snapshots fall back to normal rendering. HTML caching remains limited to 60 seconds, authenticated responses remain excluded, and styles arrive in the initial document. Final fresh-browser measurement: desktop cache MISS TTFB 0.783 s, FCP/LCP 0.968 s; mobile cache HIT FCP/LCP 0.524 s. The prior desktop cold-home sample was 2.496 s. These are observed samples on this connection, not a universal sub-second guarantee.
+
+Automated suite: 133 passed, 0 failed, 1 optional renderer test skipped. Astro check: 0 errors, 0 warnings; production build and guarded publication passed. Final Worker: `ddb83d0e-f331-4bb9-bbd6-c4660ebf4fa0`. Active search remains 9,430; indexing and billing policies are unchanged.
+
+Owner-authorized cleanup removed 2,730,336,183 bytes of verified source ZIP copies, extracted duplicates and generated intake caches after fresh archive-backup metadata and local SHA checks. Source archives remain in private R2; contact sheets, source/editorial manifests, restoration keys, audit receipts, code and dependencies were retained.

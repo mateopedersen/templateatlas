@@ -11,7 +11,7 @@ const { paper, orientation, color, class: className = '' } = Astro.props;
     <span class="property-label">{orientation}</span>
   </span>}
   {color && <span class="template-property" aria-label={color}>
-    <span class="property-icon" aria-hidden="true"><i class:list={['property-swatch', {'is-mono': color === 'Black-and-white'}]}/></span>
+    <span class="property-icon" aria-hidden="true">{color === 'Standard' ? <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><rect x="3" y="2" width="14" height="16" rx="2"/><path d="M6 6h8M6 10h3M6 14h3"/><path d="M11 9h3v2h-3zM11 13h3v2h-3z"/></svg> : <i class:list={['property-swatch', {'is-mono': /^black[ -]and[ -]white$/i.test(color)}]}/>}</span>
     <span class="property-label">{color === 'Black-and-white' ? 'B&W' : color}</span>
   </span>}
 </div>

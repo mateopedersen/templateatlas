@@ -40,3 +40,15 @@ test('personalized, unavailable and non-HTML responses never enter the public ca
     await publicPage(request(),env,{waitUntil:()=>assert.fail('Cache write scheduled')},'v1',async()=>response,cache);
   }
 });
+
+test('a stale page returns immediately and refreshes once in the background, without extending the 60s storage limit',async()=>{
+ const old=new Response('old',{headers:{'content-type':'text/html','x-templateatlas-stored-at':String(Date.now()-40000)}}),tasks=[];let finish,called=0,stored;
+ const cache={match:async()=>old.clone(),put:async(k,r)=>{stored=r}};
+ const render=()=>{called++;return new Promise(r=>finish=r)};
+ const a=await publicPage(request(),env,{waitUntil:p=>tasks.push(p)},'refresh',render,cache);
+ const b=await publicPage(request(),env,{waitUntil:p=>tasks.push(p)},'refresh',render,cache);
+ assert.equal(a.headers.get('x-templateatlas-cache'),'STALE');assert.equal(await a.text(),'old');assert.equal(await b.text(),'old');assert.equal(called,1);
+ finish(new Response('new',{headers:{'content-type':'text/html'}}));await Promise.all(tasks);
+ assert.equal(stored.headers.get('cache-control'),'public, max-age=60');assert.equal(await stored.text(),'new');
+ assert.equal(a.headers.get('x-templateatlas-stored-at'),null);
+});
