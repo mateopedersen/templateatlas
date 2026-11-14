@@ -99,3 +99,15 @@ Published 100 source-reviewed designs (75 standard, 25 color), 300 source downlo
 ## Divorce Agreements — 2026-11-14
 
 100 designs, 300 source downloads, 100 thumbnails, and a private source ZIP published. Complete PDF/Word documents retain 1,489 pages; all 13,914 PDF fields passed structure/bounds checks. Word uses native editable text, not content controls. All first-page previews and rendered Word first pages were visually reviewed; internal pages received automated QA. Five sample fill/save/reopen tests passed. All 100 live detail pages and 200 Image/thumbnail bytes verified, plus signed PDF/Word/Image downloads. UI tests passed at 375/768/1440; 29 import tests passed. Worker a556bb2f-ae04-4f3e-b5f7-102d1bb1b54a; search 7,230; noindex and billing-disabled retained.
+
+
+## Four agreement collections — verified publication, 2026-11-14
+
+- https://templateatlas.com/templates/arbitration-agreement/
+- https://templateatlas.com/templates/asset-purchase-agreement/
+- https://templateatlas.com/templates/child-support-agreement/
+- https://templateatlas.com/templates/car-rental-agreement/
+
+400 designs and 1,200 complete PDF/Word/Image downloads published. All 400 public detail pages and 800 public thumbnail/full-image objects passed MIME, bytes, checksum, cache and noindex checks. Twelve signed source downloads matched expected bytes and checksums. Each design counted as one free selection across formats. Billing remains disabled. Filters, reset, single More expansion, download geometry and 125% preview zoom passed at 375, 768 and 1440 pixels for every collection. All source first-page images were manually inspected; complete PDF/Word render receipts and structural checks were recorded, without claiming individual visual inspection of every internal page.
+
+R2: 1,604 verified objects, including four checksum-read-back private ZIP backups. Source archives over 300 MiB use multipart upload and ordered ranged readback. Worker: `80472aa8-acb7-4e6d-8928-c8ebdd9f7a48`. Search: 7,630 entries. Import/editorial tests: 29 passed.
