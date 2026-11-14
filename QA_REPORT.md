@@ -89,3 +89,8 @@ Published `/templates/ten-frame/` with 100 reviewed activities (50 standard, 50 
 Reviewed 105 activity pages in each of PDF, Word, and Excel. Checked 2,424 PDF fields, 325 ten-frames, and all 650 Excel formulas and cached values. Every WebP matches the corresponding PDF first page. The existing topic record remains intact; new activities have distinct IDs. The final catalog/editorial test run passed all 29 tests, and Astro reported no errors or warnings.
 
 Worker version `e1b1218c-0db0-4389-b6c5-4fb5be46dfa0`; active search has 7,030 records. Live verification checked all 100 detail pages, 100 thumbnails, 100 full-size Images, the guide, search in all four formats, and actual signed downloads in all four formats. The four formats consumed one selection for an isolated guest. UI checks passed at 375, 768, and 1440 pixels, including skill/orientation/color filters, reset, More/Less, zoom, and button alignment. Noindex remains enabled and billing remains disabled.
+
+
+## Consortium Agreements — 2026-11-14
+
+Published 100 source-reviewed designs (75 standard, 25 color), 300 source downloads, and 100 thumbnails. All 2,270 PDF and Word pages rendered with matching page counts; 22,727 PDF fields and 22,727 Word controls checked. First pages visually reviewed in both source previews and rendered Word; internal-page QA was automated. R2 verified 401 objects including immutable source ZIP. All 100 detail pages and 200 public image assets matched expected bytes; signed PDF, Word, and Image downloads matched source checksums. Filters, More, zoom, buttons, and overflow passed at 375/768/1440; 29 import tests passed. Worker f2fa28c1-f29f-46ba-b989-57a6d16c5047; active search 7,130. Noindex and billing-disabled preserved.
