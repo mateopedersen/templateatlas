@@ -81,3 +81,11 @@ The public GitHub source contains the application, reviewed preview images, sour
 - Live audit after deployment: 370/370 design detail pages returned non-empty HTML with the correct titles, descriptions, download controls, and noindex headers; 740/740 public preview/thumbnail image bodies matched the expected SHA-256, byte size, and MIME (133,041,968 image bytes); all three gallery counts and download-control totals matched. Zero failures.
 - Nine real signed downloads (PDF, Word, Image, and Google Docs shortcut formats available in the sample designs) matched source SHA-256, byte length, and MIME. One distinct selection per design used three guest selections. Searches for one design from each collection returned the expected design IDs. Production health reported 6,830 templates and billing disabled.
 - Astro check: 0 errors, 0 warnings, 10 existing hints. Focused automated suite: 38 passed, 0 failed. Production build and guarded deployment passed. The live noindex policy and empty sitemap remain in place.
+
+## Ten Frame collection — 14 November 2026
+
+Published `/templates/ten-frame/` with 100 reviewed activities (50 standard, 50 color), 400 original downloads (PDF, Word, Excel, Image), and the supplied teacher guide. Source archive SHA-256: `2231bfc93d9e511d367075916f3d214c2f99fc9a229c55d3449e945a1d6b33d1`. All 502 R2 objects, including the complete archive, passed body checksum and size verification.
+
+Reviewed 105 activity pages in each of PDF, Word, and Excel. Checked 2,424 PDF fields, 325 ten-frames, and all 650 Excel formulas and cached values. Every WebP matches the corresponding PDF first page. The existing topic record remains intact; new activities have distinct IDs. The final catalog/editorial test run passed all 29 tests, and Astro reported no errors or warnings.
+
+Worker version `e1b1218c-0db0-4389-b6c5-4fb5be46dfa0`; active search has 7,030 records. Live verification checked all 100 detail pages, 100 thumbnails, 100 full-size Images, the guide, search in all four formats, and actual signed downloads in all four formats. The four formats consumed one selection for an isolated guest. UI checks passed at 375, 768, and 1440 pixels, including skill/orientation/color filters, reset, More/Less, zoom, and button alignment. Noindex remains enabled and billing remains disabled.
