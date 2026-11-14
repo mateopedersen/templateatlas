@@ -94,3 +94,8 @@ Worker version `e1b1218c-0db0-4389-b6c5-4fb5be46dfa0`; active search has 7,030 r
 ## Consortium Agreements — 2026-11-14
 
 Published 100 source-reviewed designs (75 standard, 25 color), 300 source downloads, and 100 thumbnails. All 2,270 PDF and Word pages rendered with matching page counts; 22,727 PDF fields and 22,727 Word controls checked. First pages visually reviewed in both source previews and rendered Word; internal-page QA was automated. R2 verified 401 objects including immutable source ZIP. All 100 detail pages and 200 public image assets matched expected bytes; signed PDF, Word, and Image downloads matched source checksums. Filters, More, zoom, buttons, and overflow passed at 375/768/1440; 29 import tests passed. Worker f2fa28c1-f29f-46ba-b989-57a6d16c5047; active search 7,130. Noindex and billing-disabled preserved.
+
+
+## Divorce Agreements — 2026-11-14
+
+100 designs, 300 source downloads, 100 thumbnails, and a private source ZIP published. Complete PDF/Word documents retain 1,489 pages; all 13,914 PDF fields passed structure/bounds checks. Word uses native editable text, not content controls. All first-page previews and rendered Word first pages were visually reviewed; internal pages received automated QA. Five sample fill/save/reopen tests passed. All 100 live detail pages and 200 Image/thumbnail bytes verified, plus signed PDF/Word/Image downloads. UI tests passed at 375/768/1440; 29 import tests passed. Worker a556bb2f-ae04-4f3e-b5f7-102d1bb1b54a; search 7,230; noindex and billing-disabled retained.
