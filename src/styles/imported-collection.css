@@ -893,3 +893,10 @@
 .ant-photo-notice { margin: 0 0 20px; padding: 16px 20px; border: 1px solid #d7e6eb; border-left: 4px solid #7b405b; border-radius: 12px; background: #f4f9fa; color: #35434a; font-size: 14px; line-height: 1.55; }
 .ant-photo-notice strong { color: #512339; font-size: 15px; }
 .ant-photo-notice p { margin: 5px 0 0; }
+
+/* Keep the two zine covers inside the artwork column on narrow screens. */
+@media (max-width: 760px) {
+  .zine-cover .print-cover-art { overflow: hidden; }
+  .zine-cover .print-cover-art img:first-child { width: 78%; right: 28%; top: 44%; }
+  .zine-cover .print-cover-art img:last-child { width: 80%; right: -5%; top: 18%; }
+}
