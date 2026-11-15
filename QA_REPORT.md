@@ -173,3 +173,12 @@ The anonymous homepage now uses a build-generated snapshot after checking curren
 Automated suite: 133 passed, 0 failed, 1 optional renderer test skipped. Astro check: 0 errors, 0 warnings; production build and guarded publication passed. Final Worker: `ddb83d0e-f331-4bb9-bbd6-c4660ebf4fa0`. Active search remains 9,430; indexing and billing policies are unchanged.
 
 Owner-authorized cleanup removed 2,730,336,183 bytes of verified source ZIP copies, extracted duplicates and generated intake caches after fresh archive-backup metadata and local SHA checks. Source archives remain in private R2; contact sheets, source/editorial manifests, restoration keys, audit receipts, code and dependencies were retained.
+
+
+## Exclusivity agreements — 2026-11-15
+
+Published https://templateatlas.com/templates/exclusivity-agreement/ with 100 supplied designs (75 Standard, 25 Color), 300 unchanged native PDF/Word/Image files and 100 lightweight gallery thumbnails. All 100 supplied first-page previews were visually reviewed; complete source PDF and Word text, form structure and page-bound checks passed. All 565 PDF pages matched Word pagination in LibreOffice. There are 3,825 PDF fields and 3,825 Word content controls. All pages use US Letter portrait. No repairs were necessary, and no original bytes were changed. No exact native-file hash collisions were found with existing catalog downloads.
+
+R2 full body readback verified all 401 objects, including the complete private ZIP backup. Publication compared 300 incoming download records and all 9,530 staged search rows before activation. Existing collections were preserved. Live verification passed for all 100 detail pages, 200 public preview/thumbnail bodies with matching SHA-256, MIME and length, three signed native-format downloads and three format-specific search queries. The formats consumed one guest selection for the design. Filter/reset, More/Less, contained download labels, full-resolution normal previews and 125% zoom passed at 375, 768 and 1440 pixels locally and live.
+
+Editorial/runtime suite: 33 passed, 0 failed. Mandatory editorial and production build gates passed. Worker: `2c81f8f3-9761-44ae-a4db-76c793c090e3`; active search: 9,530 records. Noindex and disabled billing remain intact. Source copies and detailed receipts are retained in the private intake area.
